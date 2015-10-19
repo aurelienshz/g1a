@@ -9,7 +9,7 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 if(isset($_GET['page'])) {
     switch($_GET['page']) {
     case 'accueil':
-        echo 'Page d\'accueil';
+        require 'controleurs/accueil/index.php';
         break;
     default:
         echo 'Page d\'accueil';
@@ -19,3 +19,5 @@ if(isset($_GET['page'])) {
 else {
     echo 'Page d\'accueil';
 }
+
+// Routeur externe ? A réfléchir (Aurélien)
