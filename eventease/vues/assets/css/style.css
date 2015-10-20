@@ -1,0 +1,57 @@
+body > div, header, footer, section, article {
+    border : 1px solid green;
+    background-color: #EEEEEE;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0 auto;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    height: auto;
+}
+
+header > h1 {
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+/* ul, li {
+    border: 1px dashed black;
+} */
+
+nav li {
+    list-style-type: none;
+    width: 100px;
+    text-align: center;
+}
+#raccourcis li {
+    float: left;
+}
+#membre li {
+    float: right;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+#suggestions > div {
+    border: 1px solid red;
+    height: 100px;
+    width: 33%;
+    float: left;
+}
+
+form {
+    border: 1px solid red;
+    text-align: center;
+}
