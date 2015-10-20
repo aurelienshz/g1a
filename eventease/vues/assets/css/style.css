@@ -16,14 +16,20 @@ body {
 }
 
 header {
-    height: auto;
+    height: 70px;
 }
 
 header > h1 {
     margin: 0;
     padding: 0;
     float: left;
+    height: 100%;
 }
+
+header > h1 img {
+    height: 100%;
+}
+
 /* ul, li {
     border: 1px dashed black;
 } */
@@ -47,11 +53,13 @@ nav li {
 #suggestions > div {
     border: 1px solid red;
     height: 100px;
-    width: 33%;
+    width: calc(33.33333333% - 2px);
     float: left;
 }
 
 form {
     border: 1px solid red;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }

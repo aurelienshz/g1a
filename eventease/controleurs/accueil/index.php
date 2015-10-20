@@ -5,7 +5,7 @@
 </head>
 <body>
     <header class="clearfix">
-        <h1><a><img src="" alt="EventEase" /></a></h1>
+        <h1><a><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a></h1>
         <nav>
           <ul id="raccourcis">
             <li><a href="#">Accueil</a></li>
