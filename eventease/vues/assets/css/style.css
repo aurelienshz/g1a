@@ -52,7 +52,7 @@ header ul li a {
 
 #bigform {
     width: 100%;
-    background-color: #FAFAFA;
+    background-color: white;
     text-align: center;
     margin: 0;
     padding: 20px 0;
@@ -69,16 +69,20 @@ header ul li a {
     margin: 0 0 20px 0;
 }
 
-#bigform form, #bigform #boutoncreer {
+#bigform form {
     width: 75%;
     margin: 0 auto 30px auto;
-    border: 1px dashed gray;
 }
 
 #bigform #boutoncreer {
     background-color: lightgreen;
     border: 1px solid black;
     padding: 10px 0;
+    width: 73%;
+    margin: 0 auto;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 #bigform input:focus {
@@ -88,10 +92,9 @@ header ul li a {
 #bigform input, #bigform select, #bigform option {
     margin: 0px;
     padding: 0;
-    width: 23%;
+    width: 24%;
     height: 40px;
     border: 1px solid black;
-    background-color: orange;
 }
 #foo {
     height: 50px;
