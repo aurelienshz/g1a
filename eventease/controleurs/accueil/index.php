@@ -9,7 +9,9 @@
 <body>
     <header class="">
         <h1>
-            <a href="#"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>
+            <a href="#">
+                <img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" />
+            </a>
         </h1>
         <nav>
           <ul id="raccourcis">
@@ -45,17 +47,50 @@
     </div>
     
     <div id="suggestions">
-        <div class="col-red">1<br/><br/><br/>11</div>
-        <div class="col-center">2</div>
-        <div class="col-blue">3</div>
+      <div class="row">
+        <div class="col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
+        </div>
+        <div class="col">
+            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
+        </div>
+      </div>
     </div>
     
     <div id="features">
-        <div class="col-blue">1</div>
-        <div class="col-red">2</div>
-        <div class="col-green">3</div>
+        <div class="col"><img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" /></div>
+        <div class="col"><img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" /></div>
+        <div class="col"><img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" /></div>
     </div>
     
-    <footer>Footer</footer>
+    <footer>
+      <div class="footer-row">
+        <div class="col-3">
+            <a href="#">Mes évènements</a><br />
+            <a href="#">Messages</a><br />
+            <a href="#">Forum</a><br />
+            <a href="#">Profil</a><br />
+            <a href="#">Paramètres</a><br />
+        </div>
+        <div class="col-3">
+            <h3>Aide</h3>
+            <a href="#">Questions fréquentes</a><br />
+            <a href="#">Nous contacter</a><br />
+        </div>
+        <div class="col-3">
+            <h3>Société</h3>
+            <a href="#">A propos</a><br />
+            <a href="#">Charte / Règles ?</a><br />
+            <a href="#">CGU</a><br />
+        </div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
