@@ -9,7 +9,13 @@ A venir : distinction header connecté / non connecté (comment ? contrôleur ou
 <head>
     <meta charset="utf-8" />
     <title><?php echo $title; ?> | EventEase</title>
-    <link rel="stylesheet" href="<?php echo CSS.'style.css' ?>" type="text/css" media="all" />
+    <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
+<?php
+    $styles[] = 'eventease.css'; // Could be better...
+    foreach($styles as $style) {
+        echo '    <link rel="stylesheet" href="' . CSS . $style . '" type="text/css" media="all" />'."\n";
+    }
+?>
 
 </head>
 <body>
