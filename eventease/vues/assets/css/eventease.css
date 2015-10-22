@@ -1,3 +1,6 @@
+/* STYLE PARTAGE A TOUS LES MODULES */
+
+/* Général : */
 html {
     width: 100%;
     margin: 0 auto;
@@ -11,11 +14,10 @@ body {
     overflow: auto;
 }
 * {
-    font-family: arial, serif;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-
-/* HEADER */
+/* Header : */
 header {
     height: 70px;
     margin: 0 auto 30px auto;   
@@ -56,88 +58,7 @@ header ul li a {
 section {
     margin-bottom: 30px;    
 }
-
-/* FORMULAIRE */
-
-#bigform {
-    width: 100%;
-    background-color: white;
-    text-align: center;
-    margin: 0 auto 30px auto;
-}
-
-#catchphrase {
-    font-size: 2em;
-    text-transform: uppercase;
-    margin: 20px 0 10px 0;
-    font-weight: bold;
-}
-#subcatchphrase{
-    font-size: 1.5em;
-    margin: 0 0 20px 0;
-}
-
-#bigform form {
-    width: 75%;
-    margin: 0 auto 30px auto;
-}
-
-#bigform #boutoncreer {
-    background-color: lightgreen;
-    border: 1px solid black;
-    padding: 10px 0;
-    width: 73%;
-    margin: 0 auto;
-    color: black;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.lienbouton {
-    text-decoration: none;
-}
-
-
-#bigform input:focus {
-    border: 1px solid grey;
-}
-
-#bigform input, #bigform select, #bigform option {
-    margin: 0px;
-    padding: 0;
-    width: 24%;
-    height: 40px;
-    border: 1px solid black;
-}
-#foo {
-    height: 50px;
-}
-
-/* SUGGESTIONS */
-#suggestions, #features {
-    display: table;
-    table-layout: fixed;
-    border-collapse: collapse;
-    width: 100%;
-    margin: 0 auto 30px auto;
-}
-.row {
-    display: table-row;
-}
-.col {
-    width: 33.333333%;
-    display: table-cell;
-    text-align: center;
-}
-.col img {
-    width: 95%;
-    vertical-align: top;
-}
-.col p {
-    vertical-align: top;
-    width: 95%
-}
-
-/* FOOTER */
+/* Footer */
 footer {
     display: table;
     table-layout: fixed;
@@ -159,4 +80,53 @@ footer {
     margin: 0;
     text-align: left;
     font-size: 1em;
+}
+
+/**** STYLE SPECIFIQUE ACCUEIL ****/
+/* Formuaire : */
+#bigform {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto 30px auto;
+}
+#catchphrase {
+    font-size: 2em;
+    text-transform: uppercase;
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+}
+#subcatchphrase{
+    font-size: 1.5em;
+    margin: 0 0 20px 0;
+}
+#bigform form {
+    width: 75%;
+    margin: 0 auto 30px auto;
+}
+#bigform #boutoncreer {
+    background-color: lightgreen;
+    border: 1px solid black;
+    padding: 10px 0;
+    width: 73%;
+    margin: 0 auto;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.lienbouton {
+    text-decoration: none;
+}
+#bigform input:focus {
+    border: 1px solid grey;
+}
+#bigform input, #bigform select, #bigform option {
+    margin: 0px;
+    padding: 0;
+    width: 24%;
+    height: 40px;
+    border: 1px solid black;
+}
+#foo {
+    height: 50px;
 }

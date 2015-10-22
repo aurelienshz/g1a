@@ -30,9 +30,6 @@ if(isset($_GET['page'])) {
     case 'messagerie':
         require 'controleurs/messagerie/index.php';
         break;
-    case 'test':
-        require 'controleurs/accueil/test.php';
-        break;
     // Si jamais la valeur n'est pas prédéfinie, on defaulte sur l'accueil :
     default:
         require 'controleurs/accueil/index.php';
