@@ -50,15 +50,25 @@
       <div class="row">
         <div class="col">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
-        </div>
-        <div class="col">
-            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="col">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
+        </div>
+        <div class="col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />
+        </div>
+        <div class="col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="col">
+            <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />   
         </div>
       </div>
     </div>
