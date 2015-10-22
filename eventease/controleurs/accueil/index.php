@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Titre</title>
+    <title><?php echo $title; ?> | EventEase</title>
     <link rel="stylesheet" href="<?php echo CSS.'style.css' ?>" type="text/css" media="all" />
 
 </head>
@@ -26,7 +26,7 @@
         </nav>
     </header>
     
-    <div id="bigform">
+    <section id="bigform">
     <p id="catchphrase">Best catchphrase ever</p>
     <p id="subcatchphrase">Do we really need a subcatchphrase?</p>
         <form>
@@ -44,9 +44,9 @@
             <input type="submit" value="Rechercher"/>
         </form>
         <a href="#"><div id="boutoncreer">Créer un évènement</div></a>
-    </div>
+    </section>
     
-    <div id="suggestions">
+    <section id="suggestions">
       <div class="row">
         <div class="col">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -71,13 +71,13 @@
             <img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" />   
         </div>
       </div>
-    </div>
+    </section>
     
-    <div id="features">
+    <section id="features">
         <div class="col"><img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" /></div>
         <div class="col"><img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" /></div>
         <div class="col"><img src="<?php echo IMAGES . 'img.jpg' ?>" alt="Texte alternatif" /></div>
-    </div>
+    </section>
     
     <footer>
       <div class="footer-row">
