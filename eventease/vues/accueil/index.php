@@ -3,7 +3,7 @@
 ?>
    
     <section id="bigform">
-    <p id="catchphrase">Best catchphrase ever</p>
+    <p id="catchphrase">The Best catchphrase of all time</p>
     <p id="subcatchphrase">Do we really need a subcatchphrase?</p>
         <form>
             <input id="foo" type="text" placeholder="Texte"/>
