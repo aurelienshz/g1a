@@ -28,13 +28,13 @@ A venir : distinction header connecté / non connecté (comment ? contrôleur ou
         </h1>
         <nav>
           <ul id="raccourcis">
-            <li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp;Accueil</a></li>
-            <li><a href="#"><i class="fa fa-plus"></i>&nbsp;Créer</a></li>
-            <li><a href="#"><i class="fa fa-search"></i>&nbsp;Chercher</a></li>
+            <li><a href="#"><span class="fa fa-home fa-fw"></span>&nbsp;Accueil</a></li>
+            <li><a href="#"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
+            <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
           </ul>
           <ul id="membre">
-            <li><a href="#"><i class="fa fa-sign-in"></i>&nbsp;Connexion</a></li>
-            <li><a href="#"><i class="fa fa-pencil-square-o"></i>&nbsp;Inscription</a></li>
+            <li><a href="#"><span class="fa fa-sign-in"></span>&nbsp;Connexion</a></li>
+            <li><a href="#"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>
           </ul>
         </nav>
     </header>
