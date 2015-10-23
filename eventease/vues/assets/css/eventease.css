@@ -36,8 +36,8 @@ header ul {
     top: 25px;
 }
 header ul li {
-/*     margin: 0 3%;
- */    list-style-type: none;
+/*     margin: 0 3%;    */
+    list-style-type: none;
     text-align: center;
 }
 header ul li a {
@@ -59,6 +59,7 @@ header ul li a {
 body {
     padding: 0 auto;
     width: 100%;
+    min-width: 950px;
     margin: 0 auto 10px auto;
 }
 section {
@@ -84,12 +85,12 @@ footer {
 .col-3 {
     width: 33.3333333%;
     display: table-cell;
-    text-align: left;
+    text-align: center;
     border: 2px solid black;
     padding: 10px 10px;
 }
 .col-3 h3 {
     margin: 0;
-    text-align: left;
+    text-align: center;
     font-size: 1em;
 }
