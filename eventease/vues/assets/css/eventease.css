@@ -7,11 +7,12 @@ html {
 }
 body {
     padding: 0 auto;
-    width: 95%;
-    margin: 20px auto;
+    width: 100%;
+    margin: 0 auto 10px auto;
 }
 section {
-    margin-bottom: 30px;    
+    width: 90%;
+    margin: 0 auto 30px auto;
 }
 .clearfix {
     overflow: auto;
@@ -23,7 +24,10 @@ section {
 /* Header : */
 header {
     height: 70px;
-    margin: 0 auto 30px auto;   
+    margin: 0 auto 30px auto;
+    border-bottom: 2px solid gray;
+    padding: 10px 5% 10px 5%;
+    background-color: #F5F5F5;
 }
 header h1 {
     float: left;
