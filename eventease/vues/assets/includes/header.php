@@ -22,13 +22,11 @@ A venir : distinction header connecté / non connecté (comment ? contrôleur ou
 <body>
     <header class="">
         <h1>
-            <a href="#">
-                <img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" />
-            </a>
+            <a href="#"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>
         </h1>
         <nav>
           <ul id="raccourcis">
-            <li><a href="#"><span class="fa fa-home fa-fw"></span>&nbsp;Accueil</a></li>
+            <li><a href="#"><span class="fa fa-home"></span>&nbsp;Accueil</a></li>
             <li><a href="#"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
             <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
           </ul>

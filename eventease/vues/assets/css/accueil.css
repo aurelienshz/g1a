@@ -50,8 +50,8 @@
 /* Suggestions & features : */
 #suggestions, #features {
     display: table;
-    table-layout: fixed;
     border-collapse: collapse;
+    table-layout: fixed;
     width: 100%;
     margin: 0 auto 30px auto;
 }
@@ -64,33 +64,26 @@
     width: 33.333333%;
     display: table-cell;
     text-align: center;
-	border: 1px solid black;
+ 	border: 1px solid black;
+    padding : 0;
 }
-.col img {
+.col img, .col p {
     width: 95%;
     vertical-align: top;
 }
-.col p {
-    vertical-align: top;
-    width: 95%
-	
-}
-.lin {
-    width: 100%;
+#suggestions h4, #features  h4 {
+    font-size: 2em;
+    font-weight: bold;
+    display: table-caption;
 	text-align: center;
-	border: 1px solid black;
-	border-bottom: 0;
+    margin: 0 auto;
+ 	border: 1px solid black;
 	padding: 5px 0px 5px 0px;
 }
-#titles {
-    display:inline;
-	font-size: 2em;
-	font-weight:bold;
-}
-#subtitles {
-    display:inline;
+#suggestions h5 {
 	font-size: 1.5em;
 	font-weight:bold;
+    margin: 3px auto;
 }
 .firstArgument {
 	font-size: 1.2em;

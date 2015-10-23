@@ -5,15 +5,6 @@ html {
     width: 100%;
     margin: 0 auto;
 }
-body {
-    padding: 0 auto;
-    width: 100%;
-    margin: 0 auto 10px auto;
-}
-section {
-    width: 90%;
-    margin: 0 auto 30px auto;
-}
 .clearfix {
     overflow: auto;
 }
@@ -27,17 +18,17 @@ header {
     margin: 0 auto 30px auto;
     border-bottom: 2px solid gray;
     padding: 10px 5% 10px 5%;
-    background-color: #F5F5F5;
+    background-color: #FAFAFA;
 }
 header h1 {
     float: left;
     height: inherit;
     margin: 0;
     padding: 0 10px;
-    background-color: white;
 }
-header h1 img {
+header h1 img { /* LOGO */
     height: 100%;
+    margin-right: 0.5em;
 }
 header ul {
     margin: 0;
@@ -45,8 +36,8 @@ header ul {
     top: 25px;
 }
 header ul li {
-    margin: 0 3%;
-    list-style-type: none;
+/*     margin: 0 3%;
+ */    list-style-type: none;
     text-align: center;
 }
 header ul li a {
@@ -57,11 +48,27 @@ header ul li a {
 }
 #raccourcis li {
     float: left;
+    margin: 0 2em 0 0;
 }
 #membre li {
     float: right;
+    margin: 0 0 0 2em;
 }
 
+/* Corps de page */
+body {
+    padding: 0 auto;
+    width: 100%;
+    margin: 0 auto 10px auto;
+}
+section {
+    width: 90%;
+    margin: 0 auto 30px auto;
+}
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
 /* Footer */
 footer {
     display: table;
