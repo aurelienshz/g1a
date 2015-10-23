@@ -4,7 +4,7 @@
    
     <section id="bigform">
     <p id="catchphrase">The Best catchphrase of all time</p>
-    <p id="subcatchphrase">Do we really need a subcatchphrase?</p>
+    <p id="subcatchphrase">Yes papa !</p>
         <form>
             <input id="foo" type="text" placeholder="Texte"/>
             <select>
@@ -33,31 +33,31 @@
 		  </div>
 		  <div class="row">
 			<div class="col">			
-				<span class="triSelector"> < </span>
+				<span class="triSelector"> &lt; </span>
 				<div class="triContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre / Date & Heure / Lieu</div>
-					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
+					<div class="description">Lorem ipsumtest dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
-				<span class="triSelector"> > </span>
+				<span class="triSelector"> &gt; </span>
 			</div>
 			<div class="col">			
-				<span class="triSelector"> < </span>
+				<span class="triSelector"> &lt; </span>
 				<div class="triContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre / Date & Heure / Lieu</div>
 					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
-				<span class="triSelector"> > </span>
+				<span class="triSelector"> &gt; </span>
 			</div>
 			<div class="col">			
-				<span class="triSelector"> < </span>
+				<span class="triSelector"> &lt; </span>
 				<div class="triContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre / Date & Heure / Lieu</div>
 					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
-				<span class="triSelector"> > </span>
+				<span class="triSelector"> &gt; </span>
 			</div>
 		  </div>
 		</div>
