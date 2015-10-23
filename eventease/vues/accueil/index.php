@@ -30,31 +30,31 @@
             </div>
 		  <div class="row">
 			<div class="col">			
-				<span class="triSelector">&lt;</span>
-				<div class="triContent">
+				<span class="slideshowSelector">&lt;</span>
+				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre | Date & Heure | Lieu</div>
 					<div class="description">Lorem ipsumtest dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
-				<span class="triSelector">&gt;</span>
+				<span class="slideshowSelector">&gt;</span>
 			</div>
 			<div class="col">			
-				<span class="triSelector">&lt;</span>
-				<div class="triContent">
+				<span class="slideshowSelector">&lt;</span>
+				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre | Date & Heure | Lieu</div>
 					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
-				<span class="triSelector">&gt;</span>
+				<span class="slideshowSelector">&gt;</span>
 			</div>
 			<div class="col">			
-				<span class="triSelector">&lt;</span>
-				<div class="triContent">
+				<span class="slideshowSelector">&lt;</span>
+				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre | Date & Heure | Lieu</div>
 					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
-				<span class="triSelector">&gt;</span>
+				<span class="slideshowSelector">&gt;</span>
 			</div>
 		  </div>
 	</section>

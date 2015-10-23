@@ -46,7 +46,7 @@
 #foo {
     height: 50px;
 }
-
+/******************************************/
 /* Suggestions & features : */
 #suggestions, #features {
     display: table;
@@ -78,7 +78,7 @@
 	text-align: center;
     margin: 0 auto;
  	border: 1px solid black;
-    border-bottom: 0;
+    border-bottom: 0 ;
 	padding: 5px 0px 5px 0px;
 }
 #suggestions h5, #features h5 {
@@ -99,7 +99,7 @@
 	font-size:0.9em;
 	margin: 0 10px 5px 10px;
 }
-.triSelector {
+.slideshowSelector {
 	display:table-cell;
 	width: 8%;
 	font-size: 2em;
@@ -108,10 +108,10 @@
 	background: #919191;
 	text-decoration: none;
 }
-.triSelector:hover {
-  background: #4d4d4d;
-  text-decoration: none;
+.slideshowSelector:hover {
+    background: #4d4d4d;
+    text-decoration: none;
 }
-.triContent{
+.slideshowContent{
 	display:table-cell;
 }

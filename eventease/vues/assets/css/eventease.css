@@ -1,4 +1,4 @@
-/* STYLE PARTAGE A TOUS LES MODULES */
+/**** STYLES NECESSAIRES A TOUTES LES PAGES ****/
 
 /* Général : */
 html {
@@ -69,6 +69,7 @@ section {
     width: 90%;
     margin: 0 auto;
 }
+/***********************************************/
 /* Footer */
 footer {
     display: table;
