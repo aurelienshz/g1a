@@ -60,19 +60,28 @@ body {
     padding: 0 auto;
     width: 100%;
     min-width: 950px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto;
 }
 section {
-    width: 90%;
     margin: 0 auto 30px auto;
 }
 .wrapper {
     width: 90%;
     margin: 0 auto;
 }
-/***********************************************/
+/*********************************/
 /* Footer */
 footer {
+    width: 100%;
+    background-color: #303030;
+    border-top: 1px solid black;
+    color: #FAFAFA;
+}
+footer a {
+    color: #FAFAFA;
+    text-decoration: underline;
+}
+#footerWrapper {
     display: table;
     table-layout: fixed;
     border-collapse: collapse;
@@ -86,11 +95,11 @@ footer {
     width: 33.3333333%;
     display: table-cell;
     text-align: center;
-    border: 2px solid black;
     padding: 10px 10px;
 }
 .col-3 h3 {
     margin: 0;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.2em;
+    color: #FAFAFA;
 }
