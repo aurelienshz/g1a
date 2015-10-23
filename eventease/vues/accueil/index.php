@@ -3,7 +3,7 @@
 ?>
 <div class="wrapper">
     <section id="bigform">
-    <p id="catchphrase">The Best catchphrase of all time</p>
+    <p id="catchphrase">Do you even tease ?</p>
     <p id="subcatchphrase">Yes papa !</p>
         <form method="post" action="">
             <input id="foo" type="text" placeholder="Texte"/>
