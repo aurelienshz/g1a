@@ -36,8 +36,8 @@ header ul {
     top: 25px;
 }
 header ul li {
-/*     margin: 0 3%;
- */    list-style-type: none;
+/*     margin: 0 3%;    */
+    list-style-type: none;
     text-align: center;
 }
 header ul li a {
@@ -59,19 +59,29 @@ header ul li a {
 body {
     padding: 0 auto;
     width: 100%;
-    margin: 0 auto 10px auto;
+    min-width: 950px;
+    margin: 0 auto;
 }
 section {
-    width: 90%;
     margin: 0 auto 30px auto;
 }
 .wrapper {
     width: 90%;
     margin: 0 auto;
 }
-/***********************************************/
+/*********************************/
 /* Footer */
 footer {
+    width: 100%;
+    background-color: #303030;
+    border-top: 1px solid black;
+    color: #FAFAFA;
+}
+footer a {
+    color: #FAFAFA;
+    text-decoration: underline;
+}
+#footerWrapper {
     display: table;
     table-layout: fixed;
     border-collapse: collapse;
@@ -84,12 +94,12 @@ footer {
 .col-3 {
     width: 33.3333333%;
     display: table-cell;
-    text-align: left;
-    border: 2px solid black;
+    text-align: center;
     padding: 10px 10px;
 }
 .col-3 h3 {
     margin: 0;
-    text-align: left;
-    font-size: 1em;
+    text-align: center;
+    font-size: 1.2em;
+    color: #FAFAFA;
 }

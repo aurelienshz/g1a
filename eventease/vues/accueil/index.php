@@ -8,9 +8,9 @@
         <form method="post" action="">
             <input id="foo" type="text" placeholder="Texte"/>
             <select>
-                <option>a</option>
-                <option>b</option>
-                <option>c</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
             </select>
             <select>
                 <option>1</option>
@@ -21,7 +21,7 @@
         </form>
         <a href="#"><div id="boutoncreer">Créer un évènement</div></a>
     </section>
-    <section id="suggestions">
+    <section class="triptyque" id="suggestions">
         <h4>Rien que pour vous</h4>
 		    <div class="row">
                 <div class="col"><h5>Une envie de ?</h5></div>
@@ -34,7 +34,7 @@
 				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
 					<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-					<div class="description">Lorem ipsumtest dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
+					<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
 				</div>
 				<span class="slideshowSelector">&gt;</span>
 			</div>
@@ -58,7 +58,7 @@
 			</div>
 		  </div>
 	</section>
-	<section id="features">
+	<section class="triptyque" id="features">
         <h4>Ca marche ?</h4>
 			<div class="row">
 				<div class="col"><h5>Participer </h5></div>
@@ -70,10 +70,10 @@
                     <p>Un</p>
                 </div>
                 <div class="col">
-                    Deux
+                    <p>coucou</p>
                 </div>
                 <div class="col">
-                    lol
+                    <p>lol</p>
                 </div>
             </div>
 	</section>
