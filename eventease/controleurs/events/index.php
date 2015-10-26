@@ -6,6 +6,9 @@ if(isset($_GET['action'])) {
         case 'display':
             require 'controleurs/events/display.php';
             break;
+        case 'add':
+            require 'controleurs/events/add.php';
+            break;
     }
 }
 else {

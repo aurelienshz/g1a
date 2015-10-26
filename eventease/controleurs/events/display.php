@@ -1,4 +1,5 @@
 <?php
+/* AFFICHAGE D'UN EVENEMENT */
 /**** Préparation des contenus ****/
 
 // Appels au modèle
