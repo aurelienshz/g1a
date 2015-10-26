@@ -21,7 +21,7 @@
         </form>
         <a href="#"><div id="boutoncreer">Créer un évènement</div></a>
     </section>
-    <section id="suggestions">
+    <section class="triptyque" id="suggestions">
         <h4>Rien que pour vous</h4>
 		    <div class="row">
                 <div class="col"><h5>Une envie de ?</h5></div>
@@ -58,7 +58,7 @@
 			</div>
 		  </div>
 	</section>
-	<section id="features">
+	<section class="triptyque" id="features">
         <h4>Comment ça marche ?</h4>
 			<div class="row">
 				<div class="col"><h5>Participer </h5></div>
