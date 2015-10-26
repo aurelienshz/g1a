@@ -48,7 +48,7 @@
 }
 /******************************************/
 /* Suggestions & features : */
-#suggestions, #features {
+.triptyque {
     display: table;
     border-collapse: collapse;
     table-layout: fixed;
@@ -71,7 +71,7 @@
     width: 95%;
     vertical-align: top;
 }
-#suggestions h4, #features  h4 {
+.triptyque h4 {
     font-size: 2em;
     font-weight: bold;
     display: table-caption;
@@ -81,7 +81,7 @@
     border-bottom: 0 ;
 	padding: 5px 0px 5px 0px;
 }
-#suggestions h5, #features h5 {
+.triptyque h5 {
 	font-size: 1.5em;
 	font-weight:bold;
     margin: 3px auto;

@@ -1,7 +1,5 @@
 <?php
-/* CONTROLEUR ACCUEIL
-
-*/
+/*** CONTROLEUR ACCUEIL ***/
 
 /**** Préparation des contenus ****/
 // Chargement des paramètres de la page

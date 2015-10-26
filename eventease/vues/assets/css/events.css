@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.intro_evenement {
+	display:block;
+	width:100%;
+	height: 300px;
+	border: 2px solid blue;
+}
+.photo_evenement {
+	display:block;
+	width:33%;
+	height:100%;
+	border: 2px solid red;
+}
+.description {
+	display:block;
+	width:100%;
+	height:300px;
+	border: 1px solid green;
+}
