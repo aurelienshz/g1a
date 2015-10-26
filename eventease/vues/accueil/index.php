@@ -4,7 +4,7 @@
 <div class="wrapper">
     <section id="bigform">
     <p id="catchphrase">Do you even tease ?</p>
-    <p id="subcatchphrase">Yes papa !</p>
+    <p id="subcatchphrase">Bonjour !</p>
         <form method="post" action="">
             <input id="foo" type="text" placeholder="Texte"/>
             <select>
@@ -59,7 +59,7 @@
 		  </div>
 	</section>
 	<section class="triptyque" id="features">
-        <h4>Comment ça marche ?</h4>
+        <h4>Ca marche ?</h4>
 			<div class="row">
 				<div class="col"><h5>Participer </h5></div>
 				<div class="col"><h5>Partager   </h5></div>
@@ -70,10 +70,10 @@
                     <p>Un</p>
                 </div>
                 <div class="col">
-                    Deux
+                    <p>coucou</p>
                 </div>
                 <div class="col">
-                    Trois
+                    <p>lol</p>
                 </div>
             </div>
 	</section>
