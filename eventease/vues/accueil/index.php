@@ -8,9 +8,9 @@
         <form method="post" action="">
             <input id="foo" type="text" placeholder="Texte"/>
             <select>
-                <option>a</option>
-                <option>b</option>
-                <option>c</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
             </select>
             <select>
                 <option>1</option>
