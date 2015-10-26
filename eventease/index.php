@@ -12,14 +12,15 @@ require 'config.php';
 
 if(isset($_GET['page'])) {
     switch($_GET['page']) {
+    // Routage vers les modules :
     case 'accueil':
         require 'controleurs/accueil/index.php';
         break;
     case 'aide':
         require 'controleurs/aide/index.php';
         break;
-    case 'evenements':
-        require 'controleurs/evenements/index.php';
+    case 'events':
+        require 'controleurs/events/index.php';
         break;
     case 'forum':
         require 'controleurs/forum/index.php';
@@ -30,7 +31,7 @@ if(isset($_GET['page'])) {
     case 'messagerie':
         require 'controleurs/messagerie/index.php';
         break;
-    // Si jamais la valeur n'est pas prédéfinie, on defaulte sur l'accueil :
+    // Si jamais la valeur n'est pas reconnue, on defaulte sur l'accueil :
     default:
         require 'controleurs/accueil/index.php';
         break;

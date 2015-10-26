@@ -5,7 +5,7 @@ Script sans vue. Rediriger vers la page dont on est venu ?
 */
 
 /* Fausse connexion à la BDD : */
-function getUserAuth($username) {
+function getUserInfo($username) {
     $auth = array(
     'id'=>$id,
     'hash'=>'$2y$10$Iujpo7Rn/99UovOa94eCBetPvaOfRZd0mdSl4WMUPG118r34VKhb2');
@@ -15,7 +15,7 @@ function getUserAuth($username) {
 
 $auth = getUserAuth($_POST['username'])
 if (password_verify($password, $hash)) {
-    // On connecte l'utilisateur
+    $_SESSION['id'] = 
 }
 else {
     // On retourne une erreur.
