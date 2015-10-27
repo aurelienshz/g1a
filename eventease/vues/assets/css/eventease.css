@@ -46,6 +46,10 @@ header ul li a {
     text-transform: uppercase;
     text-decoration: none;
 }
+#pseudo {
+    text-transform: none    ;
+    color: green;
+}
 #raccourcis li {
     float: left;
     margin: 0 2em 0 0;
@@ -54,6 +58,7 @@ header ul li a {
     float: right;
     margin: 0 0 0 2em;
 }
+
 
 /* Corps de page */
 body {

@@ -8,7 +8,9 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 */
 
 session_start(); //On initialise la session.
-require 'config.php';
+require 'config.php'; //On charge la config
+
+$_SESSION['connected'] = True; //Mode dev : on force la valeur de la var qui détermine si connecté ou pas
 
 if(isset($_GET['page'])) {
     switch($_GET['page']) {

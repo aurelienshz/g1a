@@ -1,6 +1,7 @@
 <?php
 /**** VUE : ACCUEIL ****/
 ?>
+
 <div class="wrapper">
     <section id="bigform">
     <p id="catchphrase">Do you even tease ?</p>
@@ -58,23 +59,9 @@
 			</div>
 		  </div>
 	</section>
-	<section class="triptyque" id="features">
-        <h4>Ca marche ?</h4>
-			<div class="row">
-				<div class="col"><h5>Participer </h5></div>
-				<div class="col"><h5>Partager   </h5></div>
-				<div class="col"><h5>Organiser  </h5></div>
-			</div>
-            <div class="row">
-                <div class="col">
-                    <p>Un</p>
-                </div>
-                <div class="col">
-                    <p>coucou</p>
-                </div>
-                <div class="col">
-                    <p>lol</p>
-                </div>
-            </div>
+	<section class="triptyque" id="??">
+        <?php
+            echo $triptyque;
+        ?>
 	</section>
 </div> <!-- /wrapper -->
