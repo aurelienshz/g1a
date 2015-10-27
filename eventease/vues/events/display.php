@@ -3,8 +3,8 @@
         <div class ="infos">
             <h1>Nom de l'événement </h1>
             <ul>
-                <li> <i class="maclasse fa fa-calendar-o"></i> Date <br> Heure </li>
-                <li> Lieu </li>
+                <li> <i class="maclasse fa fa-calendar-o"></i>   Date <br><i class="maclasse fa fa-clock-o"></i>     Heure </li>
+                <li> <i class="maclasse fa fa-map"></i>     Lieu </li>
         </div>
         <div class = "photo_evenement">
             <img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>" alt="Coucou"/>
