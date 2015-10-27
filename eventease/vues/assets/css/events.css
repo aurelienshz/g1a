@@ -9,11 +9,47 @@
 	display:block;
 	width:33%;
 	height:100%;
-	border: 2px solid red;
+}
+.photo_evenement img{
+	width:100%;
+	height:100%;
+}
+.infos ul li {
+	list-style-type:none;
+}
+.maclasse {
+	color:red;
+}
+.infos {
+	display:block;
+	float:right;
+	width:65%;
+	height:100px;
+	}
+.infos h1{
+	text-align:center;
 }
 .description {
 	display:block;
 	width:100%;
 	height:300px;
 	border: 1px solid green;
+}
+.photo {
+	display:block;
+	width: 100%;
+	height:200px;
+	border:1px solid red;
+}
+.organisation {
+	display:block;
+	width: 100%;
+	height:200px;
+	border:1px solid blue;
+}
+.commentaire {
+	display:block;
+	width: 100%;
+	height:500px;
+	border:1px solid black;
 }
