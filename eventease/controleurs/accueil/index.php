@@ -11,7 +11,7 @@ $styles = ['accueil.css'];
 
 // Traitements
 
-if(!$_SESSION['connected']) {
+if(!(isset($_SESSION['connected']) AND $_SESSION['connected'])) {
     $triptyque = file_get_contents(INCLUDES.'features.php');
 }
 else {

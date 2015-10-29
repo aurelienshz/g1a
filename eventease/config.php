@@ -18,10 +18,13 @@ function getLink($action) {
             break;
         case 'connexion':
         case 'login':
-            return '?page=membres&action=connexion';
+            return '?module=membres&action=connexion';
+            break;
+        case 'deconnexion':
+            return '?module=membres&action=deconnexion';
             break;
         case 'createEvent':
-            return '?page=events&action=create';
+            return '?module=events&action=create';
             break;
         default:
             return '';

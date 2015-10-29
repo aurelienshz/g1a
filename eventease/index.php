@@ -8,17 +8,17 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 */
 
 session_start(); //On initialise la session.
+$_SESSION['debug'] = True;
 
 require 'config.php'; //On charge la config
 
-$_SESSION['connected'] = False; //Mode dev : on force la valeur de la var qui détermine si user connecté ou pas
-
-if(isset($_GET['page'])) {
-    switch($_GET['page']) {
+if(isset($_GET['module'])) {
+    switch($_GET['module']) {
     // Routage vers les modules :
     case 'accueil':
         require 'controleurs/accueil/index.php';
         break;
+        
     case 'aide':
         require 'controleurs/aide/index.php';
         break;

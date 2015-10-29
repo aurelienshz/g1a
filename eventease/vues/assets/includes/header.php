@@ -1,5 +1,10 @@
 <?php
 /* HEADER PARTAGE ENTRE LES PAGES */
+if($_SESSION['debug']) {
+    echo 'user connecté : ';
+    echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
+    echo '<br /><br />';
+}
 ?>
 
 
@@ -32,9 +37,9 @@
             <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
             </ul>
 <?php
-if($_SESSION['connected']) {?>
+if(isset($_SESSION['connected']) AND $_SESSION['connected']) {?>
             <ul id="membre">
-                <li dir="rtl"><a href="#" id="pseudo"><span class="fa fa-user"></span>&nbsp;KevinDu38</a></li>
+                <li dir="rtl"><a href="<?php echo getLink('deconnexion'); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;KevinDu38 - Déconnexion</a></li>
                 <li dir="rtl"><a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a></li>
             </ul>
 <?php }
