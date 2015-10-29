@@ -1,7 +1,5 @@
 <?php
-/* HEADER PARTAGE ENTRE LES PAGES
-A venir : distinction header connecté / non connecté (comment ? contrôleur ou vue ? Suggestions & discussions bienvenues) -- Aurélien
-*/
+/* HEADER PARTAGE ENTRE LES PAGES */
 ?>
 
 
@@ -9,13 +7,15 @@ A venir : distinction header connecté / non connecté (comment ? contrôleur ou
 <html>
 <head>
     <meta charset="utf-8" />
-    <title><?php echo $title; ?> | EventEase</title>
+    <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
 
     <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    
     <?php
-    foreach($styles as $style) {
-        echo '    <link rel="stylesheet" href="' . CSS . $style . '" type="text/css" media="all" />'."\n";
+    if(isset($styles)) {
+        foreach($styles as $style) {
+            echo '    <link rel="stylesheet" href="' . CSS . $style . '" type="text/css" media="all" />'."\n";
+        }
     }
     ?>
 
@@ -38,9 +38,9 @@ if($_SESSION['connected']) {?>
                 <li dir="rtl"><a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a></li>
             </ul>
 <?php }
-else {?>
+else { //Si pas d'user connecté ?>
             <ul id="membre">
-                <li dir="rtl"><a href="#"><span class="fa fa-sign-in"></span>&nbsp;Connexion</a></li>
+                <li dir="rtl"><a href="<?php echo getLink('connexion'); ?>"><span class="fa fa-sign-in"></span>&nbsp;Connexion</a></li>
                 <li dir="rtl"><a href="#"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>
             </ul>
 <?php } ?>
