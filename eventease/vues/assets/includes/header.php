@@ -1,13 +1,3 @@
-<?php
-/* HEADER PARTAGE ENTRE LES PAGES */
-if($_SESSION['debug']) {
-    echo 'user connecté : ';
-    echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
-    echo '<br /><br />';
-}
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +16,17 @@ if($_SESSION['debug']) {
 
 </head>
 <body>
+<div id="debug">
+<?php
+/* HEADER PARTAGE ENTRE LES PAGES */
+
+/* MODE DEBUG */
+if(isset($_SESSION['debug']) AND $_SESSION['debug']) {
+    echo 'user connecté : ';
+    echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
+}
+?>
+</div>
     <header class="">
         <h1>
             <a href="<?php echo getLink('home'); ?>"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>
@@ -39,7 +40,7 @@ if($_SESSION['debug']) {
 <?php
 if(isset($_SESSION['connected']) AND $_SESSION['connected']) {?>
             <ul id="membre">
-                <li dir="rtl"><a href="<?php echo getLink('deconnexion'); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;KevinDu38 - Déconnexion</a></li>
+                <li dir="rtl"><a href="<?php echo getLink('deconnexion'); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?> - Déconnexion</a></li>
                 <li dir="rtl"><a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a></li>
             </ul>
 <?php }

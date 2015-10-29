@@ -26,20 +26,31 @@ function formConnexion() {
 
 /* Contrôle des id du formulaire ou affichage du formulaire */
 if(isset($_POST['username']) AND isset($_POST['password'])) {
+    //Formulaire rempli
     $auth = getUserInfo($_POST['username']);
-    if($auth) {
+    if(is_array($auth)) {
+        // User trouvé en BDD
+        echo 'entré dans if auth';
         if (password_verify($_POST['password'], $auth['hash'])) {
+            // MdP OK
             echo 'pass vérifié';
             $_SESSION['connected'] = True;
+            $_SESSION['username'] = $_POST['username'];
             header('Location: '.getLink('accueil'));
         }
         else {
-            echo 'entré dans le else';
+            // User trouvé mais mdp faux
+            echo 'MdP faux';
             formConnexion();
         }
     }
+    else {
+        // user non trouvé
+        echo "User non trouvé";
+    }
 }
 else {
+    // Formulaire non rempli
     formConnexion();
 }
 

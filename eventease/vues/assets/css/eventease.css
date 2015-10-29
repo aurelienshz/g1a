@@ -70,10 +70,9 @@ body {
 section {
     margin: 0 auto 30px auto;
 }
-.wrapper {
+.wrapper, #debug {
     width: 90%;
-    margin: 30px auto;
-    
+    margin: 30px auto;   
 }
 /*********************************/
 /* Footer */
