@@ -27,11 +27,14 @@ header {
     margin: 0 auto 30px auto;
 }
 #createButtonContainer {
-    width: 40%;
+    width: 20%;
     margin: 0 auto;
 }
+#createButtonContainer a {
+    text-decoration: none;
+}
 #createButton {
-    background-color: lightgreen;
+    background-color: #68FF68;
     border: 1px solid black;
     padding: 10px 0;
     width: 100%;
@@ -39,7 +42,6 @@ header {
     color: black;
     text-transform: uppercase;
     font-weight: bold;
-    text-decoration: none;
 }
 #bigform input:focus {
     border: 1px solid grey;

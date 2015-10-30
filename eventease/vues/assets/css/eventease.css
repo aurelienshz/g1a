@@ -4,6 +4,7 @@
 html {
     width: 100%;
     margin: 0 auto;
+    background-color: #303030;
 }
 .clearfix {
     overflow: auto;
@@ -11,12 +12,19 @@ html {
 * {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
-
+body {
+    padding: 0 auto;
+    width: 100%;
+    min-width: 950px;
+    margin: 0 auto;
+    background-color: white;
+}
 /* DEBUG */
 #debug {
     width: 90%;
-    margin: 20px auto;
-    background-color: 
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 #palette {
     position: absolute;
@@ -91,18 +99,12 @@ header ul li a {
 
 
 /* Corps de page */
-body {
-    padding: 0 auto;
-    width: 100%;
-    min-width: 950px;
-    margin: 0 auto;
-}
 section {
     margin: 0 auto 30px auto;
 }
 .wrapper {
     width: 90%;
-    margin: 0 auto;   
+    margin: 0 auto;
 }
 
 /*********************************/
@@ -112,6 +114,7 @@ footer {
     background-color: #303030;
     border-top: 1px solid black;
     color: #FAFAFA;
+    padding-bottom: 20px;
 }
 footer a {
     color: #FAFAFA;
