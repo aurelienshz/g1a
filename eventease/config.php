@@ -11,8 +11,24 @@ define('INCLUDES', PATH_ASSETS . "includes/");
 
 function getLink($action) {
     switch($action) {
-        case 'accueil' OR 'home' OR 'index': return '?'; break;
-        case 'createEvent': return '?page=events&action=create'; break;
-        default: return '?'; break;
+        case 'accueil':
+        case 'home':
+        case 'index':
+            return '/';
+            break;
+        case 'connexion':
+        case 'login':
+            return '?module=membres&action=connexion';
+            break;
+        case 'deconnexion':
+        case 'logout':
+            return '?module=membres&action=deconnexion';
+            break;
+        case 'createEvent':
+            return '?module=events&action=create';
+            break;
+        default:
+            return '';
+            break;
     }
 }

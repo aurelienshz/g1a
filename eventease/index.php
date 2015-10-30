@@ -7,17 +7,20 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 */
 
+require 'config.php'; //On charge la config et les fonction de debug
+require INCLUDES.'debug.php';
+
 session_start(); //On initialise la session.
-require 'config.php'; //On charge la config
+$_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
 
-$_SESSION['connected'] = True; //Mode dev : on force la valeur de la var qui détermine si connecté ou pas
 
-if(isset($_GET['page'])) {
-    switch($_GET['page']) {
+if(isset($_GET['module'])) {
+    switch($_GET['module']) {
     // Routage vers les modules :
     case 'accueil':
         require 'controleurs/accueil/index.php';
         break;
+        
     case 'aide':
         require 'controleurs/aide/index.php';
         break;
@@ -42,5 +45,3 @@ if(isset($_GET['page'])) {
 else {
     require 'controleurs/accueil/index.php';
 }
-
-// Routeur externe ? --> A réfléchir (Aurélien)
