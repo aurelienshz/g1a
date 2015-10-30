@@ -2,12 +2,11 @@
 /**** VUE : ACCUEIL ****/
 ?>
 
-<div class="wrapper">
     <section id="bigform">
     <p id="catchphrase">Do you even tease ?</p>
     <p id="subcatchphrase">Bonjour !</p>
         <form method="post" action="">
-            <input id="foo" type="text" placeholder="Texte"/>
+            <input type="text" placeholder="Texte"/>
             <select>
                 <option>1</option>
                 <option>2</option>
@@ -20,8 +19,14 @@
             </select>
             <input type="submit" value="Rechercher"/>
         </form>
-        <a href="#"><div id="boutoncreer">Créer un évènement</div></a>
+        <div id="createButtonContainer">
+            <a href="<?php echo getLink('createEvent'); ?>">
+                <div id="createButton">Créer un évènement</div>
+            </a>
+        </div>
     </section>
+    
+    <div class="wrapper">
     <section class="triptyque" id="suggestions">
         <h4>Rien que pour vous</h4>
 		    <div class="row">

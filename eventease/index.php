@@ -7,10 +7,12 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 */
 
-session_start(); //On initialise la session.
-$_SESSION['debug'] = True;
+require 'config.php'; //On charge la config et les fonction de debug
+require INCLUDES.'debug.php';
 
-require 'config.php'; //On charge la config
+session_start(); //On initialise la session.
+$_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
+
 
 if(isset($_GET['module'])) {
     switch($_GET['module']) {
