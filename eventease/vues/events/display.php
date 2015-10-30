@@ -16,7 +16,8 @@
         Description
     </div>
     <div class = "photo">
-        Plein de photos
+        Plein de photos.
+        <br>Enfin, plus précisémenent, il y aura cinq photos qqui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
     </div>
     <div class = "organisation">
         Organisateurs et participants
