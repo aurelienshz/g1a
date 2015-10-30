@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+html * {
+	font-family: Open Sans, sans-serif;
+	background: #fffef9;
+	color:#03080a;
+}
+
+.image-event img{
+    width:40%;
+    height:auto;
+    float:left
+}
+.info-event h1{
+    text-align: center;
+    font-size: 2em;  
+}
+
+.info-event ul li{
+   list-style-type:none;
+}
+.calendar img{
+    width:4%;
+    height:auto;
+    float:left;
+    margin-left:2em;
+    }
+
+.calendar ul li{
+    padding-left: 47%;
+}
+
+.location{
+    margin-top:2em;
+}
+
+.location img {
+    width: 4%;
+    height:auto;
+    float:left;
+    margin-left:2em;
+}
+
+.location ul li {
+    padding-left:47%;
+}
+
+
