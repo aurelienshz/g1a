@@ -1,3 +1,5 @@
+<?php /* HEADER PARTAGE ENTRE LES PAGES */ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,24 +18,13 @@
 
 </head>
 <body>
-<div id="debug">
-<?php
-/* HEADER PARTAGE ENTRE LES PAGES */
 
-/* MODE DEBUG */
+<?php
+/* Barre de debug : */
 if(isset($_SESSION['debug']) AND $_SESSION['debug']) {
-    echo 'user connecté : ';
-    echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
+    displayDebug();
 }
 ?>
-<div id="palette">
-<div id="color1">#303030</div>
-<div id="color2">#FAFAFA</div>
-<div id="color3">#F94339</div>
-<div id="color4">#68FF68</div>
-<div id="color5">#287DFF</div>
-</div>
-</div>
     <header class="">
         <h1>
             <a href="<?php echo getLink('home'); ?>"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>
