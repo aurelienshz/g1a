@@ -19,7 +19,8 @@ body {
     margin: 0 auto;
     background-color: white;
 }
-/* DEBUG */
+/*********************************/
+/* Debug */
 #debug {
     width: 90%;
     margin: 0 auto;
@@ -74,7 +75,6 @@ header ul {
     top: 25px;
 }
 header ul li {
-/*     margin: 0 3%;    */
     list-style-type: none;
     text-align: center;
 }
@@ -99,12 +99,31 @@ header ul li a {
 
 
 /* Corps de page */
+
 section {
     margin: 0 auto 30px auto;
 }
 .wrapper {
     width: 90%;
     margin: 0 auto;
+}
+
+.row {
+    display: table-row;
+	border: 1px solid black;
+	margin : 0px 20px 0px 20px;
+}
+*[class^=col] {
+    display: table-cell;
+    text-align: center;
+ 	border: 1px solid black;
+    padding : 0;
+}
+.col-2 {
+    width: 50%;
+}
+.col-3 {
+    width: 33.333333%;
 }
 
 /*********************************/
@@ -130,13 +149,14 @@ footer a {
 .footer-row {
     display: table-row;
 }
-.col-3 {
+footer .col-3 {
     width: 33.3333333%;
     display: table-cell;
     text-align: center;
     padding: 10px 10px;
+    border: none;
 }
-.col-3 h3 {
+footer .col-3 h3 {
     margin: 0;
     text-align: center;
     font-size: 1.2em;
