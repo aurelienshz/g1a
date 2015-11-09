@@ -2,16 +2,20 @@
 .onglets {
     font : bold 20px Batang, arial, serif;
     list-style-type : none;
-    padding-bottom : 60px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
-    border-bottom : 1px solid #9EA0A1;
-    margin-left : 0;
+    padding:0;
+    padding-bottom : 40px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
+    width: 100%;
+    display : table;
+    border-collapse: collapse;
 }
 .onglets li {
-    width:33%;
-    float: left;
-    height : 45px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
-    background-color: #F4F9FD;
     border : 1px solid #303030;
+    display: table-cell;
+    width: 33.333333%;
+    height : 45px; /* à modifier suivant la taille de la po4lice pour centrer le texte dans l'onglet */
+    background-color: #F4F9FD;
+    padding:0;
+    margin:0;
 }
 .onglets li.active {
     background-color: #FFFF00;
@@ -20,8 +24,12 @@
     display : block;
     color : #666;
     text-decoration : none;
-    padding : 4px;
+    height : 100%;
+    
 }
 .onglets a:hover {
-    background : #fff;
+    background-color : #fff;
+}
+.profil_onglets {
+    
 }

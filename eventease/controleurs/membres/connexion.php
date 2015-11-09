@@ -14,6 +14,8 @@ function getUserInfo($username) {
     // gestion des erreurs (user non trouvé)
     // -->contrôle du nombre de résultats
 }
+/*****************************************************************************/
+
 
 /* Affichage du formulaire */
 function formConnexion() {
@@ -36,21 +38,18 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
             echo 'pass vérifié';
             $_SESSION['connected'] = True;
             $_SESSION['username'] = $_POST['username'];
-            header('Location: '.getLink('accueil'));
+            header('Location: '.'index.php?module='.$_SESSION['redirect']);
         }
-        else {
-            // User trouvé mais mdp faux
+        else {      // User trouvé mais mdp faux
             echo 'MdP faux';
             formConnexion();
         }
     }
-    else {
-        // user non trouvé
+    else {          // user non trouvé
         echo "User non trouvé";
     }
 }
-else {
-    // Formulaire non rempli
+else {              // Formulaire non rempli
     formConnexion();
 }
 
