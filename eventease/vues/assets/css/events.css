@@ -53,7 +53,9 @@
 }
 .social {
 	float:left;
+	width:20%;
 }
+
 .social ul li{
 	list-style-type:none;
 	line-height:2em;
@@ -190,6 +192,7 @@
 	height:500px;
 	border:1px solid black;
 }
-.social ul li{
-	list-style-image: url('facebook_logo.png');
+.social ul li img {
+	width:20%;
+	height:auto;
 }
