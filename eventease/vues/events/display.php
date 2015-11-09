@@ -23,7 +23,7 @@
 		  </div>
             <div class="social">
                 <ul>
-                    <li id="Facebook"><a href="#">Facebook</a></li>
+                    <li id="Facebook"><a href="#">Facebook<img src="<?php echo IMAGES.'logofacebook.png'; ?>" /></a></li>
                     <li id="Twitter"><a href="#">Twitter</a></li>
                     <li id="LinkedIn"><a href="#">LinkedIn</a></li>
                     <li id="Mail"><a href="#">Mail</a></li>
