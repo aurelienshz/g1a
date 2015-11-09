@@ -144,6 +144,7 @@
 	list-style-type:none;
 	margin-top:0.5px;
 	margin-bottom:0.5px;
+	padding-top: 0.2em;
 }
 .organisation .hosts ul li img{
 	width: 25%;
