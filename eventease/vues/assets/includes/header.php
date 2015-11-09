@@ -45,7 +45,7 @@ if(isset($_SESSION['connected']) AND $_SESSION['connected']) {?>
 else { //Si pas d'user connecté ?>
             <ul id="membre">
                 <li dir="rtl"><a href="<?php echo getLink('connexion'); ?>"><span class="fa fa-sign-in"></span>&nbsp;Connexion</a></li>
-                <li dir="rtl"><a href="#"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>
+                <li dir="rtl"><a href="<?php echo getLink('inscription'); ?>"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>
             </ul>
 <?php } ?>
         </nav>
