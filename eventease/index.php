@@ -7,13 +7,12 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 */
 
+session_start(); //On initialise la session.
+define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
+
 require 'routes.php';
 require 'config.php';
 require INCLUDES.'debug.php';
-
-session_start(); //On initialise la session.
-
-$_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
 
 if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
@@ -22,4 +21,6 @@ if(!isset($_SESSION['connected'])) {
 $module =  (isset($_GET['module']) AND in_array($_GET['module'],$routes))?
             $_GET['module']:'accueil';
 require getRoute($module);
-$_SESSION['redirect'] = ''; // PB : redircetion pour les scripts sans vue
+
+// PB : redirection pour les scripts sans vue ??
+$_SESSION['redirect'] = 'accueil';
