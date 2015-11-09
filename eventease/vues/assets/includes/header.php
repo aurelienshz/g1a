@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
     <link rel="stylesheet" href="<?php echo CSS.'font-awesome.min.css'?>">
     <?php
-    if(isset($styles)) {
-        foreach($styles as $style) {
-            echo '    <link rel="stylesheet" href="' . CSS . $style . '" type="text/css" media="all" />'."\n";
+        if(isset($styles)) {
+            foreach($styles as $style) {
+                echo '    <link rel="stylesheet" href="' . CSS . $style . '" type="text/css" media="all" />'."\n";
+            }
         }
-    }
     ?>
 
 </head>
@@ -21,7 +21,7 @@
 
 <?php
 /* Barre de debug : */
-if(isset($_SESSION['debug']) AND $_SESSION['debug']) {
+if(defined('DEBUG') AND DEBUG==True) {
     displayDebug();
 }
 ?>
