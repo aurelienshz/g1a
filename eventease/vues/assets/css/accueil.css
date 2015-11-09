@@ -1,8 +1,5 @@
 /**** STYLE SPECIFIQUE ACCUEIL ****/
 /* Formulaire : */
-header {
-    margin-bottom: 0; /* On colle le bigform au header */
-}
 #bigform {
     width: 100%;
     background-image: url(../images/tomorrowland.jpg);

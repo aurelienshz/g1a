@@ -23,7 +23,7 @@ body {
 /* Debug */
 #debug { /*T'es bourré donc tu vas oublier, mais elle est plutôt bonne l'idée du width 100% et du padding 5%, non ? */
     width: 100%;
-    padding: 0 5%;
+    padding: 0;
     margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -59,11 +59,12 @@ body {
 /* Header : */
 header {
     height: 70px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 0 auto;
     border-bottom: 2px solid #303030;
     padding: 10px 5% 10px 5%;
     background-color: #FAFAFA;
 }
+
 header h1 {
     float: left;
     height: inherit;
