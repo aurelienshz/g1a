@@ -7,12 +7,13 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 */
 
-session_start(); //On initialise la session.
-define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 require 'routes.php';
 require 'config.php';
 require INCLUDES.'debug.php';
+
+session_start(); //On initialise la session.
+define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
