@@ -38,7 +38,7 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
             echo 'pass vérifié';
             $_SESSION['connected'] = True;
             $_SESSION['username'] = $_POST['username'];
-            header('Location: '.getLink($_SESSION['redirect']));
+            header('Location: '.'index.php?module='.$_SESSION['redirect']);
         }
         else {      // User trouvé mais mdp faux
             echo 'MdP faux';
