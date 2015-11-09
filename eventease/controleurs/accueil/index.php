@@ -12,7 +12,7 @@ $styles = ['accueil.css'];
 // Traitements
 
 if(!(isset($_SESSION['connected']) AND $_SESSION['connected'])) {
-    $triptyque = file_get_contents(INCLUDES.'features.php');
+    $triptyque = file_get_contents('vues/accueil/features.php');
 }
 else {
     $triptyque = "<h4>Events à venir</h4>";
