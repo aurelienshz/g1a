@@ -1,5 +1,8 @@
 <div class="wrapper">
     <div class ="intro_evenement">
+        <div class = "photo_evenement">
+            <img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>" alt="Coucou"/>
+        </div>
         <div class ="infos">
             <div class = "titre_event">
             <h1>Nom de l'événement </h1>
@@ -8,9 +11,6 @@
                     <li> <i class="maclasse fa fa-map"></i>     Lieu </li>
 				</ul>
             </div>
-        </div>
-        <div class = "photo_evenement">
-            <img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>" alt="Coucou"/>
         </div>
 		<div class="buttons">
 			<ul>
@@ -27,7 +27,8 @@
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
     <div class = "photo">
-        Plein de photos
+        Plein de photos.
+        <br>Enfin, plus précisémenent, il y aura cinq photos qqui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
     </div>
     <div class = "organisation">
         Organisateurs et participants
