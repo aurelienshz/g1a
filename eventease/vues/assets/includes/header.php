@@ -7,7 +7,7 @@
     <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
 
     <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
     <?php
     if(isset($styles)) {
         foreach($styles as $style) {
