@@ -24,8 +24,12 @@ function getLink($action) {
         case 'logout':
             return '?module=membres&action=deconnexion';
             break;
-        case 'createEvent':
-            return '?module=events&action=create';
+        case 'displayEvent':
+            return '?module=events&action=display';
+            break;
+        case 'displayProfil':
+        case 'displayProfile':
+            return '?module=membres&action=profil';
             break;
         default:
             return '';

@@ -11,13 +11,17 @@ require 'config.php'; //On charge la config et les fonction de debug
 require INCLUDES.'debug.php';
 
 session_start(); //On initialise la session.
-$_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
 
+$_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
+if(!isset($_SESSION['connected'])) {
+    $_SESSION['connected'] = False;
+}
 
 if(isset($_GET['module'])) {
     switch($_GET['module']) {
     // Routage vers les modules :
     case 'accueil':
+        $_SESSION['redirect'] = 'accueil';
         require 'controleurs/accueil/index.php';
         break;
         
@@ -25,6 +29,7 @@ if(isset($_GET['module'])) {
         require 'controleurs/aide/index.php';
         break;
     case 'events':
+        $_SESSION['redirect'] = 'events';
         require 'controleurs/events/index.php';
         break;
     case 'forum':
@@ -38,10 +43,12 @@ if(isset($_GET['module'])) {
         break;
     // Si jamais la valeur n'est pas reconnue, on defaulte sur l'accueil :
     default:
+        $_SESSION['redirect'] = 'accueil';
         require 'controleurs/accueil/index.php';
         break;
     }
 }
 else {
+    $_SESSION['redirect'] = 'accueil';
     require 'controleurs/accueil/index.php';
 }
