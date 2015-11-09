@@ -7,7 +7,6 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 */
 
-
 require 'routes.php';
 require 'config.php';
 require INCLUDES.'debug.php';
