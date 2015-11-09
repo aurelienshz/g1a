@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <form method="post" action="<?php getLink('connexion'); ?>">
+    <form method="post" action="<?php getLink('inscription'); ?>">
         <label for="username">Nom d'utilisateur</label>
         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur"/>
 
