@@ -26,18 +26,17 @@
 }
 .titre_event {
 	display:block;
-	float:right;
 	width:100%;
 	height:90px;
 }
 .infos {
 	display:block;
-	float:right;
+	float:left;
 	width:55%;
 	height:80%;
 	}
 .titre_event h1{
-	text-align:center;
+	text-align:right;
 	font-size:2.5em;
 }
 .buttons ul li a{
@@ -86,13 +85,13 @@
 .photo {
 	display:block;
 	width: 100%;
-	height:200px;
+	height:300px;
 	border:1px solid red;
 }
 .organisation {
 	display:block;
 	width: 100%;
-	height:200px;
+	height:300px;
 	border:1px solid blue;
 }
 .commentaire {
