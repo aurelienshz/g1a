@@ -11,7 +11,10 @@ require 'config.php'; //On charge la config et les fonction de debug
 require INCLUDES.'debug.php';
 
 session_start(); //On initialise la session.
-$_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
+if(!(isset($_SESSION['connected']))) {
+    $_SESSION['connected'] = False;
+}
+$_SESSION['debug'] = False; // Activation du mode debug. Passer à False pour désactiver.
 
 
 if(isset($_GET['module'])) {
