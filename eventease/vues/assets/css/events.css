@@ -92,13 +92,61 @@
 	display:block;
 	width: 100%;
 	height:300px;
-	border:1px solid blue;
+	padding-left:5%;
 }
-.organisation ul li{
+.organisation  h3{
+	text-align:center;
+}
+.organisation .hosts{
+	display:block;
+	width:40%;
+	float:left;
+	margin-left:5%;
+}
+.organisation .hosts ul li{
 	list-style-type:none;
+	margin-top:0.5px;
+	margin-bottom:0.5px;
 }
-.organisation ul li img{
-	
+.organisation .hosts ul li img{
+	width: 25%;
+	height: auto;
+	vertical-align:middle;
+}
+.organisation .hosts ul li a{
+	text-decoration:none;
+	padding-right:1em;
+	color: black;
+}
+.organisation .hosts ul li a:hover{
+	font-weight:bold;
+}
+.organisation .hosts ul li a:active{
+	color: #F94339;
+}
+.organisation .friends_going{
+	display:block;
+	width:40%;
+	height:100%;
+	float:left;
+}
+.organisation .friends_going table{
+	margin-top:2.5em;
+}
+
+.organisation .friends_going table tr td img{
+	width:65%;
+	height:auto;
+}
+.organisation .friends_going table tr td a{
+	text-decoration:none;
+	color:black;
+}
+.organisation .friends_going table tr td a:hover{
+	font-weight:bold;
+}
+.organisation .friends_going table tr td a:active{
+	color: #F94339;
 }
 .commentaire {
 	display:block;
