@@ -31,7 +31,13 @@
     </div>
     <div class = "organisation">
         Organisateurs et participants
-        <i class="fa fa-calendar-o"></i>
+		<div class="organisateurs">
+			<ul>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> Nom - Pseudo </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> Nom - Pseudo </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> Nom - Pseudo </li>
+			</ul>
+		</div>
     </div>
     <div class = "commentaire">
         Plein de commentaires

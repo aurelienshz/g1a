@@ -67,8 +67,8 @@
 }
 .buttons ul li a.active {
 	background-color: #FF0033;
-	border-right:5px solid #FF0033;
-	border-bottom:5px solid #FF0033;
+	border-right:5px solid #F94339;
+	border-bottom:5px solid #F94339;
 }
 .description {
 	display:block;
@@ -94,6 +94,12 @@
 	width: 100%;
 	height:200px;
 	border:1px solid blue;
+}
+.organisation ul li{
+	list-style-type:none;
+}
+.organisation ul li img{
+	
 }
 .commentaire {
 	display:block;
