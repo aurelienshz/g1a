@@ -33,7 +33,6 @@
     </div>
     <div class ="description">
         <h2>Description</h2>
-        <img src="<?php echo IMAGES.'facebook_logo.png'; ?>" alt="Coucou"/>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae 
 		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla 
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
