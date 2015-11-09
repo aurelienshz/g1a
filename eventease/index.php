@@ -7,48 +7,19 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 */
 
-require 'config.php'; //On charge la config et les fonction de debug
+require 'routes.php';
+require 'config.php';
 require INCLUDES.'debug.php';
 
 session_start(); //On initialise la session.
 
 $_SESSION['debug'] = True; // Activation du mode debug. Passer à False pour désactiver.
+
 if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
 }
 
-if(isset($_GET['module'])) {
-    switch($_GET['module']) {
-    // Routage vers les modules :
-    case 'accueil':
-        $_SESSION['redirect'] = 'accueil';
-        require 'controleurs/accueil/index.php';
-        break;
-        
-    case 'aide':
-        require 'controleurs/aide/index.php';
-        break;
-    case 'events':
-        $_SESSION['redirect'] = 'events';
-        require 'controleurs/events/index.php';
-        break;
-    case 'forum':
-        require 'controleurs/forum/index.php';
-        break;
-    case 'membres':
-        require 'controleurs/membres/index.php';
-        break;
-    case 'messagerie':
-        require 'controleurs/messagerie/index.php';
-        break;
-    // Si jamais la valeur n'est pas reconnue, on defaulte sur l'accueil :
-    default:
-        $_SESSION['redirect'] = 'accueil';
-        require 'controleurs/accueil/index.php';
-        break;
-    }
-}
-else {
-    $_SESSION['redirect'] = 'accueil';
-    require 'controleurs/accueil/index.php';
-}
+$module =  (isset($_GET['module']) AND in_array($_GET['module'],$routes))?
+            $_GET['module']:'accueil';
+require getRoute($module);
+$_SESSION['redirect'] = ''; // PB : redircetion pour les scripts sans vue
