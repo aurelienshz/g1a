@@ -23,10 +23,11 @@
 		  </div>
             <div class="social">
                 <ul>
-                    <li id="Facebook"><a href="#">Facebook<img src="<?php echo IMAGES.'logofacebook.png'; ?>" /></a></li>
-                    <li id="Twitter"><a href="#">Twitter</a></li>
-                    <li id="LinkedIn"><a href="#">LinkedIn</a></li>
-                    <li id="Mail"><a href="#">Mail</a></li>
+                    <li><img src="<?php echo IMAGES.'facebook.svg'; ?>"/><a href="#">Facebook</a></li>
+                    <li><img src="<?php echo IMAGES.'twitter.svg'; ?>"/><a href="#">Twitter</a></li>
+                    <li><img src="<?php echo IMAGES.'linkedin.svg'; ?>"/><a href="#">LinkedIn</a></li>
+                    <li><img src="<?php echo IMAGES.'mail.svg'; ?>"/><a href="#">Mail</a></li>
+                    <li>Faire cela sous forme de tableau</li>
                 </ul>
             </div>
         </div>
