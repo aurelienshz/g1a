@@ -43,8 +43,31 @@
         <br>Enfin, plus précisémenent, il y aura cinq photos qqui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
     </div>
     <div class = "organisation">
-        Organisateurs et participants
-        <i class="fa fa-calendar-o"></i>
+		<div class = "hosts">
+		<h3>Organisateurs</h3>
+			<ul>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Nom - Pseudo</a> </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Nom - Pseudo</a> </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Nom - Pseudo</a> </li>
+			</ul>
+		</div>
+		<div class = "friends_going">
+		<h3> Vos amis qui y vont </h3>
+		<table style="width=100%">
+			<tr height="15%">
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+			</tr>
+			<tr>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Nom - Pseudo</a></td>
+			</tr>
+		</table>
+		</div>
     </div>
     <div class = "commentaire">
         Plein de commentaires
