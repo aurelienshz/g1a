@@ -1,4 +1,5 @@
-<?php /* HEADER PARTAGE ENTRE LES PAGES */ ?>
+<?php
+/* HEADER PARTAGE ENTRE LES PAGES */ ?>
 
 <!DOCTYPE html>
 <html>

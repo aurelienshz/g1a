@@ -10,27 +10,34 @@ Ajout d'une route :
 
 // forme de $_SESSION['page'] : [$module,$action]
 
-function routeModule($module, $modulesDefined) {
-	if(in_array($module, $modulesDefined)) {
-		$moduleRouted = $module;
+$moduleRouted = '';
+$routeDebug = [];
+
+function route($module, $action) {
+	global $modules, $actionParams;
+	if(in_array($module, $modules)) {
+		$moduleRouted = $module.'/';
 	}
 	else {
-		$moduleRouted = $modulesDefined[0];
+		$moduleRouted = $modules[0].'/';
 	}
-	if(False) {//Le module requis est dépourvu de vue
-		$_SESSION['redirect'] = '';
-	}
-	return CONTROLEURS.$moduleRouted.'/index.php';
-}
+	if(file_exists(CONTROLEURS.$moduleRouted.'actions.php')) {
 
+		require CONTROLEURS.$moduleRouted.'actions.php';
+		if(in_array($action, $actions)) {
+			$actionRouted = $action;
+		}
+		else {
+			$actionRouted = $actions[0];
+		}
 
-function routeAction($action, $actionsDefined) {
-	if(in_array($action, $actionsDefined)) {
-		$actionRouted = $action;
 	}
 	else {
-		$actionRouted = $actionsDefined[0];
+		$actionRouted = 'index';
 	}
+
+	require CONTROLEURS.$moduleRouted.$actionRouted.'.php';
+	return True;
 }
 
 // Paramètres possibles pour une action donnée définis dans la config du module

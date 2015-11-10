@@ -1,5 +1,5 @@
 <?php
-/* CONTROLEUR MEMBRES */
+/* DEFINITION MEMBRES */
 
 $actions = [
 'profil',
@@ -7,5 +7,3 @@ $actions = [
 'deconnexion',
 'inscription'
 ];
-
-routeAction($_GET['action'], $actions);

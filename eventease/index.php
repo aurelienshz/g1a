@@ -21,6 +21,10 @@ if(!isset($_SESSION['connected'])) {
 
 // Choix du module vers lequel on va router :
 $module = isset($_GET['module']) ? $_GET['module'] : 'default';
+$action = isset($_GET['action']) ? $_GET['action'] : 'default';
 
+// chargement des actions
+// routage unique vers le bon module et la bonne action en chargeant un tableau param avec les paramètres passés en URL
 // Routage :
-require routeModule($module,$modules);
+
+route($module,$action);
