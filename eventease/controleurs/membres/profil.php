@@ -4,7 +4,7 @@
 /**** Préparation des contenus ****/
 // Chargement des paramètres de la page
 $title = 'Profil';
-$styles = ['membres.css'];
+$styles = ['onglets_compte.css','membres.css'];
 
 // Appels au modèle
 // Appels au modèle
