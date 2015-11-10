@@ -8,6 +8,9 @@
         case 'deconnexion':
             require 'controleurs/membres/deconnexion.php';
             break;
+        case 'inscription':
+            require 'controleurs/membres/inscription.php';
+            break;
         case 'profil':
             require 'controleurs/membres/profil.php';
             break;

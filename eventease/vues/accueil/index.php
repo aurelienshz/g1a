@@ -6,22 +6,22 @@
     <p id="catchphrase">Do you even tease ?</p>
     <p id="subcatchphrase">Bonjour !</p>
         <form method="post" action="">
-            <input type="text" placeholder="Texte"/>
-            <select>
+            <input type="text" placeholder="Texte"/><!--
+         --><select>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
-            </select>
-            <select>
+            </select><!--
+         --><select>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
-            </select>
-            <input type="submit" value="Rechercher"/>
+            </select><!--
+         --><input type="submit" value="Rechercher"/>
         </form>
         <div id="createButtonContainer">
             <a href="<?php echo getLink('createEvent'); ?>">
-                <div id="createButton">Créer un évènement</div>
+                <div id="createButton"><span id="createButtonLink">Créer un évènement</span></div>
             </a>
         </div>
     </section>

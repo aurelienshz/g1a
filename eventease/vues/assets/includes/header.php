@@ -7,7 +7,7 @@
     <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
 
     <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
     <?php
     if(isset($styles)) {
         foreach($styles as $style) {
@@ -45,7 +45,7 @@ if(isset($_SESSION['connected']) AND $_SESSION['connected']) {?>
 else { //Si pas d'user connecté ?>
             <ul id="membre">
                 <li dir="rtl"><a href="<?php echo getLink('connexion'); ?>"><span class="fa fa-sign-in"></span>&nbsp;Connexion</a></li>
-                <li dir="rtl"><a href="#"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>
+                <li dir="rtl"><a href="<?php echo getLink('inscription'); ?>"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>
             </ul>
 <?php } ?>
         </nav>

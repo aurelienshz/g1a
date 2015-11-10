@@ -20,6 +20,9 @@ function getLink($action) {
         case 'login':
             return '?module=membres&action=connexion';
             break;
+        case 'inscription':
+            return '?module=membres&action=inscription';
+            break;
         case 'deconnexion':
         case 'logout':
             return '?module=membres&action=deconnexion';

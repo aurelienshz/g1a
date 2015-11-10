@@ -11,7 +11,7 @@ function displayDebug() {
         <div id="color1">#303030</div>
         <div id="color2">#FAFAFA</div>
         <div id="color3">#F94339</div>
-        <div id="color4">#68FF68</div>
+        <div id="color4">#36B136</div>
         <div id="color5">#287DFF</div>
     </div>
     <h3>Accès rapide vers les maquettes :</h3>

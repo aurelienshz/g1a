@@ -1,15 +1,13 @@
 /**** STYLE SPECIFIQUE ACCUEIL ****/
 /* Formulaire : */
-header {
-    margin-bottom: 0; /* On colle le bigform au header */
-}
 #bigform {
     width: 100%;
-    background-image: url(../images/tomorrowland.jpg);
-    background-repeat: repeat;
+/*  background-image: url(../images/tomorrowland.jpg);
+    background-repeat: repeat; */
+    background-color: #287DFF;
     text-align: center;
     margin: 0 auto 30px auto;
-    padding: 50px 0;
+    padding: 60px 0;
     border-bottom: 1px solid #303030;
 }
 #catchphrase {
@@ -23,35 +21,53 @@ header {
     margin: 0 0 20px 0;
 }
 #bigform form {
-    width: 60%;
+    width: 80%;
     margin: 0 auto 30px auto;
 }
+#bigform input, #bigform select, #bigform option {
+    margin: 0px;
+    padding: 0;
+    width: 24%;
+    padding: 0 1%;
+    height: 40px;
+    border: 1px solid #303030;
+    border-right: 0;
+}
+#bigform form input[type="text"] {
+    height: 38px;   
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#bigform form input[type="submit"] {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: 1px solid #303030;
+}
 #createButtonContainer {
-    width: 20%;
+    width: 25%;
     margin: 0 auto;
 }
 #createButtonContainer a {
     text-decoration: none;
 }
 #createButton {
-    background-color: #68FF68;
-    border: 1px solid black;
-    padding: 10px 0;
+    padding: 25px 0;
+    vertical-align: middle;
+    background-color: #36B136;
+    border: 0;
     width: 100%;
     margin: 0 auto;
-    color: black;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 1.1em;
+    color:#FAFAFA;
+    border-radius: 15px;
+    border-bottom: 2px solid #303030;
+    border-right: 2px solid #303030;
+    line-height: 20px;
 }
-#bigform input:focus {
-    border: 1px solid grey;
-}
-#bigform input, #bigform select, #bigform option {
-    margin: 0px;
-    padding: 0;
-    width: 24%;
-    height: 40px;
-    border: 1px solid black;
+#createButton:hover {
+    background-color: #369036;
 }
 
 /******************************************/
