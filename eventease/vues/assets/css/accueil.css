@@ -36,7 +36,11 @@
     width: 24%;
     padding: 0 1%;
     border: 1px solid #303030;
+    border-radius: 0;
     border-right: 0;
+}
+#bigform form select {
+
 }
 #bigform form input[type="text"] {
     border-top-left-radius: 5px;
