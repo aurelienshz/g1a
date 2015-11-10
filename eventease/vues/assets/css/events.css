@@ -186,10 +186,21 @@
 	height:500px;
 	border:1px solid black;
 }
-.socials table {
-
+.social table {
+	text-align: center;
+	padding: 1em;
+	padding-left: 3em;
 }
 .socials {
-	font-size: 2em;
+	font-size: 3em;
 	height:auto;
+}
+.social a:visited{
+	color: inherit;
+}
+.social a:hover{
+	color:inherit;
+}
+.social  a.active {
+	color:inherit;
 }
