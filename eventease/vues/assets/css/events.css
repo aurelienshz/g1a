@@ -55,12 +55,6 @@
 	float:left;
 	width:20%;
 }
-
-.social ul li{
-	list-style-type:none;
-	line-height:2em;
-}
-
 .buttons ul li a{
 	display:block;
 	position:relative;
@@ -192,7 +186,10 @@
 	height:500px;
 	border:1px solid black;
 }
-.social ul li img {
-	width:20%;
+.socials table {
+
+}
+.socials {
+	font-size: 2em;
 	height:auto;
 }

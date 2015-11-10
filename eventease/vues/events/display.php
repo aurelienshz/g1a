@@ -22,12 +22,14 @@
 			</ul>
 		  </div>
             <div class="social">
-                <ul>
-                    <li><img src="<?php echo IMAGES.'facebook.svg'; ?>"/><a href="#">Facebook</a></li>
-                    <li><img src="<?php echo IMAGES.'twitter.svg'; ?>"/><a href="#">Twitter</a></li>
-                    <li><img src="<?php echo IMAGES.'linkedin.svg'; ?>"/><a href="#">LinkedIn</a></li>
-                    <li><img src="<?php echo IMAGES.'mail.svg'; ?>"/><a href="#">Mail</a></li>
-                    <li>Faire cela sous forme de tableau</li>
+                <table>
+                    <tr>
+                        <th><a href="#"><i class="socials fa fa-facebook-square"></i><br> Facebook</a>
+                        <th><i class="socials fa fa-twitter-square"></i><a href="#"><br> Twitter</a>
+                    <tr>
+                        <th><i class="socials fa fa-linkedin-square"></i><a href="#"><br>LinkedIn</a>
+                        <th><i class="socials fa fa-envelope-o"></i><a href="#"><br>Mail</a>
+                </table>
                 </ul>
             </div>
         </div>
