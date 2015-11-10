@@ -3,10 +3,10 @@
         <div class = "photo_evenement">
             <img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>" alt="Coucou"/>
         </div>
+        <div class = "title_event">
+            <h1>Nom de l'événement </h1>
+        </div>
         <div class ="infos">
-            <div class = "title_event">
-                <h1>Nom de l'événement </h1>
-            </div>
             <div id="useful_infos">
                 <ul>
                     <li> <i class="maclasse fa fa-calendar-o"></i>   Date</li>
@@ -22,12 +22,14 @@
 			</ul>
 		  </div>
             <div class="social">
-                <ul>
-                    <li><img src="<?php echo IMAGES.'facebook.svg'; ?>"/><a href="#">Facebook</a></li>
-                    <li><img src="<?php echo IMAGES.'twitter.svg'; ?>"/><a href="#">Twitter</a></li>
-                    <li><img src="<?php echo IMAGES.'linkedin.svg'; ?>"/><a href="#">LinkedIn</a></li>
-                    <li><img src="<?php echo IMAGES.'mail.svg'; ?>"/><a href="#">Mail</a></li>
-                    <li>Faire cela sous forme de tableau</li>
+                <table>
+                    <tr>
+                        <td><a href="#"><i class="socials fa fa-facebook-square"></i><br> Facebook</a>
+                        <td><a href="#"><i class="socials fa fa-twitter-square"></i><br> Twitter</a>
+                    <tr>
+                        <td><a href="#"><i class="socials fa fa-linkedin-square"></i><br>LinkedIn</a>
+                        <td><a href="#"><i class="socials fa fa-envelope-o"></i><br>Mail</a>
+                </table>
                 </ul>
             </div>
         </div>

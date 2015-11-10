@@ -12,7 +12,7 @@ function getUserInfo($username) {
     }
     return $auth;
     // gestion des erreurs (user non trouvé)
-    // -->contrôle du nombre de résultats
+    // -->contrôle du nombre de résultats ?
 }
 /*****************************************************************************/
 

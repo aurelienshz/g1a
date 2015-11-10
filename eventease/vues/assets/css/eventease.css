@@ -50,7 +50,7 @@ body {
 #color1 {background-color: #303030;}
 #color2 {background-color: #FAFAFA; color: #303030;}
 #color3 {background-color: #F94339;}
-#color4 {background-color: #68FF68; color: #303030;}
+#color4 {background-color: #36B136; color: #303030;}
 #color5 {background-color: #287DFF;}
 #debug h3 {
     margin: 10px 0 0 0;
@@ -59,11 +59,12 @@ body {
 /* Header : */
 header {
     height: 70px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 0 auto;
     border-bottom: 2px solid #303030;
     padding: 10px 5% 10px 5%;
     background-color: #FAFAFA;
 }
+
 header h1 {
     float: left;
     height: inherit;
@@ -84,7 +85,7 @@ header ul li {
     text-align: center;
 }
 header ul li a {
-    color: #090909;
+    color: #303030;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
@@ -110,7 +111,7 @@ section {
 }
 .wrapper {
     width: 90%;
-    margin: 0 auto;
+    margin: 30px auto 30px auto;
 }
 
 .row {
@@ -136,7 +137,7 @@ section {
 footer {
     width: 100%;
     background-color: #303030;
-    border-top: 1px solid black;
+    border-top: 2px solid black;
     color: #FAFAFA;
     padding-bottom: 20px;
 }
