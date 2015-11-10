@@ -3,10 +3,10 @@
         <div class = "photo_evenement">
             <img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>" alt="Coucou"/>
         </div>
+        <div class = "title_event">
+            <h1>Nom de l'événement </h1>
+        </div>
         <div class ="infos">
-            <div class = "title_event">
-                <h1>Nom de l'événement </h1>
-            </div>
             <div id="useful_infos">
                 <ul>
                     <li> <i class="maclasse fa fa-calendar-o"></i>   Date</li>
@@ -42,7 +42,7 @@
     </div>
     <div class = "photo">
         Plein de photos.
-        <br>Enfin, plus précisémenent, il y aura cinq photos qqui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
+        <br>Enfin, plus précisémenent, il y aura cinq photos qui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
     </div>
     <div class = "organisation">
 		<div class = "hosts">
