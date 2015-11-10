@@ -19,5 +19,6 @@ switch($_GET['action']) {
         break;
 }
 
-
-// A la fin on NE DOIT PAS se retrouver en ayant rien fait;
+// Il y a quelque part une fonction route
+// $routes=[connexion, deconnexion, inscription, profil];
+// route('action', $routes);
