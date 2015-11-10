@@ -14,6 +14,7 @@ require 'routes.php';
 require 'config.php';
 require INCLUDES.'debug.php';
 
+
 if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
 }

@@ -6,9 +6,9 @@ Utilisées par le contrôleur frontal pour diriger vers la bonne action et le bo
 
 Ajout d'une route :
 à documenter
-*/
 
 // forme de $_SESSION['page'] : [$module,$action]
+*/
 
 function routeModule($module, $modulesDefined) {
 	if(in_array($module, $modulesDefined)) {
