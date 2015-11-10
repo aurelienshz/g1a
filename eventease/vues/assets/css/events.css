@@ -3,9 +3,9 @@
 	display:block;
 	width:100%;
 	height: 300px;
-	border: 2px solid blue;
 }
 .photo_evenement {
+	position:relative;
 	display:block;
 	float:left;
 	width:30%;
@@ -13,7 +13,12 @@
 }
 .photo_evenement img{
 	width:100%;
-	height:100%;
+	height:auto;
+	position:absolute;
+	top:50%;
+	padding: 2px;
+	border: 1px solid black;
+	transform: translate(0, -50%);
 }
 #useful_infos ul li {
 	list-style-type:none;
@@ -63,7 +68,7 @@
 	width:auto;
 	margin: 0px 0.2em 0.2em 0px;
 	border-radius: 10px;
-	font-size: 1.2em;
+	font-size: 100%;
 	text-align:center;
 	text-decoration: none;	
 	color: #FAFAFA;
@@ -80,7 +85,7 @@
 	width:auto;
 	margin: 0px 0.2em 0.2em 0px;
 	border-radius: 10px;
-	font-size: 2.4em;
+	font-size: 150%;
 	text-align:center;
 	text-decoration: none;	
 	color: #FAFAFA;
@@ -186,7 +191,9 @@
 	height:500px;
 	border:1px solid black;
 }
-.social table {
+table {
+	float:left;
+	width:20%;
 	text-align: center;
 	padding: 1em;
 	padding-left: 3em;
@@ -195,12 +202,12 @@
 	font-size: 3em;
 	height:auto;
 }
-.social a:visited{
+table a:visited{
 	color: inherit;
 }
-.social a:hover{
+table a:hover{
 	color:inherit;
 }
-.social  a.active {
+table  a.active {
 	color:inherit;
 }
