@@ -5,7 +5,7 @@ function displayDebug() {
     echo '<div id="debug">';
     echo 'user connecté : ';
     echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
-    $maquettes = ['displayEvent','displayProfile'];
+    $maquettes = [['events','display'],['membres','profil']];
 ?>
     <div id="palette">
         <div id="color1">#303030</div>
@@ -18,7 +18,7 @@ function displayDebug() {
     <div id="maquettes">
         <?php
         foreach($maquettes as $maquette) {
-            echo '<li><a href="'.getlink($maquette).'">'.$maquette.'</a></li>';
+            echo '<li><a href="'.getlink($maquette).'">'.implode(' -> ',$maquette).'</a></li>';
         }
         ?>
     </div>

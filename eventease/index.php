@@ -18,9 +18,5 @@ if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
 }
 
-$module =  (isset($_GET['module']) AND in_array($_GET['module'],$routes))?
-            $_GET['module']:'accueil';
-require getRoute($module);
-
-// PB : redirection pour les scripts sans vue ??
-$_SESSION['redirect'] = 'accueil';
+$module = isset($_GET['module'])?$_GET['module']:'default';
+require routeModule($module,$modules);
