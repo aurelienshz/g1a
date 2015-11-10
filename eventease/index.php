@@ -14,9 +14,13 @@ require INCLUDES.'debug.php';
 session_start(); //On initialise la session.
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
+// Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
 if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
 }
 
-$module = isset($_GET['module'])?$_GET['module']:'default';
+// Choix du module vers lequel on va router :
+$module = isset($_GET['module']) ? $_GET['module'] : 'default';
+
+// Routage :
 require routeModule($module,$modules);

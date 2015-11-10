@@ -10,6 +10,8 @@ define('CSS', PATH_ASSETS."css/");
 define('IMAGES', PATH_ASSETS . "images/");
 define('INCLUDES', PATH_ASSETS . "includes/");
 
+
+// Définition des modules constituant l'application
 $modules = [
 'accueil',
 'membres',
