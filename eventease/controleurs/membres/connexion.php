@@ -52,4 +52,3 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
 else {              // Formulaire non rempli
     formConnexion();
 }
-
