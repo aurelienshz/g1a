@@ -84,8 +84,27 @@
 			<ul>
 				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Nom-Pseudo </li>
 			</ul>
-			<div class="text_comment"> <p>Votre commentaire...</p></div>
-			<div class="button_comment"> <a href="#">Ajouter</a> </div>
-        </div>
+			<div class="text_comment"> 
+				<p>Votre commentaire...</p>
+			</div>
+			<div class="button_comment">
+				<a href="#">Ajouter</a> 
+			</div>
+			<div class="add_media">
+				<a href="#"> Ajouter une image </a>
+			</div>
+		</div>
+		<div class="previous_comments">
+			<div class="comment">
+				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Nom-Pseudo</a> <span>- Date du commentaire</span>
+				<br>Commentaire...................................................................................................
+				</p>
+			</div>
+			<div class="comment">
+				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Nom-Pseudo</a> <span>- Date du commentaire</span>
+				<br>Commentaire...
+				</p>
+			</div>
+		</div>
     </div>
 </div>
