@@ -1,38 +1,10 @@
 @CHARSET "UTF-8";
-.onglets {
-    font-weight: bold;
-    font-size: 25px;
+.interaction_profil {
     list-style-type : none;
-    padding:0;
-    margin:0;
-    width: 99.999999%;
-    display : table;
-    border-collapse: collapse;
 }
-.onglets li {
-    border : 2px solid #303030;
-    border-top : 0;
-    display: table-cell;
-    width: 33.333333%;
-    height : 60px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
-    background-color: #F4F9FD;
-    padding:0;
-    margin:0;
+.col_droite {
+    border: none
 }
-.onglets li.active {
-    background-color: #FFFF00;
-}
-.onglets a {
-    display : block;
-    color : #666;
-    text-decoration : none;
-    height : 60px;
-    line-height: 60px;
-    text-align : center;
-}
-.onglets a:hover {
-    background-color : #fff;
-}
-.profil_onglets {
-    padding-bottom : 40px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans .onglets li */
+.col_gauche {
+    border: none
 }

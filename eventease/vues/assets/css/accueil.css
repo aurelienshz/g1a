@@ -39,9 +39,6 @@
     border-radius: 0;
     border-right: 0;
 }
-#bigform form select {
-
-}
 #bigform form input[type="text"] {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;

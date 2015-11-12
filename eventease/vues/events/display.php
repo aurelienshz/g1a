@@ -42,7 +42,7 @@
     </div>
     <div class = "photo">
         Plein de photos.
-        <br>Enfin, plus précisémenent, il y aura cinq photos qqui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
+        <br>Enfin, plus précisémenent, il y aura cinq photos qui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
     </div>
     <div class = "organisation">
 		<div class = "hosts">
