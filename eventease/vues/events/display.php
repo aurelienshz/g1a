@@ -41,8 +41,15 @@
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
     <div class = "photo">
-        Plein de photos.
-        <br>Enfin, plus précisémenent, il y aura cinq photos qui seront affichées à la fois, ainsi qu'une possibilité de faire défiler les images.
+        <table>
+            <tr>
+                <td id="left_arrow">Left arrow
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
+                <td id="right_arrow">Right arrow
+        </table>
     </div>
     <div class = "organisation">
 		<div class = "hosts">
