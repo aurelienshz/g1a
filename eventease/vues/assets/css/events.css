@@ -78,21 +78,7 @@
 	text-shadow:0px -1px #FF0033;
 }
 #Participe{
-	display:block;
-	position:relative;
-	margin-top:5px;
-	padding: 0.2em 0.8em;
-	width:auto;
-	margin: 0px 0.2em 0.2em 0px;
-	border-radius: 10px;
-	font-size: 150%;
-	text-align:center;
-	text-decoration: none;	
-	color: #FAFAFA;
-	background-color:#F94339;
-	border-bottom:5px solid #FF0033;
-	border-right:5px solid #FF0033;
-	text-shadow:0px -1px #FF0033;
+	font-size:150%;
 }
 .buttons ul li {
 	list-style-type:none;
@@ -110,7 +96,6 @@
 	display:block;
 	width:100%;
 	height:300px;
-	border: 1px solid green;
 }
 .description p {
 	display:block;
@@ -120,10 +105,11 @@
 	margin:auto;
 }
 .photo {
+	margin-top:2em;
 	display:block;
 	width: 100%;
 	height:300px;
-	border:1px solid red;
+	background-color: #666666;
 }
 .organisation {
 	display:block;
@@ -248,6 +234,7 @@
 	text-shadow:0px -1px #FF0033;
 	float:right;
 }
+<<<<<<< HEAD
 .button_comment{
 	margin-top:0.5em;
 }
@@ -285,6 +272,9 @@
 }
 
 .table {
+=======
+.social table {
+>>>>>>> 96f5293b318ce81662408eeec6347a0751f3fb1e
 	float:left;
 	width:20%;
 	text-align: center;
@@ -295,15 +285,34 @@
 	font-size: 3em;
 	height:auto;
 }
-table a{
+.social table a{
 	color:black;
 }
-table a:visited{
+.social table a:visited{
 	color: inherit;
 }
-table a:hover{
+.social table a:hover{
 	color:inherit;
 }
-table  a.active {
+.social table  a.active {
 	color:inherit;
+}
+#left_arrow {
+	width:10%;
+}
+#right_arrow {
+	width:10%;
+}
+.photo {
+	position:relative;
+}
+.photo table {
+	position:absolute;
+	top:50%;
+	transform: translate(0, -50%);non
+}
+.photo table td img{
+	padding:auto;
+	width:100%;
+	height:auto;
 }
