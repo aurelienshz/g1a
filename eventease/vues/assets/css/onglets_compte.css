@@ -36,3 +36,9 @@
 .profil_onglets {
     padding-bottom : 40px;
 }
+#left_tab {
+    border-left: 0
+}
+#right_tab{
+    border-right: 0
+}
