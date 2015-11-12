@@ -7,7 +7,7 @@ function displayDebug() {
     echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
     echo 'user connecté : ';
     echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
-    $maquettes = [['events','display'],['membres','profil'],['membres','profil',666]];
+    $maquettes = [['events','display'],['events','display',666],['membres','profil'],['membres','profil',666]];
 ?>
     <div id="palette">
         <div id="color1">#303030</div>
