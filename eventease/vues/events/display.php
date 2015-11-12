@@ -72,6 +72,13 @@
 		</div>
     </div>
     <div class = "commentaire">
-        Plein de commentaires
+		<h3> Commentaires </h3>
+		<div class="add_comment">
+			<ul>
+				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Nom-Pseudo </li>
+			</ul>
+			<div class="text_comment"> <p>Votre commentaire...</p></div>
+			<div class="button_comment"> <a href="#">Ajouter</a> </div>
+        </div>
     </div>
 </div>
