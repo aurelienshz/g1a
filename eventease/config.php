@@ -13,6 +13,7 @@ define('CONTROLEURS', "controleurs/");
 define('VUES', "vues/");
 
 // Définition des modules constituant l'application
+// Le premier sera le module chargé par défaut en cas de lien brisé (pas de age 404 pour l'instant)
 $modules = [
 'accueil',
 'membres',

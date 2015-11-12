@@ -7,3 +7,7 @@ $actions = [
 'deconnexion',
 'inscription'
 ];
+
+$parametres = [
+    'profil' => ['id']
+];
