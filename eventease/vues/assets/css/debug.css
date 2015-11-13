@@ -1,0 +1,35 @@
+/* Debug */
+#debug {
+    width: 90%;
+    padding: 0 5%;
+    margin: 0 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
+#debug h3 {
+    margin: 3px 0 0 0;
+}
+#palette {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 1px solid black;
+    display: table-row;
+}
+*[id^="color"] {
+    width: 100px;
+    height: 40px;
+    display: table-cell;
+    border: 0 1px;
+    border-color: black;
+    color: white;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+#color1 {background-color: #303030;}
+#color2 {background-color: #FAFAFA; color: #303030;}
+#color3 {background-color: #F94339;}
+#color4 {background-color: #36B136; color: #303030;}
+#color5 {background-color: #287DFF;}

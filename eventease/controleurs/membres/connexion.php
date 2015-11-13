@@ -21,10 +21,8 @@ function getUserInfo($username) {
 /* Affichage du formulaire */
 function formConnexion() {
     $title = 'Connexion';
-    $styles = ['form.css'];
-    require INCLUDES.'header.php';
-    require 'vues/membres/connexion.php';
-    require INCLUDES.'footer.php';
+    $style = ['form.css'];
+    vue(['connexion'],$style,$title);
 }
 
 /*

@@ -2,6 +2,7 @@
 // BLOC FEATURES DE L'ACCUEIL NON CONNECTE //
 ?>
 
+<div class="wrapper">
 <section class="triptyque" id="features">
         <h4>Ca marche ?</h4>
 			<div class="row">
@@ -20,4 +21,5 @@
                     <p>lol</p>
                 </div>
             </div>
-	</section>
+</section>
+</div> <!-- /wrapper -->

@@ -2,6 +2,7 @@
 function vue($blocks =[], $styles = [], $title = '') {
     if(DEBUG) {
         require INCLUDES.'debug.php';
+        $styles[] = 'debug.css';
     }
     require INCLUDES.'header.php';
     foreach ($blocks as $value) {

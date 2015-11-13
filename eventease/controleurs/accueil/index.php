@@ -2,27 +2,16 @@
 /*** CONTROLEUR ACCUEIL ***/
 
 /**** Préparation des contenus ****/
-// Chargement des paramètres de la page
-// $title = 'Accueil';
-// $styles = ['accueil.css'];
 
-// Appels au modèle
-// Appels au modèle
-
-// Traitements
-
+// Chargement de la bonne version du triptyque
 if(!(isset($_SESSION['connected']) AND $_SESSION['connected'])) {
-    $triptyque = file_get_contents('vues/accueil/features.php');
-}
-else {
-    $triptyque = "<h4>Events à venir</h4>";
+    $triptyque = 'features';
 }
 
 /**** Affichage de la page ****/
+$title = 'Accueil';
+$styles = ['accueil.css'];
+$blocs = ['index',$triptyque];
 
-//Appels des vues :
-vue(['index','triptyque'],['accueil.css'],'');
-
-// require INCLUDES.'header.php'; //header commun à toutes les pages
-// require 'vues/accueil/index.php'; //vue spécifique à l'accueil
-// require INCLUDES.'footer.php'; //footer commun à toutes les pages
+//Appels de la vue :
+vue($blocs, $styles, $title);
