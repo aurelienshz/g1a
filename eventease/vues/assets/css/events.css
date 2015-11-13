@@ -64,6 +64,7 @@
 	padding-left:2em;
 	float:left;
 	width:20%;
+	color:#FF3399;
 }
 .buttons ul li a{
 	display:block;
@@ -288,11 +289,13 @@
 	padding: 1em;
 	padding-left: 3em;
 }
-.socials {
-	font-size: 3em;
-	height:auto;
+.facebook, .twitter, .linkedin, .mail {
+	font-size:3em;
+	text-align:center;
+	margin:0.2em;
 }
 .social table a{
+	text-align:center;
 	color:black;
 }
 .social table a:visited{
@@ -303,6 +306,18 @@
 }
 .social table  a.active {
 	color:inherit;
+}
+.facebook {
+	color:#465998;
+}
+.twitter {
+	color:#66CCFF;
+}
+.linkedin {
+	color: #3366CC;
+}
+.mail {
+	color: #cc3333;
 }
 #left_arrow, #right_arrow {
 	width:10%;

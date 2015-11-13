@@ -24,11 +24,11 @@
             <div class="social">
                 <table>
                     <tr>
-                        <td><a href="#"><i class="socials fa fa-facebook-square"></i><br> Facebook</a>
-                        <td><a href="#"><i class="socials fa fa-twitter-square"></i><br> Twitter</a>
+                            <td><a href="#"><i class="facebook fa fa-facebook-square"></i></a>
+                            <td><a href="#"><i class="twitter fa fa-twitter-square"></i></a>
                     <tr>
-                        <td><a href="#"><i class="socials fa fa-linkedin-square"></i><br>LinkedIn</a>
-                        <td><a href="#"><i class="socials fa fa-envelope-o"></i><br>Mail</a>
+                            <td><a href="#"><i class="linkedin fa fa-linkedin-square"></i></a>
+                            <td><a href="#"><i class="mail fa fa-envelope-o"></i></a>
                 </table>
                 </ul>
             </div>
