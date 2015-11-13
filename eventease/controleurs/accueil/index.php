@@ -3,8 +3,8 @@
 
 /**** Préparation des contenus ****/
 // Chargement des paramètres de la page
-$title = 'Accueil';
-$styles = ['accueil.css'];
+// $title = 'Accueil';
+// $styles = ['accueil.css'];
 
 // Appels au modèle
 // Appels au modèle
@@ -21,7 +21,8 @@ else {
 /**** Affichage de la page ****/
 
 //Appels des vues :
+vue(['index','triptyque'],['accueil.css'],'');
 
-require INCLUDES.'header.php'; //header commun à toutes les pages
-require 'vues/accueil/index.php'; //vue spécifique à l'accueil
-require INCLUDES.'footer.php'; //footer commun à toutes les pages
+// require INCLUDES.'header.php'; //header commun à toutes les pages
+// require 'vues/accueil/index.php'; //vue spécifique à l'accueil
+// require INCLUDES.'footer.php'; //footer commun à toutes les pages

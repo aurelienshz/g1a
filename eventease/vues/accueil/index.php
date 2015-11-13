@@ -25,7 +25,7 @@
             </a>
         </div>
     </section>
-    
+
     <div class="wrapper">
     <section class="triptyque" id="suggestions">
         <h4>Rien que pour vous</h4>
@@ -35,7 +35,7 @@
                 <div class="col-3"><h5 class="subtitles" >Tout de suite</h5></div>
             </div>
 		  <div class="row">
-			<div class="col-3">			
+			<div class="col-3">
 				<span class="slideshowSelector">&lt;</span>
 				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
@@ -44,7 +44,7 @@
 				</div>
 				<span class="slideshowSelector">&gt;</span>
 			</div>
-			<div class="col-3">			
+			<div class="col-3">
 				<span class="slideshowSelector">&lt;</span>
 				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
@@ -53,7 +53,7 @@
 				</div>
 				<span class="slideshowSelector">&gt;</span>
 			</div>
-			<div class="col-3">			
+			<div class="col-3">
 				<span class="slideshowSelector">&lt;</span>
 				<div class="slideshowContent">
 					<div class="firstArgument">Type</div>
@@ -64,9 +64,4 @@
 			</div>
 		  </div>
 	</section>
-	<section class="triptyque" id="??">
-        <?php
-            echo $triptyque;
-        ?>
-	</section>
-</div> <!-- /wrapper -->
+    
