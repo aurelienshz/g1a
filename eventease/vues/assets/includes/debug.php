@@ -3,6 +3,7 @@
 
 function displayDebug() {
     echo '<div id="debug">';
+    echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée récente sur le site)</a><br />';
     echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
     echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
     echo 'user connecté : ';

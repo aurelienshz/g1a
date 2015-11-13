@@ -7,5 +7,3 @@ $actions = [
 'deconnexion',
 'inscription'
 ];
-
-routeAction($_GET['action'], $actions);

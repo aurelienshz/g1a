@@ -5,15 +5,15 @@ FONCTION : Déterminer quel contrôleur on doit appeler pour que le client accè
 UTILISATION : Le paramètre correspondant à la page demandée est passé dans l'URL ($_GET['page']). On le teste par une structure switch qui defaulte sur la page d'accueil (prévention XSS). On ne code pas dans ce script : le code de contrôle d'un module est écrit dans le contrôleur de ce module.
 */
 
+session_start(); //On initialise la session.
+
 require 'routes.php';
 require 'config.php';
 require INCLUDES.'debug.php';
 
-session_start(); //On initialise la session.
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 // Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
-// Besoin d'init d'autres variables de session ? Déclarez-les ici !
 if(!isset($_SESSION['connected'])) {
     $_SESSION['connected'] = False;
 }
@@ -22,8 +22,18 @@ if(!isset($_SESSION['connected'])) {
 $module = isset($_GET['module']) ? $_GET['module'] : 'default';
 $action = isset($_GET['action']) ? $_GET['action'] : 'default';
 
-// chargement des actions
-// routage unique vers le bon module et la bonne action en chargeant un tableau param avec les paramètres passés en URL
 // Routage :
+$route = route($module,$action);
 
-require route($module,$action);
+// Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
+if(!isset($_SESSION['previousPage'])) {	//Si on a rien positionné (on vient d'atterrir)
+    $_SESSION['previousPage'] = ['default','default'];
+    $_SESSION['currentPage'] = ['default','default'];
+}
+elseif($_SESSION['currentPage']!=$route) {	//Si on a réellement chargé une nouvelle page et pas simplement rafraichi
+    $_SESSION['previousPage'] = $_SESSION['currentPage'];
+    $_SESSION['currentPage'] = [$route['module'],$route['action']];
+}
+
+// Appel final du contrôleur dont on avait besoin :
+require CONTROLEURS.$route['module'].'/'.$route['action'].'.php';
