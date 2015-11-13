@@ -41,11 +41,12 @@
 	display:block;
 	float:left;
 	width:69%;
-	height:100%;
+	height:60%;
 	}
 #useful_infos {
 	float:left;
 	width: 40%;
+	height:auto;
 }
 .title_event h1{
 	text-align:right;
@@ -110,14 +111,13 @@
 	display:block;
 	width: 100%;
 	height:300px;
-	background-color: #666666;
+	background-color: #AAAAFF;
 }
 .organisation {
 	display:block;
 	width: 100%;
-	height:300px;
-	padding-left:5%;
-
+	height:350px;
+	background-color: #FAFAFA;
 }
 .organisation  h3{
 	text-align:center;
@@ -161,7 +161,9 @@
 	margin-left:auto;
 	margin-right:auto;
 }
-
+.organisation .friends_going table tr td {
+	text-align: center;
+}
 .organisation .friends_going table tr td img{
 	width:65%;
 	height:auto;
@@ -182,13 +184,14 @@
 	width: 100%;
 	height:800px;
 	margin-top:3em;
+	background-color:#FAFAFA;
 }
 .add_comment{
 	font-weight:bold;
 	display:block;
 	width:99.6%;
 	height:350px;
-	border: 3px solid #F94339
+	border: 3px solid #F94339;
 }
 .add_comment ul li{
 	list-style-type:none;
