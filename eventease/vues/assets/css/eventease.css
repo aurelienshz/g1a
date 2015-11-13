@@ -17,7 +17,7 @@ body {
     width: 100%;
     min-width: 950px;
     margin: 0 auto;
-    background-color: white;
+    background-color: #FBFBFB;
 }
 /*********************************/
 /* Debug */
@@ -144,6 +144,7 @@ footer {
 footer a {
     color: #FAFAFA;
     text-decoration: underline;
+    background-color: #303030;
 }
 #footerWrapper {
     display: table;
@@ -161,10 +162,12 @@ footer .col-3 {
     text-align: center;
     padding: 10px 10px;
     border: none;
+    background-color: #303030;
 }
 footer .col-3 h3 {
     margin: 0;
     text-align: center;
     font-size: 1.2em;
     color: #FAFAFA;
+    background-color: #303030;
 }

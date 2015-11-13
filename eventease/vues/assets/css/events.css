@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+* {
+	background-color: #FBFBFB;
+}
 .intro_evenement {
 	display:block;
 	width:100%;
@@ -27,7 +30,7 @@
 	padding-right: 1em;
 }
 .maclasse {
-	color:#F94339;
+	color:#78C0F0;
 	width:10%;
 	height:1.5em;
 	font-size:2em;
@@ -74,10 +77,10 @@
 	text-align:center;
 	text-decoration: none;
 	color: #FAFAFA;
-	background-color:#F94339;
-	border-bottom:5px solid #FF0033;
-	border-right:5px solid #FF0033;
-	text-shadow:0px -1px #FF0033;
+	background-color:#78C0F0;
+	border-bottom:5px solid #3399FF;
+	border-right:5px solid #3399FF;
+	text-shadow:0px -1px #3399FF;
 }
 #Participe{
 	font-size:150%;
@@ -89,9 +92,9 @@
 	color:#C0C0C0;
 }
 .buttons ul li a.active {
-	background-color: #FF0033;
-	border-right:5px solid #F94339;
-	border-bottom:5px solid #F94339;
+	background-color: #3399FF;
+	border-right:5px solid #78C0F0;
+	border-bottom:5px solid #78C0F0;
 }
 .description {
 	clear:both;
@@ -111,7 +114,7 @@
 	display:block;
 	width: 100%;
 	height:300px;
-	background-color: #AAAAFF;
+	background-color: #FBFBFB;
 }
 .organisation {
 	display:block;
@@ -142,7 +145,7 @@
 .organisation .hosts ul li a{
 	text-decoration:none;
 	padding-right:1em;
-	color: black;
+	color: #78C0F0;
 }
 .organisation .hosts ul li a:hover{
 	font-weight:bold;
@@ -170,7 +173,7 @@
 }
 .organisation .friends_going table tr td a{
 	text-decoration:none;
-	color:black;
+	color:#78C0F0;
 }
 .organisation .friends_going table tr td a:hover{
 	font-weight:bold;
@@ -191,7 +194,7 @@
 	display:block;
 	width:99.6%;
 	height:350px;
-	border: 3px solid #F94339;
+	border: 3px solid #78C0F0;
 }
 .add_comment ul li{
 	list-style-type:none;
@@ -234,10 +237,10 @@
 	text-align:center;
 	text-decoration: none;
 	color: #FAFAFA;
-	background-color:#F94339;
-	border-bottom:5px solid #FF0033;
-	border-right:5px solid #FF0033;
-	text-shadow:0px -1px #FF0033;
+	background-color:#78C0F0;
+	border-bottom:5px solid #3399FF;
+	border-right:5px solid #3399FF;
+	text-shadow:0px -1px #3399FF;
 	float:right;
 }
 .button_comment{
@@ -250,7 +253,7 @@
 }
 .previous_comments{
 	display:block;
-	border: 3px solid #F94339;
+	border: 3px solid #78C0F0;
 	margin-top:1em;
 	width:99.6%;
 	height:300px;
@@ -262,7 +265,7 @@
 .comment p a{
 	text-decoration:none;
 	font-weight:bold;
-	color:#F94339;
+	color:#78C0F0;
 }
 .comment a:hover{
 	font-weight:bold;

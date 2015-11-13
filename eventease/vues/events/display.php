@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
-            <img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>" alt="Coucou"/>
+            <img src="<?php echo IMAGES.'picnic1.jpg'; ?>" alt="Coucou"/>
         </div>
         <div class = "title_event">
             <h1>Nom de l'événement </h1>
@@ -83,7 +83,7 @@
 		<h3> Commentaires </h3>
 		<div class="add_comment">
 			<ul>
-				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Nom-Pseudo </li>
+				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Pseudo </li>
 			</ul>
 			<div class="text_comment">
 				<p>Votre commentaire...</p>
@@ -97,12 +97,12 @@
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
-				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Nom-Pseudo</a> <span>- Date du commentaire</span>
+				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
 				<br>Commentaire...................................................................................................
 				</p>
 			</div>
 			<div class="comment">
-				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Nom-Pseudo</a> <span>- Date du commentaire</span>
+				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
 				<br>Commentaire...
 				</p>
 			</div>
