@@ -1,5 +1,6 @@
 <?php
-/* Fausse connexion à la BDD : (sera remplacée par un appel au modèle) */
+/******************************************************************************/
+/*   Fausse connexion à la BDD : (sera remplacée par un appel au modèle)      */
 function getUserInfo($username) {
     $bddUsers = array(
         'KevinDu38'=>'$2y$10$sZzL0Lb/RKp7EIYL3G0gh.TatnkE23U/yRLyb008BS4csfAB3omOq',
@@ -14,7 +15,7 @@ function getUserInfo($username) {
     // gestion des erreurs (user non trouvé)
     // -->contrôle du nombre de résultats ?
 }
-/*****************************************************************************/
+/******************************************************************************/
 
 
 /* Affichage du formulaire */
@@ -25,6 +26,18 @@ function formConnexion() {
     require 'vues/membres/connexion.php';
     require INCLUDES.'footer.php';
 }
+
+/*
+// La redirection ne fonctionne pas ! :(
+if(!isset($_SESSION['redirection'])) {
+    if($_SESSION['previousPage']!=['membres','connexion']) {
+        $_SESSION['redirection'] = $_SESSION['previousPage'];
+    }
+}
+elseif($_SESSION['redirection']!=$_SESSION['previousPage']) {
+    $_SESSION['redirection'] = $_SESSION['previousPage'];
+}
+*/
 
 /* Contrôle des id du formulaire ou affichage du formulaire */
 if(isset($_POST['username']) AND isset($_POST['password'])) {
@@ -38,10 +51,9 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
             echo 'pass vérifié';
             $_SESSION['connected'] = True;
             $_SESSION['username'] = $_POST['username'];
-            header('Location: '.'index.php?module='.$_SESSION['redirect']);
+            header('Location: '.getLink(['accueil']));
         }
         else {      // User trouvé mais mdp faux
-            echo 'MdP faux';
             formConnexion();
         }
     }
@@ -52,4 +64,3 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
 else {              // Formulaire non rempli
     formConnexion();
 }
-

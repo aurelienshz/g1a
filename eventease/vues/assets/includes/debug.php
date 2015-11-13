@@ -3,9 +3,12 @@
 
 function displayDebug() {
     echo '<div id="debug">';
+    echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée récente sur le site)</a><br />';
+    echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
+    echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
     echo 'user connecté : ';
     echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
-    $maquettes = ['displayEvent','displayProfile'];
+    $maquettes = [['events','display'],['events','display',666],['membres','profil'],['membres','profil',666]];
 ?>
     <div id="palette">
         <div id="color1">#303030</div>
@@ -18,7 +21,7 @@ function displayDebug() {
     <div id="maquettes">
         <?php
         foreach($maquettes as $maquette) {
-            echo '<li><a href="'.getlink($maquette).'">'.$maquette.'</a></li>';
+            echo '<li><a href="'.getlink($maquette).'">'.implode(' -> ',$maquette).'</a></li>';
         }
         ?>
     </div>
