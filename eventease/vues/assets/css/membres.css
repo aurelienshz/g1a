@@ -2,9 +2,28 @@
 .interaction_profil {
     list-style-type : none;
 }
-.col_droite {
-    border: none;
+.top_col {
+    width: 100%;
 }
 .col_gauche {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    background-color: red;
+    border: none;
+}
+.col_droite {
+    display: inline-block;
+    width: 74.5%;
+    vertical-align: top;
+    height: 100%;
+    background-color: cyan;
+    border: none;
+}
+.col_bas {
+    display:block;
+    position: relative;
+    bottom: 2px;
+    background-color: green;
     border: none;
 }

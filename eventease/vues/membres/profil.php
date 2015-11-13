@@ -3,9 +3,10 @@
 ?>
 <div class="wrapper">
     <div class="page_container">
+        <div class="top_col">
         <div class="col_gauche">
             <div class="photo_profil">
-                <img alt="Nom du profil" src="<?php echo IMAGES.'pirate-cat.jpg'; ?>" title="Nom du profil" height="275" width="275"/>
+                <img alt="Nom du profil" src="<?php echo IMAGES.'pirate-cat.jpg'; ?>" title="Nom du profil" height="230" width="230"/>
             </div>
             <ul class="interaction_profil">
                 <li><a href="#">Inviter à un évènement</a></li>
@@ -18,13 +19,17 @@
             <div class="description">
                 <h5>Description</h5>
             </div>
+        </div>
+        </div>
+        <div class="col_bas">
             <div class="details_profil">
                 <h2>Détails du profil</h2>
-            <div class="evenements_futurs">
-                <h2> Évènements futurs</h2>
-            </div>
-            <div class="evenements_passes">
-                <h2>Évènements passés</h2>
+                <div class="evenements_futurs">
+                    <h2> Évènements futurs</h2>
+                </div>
+                <div class="evenements_passes">
+                    <h2>Évènements passés</h2>
+                </div>
             </div>
         </div>
     </div>
