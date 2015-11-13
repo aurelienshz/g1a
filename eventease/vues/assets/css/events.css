@@ -116,14 +116,8 @@
 .organisation {
 	display:block;
 	width: 100%;
-<<<<<<< HEAD
-	height:300px;
-	padding-left:5%;
-	background-color:#FAFAFA;
-=======
 	height:350px;
-	background-color: blue;
->>>>>>> 2eb58c7a52d7b1bf4f418c8054b9dc68e9fa9fbf
+	background-color: #FAFAFA;
 }
 .organisation  h3{
 	text-align:center;
