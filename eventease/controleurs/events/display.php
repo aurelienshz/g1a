@@ -11,4 +11,4 @@ $styles = ['events.css','trololo.css'];
 
 /**** Affichage de la page ****/
 //Appels des vues :
-vue('display', $styles, $title);
+vue(['display'], $styles, $title);
