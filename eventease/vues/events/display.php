@@ -36,19 +36,20 @@
     </div>
     <div class ="description">
         <h2>Description</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae 
-		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla 
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae
+		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
     <div class = "photo">
         <table>
             <tr>
-                <td id="left_arrow">Left arrow
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/>
-                <td id="right_arrow">Right arrow
+                <td id="left_arrow">&lt;</td>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
+                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
+                <td id="right_arrow">&gt;</td>
+            </tr>
         </table>
     </div>
     <div class = "organisation">
@@ -84,11 +85,11 @@
 			<ul>
 				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Nom-Pseudo </li>
 			</ul>
-			<div class="text_comment"> 
+			<div class="text_comment">
 				<p>Votre commentaire...</p>
 			</div>
 			<div class="button_comment">
-				<a href="#">Ajouter</a> 
+				<a href="#">Ajouter</a>
 			</div>
 			<div class="add_media">
 				<a href="#"> Ajouter une image </a>
