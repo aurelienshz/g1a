@@ -9,6 +9,8 @@ define('CSS', PATH_ASSETS."css/");
 define('IMAGES', PATH_ASSETS . "images/");
 define('INCLUDES', PATH_ASSETS . "includes/");
 
+define('DEFAULTMODULE', 'accueil');
+
 define('CONTROLEURS', "controleurs/");
 define('VUES', "vues/");
 

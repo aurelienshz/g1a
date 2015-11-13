@@ -26,11 +26,11 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'default';
 $route = route($module,$action);
 
 // Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
-if(!isset($_SESSION['previousPage'])) {	//Si on a rien positionné (on vient d'atterrir)
-    $_SESSION['previousPage'] = ['default','default'];
-    $_SESSION['currentPage'] = ['default','default'];
+if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on vient d'atterrir)
+    $_SESSION['previousPage'] = [DEFAULTMODULE, 'index'];   // Prends garde à toi si l'action par déf n'est pas nommée index !
+    $_SESSION['currentPage'] = [DEFAULTMODULE, 'index'];
 }
-elseif($_SESSION['currentPage']!=$route) {	//Si on a réellement chargé une nouvelle page et pas simplement rafraichi
+elseif($_SESSION['currentPage']!=$route) {	    // Si on a réellement chargé une nouvelle page et pas simplement rafraichi
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
     $_SESSION['currentPage'] = [$route['module'],$route['action']];
 }
