@@ -1,7 +1,5 @@
 <?php
 $title = 'Profil';
-$styles = ['form.css'];
+$style = ['form.css'];
 
-require INCLUDES.'header.php';
-require 'vues/membres/inscription.php';
-require INCLUDES.'footer.php';
+vue(['inscription'],$style,$title);

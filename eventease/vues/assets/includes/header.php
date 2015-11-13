@@ -20,12 +20,6 @@
 </head>
 <body>
 
-<?php
-/* Barre de debug : */
-if(defined('DEBUG') AND DEBUG==True) {
-    displayDebug();
-}
-?>
     <header class="">
         <h1>
             <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>

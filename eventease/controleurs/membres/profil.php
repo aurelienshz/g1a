@@ -2,9 +2,6 @@
 /*** CONTROLEUR PROFIL ***/
 
 /**** Préparation des contenus ****/
-// Chargement des paramètres de la page
-$title = 'Profil';
-$styles = ['onglets_compte.css','membres.css'];
 
 // Appels au modèle
 // Appels au modèle
@@ -13,9 +10,8 @@ $styles = ['onglets_compte.css','membres.css'];
 
 /**** Affichage de la page ****/
 
+$title = 'Profil';
+$styles = ['onglets_compte.css','membres.css'];
+$blocks = ['onglets_compte', 'profil'];
 //Appels des vues :
-
-require INCLUDES.'header.php'; //header commun à toutes les pages
-require 'vues/membres/onglets_compte.php'; //onglets des pages du compte
-require 'vues/membres/profil.php'; //vue spécifique à l'accueil
-require INCLUDES.'footer.php'; //footer commun à toutes les pages
+vue($blocks,$styles,$title);
