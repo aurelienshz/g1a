@@ -1,5 +1,5 @@
-    <?php
-/* DEFINITION MEMBRES */
+<?php
+// controleurs/membres/actions.php
 
 $actions = [
 'profil',

@@ -5,7 +5,7 @@
 
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password" placeholder="Mot de Passe"/>
-        
+
         <input type="submit" value="Valider"/>
     </form>
 </div>
