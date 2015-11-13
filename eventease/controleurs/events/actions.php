@@ -1,8 +1,10 @@
 <?php
 $actions = [
-'display'
+'display',
+'create'
 ];
 
 $parametres = [
-'display' => ['id']    
+'display' => ['id'],
+'create' => []
 ];

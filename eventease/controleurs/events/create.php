@@ -8,9 +8,9 @@
 // Traitements
 
 /**** Préparation de la vue ****/
-$title = 'Titre navigateur';
+$title = 'Créer event';
 $styles = ['style.css','trololo.css'];
-$blocks = ['bloc1','bloc2'];
+$blocks = ['create'];
 
 /**** Affichage de la page ****/
 //Appel de la vue :
