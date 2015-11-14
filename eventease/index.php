@@ -27,13 +27,25 @@ $route = route($module,$action);
 
 // Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
 if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on vient d'atterrir)
-    $_SESSION['previousPage'] = [DEFAULTMODULE, 'index'];   // Prends garde à toi si l'action par déf n'est pas nommée index !
-    $_SESSION['currentPage'] = [DEFAULTMODULE, 'index'];
+    $_SESSION['previousPage'] = $defaultPage; // Prends garde à toi si l'action par déf n'est pas nommée index !
+    $_SESSION['currentPage'] = $defaultPage;
 }
 elseif($_SESSION['currentPage']!=$route) {	    // Si on a réellement chargé une nouvelle page et pas simplement rafraichi
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
-    $_SESSION['currentPage'] = [$route['module'],$route['action']];
+    $_SESSION['currentPage'] = [];
+    $_SESSION['previousPage'] = [];
+    if (count($_GET)>0) {
+        foreach($_GET as $value) {
+            $_SESSION['currentPage'][] = $value;
+            $_SESSION['previousPage'][] = $value;
+        }
+    }
+    else {
+        $_SESSION['currentPage'] = $defaultPage;
+        $_SESSION['currentPage'] = $defaultPage;
+    }
+    // $_SESSION['currentPage'] = [$route['module'],$route['action']];
 }
 
-// Appel final du contrôleur dont on avait besoin :
+// Appel final du contrôleur dont on a besoin :
 require CONTROLEURS.$route['module'].'/'.$route['action'].'.php';

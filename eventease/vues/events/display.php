@@ -108,4 +108,10 @@
 			</div>
 		</div>
     </div>
+
+<form method="post" action="<?php echo getLink($_SESSION['currentPage']); ?>">
+    <textarea placeholder="Votre commentaire"></textarea>
+    <input type="submit" />
+</form>
+
 </div>
