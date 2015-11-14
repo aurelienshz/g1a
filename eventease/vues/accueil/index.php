@@ -44,7 +44,7 @@
     			</div>
     			<span class="slideshowSelector">&gt;</span>
     		</div>
-    		<div class="col-3">
+    		<div class="col-3 col-center">
     			<span class="slideshowSelector">&lt;</span>
     			<div class="slideshowContent">
     				<div class="firstArgument">Type</div>

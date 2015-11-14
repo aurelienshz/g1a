@@ -76,6 +76,27 @@
 
 /******************************************/
 /* Suggestions & features : */
+
+.row {
+    display: table-row;
+	border: 1px solid black;
+	margin : 0px 20px 0px 20px;
+}
+*[class^=col] {
+    display: table-cell;
+    text-align: center;
+ 	border: 1px solid black;
+    padding : 0;
+}
+.col-2 {
+    width: 50%;
+}
+.col-3 {
+    width: 33.333333%;
+}
+
+
+
 .triptyque {
     display: table;
     border-collapse: collapse;

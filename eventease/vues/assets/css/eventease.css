@@ -4,7 +4,6 @@
 html {
     width: 100%;
     margin: 0 auto;
-    background-color: #303030;
 }
 .clearfix {
     overflow: auto;
@@ -17,7 +16,6 @@ body {
     width: 100%;
     min-width: 950px;
     margin: 0 auto;
-    background-color: #FBFBFB;
 }
 /*********************************/
 
@@ -55,6 +53,9 @@ header ul li a {
     text-transform: uppercase;
     text-decoration: none;
 }
+header ul li a:hover {
+    color: #287DFF;
+}
 #pseudo {
     text-transform: none    ;
     color: green;
@@ -76,26 +77,12 @@ section {
 }
 .wrapper {
     width: 90%;
-    margin: 30px auto 30px auto;
+    padding: 30px 5%;
+    margin: 0;
+    background-color: #FAFAFA;
 }
 
-.row {
-    display: table-row;
-	border: 1px solid black;
-	margin : 0px 20px 0px 20px;
-}
-*[class^=col] {
-    display: table-cell;
-    text-align: center;
- 	border: 1px solid black;
-    padding : 0;
-}
-.col-2 {
-    width: 50%;
-}
-.col-3 {
-    width: 33.333333%;
-}
+
 
 /*********************************/
 /* Footer */
@@ -108,8 +95,10 @@ footer {
 }
 footer a {
     color: #FAFAFA;
+    text-decoration: none;
+}
+footer a:hover {
     text-decoration: underline;
-    background-color: #303030;
 }
 #footerWrapper {
     display: table;
