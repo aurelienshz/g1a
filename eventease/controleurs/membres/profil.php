@@ -19,9 +19,9 @@ function getUserDetails($id) {
     return $bddUser;
 }
 
-if(isset($_GET['id'])) {
-    $user = getUserDetails($_GET['id']);
-}
+//if(isset($_GET['id'])) {
+    $user = getUserDetails('j\'aime les chats');
+//}
 /**** Affichage de la page ****/
 
 $title = 'Profil de '.$user['pseudo'];

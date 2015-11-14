@@ -6,7 +6,7 @@
     background-repeat: repeat; */
     background-color: #287DFF;
     text-align: center;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 0 auto;
     padding: 60px 0;
     border-bottom: 1px solid #303030;
 }
@@ -102,13 +102,9 @@
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
-    margin: 0 auto 30px auto;
+    margin: 30px auto 0 auto;
 }
 
-.col img, .col p {
-    width: 95%;
-    vertical-align: top;
-}
 .triptyque h4 {
     font-size: 2em;
     font-weight: bold;

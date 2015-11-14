@@ -28,11 +28,10 @@
 
 <div class="wrapper">
     <section class="triptyque" id="suggestions">
-        <h4>Rien que pour vous</h4>
     	    <div class="row">
                 <div class="col-3"><h5>Une envie de ?</h5></div>
                 <div class="col-3"><h5>Près de vous</h5></div>
-                <div class="col-3"><h5 class="subtitles" >Tout de suite</h5></div>
+                <div class="col-3"><h5>Tout de suite</h5></div>
             </div>
     	  <div class="row">
     		<div class="col-3">
@@ -64,4 +63,3 @@
     		</div>
     	  </div>
     </section>
-</div> <!-- /wrapper -->

@@ -73,13 +73,12 @@ header ul li a:hover {
 /* Corps de page */
 
 section {
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
 }
 .wrapper {
     width: 90%;
-    padding: 30px 5%;
+    padding: 0 5%;
     margin: 0;
-    background-color: #FAFAFA;
 }
 
 
@@ -92,6 +91,7 @@ footer {
     border-top: 2px solid black;
     color: #FAFAFA;
     padding-bottom: 20px;
+    margin-top: 30px;
 }
 footer a {
     color: #FAFAFA;
