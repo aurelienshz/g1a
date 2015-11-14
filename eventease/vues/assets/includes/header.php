@@ -22,7 +22,7 @@
 
     <header class="">
         <h1>
-            <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>
+            <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES.'logo2.png'; ?>" alt="EventEase" /></a>
         </h1>
         <nav>
             <ul id="raccourcis">
