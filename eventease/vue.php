@@ -5,6 +5,11 @@ function vue($blocks =[], $styles = [], $title = '') {
         $styles[] = 'debug.css';
     }
     require INCLUDES.'header.php';
+
+    if(isset($splash)) {
+        require INCLUDES.'splash.php';
+        $splash = null;      
+    }
     foreach ($blocks as $value) {
         require VUES.$_SESSION['currentPage'][0].'/'.$value.'.php';
     }
