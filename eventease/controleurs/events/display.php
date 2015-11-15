@@ -7,7 +7,7 @@
 
 // Chargement des paramètres de la page
 $title = 'Affichage d\'un évènement';
-$styles = ['events.css','trololo.css'];
+$styles = ['events.css','form.css'];
 
 /**** Affichage de la page ****/
 //Appels des vues :

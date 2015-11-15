@@ -82,18 +82,15 @@
     <div class = "commentaire">
 		<h3> Commentaires </h3>
 		<div class="add_comment">
-			<ul>
-				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Pseudo </li>
-			</ul>
-			<div class="text_comment">
-				<p>Votre commentaire...</p>
-			</div>
-			<div class="button_comment">
-				<a href="#">Ajouter</a>
-			</div>
-			<div class="add_media">
-				<a href="#"> Ajouter une image </a>
-			</div>
+            <form>
+                <label>Ajouter un commentaire</label>
+                <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
+    			<div class="add_media">
+    				<label for="attachment">Ajouter un fichier</label>
+                    <input type="file" id="attachment" name="attachment"/>
+    			</div>
+    			<input type="submit" value="Ajouter" id="button_submit" />
+            </form>
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
