@@ -1,9 +1,7 @@
 <?php
-
 function splash($type, $message) {
-    global $splash, $splashMessage;
     switch($type) {
-        case 'ok':
+        case 'validation':
             $classBlock='splashValidation';
             break;
         case 'error':
@@ -11,8 +9,8 @@ function splash($type, $message) {
             break;
         case 'info':
         default:
-            $classBlock='splashInfo'
+            $classBlock='splashInfo';
     }
-    $splash = [$classBlock, $message];
+    $_SESSION['splash'] = [$classBlock, $message];
     return True;
 }

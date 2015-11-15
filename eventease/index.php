@@ -9,6 +9,7 @@ session_start(); //On initialise la session.
 
 require 'routes.php';
 require 'config.php';
+require 'splash.php';
 require 'vue.php';
 
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
