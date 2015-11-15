@@ -48,6 +48,8 @@
     border-bottom-right-radius: 5px;
     border-right: 1px solid #303030;
     background-color: #36B136;
+    color: white;
+    font-weight: bold;
 }
 #bigform form input[type="submit"]:hover {
     background-color: #369036;
