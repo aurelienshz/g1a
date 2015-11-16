@@ -20,14 +20,14 @@ function getUserDetails($id) {
 }
 
 //if(isset($_GET['id'])) {
-    $user = getUserDetails('j\'aime les chats');
+    $contents['pseudo'] = getUserDetails('j\'aime les chats')['pseudo'];
 //}
 /**** Affichage de la page ****/
 
-$title = 'Profil de '.$user['pseudo'];
-$styles = ['onglets_compte.css','membres.css'];
-$blocks = ['onglets_compte', 'profil'];
+$contents['ongletActif'] = 'evenements';
 
-$contents['ongletActif'] = 'profil';
+$title = 'Evenements de '.$contents['pseudo'];
+$styles = ['onglets_compte.css'];
+$blocks = ['onglets_compte', 'evenements'];
 //Appels des vues :
-vue($blocks,$styles,$title, $contents);
+vue($blocks,$styles,$title,$contents);
