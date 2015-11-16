@@ -91,16 +91,16 @@ header ul li a:hover {
 }
 .splashInfo {
     background-color: lightblue;
-    border-color: blue;
+    border-color: #287DFF;
 }
 .splashError {
     background-color: #FFAAAA;
-    border-color: red;
+    border-color: #F94339;
 
 }
 .splashValidation {
     background-color: lightgreen;
-    border-color: green;
+    border-color: #36B136;
 }
 
 /* Corps de page */
