@@ -35,11 +35,9 @@ if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on 
 elseif($_SESSION['currentPage']!=$route) {	    // Si on a réellement chargé une nouvelle page et pas simplement rafraichi
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
     $_SESSION['currentPage'] = [];
-    $_SESSION['previousPage'] = [];
     if (count($_GET)>0) {
         foreach($_GET as $value) {
             $_SESSION['currentPage'][] = $value;
-            $_SESSION['previousPage'][] = $value;
         }
     }
     else {
