@@ -7,6 +7,9 @@
 if(connected()) {
     $triptyque = 'features';
 }
+else {
+    $triptyque = 'features';
+}
 
 /**** Affichage de la page ****/
 $title = 'Accueil';
