@@ -27,39 +27,22 @@
 </section>
 
 <div class="wrapper">
-    <section class="triptyque" id="suggestions">
-    	    <div class="row">
-                <div class="col-3"><h5>Une envie de ?</h5></div>
-                <div class="col-3"><h5>Près de vous</h5></div>
-                <div class="col-3"><h5>Tout de suite</h5></div>
+<h4>Suggestions</h4>
+    <section id="suggestions" class="row">
+        <div class="slideshowDefilement">&lt;</div>
+        <div class="imageContainer"><img src="<?php echo IMAGES.'picnic1.jpg'?>" /></div>
+        <div class="eventDetails">
+            <div id="typeSuggestion">Une idée...</div>
+            <h5>Pique-nique au lac</h5>
+            <div id="infosPratiques">
+                <p></p>
+                <span class="fa fa-calendar"></span><p>Demain</p>
+                <span class="fa fa-tag"></span><p>Pique-nique</p>
+                <span class="fa fa-map-marker"></span><p>Paris</p>
             </div>
-    	  <div class="row">
-    		<div class="col-3">
-    			<span class="slideshowSelector">&lt;</span>
-    			<div class="slideshowContent">
-    				<div class="firstArgument">Type</div>
-    				<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-    				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
-    			</div>
-    			<span class="slideshowSelector">&gt;</span>
-    		</div>
-    		<div class="col-3 col-center">
-    			<span class="slideshowSelector">&lt;</span>
-    			<div class="slideshowContent">
-    				<div class="firstArgument">Type</div>
-    				<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-    				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
-    			</div>
-    			<span class="slideshowSelector">&gt;</span>
-    		</div>
-    		<div class="col-3">
-    			<span class="slideshowSelector">&lt;</span>
-    			<div class="slideshowContent">
-    				<div class="firstArgument">Type</div>
-    				<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-    				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
-    			</div>
-    			<span class="slideshowSelector">&gt;</span>
-    		</div>
-    	  </div>
+            <p id="eventDescription">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <div class="slideshowDefilement">&gt;</div>
     </section>

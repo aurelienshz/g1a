@@ -81,9 +81,26 @@ header ul li a:hover {
     border-radius: 10px;
     margin-top: 10px;
 }
+*[class^="splash"] .close {
+    display: block;
+    float: right;
+    color: #303030;
+    line-height: 1em;
+    text-align: right;
+    margin: 11px 0;
+}
 .splashInfo {
     background-color: lightblue;
     border-color: blue;
+}
+.splashError {
+    background-color: #FFAAAA;
+    border-color: red;
+
+}
+.splashValidation {
+    background-color: lightgreen;
+    border-color: green;
 }
 
 /* Corps de page */
@@ -101,7 +118,12 @@ section {
     padding: 0 33%;
     margin: 0;
 }
-
+h4 {
+    font-size: 1.5em;
+    color: #303030;
+    border-bottom: 1px solid #303030;
+    padding-bottom: .1em;
+}
 
 
 /*********************************/
