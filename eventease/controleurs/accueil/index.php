@@ -4,7 +4,7 @@
 /**** Préparation des contenus ****/
 
 // Chargement de la bonne version du triptyque
-if(!(isset($_SESSION['connected']) AND $_SESSION['connected'])) {
+if(connected()) {
     $triptyque = 'features';
 }
 

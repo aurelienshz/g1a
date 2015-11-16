@@ -11,11 +11,12 @@ require 'routes.php';
 require 'config.php';
 require 'splash.php';
 require 'vue.php';
+require MODELES.'membres/connected.php';
 
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 // Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
-if(!isset($_SESSION['connected'])) {
+if(!connected()) {
     $_SESSION['connected'] = False;
 }
 

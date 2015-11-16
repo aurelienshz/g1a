@@ -13,6 +13,7 @@ $defaultPage = ['accueil','index'];
 
 define('CONTROLEURS', "controleurs/");
 define('VUES', "vues/");
+define('MODELES', "modeles/");
 
 // Définition des modules constituant l'application
 // Le premier sera le module chargé par défaut en cas de lien brisé (pas de page 404 pour l'instant)
