@@ -27,7 +27,7 @@ function getUserDetails($id) {
 $contents['ongletActif'] = 'messages';
 
 $title = 'Evenements de '.$contents['pseudo'];
-$styles = ['onglets_compte.css'];
+$styles = ['onglets_compte.css','membres.css'];
 $blocks = ['onglets_compte', 'messages'];
 //Appels des vues :
 vue($blocks,$styles,$title,$contents);

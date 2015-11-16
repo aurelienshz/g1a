@@ -105,6 +105,9 @@ header ul li a:hover {
 
 /* Corps de page */
 
+h2 {
+    border-bottom: 1px solid #303030;
+}
 section {
     margin: 0 auto;
 }
