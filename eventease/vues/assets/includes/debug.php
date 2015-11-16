@@ -2,7 +2,7 @@
 /* BARRE DE DEBUG : */
 
 function displayDebug() {
-    $maquettes = [['events','display'],['events','display',666],['membres','profil'],['membres','profil',666]];
+    $maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
 
     echo '<div id="debug"><div id="session"><h3>Session :</h3>';
     echo 'user connecté : ';
