@@ -11,6 +11,9 @@ splash('validation', 'Tout s\'est bien passé !');
 $title = 'Affichage d\'un évènement';
 $styles = ['events.css','form.css'];
 
+
+$contents['titreEvenement'] = 'Pique-nique au lac';
+
 /**** Affichage de la page ****/
 //Appels des vues :
-vue(['display'], $styles, $title);
+vue(['display'], $styles, $title, $contents);

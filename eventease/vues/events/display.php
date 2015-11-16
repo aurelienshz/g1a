@@ -4,7 +4,7 @@
             <img src="<?php echo IMAGES.'picnic1.jpg'; ?>" alt="Coucou"/>
         </div>
         <div class = "title_event">
-            <h1>Nom de l'événement </h1>
+            <h1><?php echo $contents['titreEvenement']; ?></h1>
         </div>
         <div class ="infos">
             <div id="useful_infos">
