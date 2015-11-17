@@ -3,7 +3,7 @@
 
 /**** Préparation des contenus ****/
 
-require MODELES.'membres/getUserDetails.php'
+require MODELES.'membres/getUserDetails.php';
 
 //if(isset($_GET['id'])) {
     $contents['pseudo'] = getUserDetails('j\'aime les chats')['pseudo'];
