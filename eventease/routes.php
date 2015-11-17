@@ -9,8 +9,7 @@ Définition des paramètres possibles pour une action donnée dans la config du 
 */
 
 function route($module, $action, $fetchOnly = False) {
-	// $modules = modules définis dans la config générale de l'app
-	global $modules;
+	global $modules;	// $modules = modules définis dans la config générale de l'app
 	if(in_array($module, $modules)) {
 		$moduleRouted = $module;
 	}
