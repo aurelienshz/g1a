@@ -1,5 +1,5 @@
 <?php
-function vue($blocks =[], $styles = [], $title = '', $contents=[]) {
+function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
     global $splash;
 
     if(DEBUG) {
