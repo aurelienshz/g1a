@@ -1,5 +1,5 @@
 <?php
-function splash($type, $message) {
+function alert($type, $message) {
     switch($type) {
         case 'validation':
             $classBlock='splashValidation';
