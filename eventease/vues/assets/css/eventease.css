@@ -71,7 +71,7 @@ header ul li a:hover {
 
 /* ALERTE ! */
 
-*[class^="splash"] {
+*[class^="alert"] {
     width: 90%;
     margin: 0 auto;
     border: 1px solid;
@@ -81,7 +81,7 @@ header ul li a:hover {
     border-radius: 10px;
     margin-top: 10px;
 }
-*[class^="splash"] .close {
+*[class^="alert"] .close {
     display: block;
     float: right;
     color: #303030;
@@ -89,16 +89,16 @@ header ul li a:hover {
     text-align: right;
     margin: 11px 0;
 }
-.splashInfo {
+.alertInfo {
     background-color: lightblue;
     border-color: #287DFF;
 }
-.splashError {
+.alertError {
     background-color: #FFAAAA;
     border-color: #F94339;
 
 }
-.splashValidation {
+.alertValidation {
     background-color: lightgreen;
     border-color: #36B136;
 }

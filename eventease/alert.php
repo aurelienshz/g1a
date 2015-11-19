@@ -2,15 +2,15 @@
 function alert($type, $message) {
     switch($type) {
         case 'validation':
-            $classBlock='splashValidation';
+            $classBlock='alertValidation';
             break;
         case 'error':
-            $classBlock='splashError';
+            $classBlock='alertError';
             break;
         case 'info':
         default:
-            $classBlock='splashInfo';
+            $classBlock='alertInfo';
     }
-    $_SESSION['splash'] = [$classBlock, $message];
+    $_SESSION['alert'] = [$classBlock, $message];
     return True;
 }
