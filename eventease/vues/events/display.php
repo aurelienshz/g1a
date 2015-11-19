@@ -34,12 +34,23 @@
             </div>
         </div>
     </div>
+
     <div class ="description">
         <h2>Description</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae
 		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>Il faut ajouter une zone à droite qui indique des informations comme le tarif</p>
+				<div class="details">
+					<ul>
+						<li><span>Type:</span>...</li>
+						<li><span>Prix:</span>...</li>
+						<li><span>Visibilité:</span>...</li>
+						<li><span>Type de public:</span>...</li>
+						<li><span>Langue:</span>...</li>
+						<li><span>Sponsors:</span></li>
+						<li><span>Site Web:</span>...</li>
+					</ul>
+				</div>
     </div>
     <div class = "photo">
         <table>
@@ -84,6 +95,7 @@
 		<h3> Commentaires </h3>
 		<div class="add_comment">
             <form>
+				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/>
                 <label>Ajouter un commentaire</label>
                 <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
     			<div class="add_media">
