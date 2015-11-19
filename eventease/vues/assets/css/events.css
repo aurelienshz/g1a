@@ -206,7 +206,7 @@
 	padding:1,5em;
 	vertical-align:middle;
 }
-.text_comment{
+.text_comment textarea{
 	display:block;
 	width:90%;
 	height: 50%;
@@ -214,7 +214,6 @@
 	padding-left:10px;
 	margin-right:20px;
 	padding-bottom:5px;
-	border:	1px solid #303030;
 }
 .add_media a{
 	padding:top:2em;
@@ -227,7 +226,7 @@
 .add_media a:hover{
 	font-weight:bold;
 }
-.button_comment a{
+.button_comment{
 	display:block;
 	position:relative;
 	padding: 0.2em 0.8em;

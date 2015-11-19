@@ -3,7 +3,7 @@
 
 function displayDebug() {
     $maquettes = [['events','display'],['events','display',666],['membres','profil'],['membres','profil',666]];
-
+    print_r($_POST);
     echo '<div id="debug"><div id="session"><h3>Session :</h3>';
     echo 'user connecté : ';
     echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";

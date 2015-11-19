@@ -39,6 +39,7 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae
 		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Il faut ajouter une zone à droite qui indique des informations comme le tarif</p>
     </div>
     <div class = "photo">
         <table>
@@ -85,12 +86,18 @@
 			<ul>
 				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Pseudo </li>
 			</ul>
+            <form method="post" action="<?php echo getLink(["events","display",666]) ?>">
 			<div class="text_comment">
-				<p>Votre commentaire...</p>
+				    <textarea name="commentaire">
+                        Rendre l'interface plus ergonomique (utiliser des form).
+                        Voir essayer d'incorporer le php.
+                    </textarea>
 			</div>
-			<div class="button_comment">
+			<!-- <div class="button_comment">
 				<a href="#">Ajouter</a>
-			</div>
+			</div> -->
+            <input type="submit" value="ajouter" class="button_comment"/>
+            </form>
 			<div class="add_media">
 				<a href="#"> Ajouter une image </a>
 			</div>
