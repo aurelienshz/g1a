@@ -9,7 +9,7 @@ function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
     require INCLUDES.'header.php';
 
 
-    if(isset($_SESSION['alert'])) {
+    if(isset($_SESSION['alerts'])) {
         require INCLUDES.'alert.php';
         $_SESSION['alert'] = null;
     }

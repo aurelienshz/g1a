@@ -11,6 +11,6 @@ function alert($type, $message) {
         default:
             $classBlock='alertInfo';
     }
-    $_SESSION['alert'] = [$classBlock, $message];
+    $_SESSION['alerts'][] = [$classBlock, $message];
     return True;
 }

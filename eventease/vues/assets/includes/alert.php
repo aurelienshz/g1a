@@ -1,4 +1,5 @@
-<div class="alert <?php echo $_SESSION['alert'][0]; ?>">
-    <?php echo $_SESSION['alert'][1]; ?>
-    <a class="close" href="#"><span class="fa fa-times-circle"></span></a>
-</div>
+<?php
+foreach($_SESSION['alerts'] as $alerte) {
+    echo "<div class=\"alert ".$alerte[0]."\">\n   ".$alerte[1]."\n</div>";
+}
+$_SESSION['alerts'] = [];

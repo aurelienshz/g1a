@@ -6,6 +6,7 @@
 // Appels au modèle
 
 alert('validation', 'Tout s\'est bien passé !');
+alert('error', 'Sauf une fois au chalet');
 
 // Chargement des paramètres de la page
 $title = 'Affichage d\'un évènement';
