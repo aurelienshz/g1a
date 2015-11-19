@@ -4,7 +4,6 @@
 html {
     width: 100%;
     margin: 0 auto;
-    background-color: #303030;
 }
 .clearfix {
     overflow: auto;
@@ -17,7 +16,6 @@ body {
     width: 100%;
     min-width: 950px;
     margin: 0 auto;
-    background-color: #FBFBFB;
 }
 /*********************************/
 
@@ -55,6 +53,9 @@ header ul li a {
     text-transform: uppercase;
     text-decoration: none;
 }
+header ul li a:hover {
+    color: #287DFF;
+}
 #pseudo {
     text-transform: none    ;
     color: green;
@@ -68,34 +69,65 @@ header ul li a {
     margin: 0 0 0 2em;
 }
 
+/* SPLASH ! */
+
+*[class^="splash"] {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 1em;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+*[class^="splash"] .close {
+    display: block;
+    float: right;
+    color: #303030;
+    line-height: 1em;
+    text-align: right;
+    margin: 11px 0;
+}
+.splashInfo {
+    background-color: lightblue;
+    border-color: #287DFF;
+}
+.splashError {
+    background-color: #FFAAAA;
+    border-color: #F94339;
+
+}
+.splashValidation {
+    background-color: lightgreen;
+    border-color: #36B136;
+}
 
 /* Corps de page */
 
+h2 {
+    border-bottom: 1px solid #303030;
+}
 section {
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
 }
 .wrapper {
     width: 90%;
-    margin: 30px auto 30px auto;
+    padding: 0 5%;
+    margin: 0;
+}
+.wrapper-narrow {
+    width: 33%;
+    padding: 0 33%;
+    margin: 0;
+}
+h4 {
+    font-size: 1.5em;
+    color: #303030;
+    border-bottom: 1px solid #303030;
+    padding-bottom: .1em;
 }
 
-.row {
-    display: table-row;
-	border: 1px solid black;
-	margin : 0px 20px 0px 20px;
-}
-*[class^=col] {
-    display: table-cell;
-    text-align: center;
- 	border: 1px solid black;
-    padding : 0;
-}
-.col-2 {
-    width: 50%;
-}
-.col-3 {
-    width: 33.333333%;
-}
 
 /*********************************/
 /* Footer */
@@ -105,11 +137,14 @@ footer {
     border-top: 2px solid black;
     color: #FAFAFA;
     padding-bottom: 20px;
+    margin-top: 30px;
 }
 footer a {
     color: #FAFAFA;
+    text-decoration: none;
+}
+footer a:hover {
     text-decoration: underline;
-    background-color: #303030;
 }
 #footerWrapper {
     display: table;

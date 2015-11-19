@@ -4,7 +4,7 @@
             <img src="<?php echo IMAGES.'picnic1.jpg'; ?>" alt="Coucou"/>
         </div>
         <div class = "title_event">
-            <h1>Nom de l'événement </h1>
+            <h1><?php echo $contents['titreEvenement']; ?></h1>
         </div>
         <div class ="infos">
             <div id="useful_infos">
@@ -83,24 +83,15 @@
     <div class = "commentaire">
 		<h3> Commentaires </h3>
 		<div class="add_comment">
-			<ul>
-				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Pseudo </li>
-			</ul>
-            <form method="post" action="<?php echo getLink(["events","display",666]) ?>">
-			<div class="text_comment">
-				    <textarea name="commentaire">
-                        Rendre l'interface plus ergonomique (utiliser des form).
-                        Voir essayer d'incorporer le php.
-                    </textarea>
-			</div>
-			<!-- <div class="button_comment">
-				<a href="#">Ajouter</a>
-			</div> -->
-            <input type="submit" value="ajouter" class="button_comment"/>
+            <form>
+                <label>Ajouter un commentaire</label>
+                <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
+    			<div class="add_media">
+    				<label for="attachment">Ajouter un fichier</label>
+                    <input type="file" id="attachment" name="attachment"/>
+    			</div>
+    			<input type="submit" value="Ajouter" id="button_submit" />
             </form>
-			<div class="add_media">
-				<a href="#"> Ajouter une image </a>
-			</div>
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
@@ -115,4 +106,5 @@
 			</div>
 		</div>
     </div>
+
 </div>

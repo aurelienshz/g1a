@@ -2,11 +2,12 @@
 /* BARRE DE DEBUG : */
 
 function displayDebug() {
-    $maquettes = [['events','display'],['events','display',666],['membres','profil'],['membres','profil',666]];
-    print_r($_POST);
+
+    $maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
+    
     echo '<div id="debug"><div id="session"><h3>Session :</h3>';
     echo 'user connecté : ';
-    echo $_SESSION['connected'] ? "Oui <br />" : "Non <br />";
+    echo connected() ? "Oui <br />" : "Non <br />";
     echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';
     echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
     echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';

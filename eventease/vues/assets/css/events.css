@@ -1,7 +1,4 @@
 @CHARSET "UTF-8";
-* {
-	background-color: #FBFBFB;
-}
 .intro_evenement {
 	display:block;
 	width:100%;
@@ -158,7 +155,7 @@
 	display:block;
 	width:40%;
 	height:100%;
-	float:left;
+	float:right;
 }
 .organisation .friends_going table{
 	margin-top:2.5em;
@@ -178,9 +175,6 @@
 }
 .organisation .friends_going table tr td a:hover{
 	font-weight:bold;
-}
-.organisation .friends_going table tr td a:active{
-	color: #F94339;
 }
 .commentaire {
 	clear:both;

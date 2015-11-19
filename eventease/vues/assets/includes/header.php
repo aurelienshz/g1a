@@ -22,7 +22,7 @@
 
     <header class="">
         <h1>
-            <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES . 'logo.jpg'; ?>" alt="EventEase" /></a>
+            <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES.'logo2.png'; ?>" alt="EventEase" /></a>
         </h1>
         <nav>
             <ul id="raccourcis">
@@ -31,7 +31,7 @@
             <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
             </ul>
 <?php
-if(isset($_SESSION['connected']) AND $_SESSION['connected']) {?>
+if(connected()) {?>
             <ul id="membre">
                 <li dir="rtl"><a href="<?php echo getLink(['membres','deconnexion']); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?> - Déconnexion</a></li>
                 <li dir="rtl"><a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a></li>

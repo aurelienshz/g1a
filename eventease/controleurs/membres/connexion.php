@@ -1,7 +1,7 @@
 <?php
 /******************************************************************************/
 /*   Fausse connexion à la BDD : (sera remplacée par un appel au modèle)      */
-function getUserInfo($username) {
+function getUserAuth($username) {
     $bddUsers = array(
         'KevinDu38'=>'$2y$10$sZzL0Lb/RKp7EIYL3G0gh.TatnkE23U/yRLyb008BS4csfAB3omOq',
         'EventEase'=>'$2y$10$sZzL0Lb/RKp7EIYL3G0gh.TatnkE23U/yRLyb008BS4csfAB3omOq');
@@ -40,7 +40,7 @@ elseif($_SESSION['redirection']!=$_SESSION['previousPage']) {
 /* Contrôle des id du formulaire ou affichage du formulaire */
 if(isset($_POST['username']) AND isset($_POST['password'])) {
     //Formulaire rempli
-    $auth = getUserInfo($_POST['username']);
+    $auth = getUserAuth($_POST['username']);
     if(is_array($auth)) {
         // User trouvé en BDD
         echo 'entré dans if auth';

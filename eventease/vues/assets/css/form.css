@@ -1,5 +1,4 @@
 form {
-    width: 33%;
     margin: 0 auto;
 }
 label {
@@ -11,28 +10,43 @@ label {
     color: #303030;
     font-size:1.2em;
 }
-input {
+input, textarea {
     display: block;
     height: 40px;
-    width: 94%;
-    margin: 0 auto 20px auto;
-    padding: 0 3%;
+    line-height: 1.4em;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    padding: 0 1em;
     border: 1px solid black;
     border-radius: 10px;
     background-color: white;
     font-size: 1.2em;
 }
+textarea {
+    width: 100%;
+    font-size: 1em;
+    height: 10em;
+    border-radius: 0px;
+}
+label+input {
+    margin: 0 auto 15px auto;
+}
+input[type="file"] {
+    border: 0;
+    background-color: inherit;
+    float: right;
+    padding: 0;
+}
 input[type="submit"] {
-    width: 50%;
-    margin: 30px auto 0 auto;
+    width: 15%;
+    min-width: 10em;
+    margin: 20px 0 0 auto;
     border: 0;
     border-radius: 20px;
     border-bottom: 2px solid #303030;
-    border-right: 2px solid #303030;
     background-color: #36B136;
     color: #FAFAFA;
 }
-
 input[type="submit"]:hover {
     background-color: #369036;
 }
