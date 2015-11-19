@@ -1,6 +1,6 @@
 <?php
-function vue($blocks =[], $styles = [], $title = '', $contents=[]) {
-    global $splash;
+function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
+    global $alert;
 
     if(DEBUG) {
         require INCLUDES.'debug.php';
@@ -9,9 +9,9 @@ function vue($blocks =[], $styles = [], $title = '', $contents=[]) {
     require INCLUDES.'header.php';
 
 
-    if(isset($_SESSION['splash'])) {
-        require INCLUDES.'splash.php';
-        $_SESSION['splash'] = null;
+    if(isset($_SESSION['alerts'])) {
+        require INCLUDES.'alert.php';
+        $_SESSION['alert'] = null;
     }
 
 

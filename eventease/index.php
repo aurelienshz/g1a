@@ -9,7 +9,7 @@ session_start(); //On initialise la session.
 
 require 'routes.php';
 require 'config.php';
-require 'splash.php';
+require 'alert.php';
 require 'vue.php';
 require MODELES.'membres/connected.php';
 
