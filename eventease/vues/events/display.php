@@ -34,11 +34,31 @@
             </div>
         </div>
     </div>
+
     <div class ="description">
         <h2>Description</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae
 		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				<div class="details">
+					<table>
+						<tr>
+							<td><span>Type:</span> ...</td>
+							<td><span>Prix:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Visibilité:</span>...</td>
+							<td><span>Type de public:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Langue:</span>...</td>
+							<td><span>Sponsors:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Site Web:</span>...</td>
+						</tr>
+					</table>
+				</div>
     </div>
     <div class = "photo">
         <table>
@@ -83,6 +103,7 @@
 		<h3> Commentaires </h3>
 		<div class="add_comment">
             <form>
+				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/>
                 <label>Ajouter un commentaire</label>
                 <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
     			<div class="add_media">
