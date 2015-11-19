@@ -118,15 +118,10 @@
 	margin-left:2em;
 	float:left;
 }
-.details ul{
-	margin:2em;
+.description .details table{
+	padding:auto;
 }
-.details ul li{
-	text-decoration:none;
-	display:inline-block;
-	width:20%;
-}
-.details ul li span{
+.description .details table tr td span:{
 	color:#78C0F0;
 	font-weight:bold;
 }
