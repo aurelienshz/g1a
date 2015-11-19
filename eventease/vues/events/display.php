@@ -41,15 +41,23 @@
 		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				<div class="details">
-					<ul>
-						<li><span>Type:</span>...</li>
-						<li><span>Prix:</span>...</li>
-						<li><span>Visibilité:</span>...</li>
-						<li><span>Type de public:</span>...</li>
-						<li><span>Langue:</span>...</li>
-						<li><span>Sponsors:</span></li>
-						<li><span>Site Web:</span>...</li>
-					</ul>
+					<table>
+						<tr>
+							<td><span>Type:</span> ...</td>
+							<td><span>Prix:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Visibilité:</span>...</td>
+							<td><span>Type de public:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Langue:</span>...</td>
+							<td><span>Sponsors:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Site Web:</span>...</td>
+						</tr>
+					</table>
 				</div>
     </div>
     <div class = "photo">
