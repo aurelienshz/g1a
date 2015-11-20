@@ -2,6 +2,7 @@
 function alert($type, $message) {
     switch($type) {
         case 'validation':
+        case 'ok':
             $classBlock='alertValidation';
             break;
         case 'error':

@@ -1,5 +1,5 @@
 <div class="wrapper-narrow">
-    <form method="post" action="<?php getLink('inscription'); ?>">
+    <form method="post" action="<?php getLink(['membres','inscription']); ?>">
         <label for="username">Nom d'utilisateur</label>
         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur"/>
 
@@ -11,6 +11,8 @@
 
         <label for="password-confirm">Mot de passe (confirmation)</label>
         <input type="password" name="password-confirm" id="password-confirm" placeholder="Mot de Passe - encore !"/>
+
+        <input type="hidden" name="form-sent" value="True" />
 
         <input type="submit" value="Valider"/>
     </form>
