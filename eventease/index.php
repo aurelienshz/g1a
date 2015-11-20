@@ -11,6 +11,7 @@ require 'routes.php';
 require 'config.php';
 require 'alert.php';
 require 'vue.php';
+require 'db.php';
 require MODELES.'membres/connected.php';
 
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.

@@ -1,9 +1,10 @@
 <?php
-/******************************************************************************/
+/**************************************************/
 require MODELES.'membres/getUserAuth.php';
 
 /* Affichage du formulaire */
-function formConnexion() {
+function formConnexion($auth = []) {
+    print_r($auth);
     $title = 'Connexion';
     $style = ['form.css'];
     vue(['connexion'],$style,$title);
@@ -28,7 +29,7 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
     if(is_array($auth)) {
         // User trouvé en BDD
         echo 'entré dans if auth';
-        if (password_verify($_POST['password'], $auth['hash'])) {
+        if (password_verify($_POST['password'], $auth['mdp'])) {
             // MdP OK
             echo 'pass vérifié';
             $_SESSION['connected'] = True;
