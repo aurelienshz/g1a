@@ -2,7 +2,6 @@
 function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
 
     if(!in_array('alert.js',$scripts)) { $scripts[] = 'alert.js'; }
-    global $alert;
 
     if(DEBUG) {
         require INCLUDES.'debug.php';

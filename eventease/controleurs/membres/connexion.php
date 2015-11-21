@@ -4,7 +4,6 @@ require MODELES.'membres/getUserAuth.php';
 
 /* Affichage du formulaire */
 function formConnexion($auth = []) {
-    print_r($auth);
     $title = 'Connexion';
     $style = ['form.css'];
     vue(['connexion'],$style,$title);
@@ -35,6 +34,7 @@ if(isset($_POST['username']) AND isset($_POST['password'])) {
             $_SESSION['connected'] = True;
             $_SESSION['username'] = $_POST['username'];
             header('Location: '.getLink(['accueil']));
+            exit();
         }
         else {      // User trouvé mais mdp faux
             formConnexion();
