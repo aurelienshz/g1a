@@ -13,7 +13,6 @@ function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
 
     if(isset($_SESSION['alerts'])) {
         require INCLUDES.'alert.php';
-        $_SESSION['alert'] = null;
     }
 
 

@@ -33,10 +33,8 @@
         ?>
     </div>
     <div>
-        <h3>Etat du formulaire :</h3>
-        <?php
-        echo 'Formulaire envoyé : '.(isset($_POST['form-sent'])?'Oui !<br />':'Non :(<br />');
-        print_r($_POST);
-        ?>
+        <h3>Messages de debug :</h3>
+        <?php print_r($_SESSION); ?>
+        <?php print_r($_SESSION['alerts']); ?>
     </div>
 </div>  <!-- /#debug -->

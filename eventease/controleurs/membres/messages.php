@@ -3,6 +3,13 @@
 
 /**** Préparation des contenus ****/
 
+if(!connected()) {
+    alert('error', 'Vous devez vous connecter pour voir cette page');
+    // La redirection empêche la validation de l'alerte :( 10 points pour celui.celle qui trouve la solution !
+    header("Location: ".getLink(['membres','connexion']));
+    exit();
+}
+
 function getUserDetails($id) {
     $bddUser = array(
         'civilite' => 'M.',
