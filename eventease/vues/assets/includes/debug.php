@@ -9,9 +9,9 @@
     echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';
     echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
     echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
-
-?>  </div>
-    <div id="palette" style="display:none;">
+    echo '</div>';
+?>
+    <div id="palette" style="">
         <div id="color1">#303030</div>
         <div id="color2">#FAFAFA</div>
         <div id="color3">#F94339</div>
@@ -28,13 +28,15 @@
     </div>
     <div>   <!-- Assets chargés  -->
         <h3>Assets chargés :</h3>
+        <p>
         <?php
+            echo "<strong>Scripts : </strong>";
             print_r($scripts);
         ?>
+        </p>
     </div>
     <div>
         <h3>Messages de debug :</h3>
-        <?php print_r($_SESSION); ?>
-        <?php print_r($_SESSION['alerts']); ?>
+        <?php echo "<strong>Alertes : </strong>"; print_r(isset($_SESSION['alerts'])?$_SESSION['alerts']:"Pas d'alerte à afficher."); echo '<br />'; ?>
     </div>
 </div>  <!-- /#debug -->
