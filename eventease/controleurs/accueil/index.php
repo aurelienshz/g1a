@@ -11,7 +11,7 @@
 
 require MODELES.'events/suggestions.php';
 
-$contents['suggestions'] = suggestions();
+$contents = suggestions();
 
 // Chargement de la bonne version du triptyque
 if(connected()) {
