@@ -7,11 +7,12 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 session_start(); //On initialise la session.
 
-require 'routes.php';
-require 'config.php';
-require 'alert.php';
-require 'vue.php';
-require 'db.php';
+require 'config/config.php';
+require 'config/db.php';
+require CONTROLEURS.'shared/routes.php';
+require CONTROLEURS.'shared/alert.php';
+require CONTROLEURS.'shared/vue.php';
+
 require MODELES.'membres/connected.php';
 
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
