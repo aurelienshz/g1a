@@ -31,13 +31,31 @@
             <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
             </ul>
 <?php
+/* SI USER CONNECTÉ : */
 if(connected()) {?>
             <ul id="membre">
-                <li dir="rtl"><a href="<?php echo getLink(['membres','deconnexion']); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?> - Déconnexion</a></li>
-                <li dir="rtl"><a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a></li>
+                <li dir="rtl" id="actionsMembre" class="menuTrigger">
+                    <a href="<?php echo getLink(['membres','deconnexion']); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?></a>
+                    <ul class="menuDeroulant">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </li>
+                <li dir="rtl" id="alertes" class="menuTrigger">
+                    <a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a>
+                    <ul class="menuDeroulant">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </li>
             </ul>
 <?php }
-else { //Si pas d'user connecté ?>
+
+
+/* SI USER DÉCONNECTÉ : */
+else { ?>
             <ul id="membre">
                 <li dir="rtl"><a href="<?php echo getLink(['membres','connexion']); ?>"><span class="fa fa-sign-in"></span>&nbsp;Connexion</a></li>
                 <li dir="rtl"><a href="<?php echo getLink(['membres','inscription']); ?>"><span class="fa fa-pencil-square-o"></span>&nbsp;Inscription</a></li>

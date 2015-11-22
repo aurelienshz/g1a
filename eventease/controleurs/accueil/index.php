@@ -11,7 +11,8 @@
 
 require MODELES.'events/suggestions.php';
 
-$contents = suggestions();
+$contents['suggestions'] = suggestions();
+
 // Chargement de la bonne version du triptyque
 if(connected()) {
     $triptyque = 'features';
@@ -19,7 +20,6 @@ if(connected()) {
 else {
     $triptyque = 'features';
 }
-
 
 /**** Affichage de la page ****/
 $title = 'Accueil';

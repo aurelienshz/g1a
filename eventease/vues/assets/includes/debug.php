@@ -1,23 +1,26 @@
+<?php /* BARRE DE DEBUG : */  ?>
+
+<div id="palette" style="">
+    <div id="color1">#303030</div>
+    <div id="color2">#FAFAFA</div>
+    <div id="color3">#F94339</div>
+    <div id="color4">#36B136</div>
+    <div id="color5">#287DFF</div>
+</div>
+
 <?php
-/* BARRE DE DEBUG : */
 
-    $maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
+$maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
 
-    echo '<div id="debug"><div id="session"><h3>Session :</h3>';
-    echo 'user connecté : ';
-    echo connected() ? "Oui ! :)<br />" : "Non !<br />";
-    echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';
-    echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
-    echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
-    echo '</div>';
+echo '<div id="debug"><div id="session"><h3>Session :</h3>';
+echo 'user connecté : ';
+echo connected() ? "Oui ! :)<br />" : "Non !<br />";
+echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';
+echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
+echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
+echo '</div>';
 ?>
-    <div id="palette" style="">
-        <div id="color1">#303030</div>
-        <div id="color2">#FAFAFA</div>
-        <div id="color3">#F94339</div>
-        <div id="color4">#36B136</div>
-        <div id="color5">#287DFF</div>
-    </div>
+
     <div id="maquettes">
         <h3>Accès rapide vers les maquettes :</h3>
         <?php
@@ -28,12 +31,10 @@
     </div>
     <div>   <!-- Assets chargés  -->
         <h3>Assets chargés :</h3>
-        <p>
         <?php
             echo "<strong>Scripts : </strong>";
             print_r($scripts);
         ?>
-        </p>
     </div>
     <div>
         <h3>Messages de debug :</h3>
