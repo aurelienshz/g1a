@@ -3,8 +3,8 @@
 ?>
 
 <section id="bigform">
-<p id="catchphrase">200ème commit \o/</p>
-<p id="subcatchphrase">Bonjour !</p>
+<p id="catchphrase">Time to tease some shit</p>
+<p id="subcatchphrase">Bon sang de bonsoir !</p>
     <form method="post" action="">
         <input type="text" placeholder="Texte"/><!--
      --><select>
