@@ -15,8 +15,8 @@ function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
     }
 
 
-    foreach ($blocks as $value) {
-        require VUES.$_SESSION['currentPage'][0].'/'.$value.'.php';
+    foreach ($blocks as $block) {
+        require VUES.$_SESSION['currentPage'][0].'/'.$block.'.php';
     }
     require INCLUDES.'footer.php';
 }
