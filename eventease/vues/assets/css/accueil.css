@@ -47,15 +47,19 @@
     border-radius: 0;
     border-right: 0;
 }
+#bigform form input[type="text"] {
+    width: 50%;
+}
 #bigform form select {
     background-image: url(../images/dropdown.png);
     background-position: 95%;
     background-repeat: no-repeat;
 }
+
 #bigform form input:active, #bigform form select:active {
     border: 1px solid #FAFAFA;
 }
-#bigform form input[type="text"] {
+#bigform form select {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
