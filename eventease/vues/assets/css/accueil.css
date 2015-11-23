@@ -47,6 +47,11 @@
     border-radius: 0;
     border-right: 0;
 }
+#bigform form select {
+    background-image: url(../images/dropdown.png);
+    background-position: 95%;
+    background-repeat: no-repeat;
+}
 #bigform form input:active, #bigform form select:active {
     border: 1px solid #FAFAFA;
 }
