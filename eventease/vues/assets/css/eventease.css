@@ -83,9 +83,13 @@ header ul li a:hover {
     display: block;
     margin: 0;
 }
-.menuDeroulant a {
+.menuDeroulant li {
+    text-align: right;
+}
+.menuDeroulant li a {
     text-transform: none;
-    margin: 0.3em 1em;
+    display: block;
+    margin: 0.5em 0.5em;
 }
 
 
