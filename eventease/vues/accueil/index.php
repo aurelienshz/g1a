@@ -3,8 +3,8 @@
 ?>
 
 <section id="bigform">
-<p id="catchphrase">Time to tease some shit</p>
-<p id="subcatchphrase">Bon sang de bonsoir !</p>
+<p id="catchphrase">Time to tease some shit once again</p>
+<p id="subcatchphrase">Mille milliards de mille sabords !</p>
     <form method="post" action="">
         <input type="text" placeholder="Texte"/><!--
      --><select>
