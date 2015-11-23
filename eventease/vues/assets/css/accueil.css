@@ -89,6 +89,7 @@
 /******************************************/
 /* Suggestions & features : */
 
+
 .row {
     display: table-row;
     table-layout: fixed;
@@ -180,10 +181,13 @@
     display: table;
     border-collapse: collapse;
     table-layout: fixed;
-    width: 100%;
-    margin: 30px auto 0 auto;
-    color: #303030;
+    margin: 0;
+    color: #FAFAFA;
 }
+.blue-wrapper h4 {
+    color: #FAFAFA;
+    border-color: #FAFAFA;
+    }
 .triptyque h5 {
 	font-size: 1.5em;
 	font-weight:bold;
@@ -192,15 +196,7 @@
 }
 .triptyque #glyphs {
     font-size: 10em;
-}
-.triptyque #glyphs .fa-users {
-    color: #287DFF;
-}
-.triptyque #glyphs .fa-share-alt {
-    color: #F94339;
-}
-.triptyque #glyphs .fa-calendar-check-o {
-    color: #36B136;
+    color: #FAFAFA;
 }
 .triptyque p {
     font-size: 1.2em;
@@ -210,3 +206,9 @@
 	font-size:0.9em;
 	margin: 0 10px 5px 10px;
 }
+
+.blue-wrapper { 
+    background-color: #287DFF;
+}
+
+
