@@ -6,17 +6,12 @@
 <p id="catchphrase">Time to tease some shit once again</p>
 <p id="subcatchphrase">Mille milliards de mille sabords !</p>
     <form method="post" action="">
-        <input type="text" placeholder="Texte"/><!--
-     --><select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+        <select>
+            <option>Mots-clés...</option>
+            <option>Près de...</option>
+            <option>Prochainement...</option>
         </select><!--
-     --><select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select><!--
+     --><input type="text" placeholder="Mots-clés"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">

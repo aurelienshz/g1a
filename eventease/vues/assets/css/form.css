@@ -44,11 +44,11 @@ input[type="submit"] {
     border: 0;
     border-radius: 20px;
     border-bottom: 2px solid #303030;
-    background-color: #36B136;
+    background-color: #287DFF;
     color: #FAFAFA;
 }
 input[type="submit"]:hover {
-    background-color: #369036;
+    background-color: #015791;
 }
 input[type="submit"]:active {
     background-color: #369036;

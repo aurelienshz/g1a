@@ -45,14 +45,13 @@ if(connected()) {?>
                 <li dir="rtl" id="alertes" class="menuTrigger">
                     <a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a>
                     <ul class="menuDeroulant">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
+                        <li><a href="<?php echo getLink(['membres','messages',666]); ?>">Nouveau message de Kevin</a></li>
+                        <li><a href="<?php echo getLink(['events']); ?>">Kevin vous a invité à son évènement</a></li>
                     </ul>
                 </li>
             </ul>
-<?php }
-
+<?php
+}
 
 /* SI USER DÉCONNECTÉ : */
 else { ?>

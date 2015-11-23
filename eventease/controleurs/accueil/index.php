@@ -25,7 +25,7 @@ else {
 $title = 'Accueil';
 $styles = ['accueil.css'];
 $blocs = ['index',$triptyque];
-$scripts = ['alert.js'];
+$scripts = ['bigform.js'];
 
 //Appels de la vue :
 vue($blocs, $styles, $title, $contents, $scripts);
