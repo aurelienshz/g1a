@@ -21,7 +21,7 @@
     </form>
     <div id="createButtonContainer">
         <a href="<?php echo getLink(['events','create']); ?>">
-            <div id="createButton">Créer un évènement</div>
+            <div class="disabled" id="createButton">Créer un évènement</div>
         </a>
     </div>
 </section>

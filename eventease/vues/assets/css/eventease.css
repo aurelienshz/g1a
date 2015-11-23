@@ -17,6 +17,10 @@ body {
     min-width: 950px;
     margin: 0 auto;
 }
+
+.disabled {
+    cursor: not-allowed;
+}
 /*********************************/
 
 /* Header : */
