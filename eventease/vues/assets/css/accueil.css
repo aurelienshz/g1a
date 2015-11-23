@@ -25,6 +25,9 @@
     margin: 0 auto 30px auto;
 }
 #bigform form input, #bigform form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
