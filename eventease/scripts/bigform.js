@@ -1,6 +1,6 @@
 var textInput = document.querySelector('#bigform input[type="text"]'),
     select = document.querySelector('#bigform select'),
-    placeholder = '';
+    placeholder = 'Mots-clés';
 
 select.addEventListener(
     'change',
