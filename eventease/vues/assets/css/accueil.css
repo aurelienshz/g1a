@@ -2,13 +2,18 @@
 /* Formulaire : */
 #bigform {
     width: 100%;
-/*  background-image: url(../images/tomorrowland.jpg);
-    background-repeat: repeat; */
+    background-image: url(../images/concert.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: bottom;
     background-color: #287DFF;
     text-align: center;
     margin: 0 auto 0 auto;
     padding: 60px 0;
     border-bottom: 1px solid #303030;
+}
+#catchphrase, #subcatchphrase {
+    text-shadow: 0 0 0.5em #FAFAFA;
 }
 #catchphrase {
     font-size: 2em;
@@ -53,12 +58,12 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-right: 1px solid #303030;
-    background-color: #36B136;
+    background-color: #287DFF;
     color: white;
     font-weight: bold;
 }
 #bigform form input[type="submit"]:hover {
-    background-color: #369036;
+    background-color: #015791;
 }
 #createButtonContainer {
     width: 25%;
@@ -70,7 +75,7 @@
 #createButton {
     padding: 25px 0;
     vertical-align: middle;
-    background-color: #36B136;
+    background-color: #287DFF;
     border: 0;
     width: 100%;
     margin: 0 auto;
@@ -83,7 +88,7 @@
     line-height: 20px;
 }
 #createButton:hover {
-    background-color: #369036;
+    background-color: 015791;
 }
 
 /******************************************/
