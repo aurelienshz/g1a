@@ -7,16 +7,16 @@ select.addEventListener(
     function() {
         switch (select.selectedIndex) {
             case 0:
-                placeholder = 'Mots-clés'
+                placeholder = placeholder;
                 break;
             case 1:
-                placeholder = 'Adresse'
+                placeholder = 'Adresse';
                 break;
             case 2:
-                placeholder = 'Date'
+                placeholder = 'Date';
                 break;
             default:
-                placeholder = 'Mots-clés'
+                placeholder = placeholder;
         }
         textInput.placeholder = placeholder;
     },
