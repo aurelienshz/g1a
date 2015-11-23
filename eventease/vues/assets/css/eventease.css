@@ -140,8 +140,8 @@ section {
 }
 .wrapper {
     width: 90%;
-    padding: 0 5%;
-    margin: 0;
+    padding: 2em 5%;
+    margin: 0 auto;
 }
 .wrapper-narrow {
     width: 33%;
@@ -149,10 +149,13 @@ section {
     margin: 0;
 }
 h4 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
     font-size: 1.5em;
     color: #303030;
     border-bottom: 1px solid #303030;
     padding-bottom: .1em;
+    margin: 0 0 1em 0; 
 }
 
 
@@ -164,7 +167,6 @@ footer {
     border-top: 2px solid black;
     color: #FAFAFA;
     padding-bottom: 20px;
-    margin-top: 30px;
 }
 footer a {
     color: #FAFAFA;

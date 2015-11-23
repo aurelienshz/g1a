@@ -40,4 +40,5 @@
             </p>
         </div>
         <div class="slideshowDefilement">&gt;</div>
-    </section>
+    </section>   
+</div> <!-- /wrapper -->
