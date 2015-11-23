@@ -1,7 +1,7 @@
 <div class="wrapper-narrow">
     <form method="post" action="<?php getLink(['membres','inscription']); ?>">
-        <label for="username">Nom d'utilisateur</label>
-        <input type="text" name="username" id="username" placeholder="Nom d'utilisateur"/>
+        <label for="pseudo">Nom d'utilisateur</label>
+        <input type="text" name="pseudo" id="pseudo" placeholder="Nom d'utilisateur"/>
 
         <label for="email">Adresse e-mail</label>
         <input type="email" name="email" id="email" placeholder="Adresse e-mail"/>

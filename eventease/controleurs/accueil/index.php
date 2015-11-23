@@ -27,5 +27,5 @@ $styles = ['accueil.css'];
 $blocs = ['index',$triptyque];
 $scripts = ['bigform.js'];
 
-//Appels de la vue :
+// Appels de la vue :
 vue($blocs, $styles, $title, $contents, $scripts);
