@@ -83,6 +83,10 @@ header ul li a:hover {
     display: block;
     margin: 0;
 }
+.menuDeroulant a {
+    text-transform: none;
+    margin: 0.3em 1em;
+}
 
 
 /* ALERTE ! */

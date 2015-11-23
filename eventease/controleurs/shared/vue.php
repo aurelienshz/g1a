@@ -3,6 +3,7 @@ function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
 
     if(!in_array('alert.js',$scripts)) { $scripts[] = 'alert.js'; }
     if(!in_array('disabled.js',$scripts)) { $scripts[] = 'disabled.js'; }
+    if(!in_array('menuDeroulant.js',$scripts)) { $scripts[] = 'menuDeroulant.js'; }
 
     if(DEBUG) {
         require INCLUDES.'debug.php';

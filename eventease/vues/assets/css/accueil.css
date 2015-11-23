@@ -42,6 +42,9 @@
     border-radius: 0;
     border-right: 0;
 }
+#bigform form input:active, #bigform form select:active {
+    border: 1px solid #FAFAFA;
+}
 #bigform form input[type="text"] {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;

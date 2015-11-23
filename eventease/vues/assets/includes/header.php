@@ -35,11 +35,11 @@
 if(connected()) {?>
             <ul id="membre">
                 <li dir="rtl" id="actionsMembre" class="menuTrigger">
-                    <a href="<?php echo getLink(['membres','deconnexion']); ?>" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?></a>
+                    <a href="#" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?></a>
                     <ul class="menuDeroulant">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
+                        <li><a href="<?php echo getLink(['membres','messages']); ?>">Messages</a></li>
+                        <li><a href="<?php echo getLink(['membres','profil']); ?>">Mon compte</a></li>
+                        <li><a href="<?php echo getLink(['membres','deconnexion']); ?>">Déconnexion</a></li>
                     </ul>
                 </li>
                 <li dir="rtl" id="alertes" class="menuTrigger">
