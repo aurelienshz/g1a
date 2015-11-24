@@ -35,8 +35,9 @@
 		<br><label for="description">Description</label> <input type="text" name="Description" placeholder="Description" name="description" id="description"/>
 		<br><label for="Nombre maximum de participants">Nombre maximum de participants</label> <input type="number" name="Nombre de participants" name="description" id="description"/>
 		<br><label for="attachment">Ajouter une image</label> <input type="file" id="attachment" name="attachment"/>
-		<br><label for="website">Site Web</label> <input type="url" id="website" name="website"/>
+		<br><br><label for="website">Site Web</label> <input type="url" id="website" name="website"/>
 		<br><label for="sponsors">Sponsors</label> <input type="text" id="sponsor1" name="sponsor1"/>
         <br><input type="submit" value="Valider" />
     </form>
 </div>
+
