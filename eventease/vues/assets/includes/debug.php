@@ -10,18 +10,6 @@
 
 <?php
 
-<<<<<<< HEAD
-function displayDebug() {
-
-    $maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
-    
-    echo '<div id="debug"><div id="session"><h3>Session :</h3>';
-    echo 'user connecté : ';
-    echo connected() ? "Oui <br />" : "Non <br />";
-    echo '<a href="sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';
-    echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
-    echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
-=======
 $maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
 
 echo '<div id="debug"><div id="session"><h3>Session :</h3>';
@@ -32,7 +20,6 @@ echo 'Page précédente : '.implode(' -> ',$_SESSION['previousPage']).'<br />';
 echo 'Page courante : '.implode(' -> ',$_SESSION['currentPage']).'<br />';
 echo '</div>';
 ?>
->>>>>>> 653bb9c683376f5da5f032231260b1b6f83c6e05
 
     <div id="maquettes">
         <h3>Accès rapide vers les maquettes :</h3>
