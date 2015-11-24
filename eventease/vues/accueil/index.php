@@ -15,8 +15,8 @@
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">
-        <a href="<?php echo getLink(['events','create']); ?>">
-            <div id="createButton">Créer un évènement</div>
+        <a class="button" id="createButton" href="<?php echo getLink(['events','create']); ?>">
+            Créer un évènement
         </a>
     </div>
 </section>

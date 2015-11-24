@@ -51,7 +51,7 @@ input[type="submit"]:hover {
     background-color: #015791;
 }
 input[type="submit"]:active {
-    background-color: #369036;
+    background-color: #015791;
     border: 1px solid #303030;
 }
 form.formError {
