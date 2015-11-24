@@ -26,9 +26,15 @@
         </h1>
         <nav>
             <ul id="raccourcis">
+<<<<<<< HEAD
             <li><a href="<?php echo getLink();?>"><span class="fa fa-home"></span>&nbsp;Accueil</a></li>
             <li><a href="<?php echo getLink(['events','create']);?>"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
             <li><a href="<?php echo getLink(['events','search'])?>"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
+=======
+                <li><a href="<?php echo getLink();?>"><span class="fa fa-home"></span>&nbsp;Accueil</a></li>
+                <li><a class="disabled" href="<?php echo getLink(['events','create']);?>"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
+                <li><a href="<?php echo getLink(['events','search']); ?>"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
+>>>>>>> e1f2a150b1dc26ec699783fb75aba558295fab85
             </ul>
 <?php
 /* SI USER CONNECTÉ : */

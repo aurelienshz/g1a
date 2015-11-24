@@ -54,8 +54,10 @@ input[type="submit"]:active {
     background-color: #015791;
     border: 1px solid #303030;
 }
-form.formError {
+form .formError {
     color: red;
+    margin-top: 0;
+    text-align: right;
 }
 select{
 	display: block;
