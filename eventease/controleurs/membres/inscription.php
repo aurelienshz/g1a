@@ -63,7 +63,9 @@ else {  // Le formulaire a été rempli
             vue(['validationInscription'],$style,$title);
         }
         else {
-            $contents['errors'] = $errors;
+            foreach ($errors as $key => $value){
+                $contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
+            }
             vue(['inscription'],$style,$title,$contents);
         }
     }
