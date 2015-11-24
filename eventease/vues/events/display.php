@@ -4,7 +4,7 @@
             <img src="<?php echo IMAGES.'picnic1.jpg'; ?>" alt="Coucou"/>
         </div>
         <div class = "title_event">
-            <h1>Nom de l'événement </h1>
+            <h1><?php echo $contents['titreEvenement']; ?></h1>
         </div>
         <div class ="infos">
             <div id="useful_infos">
@@ -34,11 +34,31 @@
             </div>
         </div>
     </div>
+
     <div class ="description">
         <h2>Description</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet libero vitae
 		tincidunt egestas. Duis ultricies lobortis risus sed pretium. Nulla iaculis leo sed fringilla
 		efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				<div class="details">
+					<table>
+						<tr>
+							<td><span>Type:</span> ...</td>
+							<td><span>Prix:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Visibilité:</span>...</td>
+							<td><span>Type de public:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Langue:</span>...</td>
+							<td><span>Sponsors:</span>...</td>
+						</tr>
+						<tr>
+							<td><span>Site Web:</span>...</td>
+						</tr>
+					</table>
+				</div>
     </div>
     <div class = "photo">
         <table>
@@ -82,18 +102,16 @@
     <div class = "commentaire">
 		<h3> Commentaires </h3>
 		<div class="add_comment">
-			<ul>
-				<li><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> Pseudo </li>
-			</ul>
-			<div class="text_comment">
-				<p>Votre commentaire...</p>
-			</div>
-			<div class="button_comment">
-				<a href="#">Ajouter</a>
-			</div>
-			<div class="add_media">
-				<a href="#"> Ajouter une image </a>
-			</div>
+            <form>
+				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/>
+                <label>Ajouter un commentaire</label>
+                <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
+    			<div class="add_media">
+    				<label for="attachment">Ajouter un fichier</label>
+                    <input type="file" id="attachment" name="attachment"/>
+    			</div>
+    			<input type="submit" value="Ajouter" id="button_submit" />
+            </form>
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
@@ -108,4 +126,5 @@
 			</div>
 		</div>
     </div>
+
 </div>

@@ -3,6 +3,8 @@
 
 $actions = [
 'profil',
+'evenements',
+'messages',
 'connexion',
 'deconnexion',
 'inscription'

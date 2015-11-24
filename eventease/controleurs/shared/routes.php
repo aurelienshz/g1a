@@ -9,8 +9,7 @@ Définition des paramètres possibles pour une action donnée dans la config du 
 */
 
 function route($module, $action, $fetchOnly = False) {
-	// $modules = modules définis dans la config générale de l'app
-	global $modules;
+	global $modules;	// $modules = modules définis dans la config générale de l'app
 	if(in_array($module, $modules)) {
 		$moduleRouted = $module;
 	}
@@ -34,6 +33,16 @@ function route($module, $action, $fetchOnly = False) {
 	return $route;
 }
 
+function fetchParams($page) {
+	$pageRoute = route($page[0],$page[1]);
+	$actionsPath = CONTROLEURS.$pageRoute['module'].'/'.'actions.php';
+	// on charge les noms des paramètres de l'action :
+	if(file_exists($actionsPath)) {
+		require $actionsPath;
+		return $parametres[$page[1]];
+		// Que fait-on si ce n'est pas défini !?
+	}
+}
 // $parametres = ['display'=>['id'],'edit'=>['id','do']];
 function getLink($page = []) {	// $page = [$module, $action, $param1, $param2]
 	$link = '?';
@@ -42,14 +51,7 @@ function getLink($page = []) {	// $page = [$module, $action, $param1, $param2]
 
 	// Si on a passé des paramètres supplémentaires
 	if(count($page) > 2) {
-		$pageRoute = route($page[0],$page[1]);
-		$actionsPath = CONTROLEURS.$pageRoute['module'].'/'.'actions.php';
-		// on charge les noms des paramètres de l'action :
-		if(file_exists($actionsPath)) {
-			require $actionsPath;
-			$nomsParametres = array_merge($nomsParametres, $parametres[$page[1]]);
-			// Que fait-on si ce n'est pas défini !?
-		}
+		$nomsParametres = array_merge($nomsParametres, fetchParams($page));
 	}
 	// on construit le lien avec les bons paramètres :
 	foreach ($page as $key => $valeurParametre) {

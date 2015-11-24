@@ -15,12 +15,19 @@
     display: table-cell;
     width: 33.333333%;
     height : 60px;
-    background-color: #FAFAFA;
+    background-color: white;
     padding:0;
     margin:0;
 }
+.onglets li:hover {
+    background-color: #BFBFBF;
+}
 .onglets li.active {
-    background-color: #36B136;
+    border-bottom: 0;
+}
+.onglets li.active:hover {
+    border-bottom: 0;
+    background-color: white;
 }
 .onglets a {
     display : block;
@@ -29,9 +36,6 @@
     height : 60px;
     line-height: 60px;
     text-align : center;
-}
-.onglets a:hover {
-    background-color : #fff;
 }
 .profil_onglets {
     padding-bottom : 40px;

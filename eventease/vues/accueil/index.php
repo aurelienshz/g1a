@@ -3,65 +3,42 @@
 ?>
 
 <section id="bigform">
-<p id="catchphrase">Do you even tease ?</p>
-<p id="subcatchphrase">Bonjour !</p>
+<p id="catchphrase">Time to tease some shit once again</p>
+<p id="subcatchphrase">Mille milliards de mille sabords !</p>
     <form method="post" action="">
-        <input type="text" placeholder="Texte"/><!--
-     --><select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+        <select>
+            <option>Mots-clés...</option>
+            <option>Près de...</option>
+            <option>Prochainement...</option>
         </select><!--
-     --><select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select><!--
+     --><input type="text" placeholder="Mots-clés"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">
         <a href="<?php echo getLink(['events','create']); ?>">
-            <div id="createButton">Créer un évènement</div>
+            <div class="disabled" id="createButton">Créer un évènement</div>
         </a>
     </div>
 </section>
 
 <div class="wrapper">
-    <section class="triptyque" id="suggestions">
-        <h4>Rien que pour vous</h4>
-    	    <div class="row">
-                <div class="col-3"><h5>Une envie de ?</h5></div>
-                <div class="col-3"><h5>Près de vous</h5></div>
-                <div class="col-3"><h5 class="subtitles" >Tout de suite</h5></div>
+<h4>Suggestions</h4>
+    <section id="suggestions" class="row">
+        <div class="slideshowDefilement">&lt;</div>
+        <div class="imageContainer"><img src="<?php echo IMAGES.'picnic1.jpg'?>" /></div>
+        <div class="eventDetails">
+            <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
+            <h5><?php echo $contents['titreSuggestion']; ?></h5>
+            <div id="infosPratiques">
+                <p></p>
+                <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
+                <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
+                <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
             </div>
-    	  <div class="row">
-    		<div class="col-3">
-    			<span class="slideshowSelector">&lt;</span>
-    			<div class="slideshowContent">
-    				<div class="firstArgument">Type</div>
-    				<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-    				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
-    			</div>
-    			<span class="slideshowSelector">&gt;</span>
-    		</div>
-    		<div class="col-3">
-    			<span class="slideshowSelector">&lt;</span>
-    			<div class="slideshowContent">
-    				<div class="firstArgument">Type</div>
-    				<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-    				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
-    			</div>
-    			<span class="slideshowSelector">&gt;</span>
-    		</div>
-    		<div class="col-3">
-    			<span class="slideshowSelector">&lt;</span>
-    			<div class="slideshowContent">
-    				<div class="firstArgument">Type</div>
-    				<div class="otherArgument">Titre | Date & Heure | Lieu</div>
-    				<div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus eros in ante egestas feugiat. Sed suscipit orci id nunc blandit, eget bibendum metus viverra. Nam et mattis risus. </div>
-    			</div>
-    			<span class="slideshowSelector">&gt;</span>
-    		</div>
-    	  </div>
-    </section>
+            <p id="eventDescription">
+                <?php echo $contents['descriptionSuggestion']; ?>
+            </p>
+        </div>
+        <div class="slideshowDefilement">&gt;</div>
+    </section>   
 </div> <!-- /wrapper -->

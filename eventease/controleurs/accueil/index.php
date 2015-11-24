@@ -3,8 +3,21 @@
 
 /**** Préparation des contenus ****/
 
+
+// Réponse de la table : organisée par champs puis par ligne ou l'inverse ?
+// $reponse[0]['titre'] => 'klqsdfljdfkl'
+// $reponse['titre'][0] => 'skldlfjF'
+
+
+require MODELES.'events/suggestions.php';
+
+$contents = suggestions();
+
 // Chargement de la bonne version du triptyque
-if(!(isset($_SESSION['connected']) AND $_SESSION['connected'])) {
+if(connected()) {
+    $triptyque = 'features';
+}
+else {
     $triptyque = 'features';
 }
 
@@ -12,6 +25,7 @@ if(!(isset($_SESSION['connected']) AND $_SESSION['connected'])) {
 $title = 'Accueil';
 $styles = ['accueil.css'];
 $blocs = ['index',$triptyque];
+$scripts = ['bigform.js'];
 
-//Appels de la vue :
-vue($blocs, $styles, $title);
+// Appels de la vue :
+vue($blocs, $styles, $title, $contents, $scripts);

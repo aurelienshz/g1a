@@ -7,14 +7,18 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 
 session_start(); //On initialise la session.
 
-require 'routes.php';
-require 'config.php';
-require 'vue.php';
+require 'config/config.php';
+require 'config/db.php';
+require CONTROLEURS.'shared/routes.php';
+require CONTROLEURS.'shared/alert.php';
+require CONTROLEURS.'shared/vue.php';
+
+require MODELES.'membres/connected.php';
 
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 // Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
-if(!isset($_SESSION['connected'])) {
+if(!connected()) {
     $_SESSION['connected'] = False;
 }
 
@@ -27,13 +31,22 @@ $route = route($module,$action);
 
 // Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
 if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on vient d'atterrir)
-    $_SESSION['previousPage'] = [DEFAULTMODULE, 'index'];   // Prends garde à toi si l'action par déf n'est pas nommée index !
-    $_SESSION['currentPage'] = [DEFAULTMODULE, 'index'];
+    $_SESSION['previousPage'] = $landingPage;   // Page d'atterrissage : paramétrée dans config.php
+    $_SESSION['currentPage'] = $landingPage;
 }
-elseif($_SESSION['currentPage']!=$route) {	    // Si on a réellement chargé une nouvelle page et pas simplement rafraichi
+elseif($_SESSION['currentPage'] != array_values($_GET)) {	    // Si on a réellement chargé une nouvelle page et pas simplement rafraichi. N.B : on compare index par index car $route est AUSSI associatif
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
-    $_SESSION['currentPage'] = [$route['module'],$route['action']];
+    $_SESSION['currentPage'] = [];
+    if (count($_GET)>0) {
+        foreach($_GET as $value) {
+            $_SESSION['currentPage'][] = $value;
+        }
+    }
+    else {
+        $_SESSION['currentPage'] = $landingPage;
+        $_SESSION['currentPage'] = $landingPage;
+    }
 }
 
-// Appel final du contrôleur dont on avait besoin :
+// Appel final du contrôleur dont on a besoin :
 require CONTROLEURS.$route['module'].'/'.$route['action'].'.php';

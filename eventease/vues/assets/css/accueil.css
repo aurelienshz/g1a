@@ -2,13 +2,18 @@
 /* Formulaire : */
 #bigform {
     width: 100%;
-/*  background-image: url(../images/tomorrowland.jpg);
-    background-repeat: repeat; */
-    background-color: #287DFF;
+    background-image: url(../images/concert.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: bottom;
+    background-color: #FAFAFA;
     text-align: center;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 0 auto;
     padding: 60px 0;
     border-bottom: 1px solid #303030;
+}
+#catchphrase, #subcatchphrase {
+    text-shadow: 0 0 0.5em #FAFAFA;
 }
 #catchphrase {
     font-size: 2em;
@@ -25,6 +30,9 @@
     margin: 0 auto 30px auto;
 }
 #bigform form input, #bigform form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -40,6 +48,18 @@
     border-right: 0;
 }
 #bigform form input[type="text"] {
+    width: 50%;
+}
+#bigform form select {
+    background-image: url(../images/dropdown.png);
+    background-position: 95%;
+    background-repeat: no-repeat;
+}
+
+#bigform form input:active, #bigform form select:active {
+    border: 1px solid #FAFAFA;
+}
+#bigform form select {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -47,6 +67,12 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-right: 1px solid #303030;
+    background-color: #287DFF;
+    color: white;
+    font-weight: bold;
+}
+#bigform form input[type="submit"]:hover {
+    background-color: #015791;
 }
 #createButtonContainer {
     width: 25%;
@@ -58,7 +84,7 @@
 #createButton {
     padding: 25px 0;
     vertical-align: middle;
-    background-color: #36B136;
+    background-color: #287DFF;
     border: 0;
     width: 100%;
     margin: 0 auto;
@@ -71,64 +97,132 @@
     line-height: 20px;
 }
 #createButton:hover {
-    background-color: #369036;
+    background-color: 015791;
 }
 
 /******************************************/
 /* Suggestions & features : */
+
+
+.row {
+    display: table-row;
+    table-layout: fixed;
+    width:100%;
+	margin : 0px 20px 0px 20px;
+}
+*[class^=col] {
+    display: table-cell;
+    text-align: center;
+    padding : 0;
+}
+.col-2 {
+    width: 50%;
+}
+.col-3 {
+    width: 33.333333%;
+}
+
+/**** SLIDESHOW ~ Suggestions d'events : ****/
+.slideshowDefilement {
+	display:table-cell;
+	width: 5%;
+	font-size: 2em;
+	font-weight:bold;
+	vertical-align: middle;
+	text-decoration: none;
+    text-align: center;
+}
+.slideshowDefilement:hover {
+    background: #FAFAFA;
+    text-decoration: none;
+    color: #287DFF;
+}
+
+.imageContainer {
+    display: table-cell;
+    width: 30%;
+    box-sizing: border-box;
+    padding: 0 1%;
+}
+.imageContainer img {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid black;
+}
+.eventDetails {
+    vertical-align: top;
+    display: table-cell;
+    width: 60%;
+    box-sizing: border-box;
+    padding: 0 1%;
+    color: #303030;
+}
+.eventDetails #typeSuggestion {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #287DFF;
+}
+.eventDetails h5 {
+    margin: 5px 0 10px 0;
+    padding: 0 0 5px 0;
+    font-size: 1.5em;
+    border-bottom: 1px solid #303030;
+}
+.eventDetails #infosPratiques {
+    float: left;
+    width: auto;
+    min-width: 10em;
+    max-width: 20em;
+    margin: 10px 10px 10px 0;
+    padding: 0 10px 10px 0;
+}
+.eventDetails #infosPratiques span {
+    color: #287DFF;
+    width: 1.5em;
+    display: block;
+    float: left;
+}
+.eventDetails p#eventDescription {
+    text-align: justify;
+    line-height: 1.2em;
+}
+
+
+
+/**** Triptyque : présentation des features ****/
 .triptyque {
     display: table;
     border-collapse: collapse;
     table-layout: fixed;
-    width: 100%;
-    margin: 0 auto 30px auto;
+    margin: 0;
+    color: #FAFAFA;
 }
-
-.col img, .col p {
-    width: 95%;
-    vertical-align: top;
-}
-.triptyque h4 {
-    font-size: 2em;
-    font-weight: bold;
-    display: table-caption;
-	text-align: center;
-    margin: 0 auto;
- 	border: 1px solid black;
-    border-bottom: 0 ;
-	padding: 5px 0px 5px 0px;
-}
+.blue-wrapper h4 {
+    color: #FAFAFA;
+    border-color: #FAFAFA;
+    }
 .triptyque h5 {
 	font-size: 1.5em;
 	font-weight:bold;
-    margin: 3px auto;
+    margin: 20px auto;
+    text-align: center;
 }
-.firstArgument {
-	font-size: 1.2em;
-	font-weight:bold;
-	margin-bottom: 5px;
+.triptyque #glyphs {
+    font-size: 10em;
+    color: #FAFAFA;
 }
-.otherArgument {
-	font-weight:bold;
-	margin: 0 10px 0 10px;
+.triptyque p {
+    font-size: 1.2em;
+    margin: 0 20px;
 }
 .description {
 	font-size:0.9em;
 	margin: 0 10px 5px 10px;
 }
-.slideshowSelector {
-	display:table-cell;
-	width: 8%;
-	font-size: 2em;
-	font-weight:bold;
-	vertical-align: middle;
-	background: #919191;
-	text-decoration: none;
+
+.blue-wrapper { 
+    background-color: #287DFF;
 }
-.slideshowSelector:hover {
-    background: #4d4d4d;
-    text-decoration: none;
-}
-.slideshowContent{
-	display:table-cell;
-}
+
+

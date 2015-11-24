@@ -4,7 +4,6 @@
 html {
     width: 100%;
     margin: 0 auto;
-    background-color: #303030;
 }
 .clearfix {
     overflow: auto;
@@ -12,12 +11,18 @@ html {
 * {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
+p {
+    color: #303030;
+}
 body {
     padding: 0 auto;
     width: 100%;
     min-width: 950px;
     margin: 0 auto;
-    background-color: #FBFBFB;
+}
+
+.disabled {
+    cursor: not-allowed;
 }
 /*********************************/
 
@@ -42,8 +47,7 @@ header h1 img { /* LOGO */
 }
 header ul {
     margin: 0;
-    position: relative;
-    top: 25px;
+    margin-top: 25px;
 }
 header ul li {
     list-style-type: none;
@@ -55,7 +59,10 @@ header ul li a {
     text-transform: uppercase;
     text-decoration: none;
 }
-#pseudo {
+header ul li a:hover {
+    color: #287DFF;
+}
+header #pseudo {
     text-transform: none    ;
     color: green;
 }
@@ -63,39 +70,94 @@ header ul li a {
     float: left;
     margin: 0 2em 0 0;
 }
-#membre li {
+#membre > li {
     float: right;
     margin: 0 0 0 2em;
 }
 
+.menuDeroulant {
+    border: 1px solid black;
+    background-color: #FAFAFA;
+    display: none;
+    position: absolute;
+    padding: 0.3em 1em;
+}
+.menuTrigger:hover ul.menuDeroulant {
+    display: block;
+    margin: 0;
+}
+.menuDeroulant li {
+    text-align: right;
+}
+.menuDeroulant li a {
+    text-transform: none;
+    display: block;
+    margin: 0.5em 0.5em;
+}
+
+
+/* ALERTE ! */
+
+*[class^="alert"] {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 1em;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+*[class^="alert"] .close {
+    display: block;
+    float: right;
+    color: #303030;
+    line-height: 1em;
+    text-align: right;
+    margin: 11px 0;
+}
+.alertInfo {
+    background-color: lightblue;
+    border-color: #287DFF;
+}
+.alertError {
+    background-color: #FFAAAA;
+    border-color: #F94339;
+
+}
+.alertValidation {
+    background-color: lightgreen;
+    border-color: #36B136;
+}
 
 /* Corps de page */
 
+h2 {
+    border-bottom: 1px solid #303030;
+}
 section {
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
 }
 .wrapper {
     width: 90%;
-    margin: 30px auto 30px auto;
+    padding: 2em 5%;
+    margin: 0 auto;
+}
+.wrapper-narrow {
+    width: 33%;
+    padding: 0 33%;
+    margin: 0;
+}
+h4 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    font-size: 1.5em;
+    color: #303030;
+    border-bottom: 1px solid #303030;
+    padding-bottom: .1em;
+    margin: 0 0 1em 0;
 }
 
-.row {
-    display: table-row;
-	border: 1px solid black;
-	margin : 0px 20px 0px 20px;
-}
-*[class^=col] {
-    display: table-cell;
-    text-align: center;
- 	border: 1px solid black;
-    padding : 0;
-}
-.col-2 {
-    width: 50%;
-}
-.col-3 {
-    width: 33.333333%;
-}
 
 /*********************************/
 /* Footer */
@@ -108,8 +170,10 @@ footer {
 }
 footer a {
     color: #FAFAFA;
+    text-decoration: none;
+}
+footer a:hover {
     text-decoration: underline;
-    background-color: #303030;
 }
 #footerWrapper {
     display: table;
