@@ -27,13 +27,8 @@
         <nav>
             <ul id="raccourcis">
             <li><a href="<?php echo getLink();?>"><span class="fa fa-home"></span>&nbsp;Accueil</a></li>
-<?php/* <<<<<<< HEAD */?>
-            <li><a class="disabled" href="<?php echo getLink(['events','create']);?>"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
-            <li><a href="vues/recherche_evenement/recherche_evenement.php"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
-<?php /* ======= */ ?>
             <li><a href="<?php echo getLink(['events','create']);?>"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
             <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
-<?php /*>>>>>>> 694356c25c58380c14b4a5ea1c47f0e0b35b1ba2 */ ?>
             </ul>
 <?php
 /* SI USER CONNECTÉ : */
