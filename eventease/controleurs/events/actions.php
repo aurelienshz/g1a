@@ -7,5 +7,6 @@ $actions = [
 
 $parametres = [
 'display' => ['id'],
-'create' => []
+'create' => [],
+'search' => []
 ];
