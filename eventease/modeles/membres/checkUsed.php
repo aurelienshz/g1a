@@ -18,7 +18,7 @@ function checkUsed($toCheck, $name='') {
 			break;
 	}
     $query = $bdd->prepare('SELECT COUNT(*) FROM membre WHERE '.$champ.' = :toCheck');
-    $query -> execute([':toCheck'=>$toCheck]);
+    $query -> execute(['toCheck'=>$toCheck]);
     $count = $query->fetchAll()[0][0];
     if ($count == 0){
     	return False;

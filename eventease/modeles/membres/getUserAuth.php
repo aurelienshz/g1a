@@ -9,7 +9,7 @@ Sortie :
 function getUserAuth($username) {
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $query = $bdd->prepare('SELECT id,mdp FROM membre WHERE pseudo = :username');
-    $query -> execute([':username'=>$username]);
+    $query -> execute(['username'=>$username]);
     $id = $query->fetchAll();
     // if(count($id)==1) ?
     return $id[0];
