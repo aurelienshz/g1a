@@ -78,26 +78,8 @@
     width: 25%;
     margin: 0 auto;
 }
-#createButtonContainer a {
-    text-decoration: none;
-}
 #createButton {
-    padding: 25px 0;
-    vertical-align: middle;
-    background-color: #287DFF;
-    border: 0;
-    width: 100%;
-    margin: 0 auto;
-    text-transform: uppercase;
-    font-weight: bold;
     font-size: 1.1em;
-    color:#FAFAFA;
-    border-radius: 15px;
-    border-bottom: 2px solid #303030;
-    line-height: 20px;
-}
-#createButton:hover {
-    background-color: 015791;
 }
 
 /******************************************/
@@ -221,8 +203,6 @@
 	margin: 0 10px 5px 10px;
 }
 
-.blue-wrapper { 
+.blue-wrapper {
     background-color: #287DFF;
 }
-
-

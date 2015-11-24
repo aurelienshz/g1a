@@ -51,9 +51,23 @@ input[type="submit"]:hover {
     background-color: #015791;
 }
 input[type="submit"]:active {
-    background-color: #369036;
+    background-color: #015791;
     border: 1px solid #303030;
 }
-form.formError {
+form .formError {
     color: red;
+    margin-top: 0;
+    text-align: right;
+}
+select{
+	display: block;
+    height: 40px;
+    line-height: 1.4em;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    padding: 0 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 1.2em;
 }

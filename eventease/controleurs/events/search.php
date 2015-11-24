@@ -6,11 +6,10 @@
 // Traitements
 // Appels au modèle
 // Traitements
-
 /**** Préparation de la vue ****/
-$title = 'Créer event';
-$styles = ['create.css','form.css'];
-$blocks = ['create'];
+$title = 'Recherche';
+$styles = ['form'];
+$blocks = ['search'];
 
 /**** Affichage de la page ****/
 //Appel de la vue :
