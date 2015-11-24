@@ -2,10 +2,7 @@
 /*
 ---	ROUTAGE ---
 Utilisée par le contrôleur frontal pour diriger vers la bonne action et le bon module
-Lire la doc dans le wiki (en cours d'écriture).
-
-ToDo / Problems :
-Définition des paramètres possibles pour une action donnée dans la config du module ?
+Se référer à la doc dans le wiki.
 */
 
 function route($module, $action, $fetchOnly = False) {
