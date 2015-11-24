@@ -1,0 +1,29 @@
+h1{
+	text-align:center;
+}
+form input{
+	width:35%;
+}
+form select{
+	width:35%;
+}
+form label{
+	text-align:center;
+}
+#assistance{
+	width:10%;
+	margin:0 auto 0 auto;
+	line-height:0;
+
+}
+#attachment{
+	position:absolute;
+	left:37%;
+	padding-bottom:1em;	
+}
+#website{
+	margin-top:1em;
+}             
+#description{
+	width:50%;
+}

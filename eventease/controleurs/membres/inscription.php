@@ -58,7 +58,14 @@ else {  // Le formulaire a été rempli
 
         // Si tout s'est bien passé, tous les champs de $errors sont vides
         if(implode('',$errors)=='') {
-            // Envoyer un mail pour confirmer l'adresse mail
+            // On envoie un mail pour confirmer l'adresse mail
+            if(mail('aurelien.schiltz@free.fr', 'Test', 'Mail de test')) {
+                echo 'Mail envoyé !';
+            }
+            else {
+                echo 'Nope';
+            }
+            // On insère le nouvel utilisateur :
             insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT));
             vue(['validationInscription'],$style,$title);
         }
