@@ -1,5 +1,5 @@
 form {
-    margin: 0 auto;
+    margin: 30px auto;
 }
 label {
     display: block;
@@ -53,4 +53,7 @@ input[type="submit"]:hover {
 input[type="submit"]:active {
     background-color: #369036;
     border: 1px solid #303030;
+}
+form.formError {
+    color: red;
 }

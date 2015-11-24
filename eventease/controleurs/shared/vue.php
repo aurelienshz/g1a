@@ -21,4 +21,6 @@ function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
         require VUES.$_SESSION['currentPage'][0].'/'.$block.'.php';
     }
     require INCLUDES.'footer.php';
+
+    return True;
 }

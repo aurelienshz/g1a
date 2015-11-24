@@ -121,7 +121,7 @@
 .description .details table{
 	padding:auto;
 }
-.description .details table tr td span:{
+.description .details table tr td span{
 	color:#78C0F0;
 	font-weight:bold;
 }
