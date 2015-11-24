@@ -1,64 +1,35 @@
 <?php
-/******************************************************************************/
-/*   Fausse connexion à la BDD : (sera remplacée par un appel au modèle)      */
-function getUserAuth($username) {
-    $bddUsers = array(
-        'KevinDu38'=>'$2y$10$sZzL0Lb/RKp7EIYL3G0gh.TatnkE23U/yRLyb008BS4csfAB3omOq',
-        'EventEase'=>'$2y$10$sZzL0Lb/RKp7EIYL3G0gh.TatnkE23U/yRLyb008BS4csfAB3omOq');
-    if(array_key_exists($username, $bddUsers)) {
-    $auth = array('username' => $username,'hash' => $bddUsers[$username]);
-    }
-    else {
-    $auth = False;
-    }
-    return $auth;
-    // gestion des erreurs (user non trouvé)
-    // -->contrôle du nombre de résultats ?
-}
-/******************************************************************************/
-
+/**************************************************/
+require MODELES.'membres/getUserAuth.php';
 
 /* Affichage du formulaire */
-function formConnexion() {
-    $title = 'Connexion';
-    $style = ['form.css'];
-    vue(['connexion'],$style,$title);
-}
+$title = 'Connexion';
+$style = ['form.css'];
 
-/*
-// La redirection ne fonctionne pas ! :(
-if(!isset($_SESSION['redirection'])) {
-    if($_SESSION['previousPage']!=['membres','connexion']) {
-        $_SESSION['redirection'] = $_SESSION['previousPage'];
-    }
-}
-elseif($_SESSION['redirection']!=$_SESSION['previousPage']) {
-    $_SESSION['redirection'] = $_SESSION['previousPage'];
-}
-*/
+$errorMessage = 'Une erreur s\'est produite. Merci de réessayer !';
 
 /* Contrôle des id du formulaire ou affichage du formulaire */
-if(isset($_POST['username']) AND isset($_POST['password'])) {
-    //Formulaire rempli
-    $auth = getUserAuth($_POST['username']);
-    if(is_array($auth)) {
-        // User trouvé en BDD
-        echo 'entré dans if auth';
-        if (password_verify($_POST['password'], $auth['hash'])) {
-            // MdP OK
-            echo 'pass vérifié';
+if(!empty($_POST)) {        // Formulaire envoyé
+    if($_POST['username'] && $_POST['password']) { // Tous les champs remplis
+        $auth = getUserAuth($_POST['username']);
+
+        if(is_array($auth) && password_verify($_POST['password'], $auth['mdp'])) {
+            // Positionnement des variables de session :
             $_SESSION['connected'] = True;
             $_SESSION['username'] = $_POST['username'];
-            header('Location: '.getLink(['accueil']));
+            $_SESSION['id'] = $auth['id'];
+
+            // Sortie du script et redirection vers la page précédant la connexion :
+            header('Location: '.getLink($_SESSION['previousPage']));
+            exit();
         }
-        else {      // User trouvé mais mdp faux
-            formConnexion();
+        else {
+            alert('error', $errorMessage);
         }
     }
-    else {          // user non trouvé
-        echo "User non trouvé";
+    else {
+        alert('error', 'Tous les champs sont requis !');
     }
 }
-else {              // Formulaire non rempli
-    formConnexion();
-}
+
+vue(['connexion'],$style,$title);

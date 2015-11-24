@@ -8,8 +8,9 @@ define('PATH_ASSETS', "vues/assets/");
 define('CSS', PATH_ASSETS."css/");
 define('IMAGES', PATH_ASSETS . "images/");
 define('INCLUDES', PATH_ASSETS . "includes/");
+define('SCRIPTS', "scripts/");
 
-$defaultPage = ['accueil','index'];
+$landingPage = ['accueil','index'];
 
 define('CONTROLEURS', "controleurs/");
 define('VUES', "vues/");

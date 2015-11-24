@@ -1,5 +1,5 @@
 <div class="wrapper-narrow">
-    <form method="post" action="<?php getLink(['membres','connexion']); ?>">
+    <form method="post" action="<?php echo getLink(['membres','connexion']); ?>">
         <label for="username">Nom d'utilisateur</label>
         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur"/>
 

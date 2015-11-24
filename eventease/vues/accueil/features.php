@@ -1,9 +1,9 @@
 <?php
 // ACCUEIL NON CONNECTE -> FEATURES //
 ?>
-
-<h4>EventEase : présentation</h4>
-    <section class="triptyque" id="features">
+<div class="wrapper blue-wrapper">
+    <h4>EventEase : présentation</h4>
+    <section class="triptyque" id="features">    
     	<div class="row" id="glyphs">
             <div class="col-3"><span class="fa fa-users"></span></div>
             <div class="col-3"><span class="fa fa-share-alt"></span></div>
@@ -25,5 +25,6 @@
                 <p>Publiez les évènements que vous organisez et invitez ceux que vous voulez y voir.</p>
             </div>
         </div>
-</section>
-</div> <!-- /wrapper -->
+    </section>
+</div>
+
