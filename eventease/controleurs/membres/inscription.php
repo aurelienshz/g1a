@@ -1,5 +1,6 @@
 <?php
 require MODELES.'membres/checkUsed.php';
+require MODELES.'membres/insertUser.php';
 
 $title = 'Inscription';
 $style = ['form.css'];
@@ -55,10 +56,10 @@ else {  // Le formulaire a été rempli
             $errors['password'] = 'Le mot de passe est trop faible';
         }
 
-        // Si tout s'est bien passé, $errors est *???* [vide / vaut False]
+        // Si tout s'est bien passé, tous les champs de $errors sont vides
         if(implode('',$errors)=='') {
             // Envoyer un mail pour confirmer l'adresse mail
-            // Pousser les infos dans la base de données
+            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT));
             vue(['validationInscription'],$style,$title);
         }
         else {

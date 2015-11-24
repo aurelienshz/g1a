@@ -15,8 +15,8 @@
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">
-        <a href="<?php echo getLink(['events','create']); ?>">
-            <div class="disabled" id="createButton">Créer un évènement</div>
+        <a class="button" id="createButton" href="<?php echo getLink(['events','create']); ?>">
+            Créer un évènement
         </a>
     </div>
 </section>
@@ -25,7 +25,11 @@
 <h4>Suggestions</h4>
     <section id="suggestions" class="row">
         <div class="slideshowDefilement">&lt;</div>
-        <div class="imageContainer"><img src="<?php echo IMAGES.'picnic1.jpg'?>" /></div>
+        <div class="imageContainer">
+          <a href="<?php echo getLink(['events','display']); ?>">
+          <img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+          </a>
+        </div>
         <div class="eventDetails">
             <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
             <h5><?php echo $contents['titreSuggestion']; ?></h5>
@@ -40,5 +44,5 @@
             </p>
         </div>
         <div class="slideshowDefilement">&gt;</div>
-    </section>   
+    </section>
 </div> <!-- /wrapper -->

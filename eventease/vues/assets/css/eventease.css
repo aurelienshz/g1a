@@ -159,6 +159,32 @@ h4 {
 }
 
 
+.button {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em 0;
+    vertical-align: middle;
+    border-radius: 15px;
+    border: 0;
+    border-bottom: 2px solid #303030;
+    background-color: #287DFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:#FAFAFA;
+    line-height: 2em;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: 015791;
+}
+.button:active {
+    width: calc(100% - 2px);
+    background-color: 015791;
+    border: 1px solid #303030;
+}
+
+
 /*********************************/
 /* Footer */
 footer {
