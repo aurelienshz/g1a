@@ -1,7 +1,8 @@
 <?php
 $actions = [
 'display',
-'create'
+'create',
+'search'
 ];
 
 $parametres = [
