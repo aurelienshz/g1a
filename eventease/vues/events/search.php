@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Recherche d'évènement</title>
-	</head>
-	<body>
 		<form method="post" action="recherche_evenement2.php">
 			<label>Evènement : </label>
 			<input type="search" name="évènement" id="évènement" placeholder="Ex : Concert de Madonna">
@@ -39,6 +32,4 @@
 				<input type="text" name="tarif_minimum" id="tarif_minimum" size=1px/>
 			</p>
 			<p><input type="submit" value="Envoyer" />
-		</form>	
-	</body>
-</html>
+		</form>
