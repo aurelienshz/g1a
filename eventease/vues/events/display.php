@@ -27,7 +27,7 @@
                             <td><a href="#"><i class="facebook fa fa-facebook-square"></i></a>
                             <td><a href="#"><i class="twitter fa fa-twitter-square"></i></a>
                     <tr>
-                            <td><a href="#"><i class="linkedin fa fa-linkedin-square"></i></a>
+                            <td><a href="#"><i class="pinterest fa fa-pinterest"></i></a>
                             <td><a href="#"><i class="mail fa fa-envelope-o"></i></a>
                 </table>
                 </ul>
@@ -43,19 +43,19 @@
 				<div class="details">
 					<table>
 						<tr>
-							<td><span>Type:</span> ...</td>
-							<td><span>Prix:</span>...</td>
+							<td><span>Type:</span> <br>Brocante</td>
+							<td><span>Prix:</span> <br>4 €$*¥</td>
 						</tr>
 						<tr>
-							<td><span>Visibilité:</span>...</td>
-							<td><span>Type de public:</span>...</td>
+							<td><span>Visibilité:</span> <br>Public</td>
+							<td><span>Type de public:</span> <br>de 7 à 77 ans</td>
 						</tr>
 						<tr>
-							<td><span>Langue:</span>...</td>
-							<td><span>Sponsors:</span>...</td>
+							<td><span>Langue:</span> <br>Français</td>
+							<td><span>Sponsors:</span> <br>Seven'tease</td>
 						</tr>
 						<tr>
-							<td><span>Site Web:</span>...</td>
+							<td><span>Site Web:</span> <br><a href="asos.fr">asos.fr</a></td>
 						</tr>
 					</table>
 				</div>

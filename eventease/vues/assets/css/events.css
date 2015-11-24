@@ -95,6 +95,7 @@
 	border-bottom:5px solid #78C0F0;
 }
 .description {
+	position:relative
 	clear:both;
 	display:block;
 	width:100%;
@@ -103,23 +104,22 @@
 }
 .description p {
 	display:block;
-	width:47%;
+	width:60%;
 	height:65%;
-	border: 3px solid #303030;
 	margin:auto;
 	float:left;
 }
 .details{
 	display:block;
-	width:45%;
+	width:30%;
 	height:65%;
-	border: 3px solid #3399FF;
 	border-radius:10px;
 	margin-right:2em;
 	margin-left:2em;
-	float:left;
+	float: left;
 }
 .description .details table{
+	float:right;
 	padding:auto;
 	height:100%;
 	border:1px solid black;
@@ -314,11 +314,12 @@
 .twitter {
 	color:#66CCFF;
 }
-.linkedin {
-	color: #3366CC;
+.pinterest {
+	color: red;
+	font-size: 3em;
 }
 .mail {
-	color: #cc3333;
+	color: red;
 }
 #left_arrow, #right_arrow {
 	width:10%;
