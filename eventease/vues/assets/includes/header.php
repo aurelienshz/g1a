@@ -28,7 +28,7 @@
             <ul id="raccourcis">
             <li><a href="<?php echo getLink();?>"><span class="fa fa-home"></span>&nbsp;Accueil</a></li>
             <li><a class="disabled" href="<?php echo getLink(['events','create']);?>"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
-            <li><a href="#"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
+            <li><a href="vues/recherche_evenement/recherche_evenement.php"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
             </ul>
 <?php
 /* SI USER CONNECTÉ : */
