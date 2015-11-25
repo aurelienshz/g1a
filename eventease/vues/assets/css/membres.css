@@ -1,33 +1,37 @@
 @CHARSET "UTF-8";
-.interaction_profil {
-    list-style-type : none;
-}
+/* Profil utilisateur */
 .top_col {
     width: 100%;
 }
 .col_gauche {
-    display: inline-block;
+    float: left;
     width: 25%;
-    height: 370px;
-    background-color: red;
+    background-color: #287DFF;
     border: none;
 }
 .col_droite {
-    display: inline-block;
-    width: 74.5%;
+    width: auto;
+    margin-left: 25%;
+    padding-left: 5px;
     vertical-align: top;
-    height: 370px;
-    background-color: cyan;
+    background-color: #36B136;
     border: none;
 }
-.col_bas {
-    display:block;
-    position: relative;
-    bottom: 2px;
-    background-color: green;
-    border: none;
+.photo_profil {
+    padding-top: 5px;
+    height: 230px;
+    width: 230px;
+    margin: 0 auto;
 }
-
+.interaction_profil {
+    list-style-type : none;
+}
+.col_droite h1{
+    text-align: center;
+}
+.col_droite h2{
+    border: none
+}
 /**** Affichage des messages ****/
 #listeMessages table {
     width: 100%;
