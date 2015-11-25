@@ -31,11 +31,30 @@
             <option>Libre</option>
             <option>Sur confirmation d'un organisateur</option>
         </select>
-		<br><label for="price">Tarif</label> <input type="number" name="price" id="price"/>€
-		<br><label for="assistance">Type de public</label> de <input type="number" name="assistance" id="assistance"/> à <input type="number" name="assistance" id="assistance"/> ans
-		<br><label for="language">Langue</label>       <input type="text" placeholder="Lieu" id="place" name="Lieu"/>
+		<br><label for="price">Tarif</label>
+		<br> <div class="price">
+			<table>
+				<tr>
+					<td><input type="number" name="price" id="price"/></td>
+					<td>€</td>
+				</tr>
+			</table>
+			</div>
+		<br><label for="assistance">Type de public</label> 
+		<br><div class="assistance">
+			<table>
+				<tr>
+					<td>de</td>
+					<td><input type="number" name="assistance" id="assistance"/></td>
+					<td>à</td>
+					<td><input type="number" name="assistance" id="assistance"/></td>
+					<td>ans</td>
+				</tr>
+			</table>
+			</div>
+		<br><label for="language">Langue</label>       <input type="text" placeholder="Langue" id="place" name="Lieu"/>
 		<br><label for="description">Description</label>  <textarea id="description" placeholder="Description"></textarea>
-		<br><label for="Nombre maximum de participants">Nombre maximum de participants</label> <input type="number" name="Nombre de participants"  id=""/>
+		<br><label for="Nombre maximum de participants">Nombre maximum de participants</label> <input type="number" name="Nombre de participants"  id="attending"/>
 		<br><label for="attachment">Ajouter une image</label> <input type="file" id="attachment" name="attachment"/>
 		<br><label for="website">Site Web</label> <input type="url" id="website" name="website"/>
 		<br><label for="sponsors">Sponsors</label> <input type="text" id="sponsor1" name="sponsor1"/>
