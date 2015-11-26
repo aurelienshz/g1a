@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
 /* Profil utilisateur */
-.top_col {
-    width: 100%;
+.wrapper {
+    padding: 0 63.25px 10px 63.25px;
 }
 .col_gauche {
     float: left;
     width: 25%;
-    background-color: #287DFF;
+    background-color: coral;
     border: none;
 }
 .col_droite {
@@ -18,19 +18,44 @@
     border: none;
 }
 .photo_profil {
-    padding-top: 5px;
+    padding-top: 8px;
     height: 230px;
     width: 230px;
     margin: 0 auto;
 }
-.interaction_profil {
-    list-style-type : none;
+#mess_perso {
+    text-align: center;
+    font-size: larger;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.col_droite h1{
+.ligne_lien_profil {
+    text-align: center;
+    margin: 0;
+}
+.interaction_profil {
+    color : #287DFF;
+    text-decoration: none;
+    font-size: large;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.interaction_profil:hover {
+    color: #3399FF;
+    text-decoration: none;
+    font-size: large;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.interaction_box {
+    margin-bottom: 8px;
+}
+#profil-buffer {
+    clear: both;
+    margin: 0;
+}
+.col_droite h1 {
     text-align: center;
 }
-.col_droite h2{
-    border: none
+.col_droite h2 {
+    border: none;
 }
 /**** Affichage des messages ****/
 #listeMessages table {
