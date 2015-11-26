@@ -5,7 +5,7 @@
 </div>
 
 <div class="wrapper" id="searchBox">
-	<form method="post" action="recherche_evenement2.php">
+	<form method="post" action="<?php echo getLink(['events','search']); ?>">
 			<div class="row">
 				<div class="col-3">
 					<label for="évènement">Nom : </label><input type="search" name="évènement" id="évènement" placeholder="ex : Concert de Madonna">
@@ -14,7 +14,7 @@
 					<label for="date">Date :</label> <input type="date" name="date" id="date"/>
 				</div>
 				<div class="col-3">
-					<label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France"/>
+					<label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France" class="google-autocomplete-address"/>
 				</div>
 			</div>
 			<div class="row">
@@ -31,16 +31,16 @@
 						<option>Dégustation</option>
 						<option>Oenologie</option>
 						<option>Exposition</option>
-					</select>	
+					</select>
 				</div>
 				<div class="col-3">
 					<label>Heure : </label>
-					De <input type="time" name="début" id="début" class="time"/> h à 
+					De <input type="time" name="début" id="début" class="time"/> h à
 					<input type="time" name="fin" id="fin" class="time"/> h
 				</div>
 				<div class="col-3">
 					<label>Tarif :</label>
-					De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à 
+					De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à
 					<input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> €
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
 				<a href=#><span class="floatRight">En savoir plus</span></a>
 				</div>
-			</div>		
+			</div>
 		</div>
 	<div class="resultBox">
 			<div class="imageEvent">
@@ -84,7 +84,7 @@
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
 				<a href=#><span class="floatRight">En savoir plus</span></a>
 				</div>
-			</div>		
+			</div>
 		</div>
 	<div class="resultBox">
 			<div class="imageEvent">
@@ -97,7 +97,7 @@
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
 				<a href=#><span class="floatRight">En savoir plus</span></a>
 				</div>
-			</div>		
+			</div>
 		</div>
 	<div class="resultBox">
 			<div class="imageEvent">
@@ -110,7 +110,7 @@
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
 				<a href=#><span class="floatRight">En savoir plus</span></a>
 				</div>
-			</div>		
+			</div>
 		</div>
 	<div class="resultBox">
 			<div class="imageEvent">
@@ -123,7 +123,7 @@
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
 				<a href=#><span class="floatRight">En savoir plus</span></a>
 				</div>
-			</div>		
+			</div>
 		</div>
 	<div class="resultBox">
 			<div class="imageEvent">
@@ -136,7 +136,7 @@
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
 				<a href=#><span class="floatRight">En savoir plus</span></a>
 				</div>
-			</div>		
+			</div>
 		</div>
 	</div>
 </div>

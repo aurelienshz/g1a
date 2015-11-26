@@ -5,15 +5,15 @@
 <section id="bigform">
 <p id="catchphrase">Time to tease some shit once again</p>
 <p id="subcatchphrase">Mille milliards de mille sabords !</p>
-    <form method="post" action="">
-        <select>
+    <form method="post" action="<?php echo getLink(['events','search']); ?>">
+        <select name="searchType">
             <option>Mots-clés...</option>
             <option>Près de...</option>
             <option>Prochainement...</option>
         </select><!--
-     --><input class="champCentral" type="text" placeholder="Mots-clés"/><!--
-     --><input class="champCentral" id="place-autocomplete" type="text" placeholder="Adresse" style="display:none;"/><!--
-     --><input class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
+     --><input name="searchValue" class="champCentral" type="text" placeholder="Mots-clés"/><!--
+     --><input name="searchValue" class="champCentral google-autocomplete-address" type="text" placeholder="Adresse" style="display:none;"/><!--
+     --><input name="searchValue" class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">
