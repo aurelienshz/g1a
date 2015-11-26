@@ -1,13 +1,13 @@
 var textInput = document.querySelector('#bigform input[type="text"]'),
     select = document.querySelector('#bigform select'),
-    placeholder = 'Mots-clés';
+    defaultplaceholder = 'Mots-clés';
 
 select.addEventListener(
     'change',
     function() {
         switch (select.selectedIndex) {
             case 0:
-                placeholder = placeholder;
+                placeholder = defaultplaceholder;
                 break;
             case 1:
                 placeholder = 'Adresse';

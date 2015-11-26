@@ -129,7 +129,7 @@ header #pseudo {
 /* Corps de page */
 
 h2 {
-    border-bottom: 1px solid #303030;
+    border-bottom: 1px solid lightgray;
 }
 section {
     margin: 0 auto;
@@ -149,7 +149,7 @@ h4 {
     -webkit-margin-after: 0;
     font-size: 1.5em;
     color: #303030;
-    border-bottom: 1px solid #303030;
+    border-bottom: 1px solid lightgray;
     padding-bottom: .1em;
     margin: 0 0 1em 0;
 }
