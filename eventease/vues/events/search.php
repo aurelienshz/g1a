@@ -47,10 +47,10 @@
 			<input type="submit" value="Envoyer" />
 	</form>
 </div>
-<div class="wrapper" id="searchResults">
-	<p>XX résultats trouvés</p>
+<div id="searchToolbar" class="wrapper">
+	<span>XX résultats trouvés</span>
 	<div class="tri">
-		Trier par:
+		Trier par : 
 		<select>
 			<option>Nom</option>
 			<option>Date</option>
@@ -59,84 +59,22 @@
 			<option>Lieu</option>
 		</select>
 	</div>
+</div>
+<div class="wrapper" id="searchResults">
 	<div id="resultWrapper">
 		<div class="resultBox">
-			<div class="imageEvent">
-				<a href=#><img class="eventContainer" src="<?php echo IMAGES.'img.jpg'; ?>"></a>
-			</div>
-			<div class="infoEvent">
-				<div class="eventContainer">
-				<a href=#><h4>Pic-nique -  Devant le palais du Luxembourg</h4> </a>
-				<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
-				<a href=#><span class="floatRight">En savoir plus</span></a>
+			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
+			<div class="table">
+				<div class="imageEvent">
+					<a href=#><img class="eventContainer" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></a>
 				</div>
-			</div>		
-		</div>
-	<div class="resultBox">
-			<div class="imageEvent">
-				<a href=#><img class="eventContainer" src="<?php echo IMAGES.'img.jpg'; ?>"></a>
+				<div class="infoEvent">
+					<div class="eventContainer">
+						<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+					</div>
+				</div>		
 			</div>
-			<div class="infoEvent">
-				<div class="eventContainer">
-				<a href=#><h3>Pic-nique -  Devant le palais du Luxembourg</h3> </a>
-				<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
-				<a href=#><span class="floatRight">En savoir plus</span></a>
-				</div>
-			</div>		
-		</div>
-	<div class="resultBox">
-			<div class="imageEvent">
-				<a href=#><img class="eventContainer" src="<?php echo IMAGES.'img.jpg'; ?>"></a>
-			</div>
-			<div class="infoEvent">
-				<div class="eventContainer">
-				<a href=#><h3>Pic-nique -  Devant le palais du Luxembourg</h3> </a>
-				<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
-				<a href=#><span class="floatRight">En savoir plus</span></a>
-				</div>
-			</div>		
-		</div>
-	<div class="resultBox">
-			<div class="imageEvent">
-				<a href=#><img class="eventContainer" src="<?php echo IMAGES.'img.jpg'; ?>"></a>
-			</div>
-			<div class="infoEvent">
-				<div class="eventContainer">
-				<a href=#><h3>Pic-nique -  Devant le palais du Luxembourg</h3> </a>
-				<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
-				<a href=#><span class="floatRight">En savoir plus</span></a>
-				</div>
-			</div>		
-		</div>
-	<div class="resultBox">
-			<div class="imageEvent">
-				<a href=#><img class="eventContainer" src="<?php echo IMAGES.'img.jpg'; ?>"></a>
-			</div>
-			<div class="infoEvent">
-				<div class="eventContainer">
-				<a href=#><h3>Pic-nique -  Devant le palais du Luxembourg</h3> </a>
-				<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
-				<a href=#><span class="floatRight">En savoir plus</span></a>
-				</div>
-			</div>		
-		</div>
-	<div class="resultBox">
-			<div class="imageEvent">
-				<a href=#><img class="eventContainer" src="<?php echo IMAGES.'img.jpg'; ?>"></a>
-			</div>
-			<div class="infoEvent">
-				<div class="eventContainer">
-				<a href=#><h3>Pic-nique -  Devant le palais du Luxembourg</h3> </a>
-				<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tellus ultricies, congue lorem at, efficitur purus. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
-				<a href=#><span class="floatRight">En savoir plus</span></a>
-				</div>
-			</div>		
 		</div>
 	</div>
 </div>
