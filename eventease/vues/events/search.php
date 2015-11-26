@@ -1,4 +1,9 @@
-<h2 class="titleWrapper wrapper">Chercher un événement</h2>
+<div class="titleWrapper wrapper">
+	<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
+	<h2>Chercher un événement</h2>
+	<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
+</div>
+
 <div class="wrapper" id="searchBox">
 	<form method="post" action="recherche_evenement2.php">
 			<div class="row">
