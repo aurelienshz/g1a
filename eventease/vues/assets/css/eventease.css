@@ -5,12 +5,10 @@ html {
     width: 100%;
     margin: 0;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    color: #303030;
 }
 .clearfix {
     overflow: auto;
-}
-p {
-    color: #303030;
 }
 body {
     padding: 0 auto;
