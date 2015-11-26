@@ -11,7 +11,9 @@
             <option>Près de...</option>
             <option>Prochainement...</option>
         </select><!--
-     --><input type="text" placeholder="Mots-clés"/><!--
+     --><input class="champCentral" type="text" placeholder="Mots-clés"/><!--
+     --><input class="champCentral" id="place-autocomplete" type="text" placeholder="Adresse" style="display:none;"/><!--
+     --><input class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">

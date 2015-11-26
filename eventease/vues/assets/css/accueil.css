@@ -47,7 +47,7 @@
     border-radius: 0;
     border-right: 0;
 }
-#bigform form input[type="text"] {
+#bigform .champCentral {
     width: 50%;
 }
 #bigform form select {
@@ -170,8 +170,6 @@
     line-height: 1.2em;
 }
 
-
-
 /**** Triptyque : présentation des features ****/
 .triptyque {
     display: table;
@@ -202,7 +200,6 @@
 	font-size:0.9em;
 	margin: 0 10px 5px 10px;
 }
-
 .blue-wrapper {
     background-color: #287DFF;
 }
