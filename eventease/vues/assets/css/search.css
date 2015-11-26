@@ -1,8 +1,32 @@
+.calendarPin {
+	position: relative;
+	top:-25px;
+	left:-15%;
+	height :80px;
+	display: inline;
+}
+.calendarPin2 {
+	left:15%;
+}
 .titleWrapper {
-	background-color: #F94339;
-	border-bottom:15px solid red;
+	background-color: #fd5544;
+	border-bottom:15px solid #dd3d30;
+	padding: 0;
+	margin: 0 calc(5% + 1px); 
+	text-align: center;
+	vertical-align: middle;
+	border-left: 1px solid #cbcbcb;
+	border-right: 1px solid #cbcbcb;
+}
+.titleWrapper h2 {
 	color: #FAFAFA;
-	padding: 25px 5%;
+	font-size: 2em;
+	border-bottom: 0;
+	display: inline-block;
+	vertical-align: top;	
+}
+form{
+	padding: 0 2.5%;
 }
 label{
 	color: inherit;
@@ -20,7 +44,13 @@ select{
 }
 #searchBox{
 	background-color: #FAFAFA;
-	border-bottom: 2px solid #303030;
+	box-shadow: 0 10px 0 #cbcbcb;
+	margin:0 5%;
+	padding: 1em 0;
+	border-radius: 0 0 20px 20px;
+	border-collapse: collapse;
+	border-left: 1px solid #cbcbcb;
+	border-right: 1px solid #cbcbcb;
 }
 .time{
 	width: 25%;
