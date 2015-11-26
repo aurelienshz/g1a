@@ -22,8 +22,31 @@ form label{
 	padding-bottom:1em;	
 }
 #website{
-	margin-top:1em;
+	padding-top:5em;
 }             
 #description{
 	width:50%;
+}
+.price table{
+	margin:auto;
+	border:1px solid green;
+}
+.price table tr td{
+	vertical-align:center;
+}
+#price{
+	width:30%;
+}
+.assistance table{
+	margin:auto;
+	border:1px solid blue;
+}
+.assistance table tr td{
+	vertical-aligne:center;
+}
+#assistance{
+	width:30%;
+}
+#attending{
+	width:10%;
 }

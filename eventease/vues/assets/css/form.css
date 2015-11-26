@@ -71,3 +71,7 @@ select{
     background-color: white;
     font-size: 1.2em;
 }
+.price {
+    display: inline-block;
+    width: 15%
+}
