@@ -25,7 +25,7 @@ else {
 $title = 'Accueil';
 $styles = ['accueil.css'];
 $blocs = ['index',$triptyque];
-$scripts = ['bigform.js'];
+$scripts = ['bigform.js','googleAutocompleteAddress.js'];
 
 // Appels de la vue :
 vue($blocs, $styles, $title, $contents, $scripts);

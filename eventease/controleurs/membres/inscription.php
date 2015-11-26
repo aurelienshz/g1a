@@ -59,7 +59,7 @@ else {  // Le formulaire a été rempli
         // Si tout s'est bien passé, tous les champs de $errors sont vides
         if(implode('',$errors)=='') {
             // On envoie un mail pour confirmer l'adresse mail
-            if(mail('aurelien.schiltz@free.fr', 'Test', 'Mail de test')) {
+            if(mail('aurelien.schiltz@free.fr', 'Inscription', 'Votre inscription a été confirmée !', 'From: no-reply@eventease.com')) {
                 echo 'Mail envoyé !';
             }
             else {
