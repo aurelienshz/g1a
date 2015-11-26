@@ -3,13 +3,11 @@
 /* Général : */
 html {
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 .clearfix {
     overflow: auto;
-}
-* {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 p {
     color: #303030;
