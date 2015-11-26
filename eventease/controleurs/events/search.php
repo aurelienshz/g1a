@@ -8,7 +8,7 @@
 // Traitements
 /**** Préparation de la vue ****/
 $title = 'Recherche';
-$styles = ['form.css','eventease.css','accueil.css'];
+$styles = ['form.css','accueil.css','search.css'];
 $blocks = ['search'];
 
 /**** Affichage de la page ****/

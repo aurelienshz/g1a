@@ -1,0 +1,74 @@
+.titleWrapper {
+	background-color: #F94339;
+	border-bottom:15px solid red;
+	color: #FAFAFA;
+	padding: 25px 5%;
+}
+label{
+	color: inherit;
+}
+input{
+	display: inline-block;
+	width:75%;
+}
+select{
+	display: inline-block;
+	width:75%;
+}
+#date{
+	width: 44%;
+}
+#searchBox{
+	background-color: #FAFAFA;
+	border-bottom: 2px solid #303030;
+}
+.time{
+	width: 25%;
+}
+.resultBox{
+	height: 200px;
+	width:100%;
+	margin-bottom: 35px;
+	padding: 20px;
+	box-shadow: 3px 3px 2px #888888;
+	background-color: lightgrey;
+}
+.imageEvent{
+	display: table-cell;
+	min-width: 200px;
+	max-width: 200px;
+	padding: auto 100px;
+	padding-right: 20px;
+	vertical-align: middle;
+}
+.imageEvent img {
+	width: 100%;
+	height: auto;
+	margin: 0;
+
+}
+.infoEvent{
+	display: table-cell;
+	width: 90%;
+}
+.resultWrapper {
+	display: table;
+}
+.eventContainer {
+	height: 200px;
+	width: 100%;
+	vertical-align: top;
+}
+.tri{
+	float: right;
+}
+.tri select {
+	width:6%;
+}
+.floatRight{
+	float: right;
+}
+.col-3{
+	text-align: left;
+	display: table-cell;
+}
