@@ -3,6 +3,8 @@
 
 /**** Préparation des contenus ****/
 
+$contents = [];
+
 if(!empty($_POST)) { // On est arrivé en postant un formulaire
     if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
         // Traiter la recherche faite depuis la page d'accueil
