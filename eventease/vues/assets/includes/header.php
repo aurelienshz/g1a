@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <header class="">
+    <header>
         <h1>
             <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES.'logo2.png'; ?>" alt="EventEase" /></a>
         </h1>
