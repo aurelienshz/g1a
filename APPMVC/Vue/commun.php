@@ -22,10 +22,6 @@ function formulaire(){
     return $formulaire;
 }
 
-
-
-
-
 // Génère le code HTML de l'entête
 function entete($titre){
     ob_start();
@@ -38,7 +34,6 @@ function entete($titre){
     return $entete;
 }
 
-
 // Génère le code HTML du menu
 // le lien associé à l'étape courante est mis en couleur
 function menu($etape){
@@ -47,13 +42,13 @@ function menu($etape){
         <h2>Navigation</h2>
         <br/>
         <ul>
-            <?php 
+            <?php
                 if($etape=="accueil"){
                     echo('<li><a href="index.php?cible=accueil"><span class="selection">Accueil</span></a></li>');
                 } else {
                     echo('<li><a href="index.php?cible=accueil">Accueil</a></li>');
                 }
-                
+
                 for($i=1;$i<4;$i++){
                     if($etape=="etape".$i){
                         echo('<li><a href="index.php?cible=etape'.$i.'"><span class="selection">Étape '.$i.'</span></a></li>');
@@ -61,7 +56,7 @@ function menu($etape){
                         echo('<li><a href="index.php?cible=etape'.$i.'">Étape '.$i.'</a></li>');
                     }
                 }
-                
+
                 echo '<br/><li><a href="index.php?cible=deconnexion">Deconnexion</a></li>';
             ?>
         </ul>
@@ -80,7 +75,5 @@ function pied(){
     $pied = ob_get_clean();
     return $pied;
 }
-
-
 
 ?>

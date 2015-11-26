@@ -1,5 +1,7 @@
 <?php
+    $titre = 'Erreur | Mon site';
     $entete = entete("Mon site / Accueil non connecté");
+
     ob_start();
     ?>
         <fieldset>
