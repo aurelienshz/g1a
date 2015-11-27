@@ -3,7 +3,6 @@
 	<h2>Chercher un événement</h2>
 	<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
 </div>
-
 <div class="wrapper" id="searchBox">
 	<form method="post" action="<?php echo getLink(['events','search']); ?>">
 			<div class="row">
@@ -46,6 +45,10 @@
 			</div>
 			<input type="submit" value="Envoyer" />
 	</form>
+</div>
+<div class="wrapper switchTab">
+	<div class="tab titleWrapper" id="tabEvent">EVENT</div>
+	<div class="tab titleWrapper" id="tabUser">USER</div>
 </div>
 <div id="searchToolbar" class="wrapper">
 	<span>XX résultats trouvés</span>

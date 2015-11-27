@@ -15,8 +15,8 @@
 	margin: 0 5%; 
 	text-align: center;
 	vertical-align: middle;
-	border-left: 1px solid #fd5544;
-	border-right: 1px solid #fd5544;
+/*	border-left: 1px solid #fd5544;
+	border-right: 1px solid #fd5544;*/
 }
 .titleWrapper h2 {
 	color: #FAFAFA;
@@ -44,13 +44,13 @@ select{
 }
 #searchBox{
 	background-color: #FAFAFA;
-	box-shadow: 0 10px 0 #cbcbcb;
 	margin:0 5%;
 	padding: 1em 0;
-	border-radius: 0 0 20px 20px;
+/*	border-radius: 0 0 20px 20px;*/
 	border-collapse: collapse;
 	border-left: 1px solid #cbcbcb;
 	border-right: 1px solid #cbcbcb;
+	box-sizing: border-box;
 }
 .time{
 	width: 25%;
@@ -85,13 +85,13 @@ select{
 }
 .resultBox h4 {
 	border-bottom: 0;
-	background-color: #287DFF;
 	padding: 10px 0;
 	margin: 0;
+	width: 100%;
 	text-align: center;
-	border-bottom: 10px solid #1a74ff;
-	border-left: 2px solid #287DFF;
-	border-right: 2px solid #287DFF;
+	border-left: 1px solid #4d93ff;
+	border-right: 1px solid #4d93ff;
+	background-color: #4d93ff;
 }
 .eventContainer {
 	height: 200px;
@@ -118,8 +118,32 @@ select{
 .table {
 	display: table;
 	width: 100%;
-	box-shadow: 0 10px 0 #cbcbcb;
-	border-radius: 0 0 10px 10px;
 	border-left: 1px solid #cbcbcb;
 	border-right: 1px solid #cbcbcb;
+	border-collapse: collapse;
+}
+.switchTab {
+	display: table;
+	padding: 0;
+	width:90%;
+}
+.tab {
+	display: table-cell;
+	width: 50%;
+	height: 100px;
+	background-color: #fd5544;
+}
+#tabEvent{
+	background-color: #FAFAFA;
+	border-radius: 0 0 0 10px;
+	border: 0;
+	border-left: 1px solid #cdcdcd;
+	box-shadow :0 15px 0 #cdcdcd;
+}
+#tabUser {
+    border-radius: 0 0 10px 0;
+    background-color: #4d93ff;
+	border:0;
+	border-top:15px solid #287DFF;
+	border-bottom: 15px solid #4d93ff;
 }
