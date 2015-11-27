@@ -12,11 +12,11 @@
 	background-color: #fd5544;
 	border-bottom:15px solid #dd3d30;
 	padding: 0;
-	margin: 0 calc(5% + 1px); 
+	margin: 0 5%; 
 	text-align: center;
 	vertical-align: middle;
-	border-left: 1px solid #cbcbcb;
-	border-right: 1px solid #cbcbcb;
+	border-left: 1px solid #fd5544;
+	border-right: 1px solid #fd5544;
 }
 .titleWrapper h2 {
 	color: #FAFAFA;
@@ -56,49 +56,70 @@ select{
 	width: 25%;
 }
 .resultBox{
-	height: 200px;
+	height: 305px;
 	width:100%;
 	margin-bottom: 35px;
-	padding: 20px;
-	box-shadow: 3px 3px 2px #888888;
-	background-color: lightgrey;
+	
 }
 .imageEvent{
 	display: table-cell;
 	min-width: 200px;
 	max-width: 200px;
-	padding: auto 100px;
-	padding-right: 20px;
+	padding: 0 20px;
 	vertical-align: middle;
+	height: 100%;
 }
 .imageEvent img {
 	width: 100%;
 	height: auto;
-	margin: 0;
-
 }
 .infoEvent{
 	display: table-cell;
-	width: 90%;
+	width: 100%;
+	padding: 2%;
 }
-.resultWrapper {
-	display: table;
+.resultBox a {
+	text-decoration: none;
+	color: white;
+	padding: 10px 0;
+}
+.resultBox h4 {
+	border-bottom: 0;
+	background-color: #287DFF;
+	padding: 10px 0;
+	margin: 0;
+	text-align: center;
+	border-bottom: 10px solid #1a74ff;
+	border-left: 2px solid #287DFF;
+	border-right: 2px solid #287DFF;
 }
 .eventContainer {
 	height: 200px;
 	width: 100%;
 	vertical-align: top;
 }
-.tri{
-	float: right;
-}
-.tri select {
-	width:6%;
-}
 .floatRight{
 	float: right;
 }
-.col-3{
-	text-align: left;
-	display: table-cell;
+#searchToolbar{
+	margin-top: 2em;
+}
+#searchToolbar span {
+	font-size: 1.2em;
+}
+.tri{
+	float: right;
+	display: inline-block;
+	width: 17%;
+}
+.tri select {
+	width: 60%;
+}
+.table {
+	display: table;
+	width: 100%;
+	box-shadow: 0 10px 0 #cbcbcb;
+	border-radius: 0 0 10px 10px;
+	border-left: 1px solid #cbcbcb;
+	border-right: 1px solid #cbcbcb;
 }
