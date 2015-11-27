@@ -15,17 +15,28 @@
             </div>
         </div>
         <div class="col_droite">
-            <h1>Nom du profil</h1>
+            <h1><?php echo $contents['pseudo']; ?></h1>
             <div class="description">
                 <h5>Description</h5>
-                <p>Je suis un tigre.</p>
+                <p><?php echo $contents['description']; ?></p>
             </div>
             <div class="details_profil">
                 <h2>Détails du profil</h2>
-                <p>Civilité: Tigre</p>
+                <p>Civilité: <?php echo $contents['civilite']; ?></p>
                 <div class="evenements_futurs">
                     <h2> Évènements futurs</h2>
-                    <p>Test test test</p>
+                    <p>
+                        Infos potentiellement à aficher :
+                        <ul>
+                            <li>Nom & Prénom (réels)</li>
+                            <li>Date de naissance</li>
+                            <li>Adresse e-mail ? ou bien on laisse uniquement l'option MP du site</li>
+                            <li>tél ?</li>
+                            <li>statut du membre --> modérateur...</li>
+                            <li>langue ?</li>
+                            <li>adresse ?</li>
+                        </ul>
+                    </p>
                     <p>Test test test</p>
                     <p>Test test test</p>
                 </div>

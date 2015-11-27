@@ -5,9 +5,16 @@
 
 require MODELES.'membres/getUserDetails.php';
 
-//if(isset($_GET['id'])) {
-    $user = getUserDetails('j\'aime les chats');
-//}
+if(isset($_GET['id'])) {
+    $user = getUserDetails($_GET['id']);
+    if($user) {
+        $contents = $user;
+    }
+    else {
+    }
+    print_r($user);
+}
+
 /**** Affichage de la page ****/
 
 $title = 'Profil de '.$user['pseudo'];

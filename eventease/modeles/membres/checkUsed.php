@@ -10,6 +10,7 @@ Sortie : Booléen VRAI si utilisé, FALSE si disponible.
 */
 function checkUsed($toCheck, $name='') {
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
+	// Le bloc ci-dessous peut être rendu plus lisible à mon avis ~ Aurélien
 	$champ='pseudo';
 	switch ($name) {
 		case 'pseudo':
