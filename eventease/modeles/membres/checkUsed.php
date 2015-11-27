@@ -1,4 +1,3 @@
-
 <?php
 /* modeles/membres/checkUsed.php
 Vérifie si le pseudo ou le mail est déjà utilisé par un autre membre.
