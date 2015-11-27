@@ -242,8 +242,8 @@
     padding: 0 1em;
     line-height: 2em;
     border: 0;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
     border-bottom: 5px solid #F94339;
 }
 #calendar table caption #previous-month {
