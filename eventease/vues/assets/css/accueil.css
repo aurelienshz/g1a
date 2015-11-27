@@ -103,7 +103,9 @@
 .col-3 {
     width: 33.333333%;
 }
-
+.col-3x2 {
+    width: 66.666666%;
+}
 /**** SLIDESHOW ~ Suggestions d'events : ****/
 .slideshowDefilement {
 	display:table-cell;
@@ -122,9 +124,9 @@
 
 .imageContainer {
     display: table-cell;
-    width: 30%;
+    width: 28.33%;
     box-sizing: border-box;
-    padding: 0 1%;
+    padding: 0;
 }
 .imageContainer img {
     width: 100%;
@@ -132,12 +134,14 @@
     padding: 5px;
     border: 1px solid black;
 }
+#suggestions .eventDetails {
+    width: 61.666%;
+    padding-left: 1em;
+}
 .eventDetails {
     vertical-align: top;
     display: table-cell;
-    width: 60%;
     box-sizing: border-box;
-    padding: 0 1%;
     color: #303030;
 }
 .eventDetails #typeSuggestion {
@@ -202,4 +206,105 @@
 }
 .blue-wrapper {
     background-color: #287DFF;
+}
+
+/* Mes évènements à venir */
+
+#myEvents .eventDetails {
+    width: 66.6666%;
+}
+
+#event, #calendar {
+    display: table-cell;
+}
+
+#calendar {
+    display: table-cell;
+    width: 33.333333%;
+    box-sizing: border-box;
+}
+#calendar table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+#calendar table th, #calendar table td, #calendar table caption {
+    height: 2em;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #FAFAFA;
+}
+#calendar table caption {
+    color: #FAFAFA;
+    background-color: #FD5544;
+    font-weight: bold;
+    padding: 0 1em;
+    line-height: 2em;
+    border: 0;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom: 5px solid #F94339;
+}
+#calendar table caption #previous-month {
+    float: left;
+}
+#calendar table caption #next-month {
+    float: right;
+}
+
+#calendar table tr {
+    border: 1px solid black;
+}
+#calendar table .days td {
+    border: 1px solid black;
+}
+#calendar table .days a {
+    text-decoration: none;
+    color: #303030;
+}
+#calendar table .days .filled-day {
+    font-weight: bold;
+}
+#calendar table .days a:hover {
+    text-decoration: underline;
+}
+.eventDetails h5 span.participation {
+    font-weight: normal;
+    font-size: 0.8em;
+    float: right;
+    margin-top: 0.3em;
+}
+
+.dayDetails {
+    vertical-align: top;
+    display: table-cell;
+    box-sizing: border-box;
+    padding-left: 1em;
+    color: #303030;
+}
+
+.eventSelect {
+    text-align: center;
+}
+.eventSelector {
+    display: inline-block;
+    text-align: center;
+    line-height: 1.5em;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50%;
+    border: 1px solid #F94339;
+    background-color: #FD5544;
+    color: #FAFAFA;
+    font-weight: bold;
+    margin: 0 0.25em;
+}
+.eventSelector.active {
+    background-color: #FAFAFA;
+    color: #303030;
+}
+.eventSelector a {
+    text-decoration: none;
+    color: inherit;
 }

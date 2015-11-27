@@ -15,7 +15,7 @@ $contents = suggestions();
 
 // Chargement de la bonne version du triptyque
 if(connected()) {
-    $triptyque = 'features';
+    $triptyque = 'myEvents';
 }
 else {
     $triptyque = 'features';

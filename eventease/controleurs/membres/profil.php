@@ -12,7 +12,6 @@ if(isset($_GET['id'])) {
     }
     else {
     }
-    print_r($user);
 }
 
 /**** Affichage de la page ****/
