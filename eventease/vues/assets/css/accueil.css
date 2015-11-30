@@ -137,12 +137,23 @@
 #suggestions .eventDetails {
     width: 61.666%;
     padding-left: 1em;
-}
-.eventDetails {
     vertical-align: top;
     display: table-cell;
     box-sizing: border-box;
     color: #303030;
+}
+
+.dayEvents {
+    vertical-align: top;
+    display: table-cell;
+    box-sizing: border-box;
+    color: #303030;
+}
+.dayEvents h4 {
+    clear: both;
+}
+.eventDetails {
+    clear:both;
 }
 .eventDetails #typeSuggestion {
     font-weight: bold;
@@ -152,8 +163,14 @@
 .eventDetails h5 {
     margin: 5px 0 10px 0;
     padding: 0 0 5px 0;
-    font-size: 1.5em;
-    border-bottom: 1px solid #303030;
+    font-size: 1.2em;
+    border-bottom: 1px solid lightgray;
+}
+.eventDetails h5 span.participation {
+    font-weight: normal;
+    font-size: 0.8em;
+    float: right;
+    margin-top: 0.1em;
 }
 .eventDetails #infosPratiques {
     float: left;
@@ -214,28 +231,28 @@
     width: 66.6666%;
 }
 
-#event, #calendar {
+#event, .calendar {
     display: table-cell;
 }
 
-#calendar {
+.calendar {
     display: table-cell;
     width: 33.333333%;
     box-sizing: border-box;
 }
-#calendar table {
+.calendar table {
     width: 100%;
     height: 100%;
     table-layout: fixed;
     border-collapse: collapse;
 }
-#calendar table th, #calendar table td, #calendar table caption {
+.calendar table th, .calendar table td, .calendar table caption {
     height: 2em;
     text-align: center;
     vertical-align: middle;
     background-color: #FAFAFA;
 }
-#calendar table caption {
+.calendar table caption {
     color: #FAFAFA;
     background-color: #FD5544;
     font-weight: bold;
@@ -246,34 +263,28 @@
     border-top-right-radius: 0.5em;
     border-bottom: 5px solid #F94339;
 }
-#calendar table caption #previous-month {
+.calendar table caption .previous-month {
     float: left;
 }
-#calendar table caption #next-month {
+.calendar table caption .next-month {
     float: right;
 }
 
-#calendar table tr {
+.calendar table tr {
     border: 1px solid black;
 }
-#calendar table .days td {
+.calendar table .days td {
     border: 1px solid black;
 }
-#calendar table .days a {
+.calendar table .days a {
     text-decoration: none;
     color: #303030;
 }
-#calendar table .days .filled-day {
+.calendar table .days .filled-day {
     font-weight: bold;
 }
-#calendar table .days a:hover {
+.calendar table .days a:hover {
     text-decoration: underline;
-}
-.eventDetails h5 span.participation {
-    font-weight: normal;
-    font-size: 0.8em;
-    float: right;
-    margin-top: 0.3em;
 }
 
 .dayDetails {
