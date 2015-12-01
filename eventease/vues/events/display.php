@@ -42,7 +42,7 @@
 The way Dinah washed her children's faces was this: first she held the poor thing down by its ear with one paw, and then with the other paw she rubbed its face all over, the wrong way, beginning at the nose: and just now, as I said, she was hard at work on the white kitten, which was lying quite still and trying to purr—no doubt feeling that it was all meant for its good.
 
 But the black kitten had been finished with earlier in the afternoon, and so, while Alice was sitting curled up in a corner of the great arm-chair, half talking to herself and half asleep, the kitten had been having a grand game of romps with the ball of worsted Alice had been trying to wind up, and had been rolling[…]”
-    </p>
+    <br></p>
 				<div class="details">
 		<ul>
             <li class="fixed_details">Type :</li>
@@ -76,7 +76,7 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
     </div>
     <div class = "organisation">
 		<div class = "hosts">
-		<h3>Organisateurs</h3>
+		<h2>Organisateurs</h2>
 			<ul>
 				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
 				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
@@ -84,7 +84,7 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 			</ul>
 		</div>
 		<div class = "friends_going">
-		<h3> Vos amis qui y vont </h3>
+		<h2> Vos amis qui y vont </h2>
 		<table style="width=100%">
 			<tr height="15%">
 				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
@@ -102,10 +102,10 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 		</div>
     </div>
     <div class = "commentaire">
-		<h3> Commentaires </h3>
+		<h2> Commentaires </h2>
 		<div class="add_comment">
             <form>
-				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/>
+				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/><br><br>
                 <label>Ajouter un commentaire</label>
                 <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
     			<div class="add_media">
@@ -118,12 +118,16 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 		<div class="previous_comments">
 			<div class="comment">
 				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
-				<br>Commentaire...................................................................................................
-				</p>
+          <br>
+          <br>
+          <textarea id="comment" placeholder="Un commentaire précédent anodin"></textarea>
+        </p>
 			</div>
 			<div class="comment">
 				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
-				<br>Commentaire...
+		      <br>
+          <br>
+          <textarea id="comment" placeholder="Coucou Aude, ça te va comme ça ?"></textarea>
 				</p>
 			</div>
 		</div>

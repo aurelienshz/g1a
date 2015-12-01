@@ -39,6 +39,8 @@ input[type="file"] {
 }
 input[type="submit"] {
     width: 15%;
+    height:2em;
+    line-height:2em;
     min-width: 10em;
     margin: 20px 0 0 auto;
     border: 0;
