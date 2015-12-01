@@ -77,3 +77,6 @@ select{
     display: inline-block;
     width: 15%
 }
+.importantRed {
+    color: red;
+}
