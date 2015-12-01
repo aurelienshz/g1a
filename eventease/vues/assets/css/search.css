@@ -1,5 +1,6 @@
-.search{
+.createCalendar{
 	padding:0;
+	padding-bottom: 2em;
 }
 .calendarPin {
 	position: relative;
@@ -41,7 +42,7 @@ select{
 #date{
 	width: 44%;
 }
-#searchBox{
+#formBox{
 	background-color: #FAFAFA;
 	padding: 1em 0;
 	border-collapse: collapse;
@@ -83,6 +84,12 @@ select{
 }
 .time{
 	width: 25%;
+}
+input[type="file"]{
+	float: none;
+	font-size: 1em;
+	width: 100%;
+	padding: 2% 5%;
 }
 .resultBox{
 	height: 305px;
@@ -151,4 +158,18 @@ select{
 .boldInfo{
 	font-weight: bold;
 	font-size: 1.2em;
+}
+.fa-asterisk{
+	color: red;
+}
+.ligne {
+	width: 108.5%;
+	min-width: 830px;
+}
+.champ {
+	width: 33%;
+	display: inline-block;
+}
+.calendarBottom {
+	border-radius: 0 0 10px 10px;
 }

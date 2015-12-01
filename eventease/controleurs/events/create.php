@@ -9,7 +9,7 @@
 
 /**** Préparation de la vue ****/
 $title = 'Créer event';
-$styles = ['search.css', 'create.css','form.css'];
+$styles = ['create.css','form.css', 'search.css'];
 $blocks = ['create'];
 
 /**** Affichage de la page ****/
