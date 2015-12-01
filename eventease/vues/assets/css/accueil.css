@@ -143,15 +143,17 @@
     color: #303030;
 }
 
-.dayEvents {
+.monthDetails {
     vertical-align: top;
     display: table-cell;
     box-sizing: border-box;
     color: #303030;
+    padding-left: 1em;
 }
-.dayEvents h4 {
+.monthDetails h4 {
     clear: both;
 }
+
 .eventDetails {
     clear:both;
 }
@@ -167,10 +169,14 @@
     border-bottom: 1px solid lightgray;
 }
 .eventDetails h5 span.participation {
-    font-weight: normal;
+    border: 1px solid #303030;
+    background-color: #287DFF;
+    color: #FAFAFA;
+    font-weight: bold;
+    border-radius: 1em;
+    padding: 0.1em 0.5em;
     font-size: 0.8em;
     float: right;
-    margin-top: 0.1em;
 }
 .eventDetails #infosPratiques {
     float: left;
@@ -287,15 +293,8 @@
     text-decoration: underline;
 }
 
-.dayDetails {
-    vertical-align: top;
-    display: table-cell;
-    box-sizing: border-box;
-    padding-left: 1em;
-    color: #303030;
-}
-
 .eventSelect {
+    display: none;
     text-align: center;
 }
 .eventSelector {

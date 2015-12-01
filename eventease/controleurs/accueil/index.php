@@ -23,7 +23,7 @@ $contents = suggestions();
 // Chargement de la bonne version du triptyque
 if(connected()) {
     $blocs[] = 'myEvents';
-    // $scripts[] = 'dynamicCalendar.js';
+    $scripts[] = 'dynamicCalendar.js';
 }
 else {
     $blocs[] = 'features';
