@@ -23,7 +23,7 @@ function mostRecentGitVersion() {
 }
 function bddVersion() {
     $bdd = new PDO(DSN,DBUSER,DBPASS);
-    $query = $bdd->query('SELECT version FROM bddinfo');
+    $query = $bdd->query('SELECT version FROM bddversion');
     if($query && ($query->rowCount() > 1)) {
         $version = False;
     }

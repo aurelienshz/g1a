@@ -1,9 +1,8 @@
 /*
 Bonjour !
 Si tu es celui qui cherche pourquoi le jour affiché n'est pas dans le mois en cours, regarde à la ligne 66 :
-on affiche le premier jour où il y a des events sans se préoccuper du mois en cours. Oui, c'est dégueu.
-
-
+on affiche le premier jour où il y a des events sans se préoccuper du mois en cours. Oui, c'est dégueu. Oui, tu peux corriger si tu veux. Mais tu vas devoir réécrire les 2/3 du script.
+Amour. Aurélien.
 */
 
 (function() {
