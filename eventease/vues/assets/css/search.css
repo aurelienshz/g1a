@@ -101,8 +101,7 @@ input[type="file"]{
 	display: table-cell;
 	min-width: 200px;
 	max-width: 200px;
-	padding: 0 20px;
-	vertical-align: middle;
+	padding: 20px;
 	height: 100%;
 }
 .imageEvent img {
@@ -113,6 +112,7 @@ input[type="file"]{
 	display: table-cell;
 	width: 100%;
 	padding: 2%;
+	max-height: 300px;
 }
 .resultBox a {
 	text-decoration: none;
@@ -134,9 +134,6 @@ input[type="file"]{
 }
 .floatRight{
 	float: right;
-}
-#searchToolbar{
-	margin-top: 2em;
 }
 #searchToolbar span {
 	font-size: 1.2em;
