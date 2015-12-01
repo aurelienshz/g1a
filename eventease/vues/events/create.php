@@ -1,8 +1,9 @@
 <div class="wrapper">
     <h1>Créer un événement</h1>
 
-    <form method="post" action="???">
-        <label for="title">Nom de l'événement *</label>       <input type="text" placeholder="Nom de l'événement" id="title" name="title" />
+    <form method="post" action="<?php getLink(['events','create']); ?>">
+        <label for="title">Nom de l'événement *</label>       
+        <input type="text" placeholder="Nom de l'événement" id="title" name="title" />
 		<br><label for="type">Type d'événement *</label>
 			<select id="type" name"type">
 			<option>---</option>
