@@ -69,7 +69,7 @@
 </div>
 <div class="wrapper" id="searchResults">
 	<div id="resultWrapper">
-		<div class="resultBox">
+		<div class="resultBox shadow">
 			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
 			<div class="table">
 				<div class="imageEvent">
@@ -77,8 +77,84 @@
 				</div>
 				<div class="infoEvent">
 					<div class="eventContainer">
-						<p><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="boldInfo"><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="floatRight"> En Savoir plus </p>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<div class="resultBox shadow">
+			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
+			<div class="table">
+				<div class="imageEvent">
+					<a href=#><img class="eventContainer" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></a>
+				</div>
+				<div class="infoEvent">
+					<div class="eventContainer">
+						<p class="boldInfo"><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="floatRight"> En Savoir plus </p>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<div class="resultBox shadow">
+			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
+			<div class="table">
+				<div class="imageEvent">
+					<a href=#><img class="eventContainer" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></a>
+				</div>
+				<div class="infoEvent">
+					<div class="eventContainer">
+						<p class="boldInfo"><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="floatRight"> En Savoir plus </p>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<div class="resultBox shadow">
+			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
+			<div class="table">
+				<div class="imageEvent">
+					<a href=#><img class="eventContainer" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></a>
+				</div>
+				<div class="infoEvent">
+					<div class="eventContainer">
+						<p class="boldInfo"><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="floatRight"> En Savoir plus </p>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<div class="resultBox shadow">
+			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
+			<div class="table">
+				<div class="imageEvent">
+					<a href=#><img class="eventContainer" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></a>
+				</div>
+				<div class="infoEvent">
+					<div class="eventContainer">
+						<p class="boldInfo"><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="floatRight"> En Savoir plus </p>
+					</div>
+				</div>		
+			</div>
+		</div>
+		<div class="resultBox shadow">
+			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
+			<div class="table">
+				<div class="imageEvent">
+					<a href=#><img class="eventContainer" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></a>
+				</div>
+				<div class="infoEvent">
+					<div class="eventContainer">
+						<p class="boldInfo"><span>24/08/2016 à 12h30 - Jardin du Luxembourg, Paris</span> <span class="floatRight"> Gratuit - Ouvert à tous</span></p>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros quis turpis pellentesque semper. Nulla et faucibus ipsum. Cras accumsan magna vehicula tempus luctus. Nam pharetra dictum efficitur. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Nulla varius dolor porttitor elit tincidunt dapibus. Donec nisi nisi, condimentum id nulla eu, iaculis ullamcorper libero. Nam venenatis volutpat erat, id egestas arcu condimentum ut. Praesent semper dolor sit amet porttitor iaculis. Mauris ultrices convallis porta...</p>
+						<p class="floatRight"> En Savoir plus </p>
 					</div>
 				</div>		
 			</div>
