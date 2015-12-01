@@ -45,14 +45,14 @@ if(!$bddVersion) {
 }
 else {
     switch(version_compare($gitVersion,$bddVersion)) {
-        case -1:
-            $message = '<strong><span style="color:red;">Attention !</span> Vous avez créé une nouvelle version de la BDD. N\'oubliez pas de l\'exporter sous forme de .sql dans le dossier ressources.</strong>';
+        case 1:
+            $message = '<strong><span style="color:red;">Attention !</span> Une nouvelle version est disponible (v'.$gitVersion.'). Importez la depuis le dossier ressources.</strong>';
             break;
         case 0:
             $message = '<span>BDD locale à jour. Version : '.$bddVersion.'</span>';
             break;
-        case 1:
-            $message = '<strong style="color:red;"><span>Attention !</span> Vous avez créé une nouvelle version de la BDD. N\'oubliez pas de l\'exporter sous forme de .sql dans le dossier ressources.</strong>';
+        case -1:
+            $message = '<strong style="color:red;"><span>Attention !</span> Vous avez créé une nouvelle version de la BDD (v'.$bddVersion.'). N\'oubliez pas de l\'exporter sous forme de .sql dans le dossier ressources.</strong>';
             break;
     }
 }
