@@ -11,21 +11,23 @@
 
 require MODELES.'events/suggestions.php';
 
+/**** Préparation des ressources de la page ****/
+$title = 'Accueil';
+$styles = ['accueil.css'];
+$scripts = ['bigform.js','googleAutocompleteAddress.js'];
+$blocs = ['index'];
+
+// Préparation des contenus
 $contents = suggestions();
 
 // Chargement de la bonne version du triptyque
 if(connected()) {
-    $triptyque = 'features';
+    $blocs[] = 'myEvents';
+    $scripts[] = 'dynamicCalendar.js';
 }
 else {
-    $triptyque = 'features';
+    $blocs[] = 'features';
 }
-
-/**** Affichage de la page ****/
-$title = 'Accueil';
-$styles = ['accueil.css'];
-$blocs = ['index',$triptyque];
-$scripts = ['bigform.js'];
 
 // Appels de la vue :
 vue($blocs, $styles, $title, $contents, $scripts);

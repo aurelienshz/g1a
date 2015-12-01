@@ -10,7 +10,7 @@
 
 <?php
 
-$maquettes = [['events','display',666],['membres','profil',666],['membres','messages']];
+$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search']];
 
 echo '<div id="debug"><div id="session"><h3>Session :</h3>';
 echo 'user connecté : ';

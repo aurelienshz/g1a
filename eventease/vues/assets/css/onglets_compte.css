@@ -10,7 +10,7 @@
     border-collapse: collapse;
 }
 .onglets li {
-    border : 2px solid #303030;
+/*    border : 2px solid #303030;*/
     border-top : 0;
     display: table-cell;
     width: 33.333333%;
@@ -41,8 +41,16 @@
     padding-bottom : 40px;
 }
 #left_tab {
-    border-left: 0
+    border-left: 0;
+    background-color: #4d93ff;
+    box-shadow: 0px 10px 0px #287DFF;
+}
+#center_tab {
+    background-color: #fd5544;
+    box-shadow: 0px 10px 0px #dd3d30;
 }
 #right_tab{
-    border-right: 0
+    border-right: 0;
+    background-color: #63cf63;
+    box-shadow: 0px 10px 0px #36B136;
 }

@@ -1,4 +1,3 @@
-
 <?php
 /* modeles/membres/checkUsed.php
 Vérifie si le pseudo ou le mail est déjà utilisé par un autre membre.
@@ -10,6 +9,7 @@ Sortie : Booléen VRAI si utilisé, FALSE si disponible.
 */
 function checkUsed($toCheck, $name='') {
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
+	// Le bloc ci-dessous peut être rendu plus lisible à mon avis ~ Aurélien
 	$champ='pseudo';
 	switch ($name) {
 		case 'pseudo':

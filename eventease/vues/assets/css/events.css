@@ -168,7 +168,7 @@
 .organisation .hosts ul li a{
 	text-decoration:none;
 	padding-right:1em;
-	color: #78C0F0;
+	color: #3399FF;
 }
 .organisation .hosts ul li a:hover{
 	font-weight:bold;
@@ -196,7 +196,7 @@
 }
 .organisation .friends_going table tr td a{
 	text-decoration:none;
-	color:#78C0F0;
+	color:#3399FF;
 }
 .organisation .friends_going table tr td a:hover{
 	font-weight:bold;

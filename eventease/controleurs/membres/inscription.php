@@ -59,15 +59,18 @@ else {  // Le formulaire a été rempli
         // Si tout s'est bien passé, tous les champs de $errors sont vides
         if(implode('',$errors)=='') {
             // On envoie un mail pour confirmer l'adresse mail
-            if(mail('aurelien.schiltz@free.fr', 'Test', 'Mail de test')) {
-                echo 'Mail envoyé !';
+            if(mail('aurelien.schiltz@free.fr',
+                    'Inscription',
+                    'Votre inscription s\'est bien déroulée !',
+                    'From: no-reply@eventease.com')) {
+                        insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT));
+                        vue(['validationInscription'],$style,$title);
             }
             else {
-                echo 'Nope';
+                alert('error', 'Une erreur fatale s\'est produite');
+                echo 'kek';
+                header('Location:'.getLink(['accueil']));
             }
-            // On insère le nouvel utilisateur :
-            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT));
-            vue(['validationInscription'],$style,$title);
         }
         else {
             foreach ($errors as $key => $value){

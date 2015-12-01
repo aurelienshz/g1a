@@ -78,7 +78,7 @@ And lose the name of action.- Soft you now!
 The fair Ophelia!- Nymph, in thy orisons
 Be all my sins rememb'red.</p>
 				<div class="details">
-					<ul>
+		<ul>
             <li class="fixed_details">Type :</li>
             <li>Brocante </li>
             <li class="fixed_details">Prix :</li>
