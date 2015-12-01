@@ -6,7 +6,8 @@
 <head>
     <meta charset="utf-8" />
     <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
-
+	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo IMAGES.'favicon-96x96.png'; ?>">
+	
     <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
     <link rel="stylesheet" href="<?php echo CSS.'font-awesome.min.css'?>">
     <?php
@@ -16,7 +17,6 @@
             }
         }
     ?>
-
 </head>
 <body>
 
