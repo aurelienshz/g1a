@@ -1,51 +1,51 @@
-<div class="wrapper search">
+<div class="wrapper nopadding">
 	<div class="shadow">
 		<div class="titleWrapper">
 			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
-			<h2>Chercher un événement</h2>
+			<h2><i class="fa fa-search"></i> Chercher un événement</h2>
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
 		</div>
-		<div id="searchBox">
+		<div id="formBox">
 			<form method="post" action="<?php echo getLink(['events','search']); ?>">
-					<div class="row">
-						<div class="col-3">
-							<label for="évènement">Nom : </label><input type="search" name="évènement" id="évènement" placeholder="ex : Concert de Madonna">
-						</div>
-						<div class="col-3">
-							<label for="date">Date :</label> <input type="date" name="date" id="date"/>
-						</div>
-						<div class="col-3">
-							<label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France" class="google-autocomplete-address"/>
-						</div>
+				<div class="ligne">
+					<div class="champ">
+						<label for="évènement">Nom : </label><input type="search" name="évènement" id="évènement" placeholder="ex : Concert de Madonna">
 					</div>
-					<div class="row">
-						<div class="col-3">
-							<label for="type">Type :</label>
-							<select id="type" name"type">
-								<option>Pique-Nique</option>
-								<option>Brocante</option>
-								<option>Concert</option>
-								<option>Vente privée</option>
-								<option>Cours de cuisine</option>
-								<option>Cours de danse</option>
-								<option>Cours de musique</option>
-								<option>Dégustation</option>
-								<option>Oenologie</option>
-								<option>Exposition</option>
-							</select>
-						</div>
-						<div class="col-3">
-							<label>Heure : </label>
-							De <input type="time" name="début" id="début" class="time"/> h à
-							<input type="time" name="fin" id="fin" class="time"/> h
-						</div>
-						<div class="col-3">
-							<label>Tarif :</label>
-							De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à
-							<input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> €
-						</div>
+					<div class="champ">
+						<label for="date">Date :</label> <input type="date" name="date" id="date"/>
 					</div>
-					<input type="submit" value="Envoyer" />
+					<div class="champ">
+						<label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France" class="google-autocomplete-address"/>
+					</div>
+				</div>
+				<div class="ligne">
+					<div class="champ">
+						<label for="type">Type :</label>
+						<select id="type" name"type">
+							<option>Pique-Nique</option>
+							<option>Brocante</option>
+							<option>Concert</option>
+							<option>Vente privée</option>
+							<option>Cours de cuisine</option>
+							<option>Cours de danse</option>
+							<option>Cours de musique</option>
+							<option>Dégustation</option>
+							<option>Oenologie</option>
+							<option>Exposition</option>
+						</select>
+					</div>
+					<div class="champ">
+						<label>Heure : </label>
+						De <input type="time" name="début" id="début" class="time"/> h à
+						<input type="time" name="fin" id="fin" class="time"/> h
+					</div>
+					<div class="champ">
+						<label>Tarif :</label>
+						De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à
+						<input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> €
+					</div>
+				</div>
+				<input type="submit" value="Chercher" />
 			</form>
 		</div>
 		<div class="switchTab">
