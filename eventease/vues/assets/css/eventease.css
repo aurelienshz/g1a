@@ -75,7 +75,7 @@ header #pseudo {
     border: 1px solid #303030;
     background-color: #FAFAFA;
     display: none;
-    /*position: absolute;*/
+    position: relative;
     top: 10px;
     padding: 0.3em 1em;
 }

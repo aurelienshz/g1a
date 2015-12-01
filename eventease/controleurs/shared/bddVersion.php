@@ -24,7 +24,7 @@ function mostRecentGitVersion() {
 function bddVersion() {
     $bdd = new PDO(DSN,DBUSER,DBPASS);
     $query = $bdd->query('SELECT version FROM bddversion');
-    if($query && ($query->rowCount() > 1)) {
+    if(!$query) {
         $version = False;
     }
     else {
@@ -39,20 +39,20 @@ $bddVersion = bddVersion();
 if(!$bddVersion) {
     ob_start();
     ?>
-        <strong style="color:red;">BASE DE DONNÉES CORROMPUE. Videz-la intégralement puis réimportez avec le fichier .sql de la version <?php echo $gitVersion; ?>.</strong>
+        <strong style="color:red;">BASE DE DONNÉES CORROMPUE. Videz-la intégralement puis réimportez avec le fichier .sql de la version la plus récente (v<?php echo $gitVersion; ?>).</strong>
     <?php
     $message = ob_get_clean();
 }
 else {
     switch(version_compare($gitVersion,$bddVersion)) {
         case -1:
-            $message = '<strong><span style="color:red;">Attention !</span> Vous avez créé une nouvelle version de la BDD. N\'oubliez pas de l\'exporter sous forme de .sql dans le drive.</strong>';
+            $message = '<strong><span style="color:red;">Attention !</span> Vous avez créé une nouvelle version de la BDD. N\'oubliez pas de l\'exporter sous forme de .sql dans le dossier ressources.</strong>';
             break;
         case 0:
             $message = '<span>BDD locale à jour. Version : '.$bddVersion.'</span>';
             break;
         case 1:
-            $message = '<strong style="color:red;"><span>Attention !</span> Vous avez créé une nouvelle version de la BDD. N\'oubliez pas de l\'exporter sous forme de .sql dans le drive.</strong>';
+            $message = '<strong style="color:red;"><span>Attention !</span> Vous avez créé une nouvelle version de la BDD. N\'oubliez pas de l\'exporter sous forme de .sql dans le dossier ressources.</strong>';
             break;
     }
 }
