@@ -12,7 +12,9 @@
 
 $maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search']];
 
-echo '<div id="debug"><div id="session"><h3>Session :</h3>';
+echo '<div id="debug"><div id="session">';
+require 'controleurs/shared/bddVersion.php';
+echo '<h3>Session :</h3>';
 echo 'user connecté : ';
 echo connected() ? "Oui ! :)<br />" : "Non !<br />";
 echo '<a href="controleurs/shared/sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';
