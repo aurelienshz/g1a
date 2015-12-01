@@ -102,7 +102,7 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 		</div>
     </div>
     <div class = "commentaire">
-		<h3> Commentaires </h3>
+		<h2> Commentaires </h2>
 		<div class="add_comment">
             <form>
 				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/>
