@@ -23,11 +23,11 @@
             </div>
         </div>
     </footer>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA&libraries=places"></script>
 <?php
     foreach($scripts as $script) {
     echo '<script src="'.SCRIPTS.$script.'"></script>'."\n";
     }
 ?>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA&libraries=places"></script> -->
 </body>
 </html>

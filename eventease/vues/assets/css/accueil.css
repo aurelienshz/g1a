@@ -122,9 +122,12 @@
     text-decoration: none;
     color: #287DFF;
 }
-#suggestions .slideshow-contents {
-    display: table-row;
-    width: 90%;
+#suggestions .slideshow-nav {
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+#suggestions .slideshow-nav span {
+    margin: 0 .5em;
 }
 
 .imageContainer {

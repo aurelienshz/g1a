@@ -26,7 +26,7 @@
 <div class="wrapper">
 <h4>Suggestions</h4>
     <section id="suggestions">
-        <div class="row">
+        <div>
             <div class="previous">&lt;</div>
             <div class="imageContainer">
               <a href="<?php echo getLink(['events','display']); ?>">
@@ -43,12 +43,12 @@
                     <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
                 </div>
                 <p id="eventDescription">
-                    <?php echo $contents['descriptionSuggestion']; ?>
+                    Lorem Ipsum
                 </p>
             </div>
             <div class="next">&gt;</div>
         </div>
-        <div class="row">
+        <div>
             <div class="previous">&lt;</div>
             <div class="imageContainer">
               <a href="<?php echo getLink(['events','display']); ?>">
@@ -65,12 +65,12 @@
                     <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
                 </div>
                 <p id="eventDescription">
-                    <?php echo $contents['descriptionSuggestion']; ?>
+                    Description des familles.
                 </p>
             </div>
             <div class="next">&gt;</div>
         </div>
-        <div class="row">
+        <div>
             <div class="previous">&lt;</div>
             <div class="imageContainer">
               <a href="<?php echo getLink(['events','display']); ?>">
@@ -87,7 +87,7 @@
                     <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
                 </div>
                 <p id="eventDescription">
-                    <?php echo $contents['descriptionSuggestion']; ?>
+                    Ipsum Lorem
                 </p>
             </div>
             <div class="next">&gt;</div>
