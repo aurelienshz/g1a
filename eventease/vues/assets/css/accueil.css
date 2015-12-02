@@ -107,7 +107,7 @@
     width: 66.666666%;
 }
 /**** SLIDESHOW ~ Suggestions d'events : ****/
-.slideshowDefilement {
+.previous, .next {
 	display:table-cell;
 	width: 5%;
 	font-size: 2em;
@@ -116,10 +116,15 @@
 	text-decoration: none;
     text-align: center;
 }
-.slideshowDefilement:hover {
+.previous:hover, .next:hover {
+    cursor: pointer;
     background: #FAFAFA;
     text-decoration: none;
     color: #287DFF;
+}
+#suggestions .slideshow-contents {
+    display: table-row;
+    width: 90%;
 }
 
 .imageContainer {

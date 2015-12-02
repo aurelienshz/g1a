@@ -25,26 +25,72 @@
 
 <div class="wrapper">
 <h4>Suggestions</h4>
-    <section id="suggestions" class="row">
-        <div class="slideshowDefilement">&lt;</div>
-        <div class="imageContainer">
-          <a href="<?php echo getLink(['events','display']); ?>">
-          <img src="<?php echo IMAGES.'picnic1.jpg'?>" />
-          </a>
-        </div>
-        <div class="eventDetails">
-            <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
-            <h5><?php echo $contents['titreSuggestion']; ?></h5>
-            <div id="infosPratiques">
-                <p></p>
-                <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
-                <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
-                <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
+    <section id="suggestions">
+        <div class="row">
+            <div class="previous">&lt;</div>
+            <div class="imageContainer">
+              <a href="<?php echo getLink(['events','display']); ?>">
+              <img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+              </a>
             </div>
-            <p id="eventDescription">
-                <?php echo $contents['descriptionSuggestion']; ?>
-            </p>
+            <div class="eventDetails">
+                <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
+                <h5><?php echo $contents['titreSuggestion']; ?> 1</h5>
+                <div id="infosPratiques">
+                    <p></p>
+                    <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
+                    <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
+                    <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
+                </div>
+                <p id="eventDescription">
+                    <?php echo $contents['descriptionSuggestion']; ?>
+                </p>
+            </div>
+            <div class="next">&gt;</div>
         </div>
-        <div class="slideshowDefilement">&gt;</div>
+        <div class="row">
+            <div class="previous">&lt;</div>
+            <div class="imageContainer">
+              <a href="<?php echo getLink(['events','display']); ?>">
+              <img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+              </a>
+            </div>
+            <div class="eventDetails">
+                <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
+                <h5><?php echo $contents['titreSuggestion']; ?> 2</h5>
+                <div id="infosPratiques">
+                    <p></p>
+                    <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
+                    <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
+                    <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
+                </div>
+                <p id="eventDescription">
+                    <?php echo $contents['descriptionSuggestion']; ?>
+                </p>
+            </div>
+            <div class="next">&gt;</div>
+        </div>
+        <div class="row">
+            <div class="previous">&lt;</div>
+            <div class="imageContainer">
+              <a href="<?php echo getLink(['events','display']); ?>">
+              <img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+              </a>
+            </div>
+            <div class="eventDetails">
+                <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
+                <h5><?php echo $contents['titreSuggestion']; ?> 3</h5>
+                <div id="infosPratiques">
+                    <p></p>
+                    <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
+                    <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
+                    <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
+                </div>
+                <p id="eventDescription">
+                    <?php echo $contents['descriptionSuggestion']; ?>
+                </p>
+            </div>
+            <div class="next">&gt;</div>
+        </div>
     </section>
 </div> <!-- /wrapper -->
