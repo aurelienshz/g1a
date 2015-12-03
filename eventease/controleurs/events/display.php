@@ -10,7 +10,7 @@ $title = 'Affichage d\'un évènement';
 $styles = ['events.css','form.css'];
 $scripts = ['alert.js'];
 
-$contents['titreEvenement'] = 'Pique-nique';
+$contents['titreEvenement'] = 'Pique-nique au lac';
 
 
 /**** Affichage de la page ****/
