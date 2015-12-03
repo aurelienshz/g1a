@@ -69,7 +69,7 @@ function Slideshow(container, defilements) {
             icon.className = 'fa fa-circle-o';
             div.appendChild(icon);
         }
-        container.insertBefore(div, container.childNodes[0]);
+        container.appendChild(div, container.childNodes[0]);
     }
 
     /*****************************************/
@@ -87,7 +87,7 @@ function Slideshow(container, defilements) {
     this.pause = function() {
         this.playing = false;
     }
-    //Lire automatiquement :
+    //Lire le slideshow :
     this.play = function() {
         _this = this;
         setTimeout(function() {
@@ -95,7 +95,7 @@ function Slideshow(container, defilements) {
                 _this.next()
                 _this.play();
             }
-        }, 2000);
+        }, 3000);
     }
     // Afficher un slide particulier :
     this.showSlide = function(slide) {
@@ -108,11 +108,49 @@ function Slideshow(container, defilements) {
                 slide = slide % this.slides.length;
             }
         }
-        //On masque le slide actuellement affiché et on affiche celui qu'on veut :
-        this.slides[this.currentSlide].style.display = 'none';
-        this.slides[slide].style.display = 'block';
-        this.currentSlide = slide;
-        this.activeNav(slide);
+
+
+        // On *essaye* (avec douleur) d'animer la disparition du slide en cours :
+        var slideFadingOut = this.slides[this.currentSlide];
+        slideFadingOut.style.opacity = 1;
+        // Durée de l'animation : 300ms
+        // Temps d'une frame : 15ms
+        // Pas d'opacité : 0.05
+        _this = this
+
+        function fadeOut(){
+            setTimeout(function(){
+                var opa = slideFadingOut.style.opacity;
+                if(opa > 0) {
+                    slideFadingOut.style.opacity -= 0.05;
+                    fadeOut();
+                }
+            },15);
+        }
+        fadeOut();
+        var slideFadingIn = this.slides[slide];
+        slideFadingIn.style.opacity = 0;
+
+        setTimeout(function(){
+            _this.slides[_this.currentSlide].style.display = 'none';
+            _this.slides[slide].style.display = 'block';
+            // On met à jour la valeur de currentSlide
+            _this.currentSlide = slide;
+            // On met à jour les points de positionnement
+            _this.activeNav(slide);
+
+            function fadeIn(){
+                setTimeout(function(){
+                    var opa = parseFloat(slideFadingIn.style.opacity);
+                    if(opa < 1) {
+                        slideFadingIn.style.opacity = opa + 0.05;   // J'ignore pourquoi on ne peut pas incrémenter directement style.opacity, mais ça ne fonctionne pas.
+                        fadeIn();
+                    }
+                },15);
+            }
+            fadeIn();
+        },300);     // Temps d'attente pour l'animation de fade out
+
     }
     this.activeNav = function(nav) {
         for(var i in this.container.childNodes) {
