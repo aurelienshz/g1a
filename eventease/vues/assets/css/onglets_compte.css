@@ -35,7 +35,6 @@
 .onglets li {
     /*border-top-left-radius: 1em;
     border-top-right-radius: 1em;*/
-    overflow: hidden;
     display: table-cell;
     width: 33.333333%;
     padding:0;
@@ -44,8 +43,14 @@
 .onglets li a {
     color: #FAFAFA;
 }
-.onglets li a:hover {
-    border-bottom: 0;
+.onglets li.left_tab a:hover {
+    background-color: #287DFF;
+}
+.onglets li.center_tab a:hover {
+    background-color: #DD3D30;
+}
+.onglets li.right_tab a:hover {
+    background-color: #36B136;
 }
 .onglets li.active a {
     background-color: white;
