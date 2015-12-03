@@ -120,14 +120,14 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
           <br>
           <br>
-          <textarea id="comment" placeholder="Un commentaire précédent anodin"></textarea>
+          Chercher le message dans la base de données.
         </p>
 			</div>
 			<div class="comment">
 				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
 		      <br>
           <br>
-          <textarea id="comment" placeholder="Coucou Aude, ça te va comme ça ?"></textarea>
+          Chercher le message dans la base de données.
 				</p>
 			</div>
 		</div>
