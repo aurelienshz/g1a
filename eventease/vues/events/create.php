@@ -81,7 +81,7 @@
 					</div>
 					<div class="champ">
 						<label for="language">Langue :</label>
-							<select id="Language" name="language">
+							<select id="langue" name="langue">
 								<option>Français</option>
 								<option>Anglais</option>
 							</select>
