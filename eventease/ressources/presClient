@@ -7,3 +7,25 @@ IMPERATIF   				authentification	      ok
 IMPERATIF   				page events			      en cours
 BONUS   					recherche d'event	 	  en cours
 BONUS   					création d'event		  en cours
+
+
+Notes discussion :
+
+SCENARIO :
+    - inscription OK
+    - ne pas retomber sur l'inscription --> éditer profil
+    - calendrier pas de mois de janvier et disparaît ! :( (enlever bouton next)
+    - todo : édition profil
+    - chacun sa page de profil
+    - event : plusieurs organisateurs
+    - organisateurs : rien de spécial
+    - visibilité : privée --> l'event n'est visible que pour les gens que j'invite
+        (à discuter : un réglage pour le)
+    - recherche : page statique
+    - notifs : à rendre dyn (au pire : pas de nouvelles notifs)
+    - notifs : position absolute
+
+TODO :
+- changer catch
+- changer images de remplissage
+- 

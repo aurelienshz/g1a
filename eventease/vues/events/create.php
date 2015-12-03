@@ -15,18 +15,18 @@
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
 						<select id="type" name"type">
-							<option>---</option>
-							<option>Pique-Nique</option>
-							<option>Brocante</option>
-							<option>Concert</option>
-							<option>Conférence</option>
-							<option>Vente privée</option>
-							<option>Cours de cuisine</option>
-							<option>Cours de danse</option>
-							<option>Cours de musique</option>
-							<option>Dégustation</option>
-							<option>Oenologie</option>
-							<option>Exposition</option>
+							<option value="1">---</option>
+							<option value="2">Pique-Nique</option>
+							<option value="3">Brocante</option>
+							<option value="4">Concert</option>
+							<option value="5">Conférence</option>
+							<option value="6">Vente privée</option>
+							<option value="7">Cours de cuisine</option>
+							<option value="8">Cours de danse</option>
+							<option value="9">Cours de musique</option>
+							<option value="10">Dégustation</option>
+							<option value="11">Oenologie</option>
+							<option value="12">Exposition</option>
 						</select>
 					</div>
 					<div class="champ">
@@ -41,7 +41,7 @@
 					</div>
 					<div class="champ">
 						<label>Heure <i class="fa fa-asterisk"></i> : </label>
-						De <input type="time" name="begining" id="begining" class="time"/> h à 
+						De <input type="time" name="begining" id="begining" class="time"/> h à
 						<input type="time" name="end" id="end" class="time"/> h
 					</div>
 					<div class="champ">
@@ -75,7 +75,7 @@
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="public_age">Type de public :</label> 
+						<label for="public_age">Type de public :</label>
 						De  <input type="number" name="age_min" id="age_min"class="price"/>
 						à <input type="number" name="age_max" id="age_max"class="price"/> ans
 					</div>
