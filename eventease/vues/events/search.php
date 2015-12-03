@@ -68,6 +68,21 @@
 	</div>
 </div>
 <div class="wrapper" id="searchResults">
+	<div class="sideBar">
+		<div class="barItem map">
+			MAP
+		</div>
+		<div class="barItem">
+ 			<ul>Type
+	 			<li> Un </li>
+	 			<li> Deux </li>
+	 			<li> Trois </li>
+ 			</ul>
+			<ul>Date</ul>
+			<ul>Lieu</ul>
+			<ul>Tarif</ul>
+		</div>
+	</div>
 	<div id="resultWrapper">
 		<div class="resultBox shadow">
 			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
@@ -83,6 +98,7 @@
 					</div>
 				</div>		
 			</div>
+		</div>
 		</div>
 	</div>
 </div>
