@@ -33,8 +33,8 @@
     border-collapse: collapse;
 }
 .onglets li {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    /*border-top-left-radius: 1em;
+    border-top-right-radius: 1em;*/
     overflow: hidden;
     display: table-cell;
     width: 33.333333%;
