@@ -1,32 +1,63 @@
 @CHARSET "UTF-8";
+
+/* Définition des couleurs spécifiques aux onglets : */
+.left_tab {
+    border-right: 2px solid #303030;
+}
+.center_tab {
+    border-right: 2px solid #303030;
+}
+.left_tab a {
+    background-color: #4d93ff;
+    border-bottom: 10px solid #287DFF;
+}
+.center_tab a {
+    background-color: #fd5544;
+    border-bottom: 10px solid #dd3d30;
+}
+.right_tab a {
+    background-color: #63cf63;
+    border-bottom: 10px solid #36B136;
+}
+
+
+/* Définition des styles généraux des onglets : */
 .onglets {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.6em;
     list-style-type : none;
     padding:0;
     margin:0;
-    width: calc(100% - 2px);
-    display : table;
+    width: 100%;
+    display : table-row;
     border-collapse: collapse;
 }
 .onglets li {
-/*    border : 2px solid #303030;*/
-    border-top : 0;
+    /*border-top-left-radius: 1em;
+    border-top-right-radius: 1em;*/
     display: table-cell;
     width: 33.333333%;
-    height : 60px;
-    background-color: white;
     padding:0;
     margin:0;
 }
-.onglets li:hover {
-    background-color: #BFBFBF;
+.onglets li a {
+    color: #FAFAFA;
 }
-.onglets li.active {
-    border-bottom: 0;
+.onglets li.left_tab a:hover {
+    background-color: #287DFF;
 }
-.onglets li.active:hover {
-    border-bottom: 0;
+.onglets li.center_tab a:hover {
+    background-color: #DD3D30;
+}
+.onglets li.right_tab a:hover {
+    background-color: #36B136;
+}
+.onglets li.active a {
+    background-color: white;
+    border-bottom-color: white;
+    color: #303030;
+}
+.onglets li.active a:hover {
     background-color: white;
 }
 .onglets a {
@@ -38,20 +69,9 @@
     text-align : center;
 }
 .profil_onglets {
-    padding-bottom : 40px;
-}
-#left_tab {
-    border-left: 0;
-    background-color: #4d93ff;
-    box-shadow: 0px 10px 0px #287DFF;
-}
-#center_tab {
-    background-color: #fd5544;
-    box-shadow: 0px 10px 0px #dd3d30;
-}
-#right_tab{
-    border-right: 0;
-    background-color: #63cf63;
-    box-shadow: 0px 10px 0px #36B136;
+    display: table;
+    width: 100%;
+    margin-bottom : 40px;
+    background-color: lightgray;
 }
 /* */
