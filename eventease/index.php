@@ -13,7 +13,7 @@ require CONTROLEURS.'shared/routes.php';
 require CONTROLEURS.'shared/alert.php';
 require CONTROLEURS.'shared/vue.php';
 
-require MODELES.'membres/connected.php';
+require_once MODELES.'membres/connected.php';
 
 define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
