@@ -2,8 +2,8 @@ Présentation client semaine du 30/11
 
 Niveau d'exigence			Fonction	   	          Statut de développement
 IMPERATIF   				page d'accueil		      à valider
-IMPERATIF   	  		 	inscription			      ok -->
-IMPERATIF   				authentification	      ok
+IMPERATIF   	  		 	inscription			      ok --> page de retour à corriger default inscription
+IMPERATIF   				authentification	      ok --> donc la page de profil c'est bien si c'est fait
 IMPERATIF   				page events			      en cours
 BONUS   					recherche d'event	 	  en cours
 BONUS   					création d'event		  en cours

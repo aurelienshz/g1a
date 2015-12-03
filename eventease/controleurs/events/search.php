@@ -19,7 +19,7 @@ if(!empty($_POST)) { // On est arrivé en postant un formulaire
 
 /**** Préparation de la vue ****/
 $title = 'Recherche d\'évènements';
-$styles = ['form.css','accueil.css','search.css','onglets_compte.css'];
+$styles = ['form.css','accueil.css','search.css'];
 $blocks = ['search'];
 $scripts = ['googleAutocompleteAddress.js'];
 

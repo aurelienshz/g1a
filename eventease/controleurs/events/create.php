@@ -9,7 +9,7 @@
 require MODELES.'events/insertEvent.php';
 /**** Préparation de la vue ****/
 $title = 'Créer event';
-$styles = ['create.css','form.css'];
+$styles = ['create.css','form.css', 'search.css'];
 $blocks = ['create'];
 
 /**** Affichage de la page ****/

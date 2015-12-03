@@ -1,3 +1,7 @@
+.createCalendar{
+	padding:0;
+	padding-bottom: 2em;
+}
 .calendarPin {
 	position: relative;
 	top:-25px;
@@ -12,12 +16,8 @@
 	background-color: #fd5544;
 	border-bottom:15px solid #dd3d30;
 	padding: 0;
-	margin: 0 5%; 
 	text-align: center;
-	vertical-align: middle;
-/*	border-left: 1px solid #fd5544;
-	border-right: 1px solid #fd5544;*/
-}
+	vertical-align: middle;}
 .titleWrapper h2 {
 	color: #FAFAFA;
 	font-size: 2em;
@@ -42,31 +42,67 @@ select{
 #date{
 	width: 44%;
 }
-#searchBox{
+#formBox{
 	background-color: #FAFAFA;
-	margin:0 5%;
 	padding: 1em 0;
-/*	border-radius: 0 0 20px 20px;*/
 	border-collapse: collapse;
-	border-left: 1px solid #cbcbcb;
-	border-right: 1px solid #cbcbcb;
 	box-sizing: border-box;
+}
+.switchTab {
+	display: table;
+	width:100%;
+
+}
+.tab {
+	display: table-cell;
+	width: 50%;
+	height: 115px;
+	background-color: #fd5544;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#tabEvent{
+	background-color: #FAFAFA;
+	border-radius: 0 0 0 10px;
+	border: 0;
+}
+#tabUser {
+	padding-bottom: 10px;
+    border-radius: 0 0 10px 0;
+    background-color: #4d93ff;
+	border:0;
+	border-top:10px solid #287DFF;
+	border-left:5px solid #cdcdcd;
+	margin-bottom: 10px;
+	color: white;
+}
+.shadow {
+	padding-top: 0;
+	margin-top: 0;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 10px 10px #cdcdcd;
 }
 .time{
 	width: 25%;
 }
+input[type="file"]{
+	float: none;
+	font-size: 1em;
+	width: 100%;
+	padding: 2% 5%;
+}
 .resultBox{
 	height: 305px;
-	width:100%;
+	width:80%;
 	margin-bottom: 35px;
-	
+	background-color: #FAFAFA;	
+	float: right;
 }
 .imageEvent{
 	display: table-cell;
 	min-width: 200px;
 	max-width: 200px;
-	padding: 0 20px;
-	vertical-align: middle;
+	padding: 20px;
 	height: 100%;
 }
 .imageEvent img {
@@ -77,6 +113,7 @@ select{
 	display: table-cell;
 	width: 100%;
 	padding: 2%;
+	max-height: 300px;
 }
 .resultBox a {
 	text-decoration: none;
@@ -89,9 +126,7 @@ select{
 	margin: 0;
 	width: 100%;
 	text-align: center;
-	border-left: 1px solid #4d93ff;
-	border-right: 1px solid #4d93ff;
-	background-color: #4d93ff;
+	background-color: #fd5544;
 }
 .eventContainer {
 	height: 200px;
@@ -100,9 +135,6 @@ select{
 }
 .floatRight{
 	float: right;
-}
-#searchToolbar{
-	margin-top: 2em;
 }
 #searchToolbar span {
 	font-size: 1.2em;
@@ -118,32 +150,33 @@ select{
 .table {
 	display: table;
 	width: 100%;
-	border-left: 1px solid #cbcbcb;
-	border-right: 1px solid #cbcbcb;
 	border-collapse: collapse;
+	border-radius: 0 0 10px 10px;
 }
-.switchTab {
-	display: table;
-	padding: 0;
-	width:90%;
+.boldInfo{
+	font-weight: bold;
+	font-size: 1.2em;
 }
-.tab {
-	display: table-cell;
-	width: 50%;
-	height: 100px;
-	background-color: #fd5544;
+.fa-asterisk{
+	color: red;
 }
-#tabEvent{
-	background-color: #FAFAFA;
-	border-radius: 0 0 0 10px;
-	border: 0;
-	border-left: 1px solid #cdcdcd;
-	box-shadow :0 15px 0 #cdcdcd;
+.ligne {
+	width: 108.5%;
+	min-width: 830px;
 }
-#tabUser {
-    border-radius: 0 0 10px 0;
-    background-color: #4d93ff;
-	border:0;
-	border-top:15px solid #287DFF;
-	border-bottom: 15px solid #4d93ff;
+.champ {
+	width: 33%;
+	display: inline-block;
+}
+.calendarBottom {
+	border-radius: 0 0 10px 10px;
+}
+.sideBar {
+	display: inline-block;
+	background-color: red;
+	width: 17%;
+	float: left;
+}
+.map {
+	background-color: blue;
 }
