@@ -41,7 +41,7 @@
 					</div>
 					<div class="champ">
 						<label>Heure <i class="fa fa-asterisk"></i> : </label>
-						De <input type="time" name="begining" id="begining" class="time"/> h à 
+						De <input type="time" name="begining" id="begining" class="time"/> h à
 						<input type="time" name="end" id="end" class="time"/> h
 					</div>
 					<div class="champ">
@@ -75,7 +75,7 @@
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="public_age">Type de public :</label> 
+						<label for="public_age">Type de public :</label>
 						De  <input type="number" name="age_min" id="age_min"class="price"/>
 						à <input type="number" name="age_max" id="age_max"class="price"/> ans
 					</div>
