@@ -6,27 +6,27 @@
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
 		</div>
 		<div id="formBox" class="calendarBottom">
-	   		<form method="post" action="<?php echo getLink(['events','create']); ?>">
+	   		<form method="post" action="<?php getLink(['events','create']); ?>">
 				<div class="ligne">
 					<div class="champ">
-						<label for="title">Nom de l'événement <i class="fa fa-asterisk"></i> :</label>
-						<input type="text" placeholder="Nom de l'événement" id="title" name="title" />
+						<label for="titre">Nom de l'événement <i class="fa fa-asterisk"></i> :</label>
+						<input type="text" placeholder="Nom de l'événement" id="titre" name="titre" />
 					</div>
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
 						<select id="type" name"type">
-							<option value="1">---</option>
-							<option value="2">Pique-Nique</option>
-							<option value="3">Brocante</option>
-							<option value="4">Concert</option>
-							<option value="5">Conférence</option>
-							<option value="6">Vente privée</option>
-							<option value="7">Cours de cuisine</option>
-							<option value="8">Cours de danse</option>
-							<option value="9">Cours de musique</option>
-							<option value="10">Dégustation</option>
-							<option value="11">Oenologie</option>
-							<option value="12">Exposition</option>
+							<option value="1">Pique-Nique</option>
+							<option value="2">Brocante</option>
+							<option value="3">Concert</option>
+							<option value="4">Conférence</option>
+							<option value="5">Vente privée</option>
+							<option value="6">Cours de cuisine</option>
+							<option value="7">Cours de danse</option>
+							<option value="8">Cours de musique</option>
+							<option value="9">Dégustation</option>
+							<option value="10">Oenologie</option>
+							<option value="11">Exposition</option>
+							<option value="12">Autre</option>
 						</select>
 					</div>
 					<div class="champ">
@@ -100,13 +100,7 @@
 					</div>
 					<div class="champ">
 						<label for="sponsors">Sponsors :</label>
-						<select id="sponsors" name="sponsors">
-								<option>Orangina</option>
-								<option>Mairie de Paris</option>
-								<option>7'ease</option>
-								<option>ISEP</option>
-								<option>Eddy Malou</option>
-							</select>
+						<input type="text" placeholder="ex : Orangina" id="sponsors" name="sponsors"/>
 					</div>
 				</div>
 		        <br><input type="submit" value="Créer" />

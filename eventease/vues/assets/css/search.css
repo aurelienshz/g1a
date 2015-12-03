@@ -93,9 +93,10 @@ input[type="file"]{
 }
 .resultBox{
 	height: 305px;
-	width:100%;
+	width:80%;
 	margin-bottom: 35px;
 	background-color: #FAFAFA;	
+	float: right;
 }
 .imageEvent{
 	display: table-cell;
@@ -169,4 +170,13 @@ input[type="file"]{
 }
 .calendarBottom {
 	border-radius: 0 0 10px 10px;
+}
+.sideBar {
+	display: inline-block;
+	background-color: red;
+	width: 17%;
+	float: left;
+}
+.map {
+	background-color: blue;
 }
