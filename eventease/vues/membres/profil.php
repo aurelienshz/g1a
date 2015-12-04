@@ -5,7 +5,7 @@
     <div class="page_container">
         <div class="col_gauche">
             <div class="photo_profil">
-                <img alt="Nom du profil" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>" title="Nom du profil" height="230" width="230"/>
+                <img alt="Nom du profil" src="<?php echo IMAGES.'tiger-face.jpg'; ?>" title="Nom du profil" height="230" width="230"/>
             </div>
             <p id="mess_perso">Mon message perso</p>
             <div class="interaction_box">
