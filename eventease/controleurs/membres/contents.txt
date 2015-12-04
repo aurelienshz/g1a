@@ -1,0 +1,21 @@
+Dans tous les cas :
+- pseudo
+- nom & prénom
+- pseudo
+- statut (modo)
+- langue
+- localité (grossière)
+- photo
+- description
+
+Sur mon profil uniquement :
+- adresse mail
+- tél --> stocké ? intérêt ?
+- adresse complète
+
+- MODIFICATION :
+    - mdp
+    - email
+    - photo
+    - description
+    - adresse
