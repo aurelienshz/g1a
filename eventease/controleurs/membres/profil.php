@@ -25,25 +25,25 @@ if(isset($_GET['id'])) {
         $contents['ongletActif'] = 'profil';
 
         $details = getUserDetails($_SESSION['id']);
-        // echo '<pre>';
-        // var_dump($details);
-        // echo '</pre>';
+        echo '<pre>';
+        var_dump($details);
+        echo '</pre>';
 
         $title = 'Mon profil';
 
         $contents['pseudo'] = $_SESSION['username'];
-        $contents['general'] = [
-            'pseudo' => 'E-mail : '$details['pseudo'],
-            'mail' => 'E-mail : '$details['mail'],
-            'statut' => 'Statut : '$details['moderateur']?'Modérateur':'Membre',
-/* fac */   'id_photo' => isset($details['id_photo'])?'usermedia/'.$details['id_photo'],IMAGES/'photo_profil_defaut.png';
+        $contents['general'] = array_merge($contents, [
+            'pseudo' => $details['pseudo'],
+            'mail' => $details['mail'],
+            'statut' => ($details['moderateur']) ? 'Modérateur' : 'Membre',
+// /* fac */   'id_photo' => isset($details['id_photo'])?'usermedia/'.$details['id_photo'],IMAGES/'photo_profil_defaut.png';
 /* fac */   'nom' => isset($details['nom'])?'':'Nom : '.$details['nom'],
 /* fac */   'prenom' => isset($details['prenom'])?'':'Prénom : '.$details['prenom'],
 /* fac */   'ddn' => isset($details['ddn'])?'':'Date de naissance : '.$details['ddn'],
 /* fac */   'description' => isset($details['description'])?'Description':' : '.$details['description'],
 /* fac */   'langue' => isset($details['langue'])?'':'Langue : '.$details['langue'],
             // 'adresse' => $details[''],
-            ];
+            ]);
         echo '<pre>';
         var_dump($contents);
         echo '</pre>';
