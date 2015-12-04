@@ -171,9 +171,3 @@ function Slideshow(container, defilements) {
     this.play();
 }
 
-// Ce code est spécifique à l'accueil. Il n'a pas lieu d'être dans le même fichier que le constructeur de l'objet...
-(function() {
-var slideshowSuggestions = document.getElementById('suggestions'),
-    slideshowSuggestionsDefilement =  document.querySelectorAll('.previous, .next'),
-    slideshow = new Slideshow(slideshowSuggestions, slideshowSuggestionsDefilement);
-})();

@@ -1,20 +1,4 @@
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1693490350897371',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -42,15 +26,15 @@
                 <table>
                     <tr>
 
-                            <td><a href="https://www.facebook.com/dialog/share?app_id=1693490350897371&display=popup&href=https%3A%2F%2Feventease.ohhopi.com&redirect_uri=https://eventease.ohhopi.com?module=events&action=display&id=666"><i class="facebook fa fa-facebook-square"></i></a>
-							        <td><a class="twitter-share-button" 
-									href="https://twitter.com/intent/tweet?text=Hello%20world" 
-									data-size="large">
-						<i class="twitter fa fa-twitter-square"></i></a>
-                            
+                            <td><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.eventease.ohhopi.com&t=" title="Share on Facebook" target="_blank">
+								<img src=<?php echo IMAGES.'Facebook.png'; ?>></a>
+							<td><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.eventease.ohhopi.com&text=:%20http%3A%2F%2Fwww.eventease.ohhopi.com" target="_blank" title="Tweet">
+								<img src=<?php echo IMAGES.'Twitter.png'; ?>></a>       
                     <tr>
-                            <td><a href="#"><i class="pinterest fa fa-pinterest"></i></a>
-                            <td><a href="#"><i class="mail fa fa-envelope-o"></i></a>
+                            <td><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.eventease.ohhopi.com&description=" target="_blank" title="Pin it">
+								<img src=<?php echo IMAGES.'Pinterest.png'; ?>></a>
+                            <td><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.eventease.ohhopi.com" target="_blank" title="Email">
+								<img src=<?php echo IMAGES.'Email.png'; ?>></a>
                 </table>
                 </ul>
             </div>
@@ -84,18 +68,24 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
           </ul>
 				</div>
     </div>
-    <div class = "photo">
-        <table>
-            <tr>
-                <td id="left_arrow">&lt;</td>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
-                <td><img src="<?php echo IMAGES.'img.jpg'; ?>"/></td>
-                <td id="right_arrow">&gt;</td>
-            </tr>
-        </table>
-    </div>
+    <section id="photos">
+			<div>
+                <div class="previous"><td>&lt;</td></div>
+                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
+                <div class="next">&gt;</div>
+          </div>
+		  <div>
+                <div class="previous">&lt;</div>
+                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
+                <div class="next">&gt;</div>
+			</div>
+    </section>
     <div class = "organisation">
 		<div class = "hosts">
 		<h2>Organisateurs</h2>
@@ -156,3 +146,5 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
     </div>
 
 </div>
+
+
