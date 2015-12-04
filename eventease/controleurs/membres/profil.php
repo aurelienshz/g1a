@@ -4,7 +4,6 @@
 /**** Préparation des contenus ****/
 
 require MODELES.'membres/getUserDetails.php';
-require MODELES.'membres/connected.php';
 
 /* Condition d'affichage de *mon* profil :
 - id défini :
@@ -20,24 +19,40 @@ require MODELES.'membres/connected.php';
 print_r($_SESSION);
 
 if(isset($_GET['id'])) {
-    if($_GET['id']==$_SESSION['id']) {
-        // 
+    if(connected() && $_GET['id']==$_SESSION['id']) {
+        $title = 'Mon profil';
+        $contents['pseudo'] = '### Mon profil ###';
+        $contents['ongletActif'] = 'profil';
+        $styles = ['onglets_compte.css','membres.css'];
         $blocks = ['onglets_compte','profil'];
     }
     else {
+        // Profil de quelqu'un d'autre :
+        //
+        // ... requête à la BDD ...
+        //
+        $title = 'Profil de ##';
+        $contents['ongletActif'] = 'profil';
+        $contents['pseudo'] = '###';
+        $styles = ['membres.css'];
         $blocks = ['profil'];
     }
 }
-else {
-    if()
+else {  // (!isset($_GET['id']))
+    if(connected()) {
+        // on affiche mon profil :
+        $title = 'Mon profil';
+        $styles = ['onglets_compte.css','membres.css'];
+        $blocks = ['onglets_compte', 'profil'];
+        $contents['ongletActif'] = 'profil';
+    }
+    else {
+        // Erreur : t'as pas le droit (bâtard).
+        alert('error', 'Vous devez être connecté pour accéder à cette page !');
+        header('Location: '.getLink(['membres','connexion']));
+        exit();
+    }
 }
 
 /**** Affichage de la page ****/
-
-$title = 'Profil de pseudo';
-$styles = ['onglets_compte.css','membres.css'];
-$blocks = ['onglets_compte', 'profil'];
-
-$contents['ongletActif'] = 'profil';
-//Appels des vues :
 vue($blocks,$styles,$title, $contents);
