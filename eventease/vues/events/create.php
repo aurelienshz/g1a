@@ -14,8 +14,8 @@
 					</div>
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
-						<select id="type" name"type">
-							<option value="1">Pique-Nique</option>
+						<select id="type" name="type">
+							<option value="Pique-Nique">Pique-Nique</option>
 							<option value="2">Brocante</option>
 							<option value="3">Concert</option>
 							<option value="4">Conférence</option>
