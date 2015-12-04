@@ -3,8 +3,6 @@
 
 /**** Préparation des contenus ****/
 
-require MODELES.'membres/getUserDetails.php';
-
 /* Condition d'affichage de *mon* profil :
 - id défini :
     - je suis connecté :
@@ -16,35 +14,57 @@ require MODELES.'membres/getUserDetails.php';
 
 */
 
-print_r($_SESSION);
+require MODELES.'membres/getUserDetails.php';
+$contents = [];
+
+function loadContents($details) {
+    global $contents;
+
+    $contents = array_merge($contents, [
+                'pseudo' => $details['pseudo'],
+                'mail' => $details['mail'],
+                'statut' => ($details['moderateur']) ? 'Statut : Modérateur' : 'Statut : Membre',
+    /* fac */   'photo' => isset($details['id_photo'])?'usermedia/'.$details['id_photo']:IMAGES.'photo_profil_defaut.jpg',
+    /* fac */   'nom' => isset($details['nom'])?'Nom : '.$details['nom']:'',
+    /* fac */   'prenom' => isset($details['prenom'])?'Prénom : '.$details['prenom']:'',
+    /* fac */   'ddn' => isset($details['ddn'])?'Date de naissance : '.$details['ddn']:'',
+    /* fac */   'description' => isset($details['description'])?'Description : '.$details['description']:'',
+    /* fac */   'langue' => isset($details['langue'])?'Langue : '.$details['langue']:NULL,
+             // 'adresse' => $details[''],
+        ]);
+    echo '<pre>';
+        var_dump($contents);
+    echo '</pre>';
+    return True;
+}
 
 if(isset($_GET['id'])) {
+    // Si je suis en train d'afficher mon profil :
     if(connected() && $_GET['id']==$_SESSION['id']) {
-        $title = 'Mon profil';
-        $contents['pseudo'] = '### Mon profil ###';
+        // On affichera les onglets :
+        $styles = ['onglets_compte.css'];
+        $blocks = ['onglets_compte'];
         $contents['ongletActif'] = 'profil';
-        $styles = ['onglets_compte.css','membres.css'];
-        $blocks = ['onglets_compte','profil'];
+
+        $title = 'Mon profil';
+
+        $details = getUserDetails($_SESSION['id']);
+        loadContents($details);
     }
     else {
-        // Profil de quelqu'un d'autre :
-        //
-        // ... requête à la BDD ...
-        //
-        $title = 'Profil de ##';
-        $contents['ongletActif'] = 'profil';
-        $contents['pseudo'] = '###';
-        $styles = ['membres.css'];
-        $blocks = ['profil'];
+        $details = getUserDetails($_GET['id']);
+        loadContents($details);
+
+        $title = 'Profil de '.$contents['pseudo'];
     }
 }
-else {  // (!isset($_GET['id']))
+else {  // (empty($_GET['id']))
     if(connected()) {
         // on affiche mon profil :
+        $contents['pseudo'] = $_SESSION['username'];
         $title = 'Mon profil';
-        $styles = ['onglets_compte.css','membres.css'];
-        $blocks = ['onglets_compte', 'profil'];
-        $contents['ongletActif'] = 'profil';
+        $styles = ['onglets_compte.css'];
+        $blocks = ['onglets_compte'];
     }
     else {
         // Erreur : t'as pas le droit (bâtard).
@@ -53,6 +73,9 @@ else {  // (!isset($_GET['id']))
         exit();
     }
 }
+
+$styles[] = 'membres.css';
+$blocks[] = 'profil';
 
 /**** Affichage de la page ****/
 vue($blocks,$styles,$title, $contents);

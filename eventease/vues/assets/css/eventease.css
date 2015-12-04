@@ -80,6 +80,7 @@ header #pseudo {
 }
 .menuTrigger:hover ul.menuDeroulant {
     display: block;
+    z-index: 1000;
     margin: 0;
 }
 .menuDeroulant li {

@@ -6,7 +6,7 @@
 .col_gauche {
     float: left;
     width: 25%;
-    background-color: coral;
+    background-color: #287DFF;
     border: none;
 }
 .col_droite {
@@ -33,16 +33,16 @@
     margin: 0;
 }
 .interaction_profil {
-    color : #287DFF;
+    color : #ff6600;
     text-decoration: none;
-    font-size: large;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: larger;
+    font-family: Trebuchet, sans-serif;
 }
 .interaction_profil:hover {
-    color: #3399FF;
+    color: gold;
     text-decoration: none;
-    font-size: large;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: larger;
+    font-family: Trebuchet, sans-serif;
 }
 .interaction_box {
     margin-bottom: 8px;
