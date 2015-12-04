@@ -3,11 +3,7 @@
 function getUserDetails($id) {
     $bdd = new PDO(DSN, DBUSER, DBPASS);
 
-    $query = $bdd->prepare('SELECT *
-                            FROM membre RIGHT JOIN adresse
-                            ON membre.id_adresse=adresse.id
-                           UNION
-                            SELECT * FROM membre LEFT JOIN adresse
+    $query = $bdd->prepare('SELECT * FROM membre LEFT JOIN adresse
                             ON membre.id_adresse=adresse.id
                             WHERE membre.id = :id');
     $query->execute(['id'=>$id]);
@@ -17,7 +13,8 @@ function getUserDetails($id) {
         return $result[0];
     }
     else {
-        echo $query->rowCount();
+        echo 'La requête a mal fonctionné <br />';
+        var_dump($query->fetchAll(PDO::FETCH_ASSOC));
         return False;
     }
 }
