@@ -16,15 +16,35 @@ require MODELES.'membres/getUserDetails.php';
 
 */
 
-print_r($_SESSION);
+require MODELES.'membres/getMemberDetails.php';
 
-if(isset($_GET['id'])) {
+if(!empty($_GET['id'])) {
+    // Si je suis en train d'afficher mon profil :
     if(connected() && $_GET['id']==$_SESSION['id']) {
-        $title = 'Mon profil';
-        $contents['pseudo'] = '### Mon profil ###';
+        // On affichera les onglets :
+        $styles = ['onglets_compte.css'];
+        $blocks = ['onglets_compte'];
         $contents['ongletActif'] = 'profil';
-        $styles = ['onglets_compte.css','membres.css'];
-        $blocks = ['onglets_compte','profil'];
+
+        $details = getMemberDetails($_SESSION['id']);
+        var_dump($details);
+
+        $title = 'Mon profil';
+
+        $contents['pseudo'] = $_SESSION['username'];
+        $contents = array_merge($contents,[
+            'pseudo' => $details['pseudo'],
+            'nom' => $details['nom'],
+            'prenom' => $details['prenom'],
+            'ddn' => $details['ddn'],
+            'mail' => $details['mail'],
+            'description' => $details['description'],
+            'statut' => $details['moderateur']?'Modérateur':'Membre',
+            'langue' => $details['langue'],
+            'id_photo' => $details['id_photo'],
+            'adresse' => $details[''],
+            '' => $details[''],
+            ]);
     }
     else {
         // Profil de quelqu'un d'autre :
@@ -32,19 +52,16 @@ if(isset($_GET['id'])) {
         // ... requête à la BDD ...
         //
         $title = 'Profil de ##';
-        $contents['ongletActif'] = 'profil';
         $contents['pseudo'] = '###';
-        $styles = ['membres.css'];
-        $blocks = ['profil'];
-    }
+            }
 }
-else {  // (!isset($_GET['id']))
+else {  // (empty($_GET['id']))
     if(connected()) {
         // on affiche mon profil :
+        $contents['pseudo'] = $_SESSION['username'];
         $title = 'Mon profil';
         $styles = ['onglets_compte.css','membres.css'];
         $blocks = ['onglets_compte', 'profil'];
-        $contents['ongletActif'] = 'profil';
     }
     else {
         // Erreur : t'as pas le droit (bâtard).
@@ -53,6 +70,9 @@ else {  // (!isset($_GET['id']))
         exit();
     }
 }
+
+$styles[] = ['membres.css'];
+$blocks[] = ['profil'];
 
 /**** Affichage de la page ****/
 vue($blocks,$styles,$title, $contents);
