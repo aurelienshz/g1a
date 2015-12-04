@@ -25,7 +25,10 @@
                 <table>
                     <tr>
                             <td><a href="#"><i class="facebook fa fa-facebook-square"></i></a>
-                            <td><a href="#"><i class="twitter fa fa-twitter-square"></i></a>
+                            <td><a class="twitter-share-button" 
+									href="https://twitter.com/intent/tweet?text=Hello%20world" 
+									data-size="large">
+						<i class="twitter fa fa-twitter-square"></i></a>
                     <tr>
                             <td><a href="#"><i class="pinterest fa fa-pinterest"></i></a>
                             <td><a href="#"><i class="mail fa fa-envelope-o"></i></a>
