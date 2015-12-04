@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 04 Décembre 2015 à 14:18
+-- Généré le :  Ven 04 Décembre 2015 à 14:20
 -- Version du serveur :  5.5.46-0+deb8u1
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `bddversion` (
 --
 
 INSERT INTO `bddversion` (`id`, `version`) VALUES
-(1, '1.4');
+(0, '1.5');
 
 -- --------------------------------------------------------
 
