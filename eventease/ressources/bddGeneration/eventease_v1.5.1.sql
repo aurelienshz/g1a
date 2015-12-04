@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 04 Décembre 2015 à 14:58
+-- Généré le :  Ven 04 Décembre 2015 à 15:00
 -- Version du serveur :  10.0.17-MariaDB
 -- Version de PHP :  5.6.14
 
@@ -55,7 +55,7 @@ CREATE TABLE `bddversion` (
 --
 
 INSERT INTO `bddversion` (`id`, `version`) VALUES
-(0, '1.5');
+(0, '1.5.1');
 
 -- --------------------------------------------------------
 
