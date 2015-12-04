@@ -2,13 +2,13 @@
 /* modeles/membres/insertUser.php
 
 */
-function insertEvent($titre, $type1, $date, $lieu, $hosts, $visibility, $participation, $price, $assistance, $langue, $description, $attending) {
+function insertEvent($titre, $type, $date, $lieu, $hosts, $visibility, $participation, $price, $assistance, $langue, $description, $attending) {
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
-    $query = $bdd->prepare('INSERT INTO evenement (titre, type1, date, lieu, hosts, visibility, participation, price, assistance, langue, description, attending) 
-    	VALUES (:titre, :type1, :date, :lieu, :hosts, :visibility, :participation, :price, :assistance, :langue, :description, :attending)');
+    $query = $bdd->prepare('INSERT INTO evenement (titre, type, date, lieu, hosts, visibility, participation, price, assistance, langue, description, attending) 
+    	VALUES (:titre, :type, :date, :lieu, :hosts, :visibility, :participation, :price, :assistance, :langue, :description, :attending)');
     $query -> execute([
     	':titre'=>$titre,
-    	':type1'=>$type1, 
+    	':type'=>$type, 
     	':date'=>$date,
     	':lieu'=>$lieu,
     	':hosts'=>$hosts,
