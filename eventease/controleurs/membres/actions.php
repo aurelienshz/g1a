@@ -7,7 +7,8 @@ $actions = [
 'messages',
 'connexion',
 'deconnexion',
-'inscription'
+'inscription',
+'modification_profil'
 ];
 
 $parametres = [
