@@ -41,7 +41,7 @@
             <div class="social">
                 <table>
                     <tr>
-                            <td><a href="https://www.facebook.com/dialog/share?app_id=1693490350897371&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="facebook fa fa-facebook-square"></i></a>
+                            <td><a href="https://www.facebook.com/dialog/share?app_id=1693490350897371&display=popup&href=https%3A%2F%2Feventease.ohhopi.com&redirect_uri=https://eventease.ohhopi.com?module=events&action=display&id=666"><i class="facebook fa fa-facebook-square"></i></a>
                             <td><a href="#"><i class="twitter fa fa-twitter-square"></i></a>
                     <tr>
                             <td><a href="#"><i class="pinterest fa fa-pinterest"></i></a>
