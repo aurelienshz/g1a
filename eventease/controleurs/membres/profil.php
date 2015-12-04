@@ -36,14 +36,21 @@ function loadContents($details) {
 }
 
 function monProfil() {
+    // ToDo : ajouter les options de modification
+    // Attention : lors de la modification il faut vérifier les droits de l'utilisateur ! (car pas de vérif de privilèges dans cette page)
+    // Rq: Il faut faire de même pour les messages privés (ou alors membres -> messages ne peut pointer QUE sur MES messages)
+    // Pour les événents : si c'est mon profil on affiche tout, si c'est celui de qqun d'autre on affiche seulement les events publics, et les events privés auxquels je participe aussi.
+
     global $title;
     global $styles;
     global $blocks;
     global $contents;
+
     // On affichera les onglets :
     $styles = ['onglets_compte.css'];
     $blocks = ['onglets_compte'];
     $contents['ongletActif'] = 'profil';
+    $contents['monProfil'] = True;
 
     $title = 'Mon profil';
 
