@@ -23,48 +23,57 @@ function loadContents($details) {
     $contents = array_merge($contents, [
                 'pseudo' => $details['pseudo'],
                 'mail' => $details['mail'],
-                'statut' => ($details['moderateur']) ? 'Statut : Modérateur' : 'Statut : Membre',
-    /* fac */   'photo' => isset($details['id_photo'])?'usermedia/'.$details['id_photo']:IMAGES.'photo_profil_defaut.jpg',
-    /* fac */   'nom' => isset($details['nom'])?'Nom : '.$details['nom']:'',
-    /* fac */   'prenom' => isset($details['prenom'])?'Prénom : '.$details['prenom']:'',
-    /* fac */   'ddn' => isset($details['ddn'])?'Date de naissance : '.$details['ddn']:'',
-    /* fac */   'description' => isset($details['description'])?'Description : '.$details['description']:'',
-    /* fac */   'langue' => isset($details['langue'])?'Langue : '.$details['langue']:NULL,
+                'statut' => ($details['moderateur']) ? 'Modérateur' : 'Membre',
+    /* fac */   'photo' => isset($details['id_photo']) && $details['id_photo']!=0?'usermedia/'.$details['id_photo']:IMAGES.'photo_profil_defaut.jpg',
+    /* fac */   'nom' => isset($details['nom'])?$details['nom']:'Non renseigné',
+    /* fac */   'prenom' => isset($details['prenom'])?$details['prenom']:'Non reseigné',
+    /* fac */   'ddn' => isset($details['ddn'])?$details['ddn']:'Non renseignée',
+    /* fac */   'description' => isset($details['description'])?$details['description']:'Pas de description',
+    /* fac */   'langue' => (isset($details['langue'])?($details['langue']?'Anglais':'Français'):'Non renseignée')
              // 'adresse' => $details[''],
         ]);
-    echo '<pre>';
-        var_dump($contents);
-    echo '</pre>';
+    return True;
+}
+
+function monProfil() {
+    global $title;
+    global $styles;
+    global $blocks;
+    global $contents;
+    // On affichera les onglets :
+    $styles = ['onglets_compte.css'];
+    $blocks = ['onglets_compte'];
+    $contents['ongletActif'] = 'profil';
+
+    $title = 'Mon profil';
+
+    $details = getUserDetails($_SESSION['id']);
+    loadContents($details);
+
     return True;
 }
 
 if(isset($_GET['id'])) {
     // Si je suis en train d'afficher mon profil :
     if(connected() && $_GET['id']==$_SESSION['id']) {
-        // On affichera les onglets :
-        $styles = ['onglets_compte.css'];
-        $blocks = ['onglets_compte'];
-        $contents['ongletActif'] = 'profil';
-
-        $title = 'Mon profil';
-
-        $details = getUserDetails($_SESSION['id']);
-        loadContents($details);
+        monProfil();
     }
     else {
-        $details = getUserDetails($_GET['id']);
-        loadContents($details);
+        if($details = getUserDetails($_GET['id'])) {
+            loadContents($details);
+        }
+        else {
+            alert('error','La page demandée n\'a pas été trouvée. Vous avez été redirigé vers l\'accueil.');
+            header('Location: '.getLink(['accueil']));
+            exit();
+        }
 
         $title = 'Profil de '.$contents['pseudo'];
     }
 }
 else {  // (empty($_GET['id']))
     if(connected()) {
-        // on affiche mon profil :
-        $contents['pseudo'] = $_SESSION['username'];
-        $title = 'Mon profil';
-        $styles = ['onglets_compte.css'];
-        $blocks = ['onglets_compte'];
+        monProfil();
     }
     else {
         // Erreur : t'as pas le droit (bâtard).

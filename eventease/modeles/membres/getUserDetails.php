@@ -14,7 +14,6 @@ function getUserDetails($id) {
     }
     else {
         echo 'La requête a mal fonctionné <br />';
-        var_dump($query->fetchAll(PDO::FETCH_ASSOC));
         return False;
     }
 }
