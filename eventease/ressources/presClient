@@ -8,12 +8,50 @@ IMPERATIF   				page events			      en cours
 BONUS   					recherche d'event	 	  en cours
 BONUS   					création d'event		  en cours
 
+--- THE ULTIMATE TODO LIST ---
+
+page d'accueil
+    - suggestions à rendre dynamique --> Tristan
+Authentification :
+    - vérifier que le compte est validé. Stocker token dans la bdd ?
+Inscription :
+    - vérif email ?
+    - token de confirmation d'email
+    - vérifier si on s'est déjà connecté pour redirection affichage profil
+    - redirection vers édition du profil si on essaie d'y accéder en étant connecté
+    - édition du profil avec une pitite alerte si on se connecte pour la première fois
+Gestion des privilèges :
+    - inscription : interdit si connecté
+    - édition profil : nécessite connecté, seulement édition du mien
+    - messages : ok
+    - modification event :
+        - nécessite connecté
+        - careful, bien vérifier qu'on est orga
+    - création event : nécessite connecté
+Profil : afficher / modifier --> bonus ?
+    - afficher : feuille de style à peaufiner
+    - ajouter interactions si c'est mon profil (à la place de envoyer MP etc..., ajouter modifier mon profil)
+    - vue modifier et script back end
+Page events
+    - contrôleur --> raccorder au modèle
+    - spécification de l'interface si je suis organisateur
+    - question : droits de suppression de l'évènement ?
+BDD :
+    - peupler events en ajoutant au moins 4 events :
+        - 2 dans le même jour
+        - 2 dans le même mois
+        - 1 dont Kevin est orga
+        - 1 auquel Kevin participe
+Recherche event / membre
+    script back end --> contrôleurs et requêtes
+
 
 Notes discussion :
 
 SCENARIO :
     - inscription OK
     - ne pas retomber sur l'inscription --> éditer profil
+    -
     - calendrier pas de mois de janvier et disparaît ! :( (enlever bouton next)
     - todo : édition profil
     - chacun sa page de profil
@@ -28,4 +66,4 @@ SCENARIO :
 TODO :
 - changer catch
 - changer images de remplissage
-- 
+-
