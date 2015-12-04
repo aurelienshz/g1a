@@ -75,8 +75,7 @@ header #pseudo {
     border: 1px solid #303030;
     background-color: #FAFAFA;
     display: none;
-    position: relative;
-    top: 10px;
+    position: absolute;
     padding: 0.3em 1em;
 }
 .menuTrigger:hover ul.menuDeroulant {
