@@ -1,6 +1,6 @@
 <div class="wrapper createCalendar">
 	<div class="shadow">
-		<div class="titleWrapper" style="background-color: #287DFF">
+		<div class="titleWrapper" style="background-color: #4d93ff; border-bottom-color: #287DFF">
 			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
 			<h2><i class="fa fa-pencil"></i> Modifier mon profil </h2>
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin.png'; ?>">

@@ -1,3 +1,20 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1693490350897371',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -24,7 +41,7 @@
             <div class="social">
                 <table>
                     <tr>
-                            <td><a href="#"><i class="facebook fa fa-facebook-square"></i></a>
+                            <td><a href="https://www.facebook.com/dialog/share?app_id=1693490350897371&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="facebook fa fa-facebook-square"></i></a>
                             <td><a href="#"><i class="twitter fa fa-twitter-square"></i></a>
                     <tr>
                             <td><a href="#"><i class="pinterest fa fa-pinterest"></i></a>
