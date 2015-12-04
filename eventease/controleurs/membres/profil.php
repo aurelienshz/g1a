@@ -3,8 +3,6 @@
 
 /**** Préparation des contenus ****/
 
-require MODELES.'membres/getUserDetails.php';
-
 /* Condition d'affichage de *mon* profil :
 - id défini :
     - je suis connecté :
@@ -16,9 +14,9 @@ require MODELES.'membres/getUserDetails.php';
 
 */
 
-require MODELES.'membres/getMemberDetails.php';
+require MODELES.'membres/getUserDetails.php';
 
-if(!empty($_GET['id'])) {
+if(isset($_GET['id'])) {
     // Si je suis en train d'afficher mon profil :
     if(connected() && $_GET['id']==$_SESSION['id']) {
         // On affichera les onglets :
@@ -26,25 +24,29 @@ if(!empty($_GET['id'])) {
         $blocks = ['onglets_compte'];
         $contents['ongletActif'] = 'profil';
 
-        $details = getMemberDetails($_SESSION['id']);
-        var_dump($details);
+        $details = getUserDetails($_SESSION['id']);
+        // echo '<pre>';
+        // var_dump($details);
+        // echo '</pre>';
 
         $title = 'Mon profil';
 
         $contents['pseudo'] = $_SESSION['username'];
-        $contents = array_merge($contents,[
-            'pseudo' => $details['pseudo'],
-            'nom' => $details['nom'],
-            'prenom' => $details['prenom'],
-            'ddn' => $details['ddn'],
-            'mail' => $details['mail'],
-            'description' => $details['description'],
-            'statut' => $details['moderateur']?'Modérateur':'Membre',
-            'langue' => $details['langue'],
-            'id_photo' => $details['id_photo'],
-            'adresse' => $details[''],
-            '' => $details[''],
-            ]);
+        $contents['general'] = [
+            'pseudo' => 'E-mail : '$details['pseudo'],
+            'mail' => 'E-mail : '$details['mail'],
+            'statut' => 'Statut : '$details['moderateur']?'Modérateur':'Membre',
+/* fac */   'id_photo' => isset($details['id_photo'])?'usermedia/'.$details['id_photo'],IMAGES/'photo_profil_defaut.png';
+/* fac */   'nom' => isset($details['nom'])?'':'Nom : '.$details['nom'],
+/* fac */   'prenom' => isset($details['prenom'])?'':'Prénom : '.$details['prenom'],
+/* fac */   'ddn' => isset($details['ddn'])?'':'Date de naissance : '.$details['ddn'],
+/* fac */   'description' => isset($details['description'])?'Description':' : '.$details['description'],
+/* fac */   'langue' => isset($details['langue'])?'':'Langue : '.$details['langue'],
+            // 'adresse' => $details[''],
+            ];
+        echo '<pre>';
+        var_dump($contents);
+        echo '</pre>';
     }
     else {
         // Profil de quelqu'un d'autre :
@@ -71,8 +73,8 @@ else {  // (empty($_GET['id']))
     }
 }
 
-$styles[] = ['membres.css'];
-$blocks[] = ['profil'];
+$styles[] = 'membres.css';
+$blocks[] = 'profil';
 
 /**** Affichage de la page ****/
 vue($blocks,$styles,$title, $contents);
