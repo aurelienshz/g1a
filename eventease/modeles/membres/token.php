@@ -18,7 +18,7 @@ function generateToken($email, $username) {
         return $token;
     }
     else {
-        return False; 
+        return False;
     }
 
 }
@@ -29,12 +29,17 @@ function verifyToken($token) {
     $reqToken = $bdd -> prepare('SELECT email FROM verification_membre WHERE token = :token');
     if($reqToken -> execute(['token'=> $token])) {
         if($reqToken -> rowCount() == 1) {
-            $email = $reqToken -> fetchAll()[0];
+            $email = $reqToken -> fetchAll()[0]['email'];
 
-            $reqConfirm = $bdd -> prepare('UPDATE membre SET niveau = 1 WHERE email = :email');
-            $reqConfirm -> execute(['email'=>$email]);
-            // Gérer si tout s'est bien passé ?
-            return True;
+            var_dump($email);
+
+            $reqConfirm = $bdd -> prepare('UPDATE membre SET niveau = 1 WHERE mail = :mail');
+            if($reqConfirm -> execute(['mail'=>$email])) {
+                $reqDrop = $bdd -> prepare('DELETE FROM verification_membre WHERE email = :email');
+                $reqDrop -> execute(['email'=>$email]);
+                // Gérer si tout s'est bien passé ?
+                return True;
+            }
         }
     }
     return False;

@@ -96,12 +96,14 @@ header #pseudo {
 /* ALERTE ! */
 
 *[class^="alert"] {
-    width: 90%;
-    margin: 0 auto;
+    width: 88%;
+    position: fixed;
+    top: 100px;
+    margin: 0 5%;
     border: 1px solid;
     height: 40px;
     line-height: 40px;
-    padding: 0 1em;
+    padding: 0 1%;
     border-radius: 10px;
     margin-top: 10px;
 }
