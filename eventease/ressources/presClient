@@ -18,8 +18,6 @@ Authentification :
 	- connexion : vérifier le statut du membre --> Aurélien ?
 	- inscription -> changer la vue pour parler de la confirmation d'e-mail
 Inscription :
-    - token de confirmation d'email
-    BDD : Tristan, PHP : Aurélien
     - vérifier si on s'est déjà connecté pour redirection affichage profil
     PHP : Aurélien
     - stocker date de dernière connexion
