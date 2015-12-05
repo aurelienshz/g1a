@@ -3,8 +3,8 @@
 ?>
 
 <section id="bigform">
-<p id="catchphrase">Time to tease some shit once again</p>
-<p id="subcatchphrase">Mille milliards de mille sabords !</p>
+<p id="catchphrase">Enjoy events with ease !</p>
+<p id="subcatchphrase">Trouvez et participez aux évènements qui vous correspondent</p>
     <form method="post" action="<?php echo getLink(['events','search']); ?>">
         <select name="searchType">
             <option>Mots-clés...</option>
