@@ -15,7 +15,8 @@ Général :
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
 Authentification :
-    - vérifier que le compte est validé. Stocker token dans la bdd ?
+	- connexion : vérifier le statut du membre --> Aurélien ?
+	- inscription -> changer la vue pour parler de la confirmation d'e-mail
 Inscription :
     - token de confirmation d'email
     BDD : Tristan, PHP : Aurélien
