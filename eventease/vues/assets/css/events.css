@@ -63,6 +63,15 @@
 	width:20%;
 	color:#FF3399;
 }
+.social table {
+	width:80%;
+	height:100;
+	padding-top:2em;
+}
+.social img{
+	width:80%;
+	padding-bottom:1em;
+}
 
 .buttons ul li a{
 	display:block;

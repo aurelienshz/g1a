@@ -27,14 +27,18 @@
                     <tr>
 
                             <td><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.eventease.ohhopi.com&t=" title="Share on Facebook" target="_blank">
-								<img src=<?php echo IMAGES.'Facebook.png'; ?>></a>
+								<img src=<?php echo IMAGES.'Facebook.png'; ?>></a></td>
+							<td>     </td>
 							<td><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.eventease.ohhopi.com&text=:%20http%3A%2F%2Fwww.eventease.ohhopi.com" target="_blank" title="Tweet">
-								<img src=<?php echo IMAGES.'Twitter.png'; ?>></a>       
+								<img src=<?php echo IMAGES.'Twitter.png'; ?>></a></td>  
+					</tr>
                     <tr>
                             <td><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.eventease.ohhopi.com&description=" target="_blank" title="Pin it">
-								<img src=<?php echo IMAGES.'Pinterest.png'; ?>></a>
+								<img src=<?php echo IMAGES.'Pinterest.png'; ?>></a></td>
+								<td>   </td>
                             <td><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.eventease.ohhopi.com" target="_blank" title="Email">
-								<img src=<?php echo IMAGES.'Email.png'; ?>></a>
+								<img src=<?php echo IMAGES.'Email.png'; ?>></a></td>
+					</tr>
                 </table>
                 </ul>
             </div>
