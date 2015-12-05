@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
 	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo IMAGES.'favicon-96x96.png'; ?>">
-	
+
     <link rel="stylesheet" href="<?php echo CSS.'eventease.css' ?>" type="text/css" media="all" />
     <link rel="stylesheet" href="<?php echo CSS.'font-awesome.min.css'?>">
     <?php
@@ -43,10 +43,9 @@ if(connected()) {?>
                     </ul>
                 </li>
                 <li dir="rtl" id="alertes" class="menuTrigger">
-                    <a href="#"><span class="fa fa-bell"></span>&nbsp;Alertes</a>
+                    <a href="#"><span class="fa fa-bell"></span>&nbsp;Notifications</a>
                     <ul class="menuDeroulant">
-                        <li><a href="<?php echo getLink(['membres','messages',666]); ?>">Nouveau message de Kevin</a></li>
-                        <li><a href="<?php echo getLink(['events']); ?>">Kevin vous a invité à son évènement</a></li>
+                        <p>Pas de nouvelles notifications.</p>
                     </ul>
                 </li>
             </ul>
