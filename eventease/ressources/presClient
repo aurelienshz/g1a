@@ -47,9 +47,7 @@ Profil : afficher / modifier --> bonus ??
     - ajouter interactions si c'est mon profil (à la place de envoyer MP etc..., modifier mon profil)
         Aurélien
     - vue modifier
-        - requête : Tristan
-        - anneaux : T
-        - value/place : T
+        - value/place : Fait sauf pour adresse.
     - modifier : script back end
         Aurélien
             - charger les valeurs de champs
