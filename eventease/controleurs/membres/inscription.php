@@ -59,7 +59,7 @@ else {  // Le formulaire a été rempli
         // Si tout s'est bien passé, tous les champs de $errors sont vides
         if(implode('',$errors)=='') {
             // On envoie un mail pour confirmer l'adresse mail
-            $tokenlink = $_SERVER['HTTP_HOST'].getLink(['membres','confirm',generateToken($_POST['email'],$_POST['password'])]);
+            $tokenlink = 'http://'.$_SERVER['HTTP_HOST'].getLink(['membres','confirm',generateToken($_POST['email'],$_POST['password'])]);
             if(mail($_POST['email'],
                     'Inscription sur EventEase',
                     "Bienvenue !\n"
