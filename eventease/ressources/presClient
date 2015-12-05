@@ -10,43 +10,84 @@ BONUS   					création d'event		  en cours
 
 --- THE ULTIMATE TODO LIST ---
 
+Général :
+    - URL rewrite -bonux-
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
 Authentification :
     - vérifier que le compte est validé. Stocker token dans la bdd ?
 Inscription :
-    - vérif email ?
     - token de confirmation d'email
+    BDD : Tristan, PHP : Aurélien
     - vérifier si on s'est déjà connecté pour redirection affichage profil
-    - redirection vers édition du profil si on essaie d'y accéder en étant connecté
-    - édition du profil avec une pitite alerte si on se connecte pour la première fois
+    PHP : Aurélien
+    - stocker date de dernière connexion
+    BDD - tristan
+    - bouton vers édition du profil si profil connecté
+    Aurélien
+
+
 Gestion des privilèges :
     - inscription : interdit si connecté
-    - édition profil : nécessite connecté, seulement édition du mien
-    - messages : ok
+    Aurélien
+    - édition profil & affichage mes events : nécessite connecté
+    Aurélien
+    - seulement édition du mien
+    Aurélien
     - modification event :
         - nécessite connecté
         - careful, bien vérifier qu'on est orga
     - création event : nécessite connecté
-Profil : afficher / modifier --> bonus ?
+        Aurélien
+Création d'event :
+choix des types
+Profil : afficher / modifier --> bonus ??
     - afficher : feuille de style à peaufiner
-    - ajouter interactions si c'est mon profil (à la place de envoyer MP etc..., ajouter modifier mon profil)
-    - vue modifier et script back end
+        Loann ?
+        message perso : ça dégage ou on crée un champ ?
+    - ajouter interactions si c'est mon profil (à la place de envoyer MP etc..., modifier mon profil)
+        Aurélien
+    - vue modifier
+        - requête : Tristan
+        - anneaux : T
+        - value/place : T
+    - modifier : script back end
+        Aurélien
+            - charger les valeurs de champs
+            - si modif, update BDD
 Page events
+    - modifier event existant : rien pour l'instant
     - contrôleur --> raccorder au modèle
+        - attribuer later, Tristan ou Aurélien
+    - backend : Aurélien
+        - Gestion des participations
+            - demande de connexion ou d'inscription si nécessaire
+        - Commentaires, organisateurs, qui y va ? etc...
     - spécification de l'interface si je suis organisateur
+        Guillaume & Aude ?
+    - skin boutons --> Aurélien ?
+
+
     - question : droits de suppression de l'évènement ?
+        Tous les organisateurs --> penser à cette action dans la page de modif
 BDD :
     - peupler events en ajoutant au moins 4 events :
         - 2 dans le même jour
         - 2 dans le même mois
         - 1 dont Kevin est orga
         - 1 auquel Kevin participe
+    Tristan
+    - peupler types
+
+
 Recherche event / membre
     script back end --> contrôleurs et requêtes
+        Audrey (Aurélien ?)
+Header / Footer
+    - head : forum menu Aurélien
+    - liens footer à activer et relier
 
 
-Notes discussion :
 
 SCENARIO :
     - inscription OK
