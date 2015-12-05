@@ -29,13 +29,14 @@ function verifyToken($token) {
     $reqToken = $bdd -> prepare('SELECT email FROM verification_membre WHERE token = :token');
     if($reqToken -> execute(['token'=> $token])) {
         if($reqToken -> rowCount() == 1) {
-            $email = $reqToken -> fetchAll()[0];
+            $email = $reqToken -> fetchAll()[0]['email'];
+
             var_dump($email);
 
-            echo $email;
-
-            if($reqConfirm = $bdd -> prepare('UPDATE membre SET niveau = 1 WHERE email = :email') {
-                $reqConfirm -> execute(['email'=>$email]);
+            $reqConfirm = $bdd -> prepare('UPDATE membre SET niveau = 1 WHERE mail = :mail');
+            if($reqConfirm -> execute(['mail'=>$email])) {
+                $reqDrop = $bdd -> prepare('DELETE FROM verification_membre WHERE email = :email');
+                $reqDrop -> execute(['email'=>$email]);
                 // Gérer si tout s'est bien passé ?
                 return True;
             }
