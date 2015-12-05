@@ -12,28 +12,20 @@ BONUS   					création d'event		  en cours
 
 Général :
     - URL rewrite -bonux-
+
+
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
 
-Inscription :
-    - bouton vers édition du profil si profil connecté
-    Aurélien
-
 
 Gestion des privilèges :
-    - inscription : interdit si connecté
-    Aurélien
-    - édition profil & affichage mes events : nécessite connecté
-    Aurélien
-    - seulement édition du mien
-    Aurélien
     - modification event :
         - nécessite connecté
         - careful, bien vérifier qu'on est orga
-    - création event : nécessite connecté
-        Aurélien
+
 Création d'event :
-choix des types
+	- choix des types --> écrire une requete pour aller récup la liste des types en BDD --> who does that ?
+
 Profil : afficher / modifier --> bonus ??
     - afficher : feuille de style à peaufiner
         Loann ?
@@ -48,10 +40,11 @@ Profil : afficher / modifier --> bonus ??
         Aurélien
             - charger les valeurs de champs
             - si modif, update BDD
-Page events
-    - modifier event existant : rien pour l'instant
-    - contrôleur --> raccorder au modèle
-        - attribuer later, Tristan ou Aurélien
+Events
+    - modifier event existant :
+	- penser à l'action supprimer
+
+    - contrôleur --> raccorder au modèle --> QUI ?
     - backend : Aurélien
         - Gestion des participations
             - demande de connexion ou d'inscription si nécessaire
@@ -60,9 +53,6 @@ Page events
         Guillaume & Aude ?
     - skin boutons --> Aurélien ?
 
-
-    - question : droits de suppression de l'évènement ?
-        Tous les organisateurs --> penser à cette action dans la page de modif
 BDD :
     - peupler events en ajoutant au moins 4 events :
         - 2 dans le même jour
@@ -79,6 +69,8 @@ Recherche event / membre
 Header / Footer
     - head : forum menu Aurélien
     - liens footer à activer et relier
+
+
 
 
 
