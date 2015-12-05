@@ -20,14 +20,15 @@ if(!empty($_POST)) {        // Formulaire envoyé
             $_SESSION['username'] = $_POST['username'];
             $_SESSION['id'] = $auth['id'];
 
-            // Mise à jour de la date de dernière connexion :
-            setUserLastLogin();
-
             if(!isset($auth['date_derniere_connexion'])) {
+                setUserLastLogin($auth['id']);
                 alert('info', 'C\'est la première fois que vous vous connectez ! Prenez quelques minutes pour compléter votre profil !');
                 header('Location: '.getLink(['membres','modification_profil']));
                 exit();
             }
+            
+            // Mise à jour de la date de dernière connexion :
+            setUserLastLogin($auth['id']);
 
             // Sortie du script et redirection vers la page précédant la connexion :
             header('Location: '.getLink($_SESSION['previousPage']));
