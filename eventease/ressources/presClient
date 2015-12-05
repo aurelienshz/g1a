@@ -14,14 +14,8 @@ Général :
     - URL rewrite -bonux-
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
-Authentification :
-	- connexion : vérifier le statut du membre --> Aurélien ?
-	- inscription -> changer la vue pour parler de la confirmation d'e-mail
+
 Inscription :
-    - vérifier si on s'est déjà connecté pour redirection affichage profil
-    PHP : Aurélien
-    - stocker date de dernière connexion
-    BDD - tristan
     - bouton vers édition du profil si profil connecté
     Aurélien
 
