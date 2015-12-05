@@ -8,9 +8,11 @@ $actions = [
 'connexion',
 'deconnexion',
 'inscription',
-'modification_profil'
+'modification_profil',
+'confirm'
 ];
 
 $parametres = [
-    'profil' => ['id']
+    'profil' => ['id'],
+    'confirm' => ['token']
 ];
