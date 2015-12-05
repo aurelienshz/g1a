@@ -59,16 +59,16 @@ else {  // Le formulaire a été rempli
         // Si tout s'est bien passé, tous les champs de $errors sont vides
         if(implode('',$errors)=='') {
             // On envoie un mail pour confirmer l'adresse mail
-            $tokenlink = getLink(['membres','confirm',generateToken($_POST['email'],$_POST['password'])]);
+            $tokenlink = $_SERVER['HTTP_HOST'].getLink(['membres','confirm',generateToken($_POST['email'],$_POST['password'])]);
             if(mail($_POST['email'],
                     'Inscription sur EventEase',
-                    "Bienvenue !\n
-                    Votre inscription a bien été enregistrée. Merci de cliquer sur le lien ci-dessous pour confirmer votre adresse e-mail :"
+                    "Bienvenue !\n"
+                    ."Votre inscription a bien été enregistrée. Merci de cliquer sur le lien ci-dessous pour confirmer votre adresse e-mail :\n"
                     .$tokenlink
-                    ."\n
-                    Si le lien ne fonctionne pas, copiez-collez l'adresse dans votre navigateur.\n\n
-                    Merci de votre inscription, et à bientôt !\n
-                    -- L'équipe EventEase",
+                    ."\n"
+                    ."Si le lien ne fonctionne pas, copiez-collez l'adresse dans votre navigateur.\n\n"
+                    ."Merci de votre inscription, et à bientôt !\n"
+                    ."-- L'équipe EventEase",
                     'From: no-reply@eventease.com')) {
                         insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT));
                         vue(['validationInscription'],$style,$title);
