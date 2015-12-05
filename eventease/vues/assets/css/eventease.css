@@ -171,12 +171,13 @@ h4 {
     color:#FAFAFA;
     line-height: 2em;
     text-decoration: none;
+    text-align: center;
 }
 .button:hover {
     background-color: 015791;
 }
 .button:active {
-    width: calc(100% - 2px);
+/*    width: calc(100% - 2px);*/
     background-color: 015791;
     border: 1px solid #303030;
 }
