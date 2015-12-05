@@ -36,8 +36,8 @@
 					</div>
 					<div class="champ">
 						<label>Heure : </label>
-						De <input type="time" name="début" id="début" class="time"/> h à
-						<input type="time" name="fin" id="fin" class="time"/> h
+						De <input type="time" name="début" id="début" class="time"/> à
+						<input type="time" name="fin" id="fin" class="time"/>
 					</div>
 					<div class="champ">
 						<label>Tarif :</label>
