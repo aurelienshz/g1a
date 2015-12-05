@@ -29,7 +29,8 @@ function verifyToken($token) {
     $reqToken = $bdd -> prepare('SELECT email FROM verification_membre WHERE token = :token');
     if($reqToken -> execute(['token'=> $token])) {
         if($reqToken -> rowCount() == 1) {
-            $email = $reqToken -> fetchAll()[0]['email'];
+            $email = $reqToken -> fetchAll()[0];
+            var_dump($email);
 
             echo $email;
 
