@@ -24,10 +24,10 @@
 	font-size: 2em;
 	border-bottom: 0;
 	display: inline-block;
-	vertical-align: top;	
+	vertical-align: top;
 }
 form{
-	padding: 0 2.5%;
+	padding: 0 3%;
 }
 label + input {
 	margin: 0;
@@ -36,7 +36,7 @@ label{
 	color: inherit;
 }
 input, select{
-	width: 95%;
+	/*width: 95%;*/
 	display: inline-block;
 }
 #formBox{
@@ -99,7 +99,7 @@ input[type="file"]{
 	height: 305px;
 	width:80%;
 	margin-bottom: 35px;
-	background-color: #FAFAFA;	
+	background-color: #FAFAFA;
 	float: right;
 }
 .imageEvent{
@@ -171,7 +171,7 @@ input[type="file"]{
 }
 .champ {
 	width: calc(100% / 3);
-	margin-right: 2%;
+	margin-right: 3%;
 }
 .calendarBottom {
 	border-radius: 0 0 10px 10px;
