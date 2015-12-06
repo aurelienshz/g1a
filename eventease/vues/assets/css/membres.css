@@ -2,9 +2,7 @@
 
 
 /* Profil utilisateur */
-.wrapper {
-    padding: 0 63.25px 10px 63.25px;
-}
+
 .col_gauche {
     float: left;
     width: 20%;
@@ -13,18 +11,14 @@
 }
 .col_droite {
     margin-left: 25%;
-    padding-left: 2.5%;
+    padding-left: 1.25%;
     vertical-align: top;
 }
 .photo_profil img {
     width: 100%;
     height: auto;
 }
-#mess_perso {
-    text-align: center;
-    font-size: larger;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+
 #interaction_profil {
     padding: 0;
 }
@@ -32,6 +26,10 @@
     margin: 1em 0;
     padding: 0;
     list-style-type: none;
+}
+
+h2 {
+    border: 0;
 }
 #statut {
     border: 1px solid #303030;
@@ -42,6 +40,24 @@
     padding: 0.1em 1em;
     font-size: 0.8em;
     float: right;
+}
+
+#general {
+    background-color: #FAFAFA;
+    padding: 20px;
+    border: 1px solid #303030;
+}
+#general ul {
+    padding: 0;
+    margin: 0;
+}
+#general ul li {
+    list-style-type: none;
+    line-height: 1.2em;
+}
+
+#clearfix {
+    clear: both;
 }
 
 /**** Affichage des messages ****/
