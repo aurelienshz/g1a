@@ -28,11 +28,9 @@ switch ($event['langue']){
     $contents['langue']='Anglais';
     break;
 }
-if ($event['langue']===NULL) {
-  $contents['langue']='muet';
-}
-/*$contents['titreEvenement'] = 'Ça finira par marcher';*/
-
+$contents['date'] = date('Y-m-d',strtotime($event['debut']));
+$contents['heure_debut'] = date('H:i:s',strtotime($event['debut']));
+$contents['heure_fin'] = date('H:i:s',strtotime($event['fin']));
 /**** Affichage de la page ****/
 //Appels des vues :
 vue($blocks, $styles, $title, $contents, $scripts);

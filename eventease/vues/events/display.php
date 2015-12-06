@@ -10,8 +10,8 @@
         <div class ="infos">
             <div id="useful_infos">
                 <ul>
-                    <li> <i class="maclasse fa fa-calendar-o"></i>   Date</li>
-                    <li> <i class="maclasse fa fa-clock-o"></i>     Heure </li>
+                    <li> <i class="maclasse fa fa-calendar-o"></i>   <?php echo $contents['date']; ?></li>
+                    <li> <i class="maclasse fa fa-clock-o"></i>     De <?php echo $contents['heure_debut']; ?> à <?php echo $contents['heure_fin']; ?> </li>
                     <li> <i class="maclasse fa fa-map"></i>54 rue Lecourbe, 75015, Paris</li>
 			    </ul>
             </div>
