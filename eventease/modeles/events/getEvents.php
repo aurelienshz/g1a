@@ -4,7 +4,10 @@
 // sortie : détails des évènements à venir du membre, sous forme d'un tableau
 // La sortie **doit** être **ordonnée chronologiquement** (sinon tu casses tout)
 
-function getEvents('id') {
+function getEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $query = $bdd->prepare('SELECT ')
+      $event = $bdd->prepare('SELECT * FROM evenement WHERE id = "id"');
+      $event-> execute(["id"=>$id]);
+
+      return $event;
 }
