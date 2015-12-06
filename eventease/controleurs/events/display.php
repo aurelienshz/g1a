@@ -33,7 +33,6 @@ if ($event['langue']===NULL) {
 }
 /*$contents['titreEvenement'] = 'Ça finira par marcher';*/
 
-
 /**** Affichage de la page ****/
 //Appels des vues :
 vue($blocks, $styles, $title, $contents, $scripts);
