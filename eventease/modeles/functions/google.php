@@ -17,6 +17,7 @@ function googleCoordToAddress($lat,$long){
 	return $address -> results[0] -> formatted_address;
 }
 function googleAddressToCoord($address){
+	$address = preg_replace('/ /','+',$address);
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA";
 	$coord = curlGoogleDecodeJson($url);
 	$lat = $coord -> results[0] -> geometry -> location-> lat;
