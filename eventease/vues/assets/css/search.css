@@ -36,7 +36,6 @@ label{
 	color: inherit;
 }
 input, select{
-	width: 95%;
 	display: inline-block;
 }
 #formBox{
@@ -188,4 +187,7 @@ input[type="file"]{
 .ligneBoutons {
 	margin: .5em 0;
 	width:90%;
+}
+#description {
+	resize: vertical;
 }
