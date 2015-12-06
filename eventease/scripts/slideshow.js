@@ -3,13 +3,12 @@
 /*******************************/
 /*
 ToDo :
-- Animation plus élégante (fondu enchaîné ou défilement latéral)
 - Ajout des accès directs
 
 Pour fabriquer un slideshow, instancier Slideshow en lui passant en paramètres :
 - l'élement qui doit être un slideshow ;
 - les éléments qui contrôlent le défilement du slideshow, possédant les classes previous et next.
-- gérer le problème de .row
+- gérer le problème de .row <-- c'est quoi ? je ne me souviens plus ~ Aurélien
 
 */
 
@@ -170,4 +169,3 @@ function Slideshow(container, defilements) {
     this.addInteractions();
     this.play();
 }
-

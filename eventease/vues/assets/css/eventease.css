@@ -94,18 +94,20 @@ header #pseudo {
 
 
 /* ALERTE ! */
-
-*[class^="alert"] {
-    width: 88%;
+#alerts {
+    width: 50%;
     position: fixed;
     top: 100px;
-    margin: 0 5%;
+    margin: 0 25%;
+}
+
+*[class^="alert"] {
+    width: 100%;
+    margin: 5px 0;
     border: 1px solid;
-    height: 40px;
     line-height: 40px;
     padding: 0 1%;
     border-radius: 10px;
-    margin-top: 10px;
 }
 *[class^="alert"] .close {
     display: block;
