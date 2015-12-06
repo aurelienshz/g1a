@@ -9,6 +9,8 @@ define('CSS', PATH_ASSETS."css/");
 define('IMAGES', PATH_ASSETS . "images/");
 define('INCLUDES', PATH_ASSETS . "includes/");
 define('SCRIPTS', "scripts/");
+define('USER_ASSETS', "user_media/");
+define('PHOTO_PROFIL',USER_ASSETS."photos_profil/");
 
 $landingPage = ['accueil','index'];
 
