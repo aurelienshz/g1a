@@ -5,7 +5,10 @@ require MODELES.'membres/setUserLastLogin.php';
 
 /* Affichage du formulaire */
 $title = 'Connexion';
-$style = ['form.css','minipage.css'];
+$style = ['form.css'];
+if(!DEBUG) {
+    $style[] = 'minipage.css';
+}
 
 $errorMessage = 'Une erreur s\'est produite. Merci de réessayer !';
 

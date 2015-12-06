@@ -9,8 +9,8 @@ function vue($blocks=[], $styles = [], $title = '', $contents=[], $scripts=[]) {
         require INCLUDES.'debug.php';
         $styles[] = 'debug.css';
     }
-    require INCLUDES.'header.php';
 
+    require INCLUDES.'header.php';
 
     if(isset($_SESSION['alerts'])) {
         require INCLUDES.'alert.php';

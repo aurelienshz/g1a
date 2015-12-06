@@ -13,12 +13,8 @@ BONUS   					création d'event		  en cours
 Général :
     - URL rewrite -bonux-
 
-Connexion :
-    - footer dégueulasse, ajouter du blanc sous le form.
-
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
-
 
 Gestion des privilèges :
     - modification event :
@@ -26,7 +22,7 @@ Gestion des privilèges :
         - careful, bien vérifier qu'on est orga
 
 Création d'event :
-	- choix des types --> écrire une requete pour aller récup la liste des types en BDD --> who does that ?
+    - choix des types --> écrire une requete pour aller récup la liste des types en BDD --> who does that ?
 
 Profil : afficher / modifier --> bonus ??
     - afficher : feuille de style à peaufiner
@@ -37,7 +33,7 @@ Profil : afficher / modifier --> bonus ??
     - vue modifier
         - value/place : Fait sauf pour adresse.
     - modifier : script back end
-        Aurélien
+        Tristan
             - charger les valeurs de champs
             - si modif, update BDD
 Events
