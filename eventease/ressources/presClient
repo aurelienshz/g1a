@@ -8,6 +8,8 @@ IMPERATIF   				page events			      en cours
 BONUS   					recherche d'event	 	  en cours
 BONUS   					création d'event		  en cours
 
+-----------------------------------------------------------------------
+
 --- THE ULTIMATE TODO LIST ---
 
 Général :
@@ -15,48 +17,37 @@ Général :
 
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
-
-Gestion des privilèges :
-    - modification event :
-        - nécessite connecté
-        - careful, bien vérifier qu'on est orga
+        pour l'instant : statique
+    - mes évènements
 
 Création d'event :
-    - choix des types --> écrire une requete pour aller récup la liste des types en BDD --> who does that ?
-
+    - choix des types --> écrire une requete pour aller récup la liste des types en BDD - Aurélien
+    - insertion dans la base et vérif champs
 Profil : afficher / modifier --> bonus ??
-    - afficher : feuille de style à peaufiner
-        Loann ?
-        message perso : ça dégage ou on crée un champ ?
-    - ajouter interactions si c'est mon profil (à la place de envoyer MP etc..., modifier mon profil)
-        Aurélien
     - vue modifier
         - value/place : Fait sauf pour adresse.
-    - modifier : script back end
-        Tristan
-            - charger les valeurs de champs
-            - si modif, update BDD
+    - modifier : script back end : Tristan
+        - charger les valeurs de champs
+        - si modif, update BDD
 Events
-    - modifier event existant :
-	- penser à l'action supprimer
-
-    - contrôleur --> raccorder au modèle --> QUI ?
-    - backend : Aurélien
-        - Gestion des participations
+    - contrôleur --> raccorder au modèle --> Guillaume & Aude
+        - Gestion des participations :
             - demande de connexion ou d'inscription si nécessaire
         - Commentaires, organisateurs, qui y va ? etc...
-    - spécification de l'interface si je suis organisateur
-        Guillaume & Aude ?
-    - skin boutons --> Aurélien ?
+        - spécification de l'interface si je suis organisateur
+
+    - modifier event existant : pour la suite des réjouissances
+	    - vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
+        - penser à l'action supprimer
+
 
 BDD :
-    - peupler events en ajoutant au moins 4 events :
+    - peupler types
+    - peupler events en ajoutant au moins 4 events : à faire lundi aprèm
         - 2 dans le même jour
         - 2 dans le même mois
         - 1 dont Kevin est orga
         - 1 auquel Kevin participe
-    Tristan
-    - peupler types
 
 
 Recherche event / membre
@@ -68,24 +59,15 @@ Header / Footer
 
 
 
+-----------------------------------------------------------------------
 
 
 SCENARIO :
     - inscription OK
-    - ne pas retomber sur l'inscription --> éditer profil
-    -
-    - calendrier pas de mois de janvier et disparaît ! :( (enlever bouton next)
     - todo : édition profil
-    - chacun sa page de profil
     - event : plusieurs organisateurs
     - organisateurs : rien de spécial
     - visibilité : privée --> l'event n'est visible que pour les gens que j'invite
         (à discuter : un réglage pour le)
     - recherche : page statique
     - notifs : à rendre dyn (au pire : pas de nouvelles notifs)
-    - notifs : position absolute
-
-TODO :
-- changer catch
-- changer images de remplissage
--

@@ -72,11 +72,11 @@ function monProfil() {
 }
 
 if(isset($_GET['id'])) {
-    // Si je suis en train d'afficher mon profil :
-    if(connected() && $_GET['id']==$_SESSION['id']) {
+    if(connected() && $_GET['id']==$_SESSION['id']) {  // Si je suis en train d'afficher mon profil :
         monProfil();
     }
     else {
+        $contents['monProfil'] = False;
         if($details = getUserDetails($_GET['id'])) {
             loadContents($details);
         }

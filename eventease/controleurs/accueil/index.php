@@ -14,7 +14,7 @@ require MODELES.'events/suggestions.php';
 /**** Préparation des ressources de la page ****/
 $title = 'Accueil';
 $styles = ['accueil.css'];
-$scripts = ['bigform.js', 'slideshow.js', 'accueil.js'/*,'googleAutocompleteAddress.js'*/];
+$scripts = ['bigform.js', 'slideshow.js', 'accueil.js','googleAutocompleteAddress.js'];
 $blocs = ['index'];
 
 // Préparation des contenus
