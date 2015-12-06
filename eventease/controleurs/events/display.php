@@ -2,9 +2,11 @@
 /* AFFICHAGE D'UN EVENEMENT */
 /**** Préparation des contenus ****/
 
+
 // Appels au modèle
 // Appels au modèle
 require MODELES.'events/getEvents.php';
+
 
 // Chargement des paramètres de la page
 $title = 'Affichage d\'un évènement';
