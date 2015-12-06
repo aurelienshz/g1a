@@ -14,9 +14,24 @@ $styles = ['events.css','form.css'];
 $scripts = ['alert.js','slideshow.js','slideshow_event.js'];
 $blocks = ['display'];
 
-/*$event = getEvents($parametres['display']);
-$contents['titreEvenement'] = $event['titre'];*/
-$contents['titreEvenement'] = 'Ça finira par marcher';
+$event = getEvents($_GET['id']);
+$contents['titreEvenement'] = $event['titre'];
+$contents['tarif'] = $event['tarif'];
+$contents['type_public']=$event['type_public'];
+$contents['description']=$event['description'];
+$contents['site']=$event['site'];
+switch ($event['langue']){
+  case 0:
+    $contents['langue']='Français';
+    break;
+  case 1:
+    $contents['langue']='Anglais';
+    break;
+}
+if ($event['langue']===NULL) {
+  $contents['langue']='muet';
+}
+/*$contents['titreEvenement'] = 'Ça finira par marcher';*/
 
 
 /**** Affichage de la page ****/

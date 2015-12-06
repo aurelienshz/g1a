@@ -47,28 +47,25 @@
 
     <div class ="description">
         <h2>Description</h2>
-		<p>“One thing was certain, that the WHITE kitten had had nothing to do with it:—it was the black kitten's fault entirely. For the white kitten had been having its face washed by the old cat for the last quarter of an hour (and bearing it pretty well, considering); so you see that it COULDN'T have had any hand in the mischief.
-
-The way Dinah washed her children's faces was this: first she held the poor thing down by its ear with one paw, and then with the other paw she rubbed its face all over, the wrong way, beginning at the nose: and just now, as I said, she was hard at work on the white kitten, which was lying quite still and trying to purr—no doubt feeling that it was all meant for its good.
-
-But the black kitten had been finished with earlier in the afternoon, and so, while Alice was sitting curled up in a corner of the great arm-chair, half talking to herself and half asleep, the kitten had been having a grand game of romps with the ball of worsted Alice had been trying to wind up, and had been rolling[…]”
-    <br></p>
+        <p>
+		        <?php echo $contents['description']; ?>
+        </p>
 				<div class="details">
 		<ul>
             <li class="fixed_details">Type :</li>
             <li>Brocante </li>
             <li class="fixed_details">Prix :</li>
-            <li> 4 €$*¥</li>
+            <li> <?php echo $contents['tarif']; ?> €</li>
             <li class="fixed_details">Visibilité :</li>
             <li>Public</li>
             <li class="fixed_details">Type de public</li>
-            <li>de 7 à 77 ans</li>
+            <li><?php echo $contents['type_public']; ?></li>
             <li class="fixed_details">Langue :</li>
-            <li>Français</li>
+            <li><?php echo $contents['langue']; ?></li>
             <li class="fixed_details">Sponsors</li>
             <li>Seven'tease</li>
             <li class="fixed_details">Site web :</li>
-            <li><a href="http://www.asos.fr">asos.fr</a></li>
+            <li><a href="<?php echo $contents['site']; ?>"><?php echo $contents['site']; ?></a></li>
           </ul>
 				</div>
     </div>

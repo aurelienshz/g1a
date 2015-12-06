@@ -6,8 +6,9 @@
 
 function getEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $event = $bdd->prepare('SELECT * FROM evenement WHERE id = "id"');
-      $event-> execute(["id"=>$id]);
+      $query = $bdd->prepare('SELECT * FROM evenement WHERE id = :id');
+      $query-> execute(['id'=>$id]);
+      $event = $query->fetch();
 
       return $event;
 }
