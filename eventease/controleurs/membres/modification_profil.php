@@ -71,5 +71,4 @@ $blocks = ['modification_profil'];
 /****Affichage de la page *****/
 //Appel de la vue :
 vue($blocks, $styles, $title, $contents);
-
 ?>

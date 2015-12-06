@@ -1,6 +1,3 @@
-<pre>
-<?php var_dump($_POST); ?>
-</pre>
 <div class="wrapper createCalendar">
 	<div class="shadow">
 		<div class="titleWrapper" style="background-color: #4d93ff; border-bottom-color: #287DFF">
