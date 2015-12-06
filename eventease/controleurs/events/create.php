@@ -8,6 +8,7 @@
 // Traitements
 require MODELES.'events/insertEvent.php';
 require MODELES.'functions/date.php';
+require MODELES.'functions/google.php';
 /**** Préparation de la vue ****/
 $title = 'Créer event';
 $styles = ['create.css','form.css', 'search.css'];
@@ -22,7 +23,6 @@ if(connected()) {
 		vue($blocks, $styles, $title);
 	}
 	else {	// le formulaire a été rempli
-		echo 'Le formulaire a été rempli.';
 		// Recherche d'erreurs lors du remplissage du formulaire :
 		// Initialisation de la liste des erreurs :
 		$errors = [];
@@ -31,7 +31,6 @@ if(connected()) {
 		$requiredFields = ['titre','type','date','place','beginning','end','hosts','visibility','participation'];
 		foreach($requiredFields as $field) {
 			if(empty($_POST[$field])) {
-				echo $field.' vide - ';
 				$errors[$field] = 'Ce champ est requis';
 			}
 			else {
@@ -42,26 +41,41 @@ if(connected()) {
 		// Puis on fait les vérifications spécifiques :
 		// Nom conforme :
 		if(!preg_match("/^[a-zâäàéèùêëîïôöçñ' -0-9@#]+$/i", $_POST['titre'])) {
-			$errors['titre'] = 'Titre invalide'
+			$errors['titre'] = 'Titre invalide';
 		}
 		// Type dans le bon intervalle :
 		if(!(intval($_POST['type']) >= 0 AND intval($_POST['type'] <12 ))) {
-			$errors('type') = 'Type invalide';
+			$errors['type'] = 'Type invalide';
 		}
 
 		// Lieu : passer une recherche avec Google et vérifier qu'on a une réponse en coordonnées
+		var_dump($_POST['place']);
+		if(!googleCheckAddress($_POST['place'])) {
+			$errors['place'] = isset($errors['place'])?$errors['place']:'Cette adresse semble invalide';
+		}
+		else {
+			$push['place'] = googleAddressToCoord($_POST['place']);
+			var_dump(googleCoordToAddress($push['place'][0],$push['place'][1]));
+			// var_dump($push['place']);
+		}
 
-
-		// Date conforme
+		// Date / heure début conforme et future :
 		$startTime = $_POST['date'].' '.$_POST['beginning'];
-		// heure : heure début dans le futur :
-		// strtotime(date . heure debut) > time();
+		$endTime = $_POST['date'].' '.$_POST['end'];
 
-		// heure fin : conforme à heure début
-
+		if(!(validateDateFormat($startTime, 'Y-m-d H:i') && validateFutureDate($startTime))) {
+			$errors['date'] = 'La date ne doit pas être passée';
+			$errors['beginning'] = 'Ce moment ne doit pas être passé';
+		}
+		if(strtotime($startTime) >= strtotime($endTime)) {
+			$errors['end'] = 'L\'heure de fin doit être après l\'heure de début';
+		}
 		// tarif : intval > 0
-
+		if(intval($_POST['price']) < 0) {
+			$errors['price'] = 'Tarif invalide';
+		}
 		// description : htmlspecialchars
+		$_POST['description'] = htmlspecialchars($_POST['description']);
 
 		// organisateurs, visibility, participation : à remanier ?
 

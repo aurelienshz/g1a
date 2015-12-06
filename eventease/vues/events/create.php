@@ -33,7 +33,7 @@
 					</div>
 					<div class="champ">
 						<label for="place">Adresse <i class="fa fa-asterisk"></i> :</label>
-						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="place" name="Lieu"/>
+						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="place" name="place"/>
 						<?php echo isset($contents['errors']['place'])?$contents['errors']['place']:'' ?>
 					</div>
 				</div>
@@ -51,11 +51,12 @@
 					</div>
 					<div class="champ">
 						<label for="price">Tarif :</label> <input type="number" name="price" id="price" class="tarif"/> €
+						<?php echo isset($contents['errors']['price'])?$contents['errors']['price']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ" style="width:96%">
-						<label for="description">Description :</label> <textarea id="description" placeholder="Une courte description"></textarea>
+						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"></textarea>
 					</div>
 				</div>
 				<div class="ligne">
