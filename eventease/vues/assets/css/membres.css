@@ -25,10 +25,6 @@
     font-size: larger;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.ligne_lien_profil {
-    text-align: center;
-    margin: 0;
-}
 #interaction_profil {
     padding: 0;
 }
@@ -36,11 +32,6 @@
     margin: 1em 0;
     padding: 0;
     list-style-type: none;
-}
-
-#profil-buffer {
-    clear: both;
-    margin: 0;
 }
 #statut {
     border: 1px solid #303030;

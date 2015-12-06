@@ -8,14 +8,14 @@
                 <img alt="Nom du profil" src="<?php echo $contents['photo']; ?>" title="Nom du profil" height="230" width="230"/>
             </div>
             <ul id="interaction_profil">
-                <li><a class="button interaction_profil" href="#">Inviter à un évènement</a></li>
-                <li><a class="button interaction_profil" href="#">Suivre</a></li>
-                <li><a class="button interaction_profil" href="#">Envoyer un<br /> message privé</a></li>
+                <li><a class="button" href="#">Inviter à un évènement</a></li>
+                <li><a class="button" href="#">Suivre</a></li>
+                <li><a class="button" href="#">Envoyer un<br /> message privé</a></li>
             </ul>
         </div>
         <div class="col_droite">
             <h2><?php echo $contents['pseudo']; ?> <span id="statut"><?php echo $contents['statut']; ?></span></h2>
-            <div class="general">
+            <div id="general">
                 <h3>Informations générales :</h2>
                 <p>
                     <ul>
