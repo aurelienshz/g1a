@@ -7,17 +7,15 @@
             <div class="photo_profil">
                 <img alt="Nom du profil" src="<?php echo $contents['photo']; ?>" title="Nom du profil" height="230" width="230"/>
             </div>
-            <p id="mess_perso">Mon message perso</p>
-            <div class="interaction_box">
-                <p class='ligne_lien_profil'><a class="interaction_profil" href="#">Inviter à un évènement</a></p>
-                <p class='ligne_lien_profil'><a class="interaction_profil" href="#">Suivre cette personne</a></p>
-                <p class='ligne_lien_profil'><a class="interaction_profil" href="#">Envoyer un message privé</a></p>
-            </div>
+            <ul id="interaction_profil">
+                <li><a class="button interaction_profil" href="#">Inviter à un évènement</a></li>
+                <li><a class="button interaction_profil" href="#">Suivre</a></li>
+                <li><a class="button interaction_profil" href="#">Envoyer un<br /> message privé</a></li>
+            </ul>
         </div>
         <div class="col_droite">
-            <h2><?php echo $contents['pseudo']; ?></h2>
-            <p><?php echo $contents['statut'] ?></p>
-            <div class="details_profil">
+            <h2><?php echo $contents['pseudo']; ?> <span id="statut"><?php echo $contents['statut']; ?></span></h2>
+            <div class="general">
                 <h3>Informations générales :</h2>
                 <p>
                     <ul>
@@ -27,6 +25,7 @@
                         <li><strong>Langue : </strong><?php echo $contents['langue']; ?></li>
                     </ul>
                 </p>
+            </div>
             <div class="description">
                 <h3>Description</h3>
                 <p><?php echo $contents['description']; ?></p>

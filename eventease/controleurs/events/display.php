@@ -10,7 +10,6 @@ $scripts = ['alert.js','slideshow.js','slideshow_event.js'];
 
 $contents['titreEvenement'] = 'Pique-nique au lac';
 
-
 /**** Affichage de la page ****/
 //Appels des vues :
 vue(['display'], $styles, $title, $contents, $scripts);

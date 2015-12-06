@@ -23,7 +23,6 @@ function loadContents($details) {
     $contents = array_merge($contents, [
                 'pseudo' => $details['pseudo'],
                 'mail' => $details['mail'],
-                'statut' => ($details['moderateur']) ? 'Modérateur' : 'Membre',
     /* fac */   'photo' => isset($details['id_photo']) && $details['id_photo']!=0?'usermedia/'.$details['id_photo']:IMAGES.'photo_profil_defaut.jpg',
     /* fac */   'nom' => isset($details['nom'])?$details['nom']:'Non renseigné',
     /* fac */   'prenom' => isset($details['prenom'])?$details['prenom']:'Non reseigné',
@@ -32,6 +31,18 @@ function loadContents($details) {
     /* fac */   'langue' => (isset($details['langue'])?($details['langue']?'Anglais':'Français'):'Non renseignée')
              // 'adresse' => $details[''],
         ]);
+    switch($details['niveau']==1) {
+        case 1:
+            $contents['statut'] = 'Membre';
+            break;
+        case 2:
+            $contents['statut'] = 'Modérateur';
+            break;
+        case 3:
+            $contents['statut'] = 'Administrateur';
+            break;
+    }
+
     return True;
 }
 
