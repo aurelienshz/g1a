@@ -80,3 +80,18 @@ select{
 .importantRed {
     color: red;
 }
+checkbox {
+    font-size: 11px;
+    display: inline-block;
+    height: 20px;
+    margin: auto;
+label1 {
+    display: block;
+    text-align: left;
+    width: 100%;
+    font-weight: bold;
+    margin: 0 auto 10px auto;
+    color: #303030;
+    font-size:1em;
+}
+}
