@@ -5,7 +5,7 @@ require MODELES.'membres/setUserLastLogin.php';
 
 /* Affichage du formulaire */
 $title = 'Connexion';
-$style = ['form.css'];
+$style = ['form.css','minipage.css'];
 
 $errorMessage = 'Une erreur s\'est produite. Merci de réessayer !';
 
@@ -26,7 +26,7 @@ if(!empty($_POST)) {        // Formulaire envoyé
                 header('Location: '.getLink(['membres','modification_profil']));
                 exit();
             }
-            
+
             // Mise à jour de la date de dernière connexion :
             setUserLastLogin($auth['id']);
 
