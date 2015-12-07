@@ -49,8 +49,8 @@ if(!empty($_POST)){
 	if(!empty($_POST['tel']) AND !preg_match("/^0\d(?:[ .-]?\d{2}){4}$/", $_POST['tel'])){
 		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
-	// Addresse : 
-	if (!empty($_POST['adresse']) AND !googleCheckAddress($_POST['adresse'])){
+	// Adresse : 
+	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
 	}
 	// Langue : 
@@ -59,24 +59,61 @@ if(!empty($_POST)){
 	}
 	//Description :
 	if(!empty($_POST['description'])){
-	    $forbiddenKeywords = ['con','salop','enfoiré','hitler','nazi']; // Godwin point awarded ! //
+	    $forbiddenKeywords = ['con','salop','enfoiré','hitler','nazi'];
 	    foreach($forbiddenKeywords as $keyword){
-	    	if (strpos($_POST['description'], $keyword) != False){
+	    	if (strpos($_POST['description'], $keyword) > 0){
 	    		$errors['description'] = 'Description invalide';
 	    	}
 	    	break;
 	    }
 	}
+	//Photo de Profil
+	if(!empty($_FILES)){
+		$errors['photo']="";
+		// Gérer si erreur d'envoi
+		if ($_FILES["photo"]['error'] > 0 OR $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
+		// Poids Maxi
+		$maxsize = 4194304;
+		if ($_FILES["photo"]['size'] > $maxsize) $errors['photo'].="Le fichier est trop gros. ";
+		// Dimensions Maxi - plus tard.
+
+		// extensions Valides
+		$validExtensions = array('jpg', 'jpeg', 'png');
+		$uploadedExtension = strtolower( substr( strrchr($_FILES["photo"]['name'], '.') ,1) );
+		if (in_array($uploadedExtension, $validExtensions) ) $errors['photo'].="L'extension est invalide. ";
+
+		if($errors['photo'] == ""){
+			$errors['photo'] = NULL;	
+		}
+		//Variable pour la BDD
+		$photo = "{$_SESSION['id']}.{$uploadedExtension}";
+		echo 'NOM PHOTO : '.$photo;
+		
+	}
     //Entrée BDD si pas d'erreurs :
     if (empty($errors)){
     	//Execute l'envoi du formulaire
-    	//updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description)
+    	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $photo, $_POST['description']);
+    	if($_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
     }else{
 	     foreach ($errors as $key => $value){
 				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
 			}
     }
 }
+
+?><pre><?php
+echo "POST<br />";
+var_dump($_POST);
+/*echo "SESSION<br />";
+var_dump($_SESSION);*/
+echo "FILES<br />";
+var_dump($_FILES);
+echo "contents<br />";
+var_dump($contents);
+echo "errors<br />";
+var_dump($errors);
+?></pre><?php
 /**** préparation de la vue ****/
 
 $title = 'Modifier mon profil';

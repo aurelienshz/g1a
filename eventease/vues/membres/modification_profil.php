@@ -55,10 +55,12 @@
 					<div class="champ" style="width:20%;">
 						<label for="tel">Téléphone : </label>
 						<input type="text" name="tel" id="tel" value="<?php echo htmlspecialchars($contents["tel"]);?>"/>
+						<?php echo isset($contents['errors']['tel'])?$contents['errors']['tel']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="adresse">Adresse : </label>
 						<input type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
+						<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="langue">Langue  : </label>
@@ -85,13 +87,16 @@
 						<div class="photo_profil">
 							<label>Photo :</label>
                 			<img alt="Photo de Profil" src="<?php echo htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]);?>" title="Photo de Profil" height="150" width="150"/> 
-							<label for="photo"><br>Modifier ma photo de profil :</label>
+							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 4Mo)
 							<input type="file" id="photo" name="photo"/>
+							<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
+							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>	
 					</div>
 					<div class="champ" style="width: calc(185% /3)">
 						<label>A propos de moi :</label>
 						<textarea name="description" id="description"><?php echo htmlspecialchars($contents["description"]);?></textarea>
+						<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:'' ?>
 					</div>
 				</div>
 				<input type="submit" value="Modifier" />

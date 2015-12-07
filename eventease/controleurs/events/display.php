@@ -53,8 +53,10 @@ switch ($event['confidentiel']){
     $contents['visibilite']='Privé';
     break;
 }
-$contents['date'] = date('Y-m-d',strtotime($event['debut']));
-list($contents['year'], $contents['month'], $contents['day'])=explode ('-', $contents['date']);
+$contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));
+$contents['date_fin'] = date('Y-m-d',strtotime($event['fin']));
+list($contents['year_begin'], $contents['month_begin'], $contents['day_begin'])=explode ('-', $contents['date_debut']);
+list($contents['year_end'], $contents['month_end'], $contents['day_end'])=explode ('-', $contents['date_fin']);
 $contents['heure_debut'] = date('H:i:s',strtotime($event['debut']));
 $contents['heure_fin'] = date('H:i:s',strtotime($event['fin']));
 /**** Affichage de la page ****/
