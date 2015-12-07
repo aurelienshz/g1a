@@ -11,6 +11,7 @@
 					<div class="champ">
 						<label for="titre">Nom de l'événement <i class="fa fa-asterisk"></i> :</label>
 						<input type="text" placeholder="Nom de l'événement" id="titre" name="titre" />
+						<?php echo isset($contents['errors']['titre'])?$contents['errors']['titre']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
@@ -28,35 +29,41 @@
 							<option value="11">Exposition</option>
 							<option value="12">Autre</option>
 						</select>
+						<?php echo isset($contents['errors']['type'])?$contents['errors']['type']:'' ?>
 					</div>
 					<div class="champ">
-						<label for="place">Lieu <i class="fa fa-asterisk"></i> :</label>
-						<input type="text" placeholder="Lieu" id="place" name="Lieu"/>
+						<label for="place">Adresse <i class="fa fa-asterisk"></i> :</label>
+						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="place" name="place"/>
+						<?php echo isset($contents['errors']['place'])?$contents['errors']['place']:'' ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ">
 						<label for="date">Date <i class="fa fa-asterisk"></i> :</label>
 						<input type="date" name="date" id="date"/>
+						<?php echo isset($contents['errors']['date'])?$contents['errors']['date']:'' ?>
 					</div>
 					<div class="champ">
-						<label>Heure <i class="fa fa-asterisk"></i> : </label>
-						De <input type="time" name="begining" id="begining" class="time"/> à
+						<label for="beginning">Heure <i class="fa fa-asterisk"></i> : </label>
+						De <input type="time" name="beginning" id="beginning" class="time"/> à
 						<input type="time" name="end" id="end" class="time"/>
+						<?php echo (isset($contents['errors']['beginning']) || isset($contents['errors']['end']))?$contents['errors']['end']:'' ?>
 					</div>
 					<div class="champ">
-						<label>Tarif:</label> <input type="number" name="price" id="price" class="tarif"/> €
+						<label for="price">Tarif :</label> <input type="number" name="price" id="price" class="tarif"/> €
+						<?php echo isset($contents['errors']['price'])?$contents['errors']['price']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ" style="width:96%">
-						<label>Description :</label> <textarea id="description" placeholder="Une courte description"></textarea>
+						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"></textarea>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ">
 						<label for="hosts">Organisateur(s) <i class="fa fa-asterisk"></i> :</label>
 						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts"/>
+						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="visibility">Visibilité <i class="fa fa-asterisk"></i> :</label>
@@ -64,6 +71,7 @@
 							<option>Public</option>
 							<option>Privé</option>
 						</select>
+						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="participation">Liberté de participer <i class="fa fa-asterisk"></i> :</label>
@@ -71,24 +79,25 @@
 							<option>Libre</option>
 							<option>Sur confirmation d'un organisateur</option>
 						</select>
+						<?php echo isset($contents['errors']['participation'])?$contents['errors']['participation']:'' ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="public_age">Type de public :</label>
+						<label for="age_min">Type de public :</label>
 						De  <input type="number" name="age_min" id="age_min"class="price"/>
 						à <input type="number" name="age_max" id="age_max"class="price"/> ans
 					</div>
 					<div class="champ">
-						<label for="language">Langue :</label>
+						<label for="langue">Langue :</label>
 							<select id="langue" name="langue">
 								<option>Français</option>
 								<option>Anglais</option>
 							</select>
 					</div>
 					<div class="champ">
-						<label for="Nombre maximum de participants">Nombre maximum de participants :</label>
-						<input type="number" name="Nombre de participants"  id="attending"/>
+						<label for="max-attendees">Nombre maximum de participants :</label>
+						<input type="number" name="max-attendees" id="max-attendees"/>
 					</div>
 				</div>
 				<div class="ligne">

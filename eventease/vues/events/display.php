@@ -2,7 +2,9 @@
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
-            <img src="<?php echo IMAGES.'picnic1.jpg'; ?>" alt="Coucou"/>
+            <img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                            else {$img = $contents['images'][0][0];}
+                            echo PHOTO_EVENTS.$img; ?>" alt="Coucou"/>
         </div>
         <div class = "title_event">
             <h1><?php echo $contents['titreEvenement']; ?></h1>
@@ -10,9 +12,9 @@
         <div class ="infos">
             <div id="useful_infos">
                 <ul>
-                    <li> <i class="maclasse fa fa-calendar-o"></i>   Date</li>
-                    <li> <i class="maclasse fa fa-clock-o"></i>     Heure </li>
-                    <li> <i class="maclasse fa fa-map"></i>54 rue Lecourbe, 75015, Paris</li>
+                    <li> <i class="maclasse fa fa-calendar-o"></i>   <?php echo $contents['day'] . '-' . $contents['month'] . '-' . $contents['year']; ?></li>
+                    <li> <i class="maclasse fa fa-clock-o"></i>     De <?php echo $contents['heure_debut']; ?> à <?php echo $contents['heure_fin']; ?> </li>
+                    <li> <i class="maclasse fa fa-map"></i>   <?php echo $contents['adresse'][0]; ?></li>
 			    </ul>
             </div>
 		  <div class="buttons">
@@ -47,46 +49,64 @@
 
     <div class ="description">
         <h2>Description</h2>
-		<p>“One thing was certain, that the WHITE kitten had had nothing to do with it:—it was the black kitten's fault entirely. For the white kitten had been having its face washed by the old cat for the last quarter of an hour (and bearing it pretty well, considering); so you see that it COULDN'T have had any hand in the mischief.
-
-The way Dinah washed her children's faces was this: first she held the poor thing down by its ear with one paw, and then with the other paw she rubbed its face all over, the wrong way, beginning at the nose: and just now, as I said, she was hard at work on the white kitten, which was lying quite still and trying to purr—no doubt feeling that it was all meant for its good.
-
-But the black kitten had been finished with earlier in the afternoon, and so, while Alice was sitting curled up in a corner of the great arm-chair, half talking to herself and half asleep, the kitten had been having a grand game of romps with the ball of worsted Alice had been trying to wind up, and had been rolling[…]”
-    <br></p>
+        <p>
+		        <?php echo $contents['description']; ?>
+        </p>
 				<div class="details">
 		<ul>
             <li class="fixed_details">Type :</li>
-            <li>Brocante </li>
+            <li><?php echo $contents['type']; ?> </li>
             <li class="fixed_details">Prix :</li>
-            <li> 4 €$*¥</li>
+            <li> <?php echo $contents['tarif']; ?> €</li>
             <li class="fixed_details">Visibilité :</li>
-            <li>Public</li>
+            <li><?php echo $contents['visibilite']; ?></li>
             <li class="fixed_details">Type de public</li>
-            <li>de 7 à 77 ans</li>
+            <li><?php if (is_null($contents['age_min']) && is_null($contents['age_max'])) {echo 'Tout public'; }
+                      elseif ((is_null($contents['age_min'])) && $contents['age_max']==1) {echo 'Jusqu\'à ' . $contents['age_max'] . ' an'; }
+                      elseif ((is_null($contents['age_min'])) && !(is_null($contents['age_max']))) {echo 'Jusqu\'à ' . $contents['age_max'] . ' ans'; }
+                      elseif (($contents['age_min']==1) && (is_null($contents['age_max']))) {echo 'À partir de ' . $contents['age_min'] . ' an' ; }
+                      elseif (!(is_null($contents['age_min'])) && (is_null($contents['age_max']))) {echo 'À partir de ' . $contents['age_min'] . ' ans' ; }
+                      else{echo 'De ' . $contents['age_min'] . ' à ' . $contents['age_max'] . ' ans'; } ?></li>
             <li class="fixed_details">Langue :</li>
-            <li>Français</li>
-            <li class="fixed_details">Sponsors</li>
-            <li>Seven'tease</li>
+            <li><?php echo $contents['langue']; ?></li>
+            <li class="fixed_details">Sponsor(s)</li>
+            <li><?php echo $contents['sponsor']; ?></li>
             <li class="fixed_details">Site web :</li>
-            <li><a href="http://www.asos.fr">asos.fr</a></li>
+            <li><a href="<?php echo $contents['site']; ?>"><?php echo $contents['site']; ?></a></li>
           </ul>
 				</div>
     </div>
     <section id="photos">
 			<div>
                 <div class="previous"><td>&lt;</td></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
                 <div class="next">&gt;</div>
           </div>
 		  <div>
                 <div class="previous">&lt;</div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
                 <div class="next">&gt;</div>
 			</div>
     </section>
@@ -94,8 +114,8 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 		<div class = "hosts">
 		<h2>Organisateurs</h2>
 			<ul>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php echo $contents['creators'][0][0]; ?></a> </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php echo $contents['creators'][1][0]; ?></a> </li>
 				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
 			</ul>
 		</div>
@@ -103,10 +123,18 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 		<h2> Vos amis qui y vont </h2>
 		<table style="width=100%">
 			<tr height="15%">
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
 			</tr>
 			<tr>
 				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
@@ -136,7 +164,7 @@ But the black kitten had been finished with earlier in the afternoon, and so, wh
 				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
           <br>
           <br>
-          Chercher le message dans la base de données.
+          <?php echo $contents['comment']; ?>
         </p>
 			</div>
 			<div class="comment">

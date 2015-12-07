@@ -41,6 +41,10 @@ function loadContents($details) {
         case 3:
             $contents['statut'] = 'Administrateur';
             break;
+        case 0:
+        default:
+            $contents['statut'] = 'Non validé';
+            break;
     }
 
     return True;
@@ -66,17 +70,20 @@ function monProfil() {
     $title = 'Mon profil';
 
     $details = getUserDetails($_SESSION['id']);
+    echo '<pre>';
+    var_dump($details);
+    echo '</pre>';
     loadContents($details);
 
     return True;
 }
 
 if(isset($_GET['id'])) {
-    // Si je suis en train d'afficher mon profil :
-    if(connected() && $_GET['id']==$_SESSION['id']) {
+    if(connected() && $_GET['id']==$_SESSION['id']) {  // Si je suis en train d'afficher mon profil :
         monProfil();
     }
     else {
+        $contents['monProfil'] = False;
         if($details = getUserDetails($_GET['id'])) {
             loadContents($details);
         }

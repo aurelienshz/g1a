@@ -3,22 +3,27 @@
 
 /* Profil utilisateur */
 
-.col_gauche {
+#col_gauche {
     float: left;
     width: 20%;
     padding: 0 2.5%;
     border-right: 1px solid lightgray;
 }
-.col_droite {
+#col_droite {
     margin-left: 25%;
     padding-left: 1.25%;
     vertical-align: top;
 }
-.photo_profil img {
+#photo_profil img {
     width: 100%;
     height: auto;
 }
-
+#pseudo_profil {
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 1cm;
+	line-height: 1.43;
+	color: #565A5C;
+}
 #interaction_profil {
     padding: 0;
 }
@@ -41,7 +46,10 @@ h2 {
     font-size: 0.8em;
     float: right;
 }
-
+#description p {
+    border: 1px solid #303030;
+    padding: 0.1em 1em;
+}
 #general {
     background-color: #FAFAFA;
     padding: 20px;
