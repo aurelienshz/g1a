@@ -1,12 +1,12 @@
 <?php
-/*** CONTROLEUR PROFIL ***/
+/*** CONTROLEUR EVENEMENTS PROFIL ***/
 
 /**** Préparation des contenus ****/
 
 require MODELES.'membres/getUserDetails.php';
 
 //if(isset($_GET['id'])) {
-    $contents['pseudo'] = getUserDetails('j\'aime les chats')['pseudo'];
+    $contents['pseudo'] = getUserDetails($_SESSION['id'])['pseudo'];
 //}
 /**** Affichage de la page ****/
 

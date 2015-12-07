@@ -46,7 +46,7 @@ if(connected()) {?>
                 <li dir="rtl" id="alertes" class="menuTrigger">
                     <a href="#"><span class="fa fa-bell"></span>&nbsp;Notifications</a>
                     <ul class="menuDeroulant">
-                        <p>Pas de nouvelles notifications.</p>
+                        <p>Pas de nouvelles notifications</p>
                     </ul>
                 </li>
             </ul>

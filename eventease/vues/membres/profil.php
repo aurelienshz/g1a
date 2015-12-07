@@ -40,19 +40,6 @@
                 </ul>
             </div>
 
-
-
-                <!-- <div class="evenements_futurs">
-                    <h2> Évènements futurs</h2>
-                    <p>Test test test</p>
-                    <p>Test test test</p>
-                </div>
-                <div class="evenements_passes">
-                    <h2>Évènements passés</h2>
-                    <p>Test test test</p>
-                    <p>Test test test</p>
-                    <p>Test test test</p>
-                </div> -->
         </div>
         </div>
             <div id="clearfix"></div>
