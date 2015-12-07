@@ -43,13 +43,18 @@ function googleCorrectAddress($address) {
 
 function googleCheckAddress($address){
 	if($test = googleAddressToCoord($address)) {
+		echo "DUMP DE TEST : ";
+		var_dump($test);
 		if(is_float($test[0]) AND is_float($test[1]) ){
+			echo "Je rentre dans le 2e if";
 			return True;
 		}else{
+			echo "Je rentre dans le else du 2e if";
 			return False;
 		}
 	}
 	else {
+		echo "Je rentre dans le else du premier if";
 		return False;
 	}
 }
