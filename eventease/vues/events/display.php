@@ -1,4 +1,3 @@
-
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -26,18 +25,14 @@
 		  </div>
             <div class="social">
                 <table>
+                <!-- Non Customisé Envoie des messages statiques -->
                     <tr>
-
-                            <td><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.eventease.ohhopi.com&t=" title="Share on Facebook" target="_blank">
-								<img src=<?php echo IMAGES.'Facebook.png'; ?>></a></td>
-							<td><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.eventease.ohhopi.com&text=:%20http%3A%2F%2Fwww.eventease.ohhopi.com" target="_blank" title="Tweet">
-								<img src=<?php echo IMAGES.'Twitter.png'; ?>></a></td>
+                            <td><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Feventease.ohhopi.com&t=" title="Share on Facebook" target="_blank"><i class="facebook fa fa-facebook-official"></i></a></td>
+							<td><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.eventease.ohhopi.com&text=:%20http%3A%2F%2Feventease.ohhopi.com" target="_blank" title="Tweet"><i class="twitter fa fa-twitter-square"></i></a></td>
 					</tr>
                     <tr>
-                            <td><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.eventease.ohhopi.com&description=" target="_blank" title="Pin it">
-								<img src=<?php echo IMAGES.'Pinterest.png'; ?>></a></td>
-                            <td><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.eventease.ohhopi.com" target="_blank" title="Email">
-								<img src=<?php echo IMAGES.'Email.png'; ?>></a></td>
+                            <td><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Feventease.ohhopi.com&description=" target="_blank" title="Pin it"><i class="pinterest fa fa-pinterest-square"></i></a></td>
+                            <td><a href="mailto:?subject=&body=:%20http%3A%2F%2Feventease.ohhopi.com" target="_blank" title="Email"><i class="mail fa fa-envelope-square"></i></a></td>
 					</tr>
                 </table>
                 </ul>
