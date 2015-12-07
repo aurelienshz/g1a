@@ -151,13 +151,18 @@
 	color:#3399FF;
 }
 #photos {
-	display:table-cell;
 	clear:both;
 	margin-top:2em;
-	display:block;
-	width: 100%;
 	height:300px;
 	background-color: #FBFBFB;
+}
+#photos > div {
+	height: 100%;
+}
+#photos div.slideshow-container {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
 }
 #photos .slideshow-nav {
     text-align: center;
@@ -166,14 +171,14 @@
 #photos .slideshow-nav span {
     margin: 0 .5em;
 }
-#photos .previous, .next {
-	display:table-cell;
+#photos .previous, #photos .next {
+	display: table-cell;
 	width: 5%;
 	font-size: 2em;
 	font-weight:bold;
-	vertical-align: middle;
 	text-decoration: none;
-    text-align: center;
+	text-align: center;
+	vertical-align: middle;
 }
 #photos .previous:hover, .next:hover {
     cursor: pointer;
@@ -182,15 +187,17 @@
     color: #287DFF;
 }
 #photos .image {
-	display:table-cell;
-	width:20%;
+	display: table-cell;
+	height: 100%;
+	width: 90%;
+	text-align: center;
 }
-#photos .image img{
-	width: 97%;
-	margin:0 auto;
+#photos .image img {
+	height: 300px;
+
 }
 .organisation {
-	display:block;
+	margin-top: 50px;
 	width: 100%;
 	height:340px;
 	background-color: #FAFAFA;
