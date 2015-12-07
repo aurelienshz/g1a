@@ -34,8 +34,8 @@
 .infos {
 	display:block;
 	float:left;
-	width:69%;
-	height:60%;
+	width:70%;
+	height:auto;
 	}
 #useful_infos {
 	float:left;
@@ -48,13 +48,15 @@
 	padding-right: 20%;
 }
 .buttons {
+	display:block;
 	float:left;
 	width:30%;
+	margin-left:2.5em;
 }
 .social {
-	padding-right:5%;
+	padding-right:1%;
 	float:right;
-	width:20%;
+	width:16%;
 	color:#FF3399;
 }
 .social table {
@@ -71,11 +73,13 @@
 	display:block;
 	position:relative;
 	margin-top:5px;
-	padding: 0.2em 0.8em;
+	padding: auto;
 	width:auto;
+	height:1em;
 	margin: 0px 0.2em 0.2em 0px;
 	border-radius: 10px;
-	font-size: 100%;
+	vertical-align:middle;
+	font-size: 110%;
 	text-align:center;
 	text-decoration: none;
 	color: #FAFAFA;
@@ -147,13 +151,18 @@
 	color:#3399FF;
 }
 #photos {
-	display:table-cell;
 	clear:both;
 	margin-top:2em;
-	display:block;
-	width: 100%;
 	height:300px;
 	background-color: #FBFBFB;
+}
+#photos > div {
+	height: 100%;
+}
+#photos div.slideshow-container {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
 }
 #photos .slideshow-nav {
     text-align: center;
@@ -162,14 +171,14 @@
 #photos .slideshow-nav span {
     margin: 0 .5em;
 }
-#photos .previous, .next {
-	display:table-cell;
+#photos .previous, #photos .next {
+	display: table-cell;
 	width: 5%;
 	font-size: 2em;
 	font-weight:bold;
-	vertical-align: middle;
 	text-decoration: none;
-    text-align: center;
+	text-align: center;
+	vertical-align: middle;
 }
 #photos .previous:hover, .next:hover {
     cursor: pointer;
@@ -178,15 +187,17 @@
     color: #287DFF;
 }
 #photos .image {
-	display:table-cell;
-	width:20%;
+	display: table-cell;
+	height: 100%;
+	width: 90%;
+	text-align: center;
 }
-#photos .image img{
-	width: 97%;
-	margin:0 auto;
+#photos .image img {
+	height: 300px;
+
 }
 .organisation {
-	display:block;
+	margin-top: 50px;
 	width: 100%;
 	height:340px;
 	background-color: #FAFAFA;
