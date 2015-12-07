@@ -5,7 +5,7 @@
     <div class="page_container">
         <div id="col_gauche">
             <div id="photo_profil">
-                <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>" height="230" width="230"/>
+                <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>"/>
             </div>
 
 <?php if(!$contents['monProfil']) { ?>
@@ -40,19 +40,6 @@
                 </ul>
             </div>
 
-
-
-                <!-- <div class="evenements_futurs">
-                    <h2> Évènements futurs</h2>
-                    <p>Test test test</p>
-                    <p>Test test test</p>
-                </div>
-                <div class="evenements_passes">
-                    <h2>Évènements passés</h2>
-                    <p>Test test test</p>
-                    <p>Test test test</p>
-                    <p>Test test test</p>
-                </div> -->
         </div>
         </div>
             <div id="clearfix"></div>
