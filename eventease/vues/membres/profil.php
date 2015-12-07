@@ -5,38 +5,41 @@
     <div class="page_container">
         <div class="col_gauche">
             <div class="photo_profil">
-                <img alt="Nom du profil" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>" title="Nom du profil" height="230" width="230"/>
+                <img alt="Nom du profil" src="<?php echo $contents['photo']; ?>" title="Nom du profil" height="230" width="230"/>
             </div>
-            <p id="mess_perso">Mon message perso</p>
-            <div class="interaction_box">
-                <p class='ligne_lien_profil'><a class="interaction_profil" href="#">Inviter à un évènement</a></p>
-                <p class='ligne_lien_profil'><a class="interaction_profil" href="#">Suivre cette personne</a></p>
-                <p class='ligne_lien_profil'><a class="interaction_profil" href="#">Envoyer un message privé</a></p>
-            </div>
+<?php if(!connected()) { ?>
+            <ul id="interaction_profil">
+                <li><a class="button" href="#">Inviter à un évènement</a></li>
+                <li><a class="button" href="#">Suivre</a></li>
+                <li><a class="button" href="#">Envoyer un<br /> message privé</a></li>
+            </ul>
+<?php }
+    else {  // connected()
+?>
+            <ul id="interaction_profil">
+                <li><a class="button" href="<?php echo getLink(['membres','modification_profil'])?>">Modifier mon profil</a></li>
+            </ul>
+<?php } // connected() ?>
         </div>
         <div class="col_droite">
-            <h1><?php echo $contents['pseudo']; ?></h1>
+            <h2><?php echo $contents['pseudo']; ?> <span id="statut"><?php echo $contents['statut']; ?></span></h2>
+            <div id="general">
+                <ul>
+                    <li><strong>Nom : </strong><?php echo $contents['nom']; ?></li>
+                    <li><strong>Prénom : </strong><?php echo $contents['prenom']; ?></li>
+                    <li><strong>Date de naissance : </strong><?php echo $contents['ddn']; ?></li>
+                    <li><strong>Langue : </strong><?php echo $contents['langue']; ?></li>
+                </ul>
+            </div>
             <div class="description">
-                <h5>Description</h5>
+                <h3>Description</h3>
                 <p><?php echo $contents['description']; ?></p>
             </div>
-            <div class="details_profil">
-                <h2>Détails du profil</h2>
-                <p>Civilité: <?php echo $contents['civilite']; ?></p>
-                <div class="evenements_futurs">
+
+
+
+                <!-- <div class="evenements_futurs">
                     <h2> Évènements futurs</h2>
-                    <p>
-                        Infos potentiellement à aficher :
-                        <ul>
-                            <li>Nom & Prénom (réels)</li>
-                            <li>Date de naissance</li>
-                            <li>Adresse e-mail ? ou bien on laisse uniquement l'option MP du site</li>
-                            <li>tél ?</li>
-                            <li>statut du membre --> modérateur...</li>
-                            <li>langue ?</li>
-                            <li>adresse ?</li>
-                        </ul>
-                    </p>
                     <p>Test test test</p>
                     <p>Test test test</p>
                 </div>
@@ -45,9 +48,9 @@
                     <p>Test test test</p>
                     <p>Test test test</p>
                     <p>Test test test</p>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div id="profil-buffer"></div>
+            <div id="clearfix"></div>
     </div>
 </div>

@@ -41,5 +41,6 @@ echo '</div>';
     <div>
         <h3>Messages de debug :</h3>
         <?php echo "<strong>Alertes : </strong>"; print_r(isset($_SESSION['alerts'])?$_SESSION['alerts']:"Pas d'alerte à afficher."); echo '<br />'; ?>
+        <?php echo isset($contents['debug'])?$contents['debug']:''; ?>
     </div>
 </div>  <!-- /#debug -->

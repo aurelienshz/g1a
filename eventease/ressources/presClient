@@ -8,12 +8,72 @@ IMPERATIF   				page events			      en cours
 BONUS   					recherche d'event	 	  en cours
 BONUS   					création d'event		  en cours
 
+--- THE ULTIMATE TODO LIST ---
 
-Notes discussion :
+Général :
+    - URL rewrite -bonux-
+
+page d'accueil
+    - suggestions à rendre dynamique --> Tristan
+
+Gestion des privilèges :
+    - modification event :
+        - nécessite connecté
+        - careful, bien vérifier qu'on est orga
+
+Création d'event :
+    - choix des types --> écrire une requete pour aller récup la liste des types en BDD --> who does that ?
+
+Profil : afficher / modifier --> bonus ??
+    - afficher : feuille de style à peaufiner
+        Loann ?
+        message perso : ça dégage ou on crée un champ ?
+    - ajouter interactions si c'est mon profil (à la place de envoyer MP etc..., modifier mon profil)
+        Aurélien
+    - vue modifier
+        - value/place : Fait sauf pour adresse.
+    - modifier : script back end
+        Tristan
+            - charger les valeurs de champs
+            - si modif, update BDD
+Events
+    - modifier event existant :
+	- penser à l'action supprimer
+
+    - contrôleur --> raccorder au modèle --> QUI ?
+    - backend : Aurélien
+        - Gestion des participations
+            - demande de connexion ou d'inscription si nécessaire
+        - Commentaires, organisateurs, qui y va ? etc...
+    - spécification de l'interface si je suis organisateur
+        Guillaume & Aude ?
+    - skin boutons --> Aurélien ?
+
+BDD :
+    - peupler events en ajoutant au moins 4 events :
+        - 2 dans le même jour
+        - 2 dans le même mois
+        - 1 dont Kevin est orga
+        - 1 auquel Kevin participe
+    Tristan
+    - peupler types
+
+
+Recherche event / membre
+    script back end --> contrôleurs et requêtes
+        Audrey (Aurélien ?)
+Header / Footer
+    - head : forum menu Aurélien
+    - liens footer à activer et relier
+
+
+
+
 
 SCENARIO :
     - inscription OK
     - ne pas retomber sur l'inscription --> éditer profil
+    -
     - calendrier pas de mois de janvier et disparaît ! :( (enlever bouton next)
     - todo : édition profil
     - chacun sa page de profil
@@ -28,4 +88,4 @@ SCENARIO :
 TODO :
 - changer catch
 - changer images de remplissage
-- 
+-

@@ -4,6 +4,7 @@
 html {
     width: 100%;
     margin: 0;
+    padding: 0;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     color: #303030;
 }
@@ -14,6 +15,7 @@ body {
     padding: 0 auto;
     width: 100%;
     min-width: 950px;
+    min-height: 100%;
     margin: 0 auto;
 }
 
@@ -80,6 +82,7 @@ header #pseudo {
 }
 .menuTrigger:hover ul.menuDeroulant {
     display: block;
+    z-index: 1000;
     margin: 0;
 }
 .menuDeroulant li {
@@ -93,16 +96,20 @@ header #pseudo {
 
 
 /* ALERTE ! */
+#alerts {
+    width: 50%;
+    position: fixed;
+    top: 100px;
+    margin: 0 25%;
+}
 
 *[class^="alert"] {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 5px 0;
     border: 1px solid;
-    height: 40px;
     line-height: 40px;
-    padding: 0 1em;
+    padding: 0 1%;
     border-radius: 10px;
-    margin-top: 10px;
 }
 *[class^="alert"] .close {
     display: block;
@@ -168,14 +175,15 @@ h4 {
     text-transform: uppercase;
     font-weight: bold;
     color:#FAFAFA;
-    line-height: 2em;
+    line-height: 1em;
     text-decoration: none;
+    text-align: center;
 }
 .button:hover {
     background-color: 015791;
 }
 .button:active {
-    width: calc(100% - 2px);
+/*    width: calc(100% - 2px);*/
     background-color: 015791;
     border: 1px solid #303030;
 }

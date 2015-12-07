@@ -14,7 +14,7 @@
 					</div>
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
-						<select id="type" name"type">
+						<select id="type" name="type">
 							<option value="1">Pique-Nique</option>
 							<option value="2">Brocante</option>
 							<option value="3">Concert</option>
@@ -41,15 +41,15 @@
 					</div>
 					<div class="champ">
 						<label>Heure <i class="fa fa-asterisk"></i> : </label>
-						De <input type="time" name="begining" id="begining" class="time"/> h à
-						<input type="time" name="end" id="end" class="time"/> h
+						De <input type="time" name="begining" id="begining" class="time"/> à
+						<input type="time" name="end" id="end" class="time"/>
 					</div>
 					<div class="champ">
-						<label>Tarif:</label> <input type="number" name="price" id="price"/> €
+						<label>Tarif:</label> <input type="number" name="price" id="price" class="tarif"/> €
 					</div>
 				</div>
 				<div class="ligne">
-					<div class="champ" style="width:91%">
+					<div class="champ" style="width:96%">
 						<label>Description :</label> <textarea id="description" placeholder="Une courte description"></textarea>
 					</div>
 				</div>

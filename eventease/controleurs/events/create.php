@@ -12,19 +12,18 @@ $title = 'Créer event';
 $styles = ['create.css','form.css', 'search.css'];
 $blocks = ['create'];
 
-/**** Affichage de la page ****/
-//Appel de la vue :
-if (empty($_POST)) {
-	vue($blocks, $styles, $title);
+if(connected()) {
+	if (empty($_POST)) {
+		vue($blocks, $styles, $title);
+	}
+	else {
+		insertEvent($_POST['titre'], $_POST['type'], $_POST['date'], $_POST['lieu'], $_POST['hosts'],
+		 $_POST['visibility'], $_POST['participation'], $_POST['price'], $_POST['assistance'], $_POST['langue'], $_POST['description'], $_POST['attending']);
+		vue($blocks,$styles,$title);
+	}
 }
 else {
-	if(isset($_POST['type'])){
-		print_r($_POST['type']);
-	}else{
-		echo "CA MARCHE PAS";
-	}
-	var_dump($_POST);
-	insertEvent($_POST['titre'], $_POST['type'], $_POST['date'], $_POST['lieu'], $_POST['hosts'],
-	 $_POST['visibility'], $_POST['participation'], $_POST['price'], $_POST['assistance'], $_POST['langue'], $_POST['description'], $_POST['attending']);
-	vue($blocks,$styles,$title);
+	alert('info','Merci de vous connecter pour créer un évènement !');
+	header('Location: '.getLink(['membres','connexion']));
+	exit();
 }

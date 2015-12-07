@@ -9,7 +9,7 @@
     background-color: #FAFAFA;
     text-align: center;
     margin: 0 auto 0 auto;
-    padding: 60px 0;
+    padding: 4em 0;
     border-bottom: 1px solid #303030;
 }
 #catchphrase, #subcatchphrase {
@@ -18,18 +18,19 @@
 #catchphrase {
     font-size: 2em;
     text-transform: uppercase;
-    margin: 0 0 10px 0;
+    margin: 0 0 0 0;
     font-weight: bold;
 }
 #subcatchphrase{
     font-size: 1.5em;
-    margin: 0 0 20px 0;
+    margin: 1em 0 1em 0;
 }
 #bigform form {
     width: 80%;
-    margin: 0 auto 30px auto;
+    margin: 4em auto 4em auto;
 }
 #bigform form input, #bigform form select {
+    font-size: 1.1em;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -41,14 +42,14 @@
     color: #303030  ;
     margin: 0px;
     padding: 0;
-    width: 24%;
+    width: 20%;
     padding: 0 1%;
     border: 1px solid #303030;
     border-radius: 0;
     border-right: 0;
 }
 #bigform .champCentral {
-    width: 50%;
+    width: 60%;
 }
 #bigform form select {
     background-image: url(../images/dropdown.png);

@@ -1,62 +1,65 @@
 @CHARSET "UTF-8";
+
+
 /* Profil utilisateur */
-.wrapper {
-    padding: 0 63.25px 10px 63.25px;
-}
+
 .col_gauche {
     float: left;
-    width: 25%;
-    background-color: coral;
-    border: none;
+    width: 20%;
+    padding: 0 2.5%;
+    border-right: 1px solid lightgray;
 }
 .col_droite {
-    width: auto;
     margin-left: 25%;
-    padding-left: 5px;
+    padding-left: 1.25%;
     vertical-align: top;
-    background-color: #36B136;
-    border: none;
 }
-.photo_profil {
-    padding-top: 8px;
-    height: 230px;
-    width: 230px;
-    margin: 0 auto;
+.photo_profil img {
+    width: 100%;
+    height: auto;
 }
-#mess_perso {
-    text-align: center;
-    font-size: larger;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+#interaction_profil {
+    padding: 0;
 }
-.ligne_lien_profil {
-    text-align: center;
+#interaction_profil li {
+    margin: 1em 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+h2 {
+    border: 0;
+}
+#statut {
+    border: 1px solid #303030;
+    background-color: #287DFF;
+    color: #FAFAFA;
+    font-weight: bold;
+    border-radius: 1em;
+    padding: 0.1em 1em;
+    font-size: 0.8em;
+    float: right;
+}
+
+#general {
+    background-color: #FAFAFA;
+    padding: 20px;
+    border: 1px solid #303030;
+}
+#general ul {
+    padding: 0;
     margin: 0;
 }
-.interaction_profil {
-    color : #287DFF;
-    text-decoration: none;
-    font-size: large;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+#general ul li {
+    list-style-type: none;
+    line-height: 1.2em;
 }
-.interaction_profil:hover {
-    color: #3399FF;
-    text-decoration: none;
-    font-size: large;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-.interaction_box {
-    margin-bottom: 8px;
-}
-#profil-buffer {
+
+#clearfix {
     clear: both;
-    margin: 0;
 }
-.col_droite h1 {
-    text-align: center;
-}
-.col_droite h2 {
-    border: none;
-}
+
 /**** Affichage des messages ****/
 #listeMessages table {
     width: 100%;

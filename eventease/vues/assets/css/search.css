@@ -8,6 +8,7 @@
 	left:-15%;
 	height :80px;
 	display: inline;
+	z-index: 10;
 }
 .calendarPin2 {
 	left:15%;
@@ -28,19 +29,15 @@
 form{
 	padding: 0 2.5%;
 }
+label + input {
+	margin: 0;
+}
 label{
 	color: inherit;
 }
-input{
+input, select{
+	width: 95%;
 	display: inline-block;
-	width:75%;
-}
-select{
-	display: inline-block;
-	width:75%;
-}
-#date{
-	width: 44%;
 }
 #formBox{
 	background-color: #FAFAFA;
@@ -83,7 +80,14 @@ select{
 	box-shadow: 0 10px 10px #cdcdcd;
 }
 .time{
-	width: 25%;
+	width: 41.5%;
+
+}
+.price {
+    width: 25%
+}
+.tarif {
+	width: 30%;
 }
 input[type="file"]{
 	float: none;
@@ -160,13 +164,14 @@ input[type="file"]{
 .fa-asterisk{
 	color: red;
 }
-.ligne {
-	width: 108.5%;
-	min-width: 830px;
+.ligne{
+	display: flex;
+	justify-content: space-between;
+	width: 102%;
 }
 .champ {
-	width: 33%;
-	display: inline-block;
+	width: calc(100% / 3);
+	margin-right: 2%;
 }
 .calendarBottom {
 	border-radius: 0 0 10px 10px;
@@ -179,4 +184,8 @@ input[type="file"]{
 }
 .map {
 	background-color: blue;
+}
+.ligneBoutons {
+	margin: .5em 0;
+	width:90%;
 }
