@@ -37,8 +37,8 @@ if(connected()) {?>
                 <li dir="rtl" id="actionsMembre" class="menuTrigger">
                     <a href="#" id="pseudo"><span class="fa fa-user"></span>&nbsp;<?php echo $_SESSION['username'];?></a>
                     <ul class="menuDeroulant">
-                        <li><a href="<?php echo getLink(['membres','messages']); ?>">       Messages</a></li>
                         <li><a href="<?php echo getLink(['membres','profil']); ?>">         Mon compte</a></li>
+                        <li><a href="<?php echo getLink(['membres','messages']); ?>">       Messages</a></li>
                         <li><a href="<?php echo getLink(['membres','deconnexion']); ?>">    Déconnexion</a></li>
                     </ul>
                 </li>
