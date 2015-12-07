@@ -1,38 +1,24 @@
 <?php
-/* CONTROLEUR D'ACTION */
-
-/**** Préparation des contenus ****/
-// Appels au modèle
-// Traitements
-// Appels au modèle
-
-$contents['types'] = [
-	'Pique-Nique',
-	'Brocante',
-	'Concert',
-	'Conférence',
-	'Vente privée',
-	'Cours de cuisine',
-	'Cours de danse',
-	'Cours de musique',
-	'Dégustation',
-	'Oenologie',
-	'Exposition',
-	'Autre'
-];
-
-// Traitements
+/* EVENTS -> CREATE */
 require MODELES.'events/insertEvent.php';
 require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
+
+$contents['types'] = ['Soirée', 'Pique-Nique', 'Concert', 'Manifestation', 'Vernissage', 'Conférence', 'Vente privée', 'Brocante', 'Exposition', 'Rassemblement'];
+
+
 /**** Préparation de la vue ****/
 $title = 'Créer event';
 $styles = ['create.css','form.css', 'search.css'];
 $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
-if(connected()) {
+$contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
 
+if(connected()) {
 	if (empty($_POST)) {
 		vue($blocks, $styles, $title, $contents, $scripts);
 	}
@@ -47,12 +33,13 @@ if(connected()) {
 		}
 		// On vérifie que tous les champs requis sont bien remplis :
 		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','participation'];
+		// $requiredFields = ['titre'];
 		foreach($requiredFields as $field) {
-			if(!isset($_POST[$field])) {
+			if(empty($_POST[$field]) && $_POST[$field] != "0") {
 				$errors[$field] = 'Ce champ est requis';
 			}
 		}
-
+		var_dump($errors);
 		if(empty($errors)) {	// Si aucune erreur n'a été générée par la vérif des champs vides
 
 			//titre, debut, fin, journee_entiere, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse
@@ -66,11 +53,13 @@ if(connected()) {
 			}
 
 			// Type dans le bon intervalle :
-			if(!(intval($_POST['type']) >= 0 AND intval($_POST['type'] <12 ))) {
-				$errors['type'] = 'Type invalide';
-			}
-			else {
-				$push['id_type'] = $_POST['type'];
+			if(isset($_POST['type'])) {
+				if(intval($_POST['type']) <= 0 OR intval($_POST['type'] <12 )) {
+					$errors['type'] = 'Type invalide';
+				}
+				else {
+					$push['id_type'] = $_POST['type'];
+				}
 			}
 
 			// Lieu : passer une recherche avec Google et vérifier qu'on a une réponse en coordonnées
@@ -96,7 +85,7 @@ if(connected()) {
 				$errors['date_fin'] = 'La date et l\'heure de fin doivent être après la date et l\'heure de début';
 			}
 			else {
-				$push['debut'] = $endTime;
+				$push['fin'] = $endTime;
 			}
 			// tarif : intval > 0
 			if(intval($_POST['price']) < 0) {
@@ -137,6 +126,7 @@ if(connected()) {
 			if(intval($_POST['max_attendees'])<0) {
 				$errors['max_attendees'] = 'Nombre invalide';
 			}
+
 
 			// site web : est-ce bien une URL ?
 			if(isset($_POST['website']) && (False)) {	// filter_var($_POST['website'], FILTER_VALIDATE_URL
