@@ -12,8 +12,8 @@
 	height:100%;
 }
 .photo_evenement img{
-	width:100%;
-	height:auto;
+	width: 415px;
+    height: auto;
 	position:absolute;
 	top:50%;
 	padding: 2px;
@@ -58,8 +58,8 @@
 	width:30%;
 }
 .social {
-	padding-left:2em;
-	float:left;
+	padding-right:5%;
+	float:right;
 	width:20%;
 	color:#FF3399;
 }
@@ -318,13 +318,6 @@
 	vertical-align:middle;
 }
 
-.table {
-	float:left;
-	width:20%;
-	text-align: center;
-	padding: 1em;
-	padding-left: 3em;
-}
 .facebook, .twitter, .linkedin, .mail {
 	font-size:3em;
 	text-align:center;
@@ -355,6 +348,9 @@
 }
 .mail {
 	color: red;
+}
+.fa {
+	margin: 5px;
 }
 #left_arrow, #right_arrow {
 	width:10%;
