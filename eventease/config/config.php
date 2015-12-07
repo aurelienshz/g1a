@@ -11,7 +11,7 @@ define('INCLUDES', PATH_ASSETS . "includes/");
 define('SCRIPTS', "scripts/");
 define('USER_ASSETS', "user_media/");
 define('PHOTO_PROFIL',USER_ASSETS."photos_profil/");
-define('PHOTO_EVENTS',USER_ASSETS."photos_event/");
+define('PHOTO_EVENT',USER_ASSETS."photos_event/");
 $landingPage = ['accueil','index'];
 
 define('CONTROLEURS', "controleurs/");
