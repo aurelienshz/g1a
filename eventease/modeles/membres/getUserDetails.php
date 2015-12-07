@@ -14,7 +14,7 @@ function getUserDetails($id) {
                             membre.description,
                             membre.niveau,
                             membre.langue,
-                            membre.date_derniere_connexion, 
+                            membre.date_derniere_connexion,
 
                             adresse.coordonnee_long, 
                             adresse.coordonnee_lat, 
