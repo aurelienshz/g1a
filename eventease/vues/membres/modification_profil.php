@@ -14,7 +14,7 @@
 				Changer mon adresse mail	
 				</a>
 			</div>
-			<form method="post" action="<?php getLink(['membres','modify']); ?>"> <!-- A CORRIGER action -->
+			<form method="post" action="<?php getLink(['membres','modify']); ?>" enctype="multipart/form-data"> <!-- A CORRIGER action -->
 				<div class="ligne">
 					<div class="champ" style="width:10%;">
 					<label for="civilite">Civilité : </label>
@@ -84,36 +84,17 @@
 					<div class="champ">
 						<div class="photo_profil">
 							<label>Photo :</label>
-                			<img alt="Photo de Profil" src="<?php echo htmlspecialchars((PHOTO_PROFIL.$contents["lien_photo"]));?>" title="Photo de Profil" height="150" width="150"/> 
+                			<img alt="Photo de Profil" src="<?php echo htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]);?>" title="Photo de Profil" height="150" width="150"/> 
 							<label for="photo"><br>Modifier ma photo de profil :</label>
 							<input type="file" id="photo" name="photo"/>
             			</div>	
 					</div>
 					<div class="champ" style="width: calc(185% /3)">
-						<label>Description :</label>
+						<label>A propos de moi :</label>
 						<textarea name="description" id="description"><?php echo htmlspecialchars($contents["description"]);?></textarea>
 					</div>
 				</div>
 				<input type="submit" value="Modifier" />
-				<div class="champ" style="width:33%">
-					<label for="types_favori_membre">Type(s) d'événement(s) favori(s) : </label>
-					<div id="checkbox">
-						<label1 for="pique_nique">Pique-Nique : </label1>
-						<input type="checkbox" name="pique_nique" id="pique_nique"/><br>
-					</div>
-					<div id="checkbox">
-						<label1 for="concert">Concert : </label1>
-						<input type="checkbox" name="concert" id="concert"/><br>
-					</div>
-					<div id="checkbox">
-						<label1 for="exposition">Exposition : </label1>
-						<input type="checkbox" name="exposition" id="exposition"/><br>
-					</div>
-					<div id="checkbox">
-						<label1 for="brocante">Brocante : </label1>
-						<input type="checkbox" name="brocante" id="brocante"/><br>
-					</div>
-				</div>
 			</form>
 		</div>
 	</div>

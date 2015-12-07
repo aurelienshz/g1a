@@ -32,11 +32,9 @@ $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
 if(connected()) {
-	echo '<pre>';
-	var_dump($_POST);
-	echo '</pre>';
+
 	if (empty($_POST)) {
-		vue($blocks, $styles, $title);
+		vue($blocks, $styles, $title, $contents, $scripts);
 	}
 	else {	// le formulaire a été validé
 		// Recherche d'erreurs lors du remplissage du formulaire :
@@ -44,20 +42,24 @@ if(connected()) {
 		$errors = [];
 		// echo 'loul';
 		foreach($_POST as $key=>$value) {
+			$_POST[$key] = htmlspecialchars($_POST[$key]);
 			$contents['values'][$key] = htmlspecialchars($_POST[$key]);
 		}
-		// var_dump($contents['values']);
-		// echo 'loul';
 		// On vérifie que tous les champs requis sont bien remplis :
-		$requiredFields = ['titre','type','date','place','beginning','hosts','visibility','participation'];
+		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','participation'];
 		foreach($requiredFields as $field) {
-			if(empty($_POST[$field])) {
+			if(!isset($_POST[$field])) {
 				$errors[$field] = 'Ce champ est requis';
 			}
 		}
 
 		if(empty($errors)) {	// Si aucune erreur n'a été générée par la vérif des champs vides
+
+			//titre, debut, fin, journee_entiere, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse
+			$push = $_POST;
+
 			// Puis on fait les vérifications spécifiques :
+
 			// Nom conforme :
 			if(!preg_match("/^[-a-zâäàéèùêëîïôöçñ' 0-9@#]+$/i", $_POST['titre'])) {
 				$errors['titre'] = 'Titre invalide';
@@ -67,26 +69,34 @@ if(connected()) {
 			if(!(intval($_POST['type']) >= 0 AND intval($_POST['type'] <12 ))) {
 				$errors['type'] = 'Type invalide';
 			}
+			else {
+				$push['id_type'] = $_POST['type'];
+			}
 
 			// Lieu : passer une recherche avec Google et vérifier qu'on a une réponse en coordonnées
 			if(!googleCheckAddress($_POST['place'])) {
-				$errors['place'] = isset($errors['place'])?$errors['place']:'Cette adresse semble invalide';
+				$errors['place'] = isset($errors['place'])?$errors['place']:'L\'adresse semblait invalide. Nous avons tenté de la corriger.';
+				$contents['values']['place'] = googleCorrectAddress($_POST['place']);
 			}
 			else {
-				$push['place'] = googleAddressToCoord($_POST['place']);
-				// var_dump($push['place']);
+				$push['adresse'] = $_POST['place'];
 			}
 
 			// Date / heure début conforme et future :
-			$startTime = $_POST['date'].' '.$_POST['beginning'];
-			$endTime = $_POST['date'].' '.$_POST['end'];
+			$startTime = $_POST['date_debut'].' '.$_POST['beginning'];
+			$endTime = $_POST['date_fin'].' '.$_POST['end'];
 
 			if(!(validateDateFormat($startTime, 'Y-m-d H:i') && validateFutureDate($startTime))) {
-				$errors['date'] = 'La date ne doit pas être passée';
-				$errors['heures'] = 'Ce moment ne doit pas être passé';
+				$errors['date_debut'] = 'La date ne doit pas être dépassée';
+			}
+			else {
+				$push['debut'] = $startTime;
 			}
 			if(strtotime($startTime) >= strtotime($endTime)) {
-				$errors['heures'] = 'L\'heure de fin doit être après l\'heure de début';
+				$errors['date_fin'] = 'La date et l\'heure de fin doivent être après la date et l\'heure de début';
+			}
+			else {
+				$push['debut'] = $endTime;
 			}
 			// tarif : intval > 0
 			if(intval($_POST['price']) < 0) {
@@ -95,7 +105,21 @@ if(connected()) {
 			// description : htmlspecialchars
 			$_POST['description'] = htmlspecialchars($_POST['description']);
 
-			// organisateurs, visibility, participation : à remanier ?
+			// visibility :
+			if($_POST['visibility'] == 0) {
+				$push['confidentiel'] = 1;
+			}
+			else {
+				$push['confidentiel'] = 0;
+			}
+
+			// participation :
+			if($_POST['participation'] == 0) {
+				$push['sur_invitation'] = 0;
+			}
+			else {
+				$push['sur_invitation'] = 0;
+			}
 
 			// type public : si définis !
 			// age min et max positifs et min < max
@@ -120,14 +144,24 @@ if(connected()) {
 			}
 
 			// Sponsors : regex Tristan
-			if(!isset($_POST['sponsors']) || (preg_match("/^[-a-zâäàéèùêëîïôöçñ,' 0-9@#]+$/i", $_POST['sponsors']))) {
-				$errors['sponsors'] = 'Nom invalide';
+			if(!empty($_POST['sponsors'])) {
+				if(False) {
+					$errors['sponsors'] = 'Nom invalide';
+				}
 			}
 		}
 
 		// Insertion de l'event ou affichage de la vue avec les erreurs :
 		if(empty($errors)) {
-			insertEvent($_POST['titre'], $_POST['type'], $_POST['date'], $_POST['lieu'], $_POST['hosts'],$_POST['visibility'], $_POST['participation'], $_POST['price'], $_POST['assistance'], $_POST['langue'], $_POST['description'], $_POST['attending']);
+			/// INSERTION EN BDD : ///
+			if($id = insertEvent($push)) {
+				alert('ok','Succès ! L\'évènement a bien été créé.');
+				header('Location: '.getLink(['events','display',$id]));
+				exit();
+			}
+			else {
+				echo 'erreur insertion BDD';
+			}
 		}
 		else {
 			foreach ($errors as $key => $value){

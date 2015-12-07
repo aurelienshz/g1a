@@ -29,6 +29,18 @@ function googleAddressToCoord($address){
 		return False;
 	}
 }
+function googleCorrectAddress($address) {
+	$address = preg_replace('/ /','+',$address);
+	$url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA";
+	$result = curlGoogleDecodeJson($url);
+	if(!empty($coord -> results)) {
+		return $result -> results[0] -> formatted_address;
+	}
+	else {
+		return False;
+	}
+}
+
 function googleCheckAddress($address){
 	if($test = googleAddressToCoord($address)) {
 		if(is_float($test[0]) AND is_float($test[1]) ){

@@ -35,22 +35,22 @@ if(!empty($_POST)){
 		$_POST['civilite'] = 1;
 	}
 	// Nom & Prénom
-	if(!preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['nom'])){
+	if(!empty($_POST['nom']) AND !preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['nom'])){
 		$errors['nom'] = 'Nom invalide';
 	}
-	if(!preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['prenom'])){
+	if(!empty($_POST['prenom']) AND !preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['prenom'])){
 		$errors['prenom'] = 'Prenom invalide';
 	}
 	//DDN
-	if (!validateDateFormat($_POST['ddn'],"Y-m-d") OR !validatePastDate($_POST['ddn'])){
+	if (!empty($_POST['ddn']) AND (!validateDateFormat($_POST['ddn'],"Y-m-d") OR !validatePastDate($_POST['ddn']))){
 		$errors['ddn'] = 'Date invalide';
 	}
 	//Tel
-	if(!preg_match("/^0\d(?:[ .-]?\d{2}){4}$/", $_POST['tel'])){
+	if(!empty($_POST['tel']) AND !preg_match("/^0\d(?:[ .-]?\d{2}){4}$/", $_POST['tel'])){
 		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
 	// Addresse : 
-	if (!googleCheckAddress($_POST['adresse'])){
+	if (!empty($_POST['adresse']) AND !googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
 	}
 	// Langue : 
@@ -58,12 +58,15 @@ if(!empty($_POST)){
 		$_POST['langue'] = 0;
 	}
 	//Description :
-    $forbiddenKeywords = ['con','salop','enfoiré','hitler','nazi']; // Godwin point awarded ! //
-    foreach($forbiddenKeywords as $keyword){
-    	if (strpos($_POST['description'], $keyword) != False){
-    		$errors['description'] = 'Description invalide';
-    	}
-    }
+	if(!empty($_POST['description'])){
+	    $forbiddenKeywords = ['con','salop','enfoiré','hitler','nazi']; // Godwin point awarded ! //
+	    foreach($forbiddenKeywords as $keyword){
+	    	if (strpos($_POST['description'], $keyword) != False){
+	    		$errors['description'] = 'Description invalide';
+	    	}
+	    	break;
+	    }
+	}
     //Entrée BDD si pas d'erreurs :
     if (empty($errors)){
     	//Execute l'envoi du formulaire

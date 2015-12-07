@@ -16,6 +16,7 @@
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
 						<select id="type" name="type">
+							<option disabled selected>Choisissez un type</option>
 							<?php foreach ($contents['types'] as $key => $value) {
 								echo '<option value="'.$key.'"'.($contents['values']['type']==$key?' selected':'').'>'.$value.'</option>';
 							} ?>
@@ -30,15 +31,13 @@
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="date">Date <i class="fa fa-asterisk"></i> :</label>
-						<input type="date" name="date" id="date" value="<?php echo isset($contents['values']['date'])?$contents['values']['date']:''; ?>"/>
-						<?php echo isset($contents['errors']['date'])?$contents['errors']['date']:''; ?>
+						<label for="date_debut">Date de début <i class="fa fa-asterisk"></i> :</label>
+						<input type="date" name="date_debut" id="date_debut" value="<?php echo isset($contents['values']['date_debut'])?$contents['values']['date_debut']:''; ?>"/>
+						<?php echo isset($contents['errors']['date_debut'])?$contents['errors']['date_debut']:''; ?>
 					</div>
 					<div class="champ">
-						<label for="beginning">Heure <i class="fa fa-asterisk"></i> : </label>
-						De <input type="time" name="beginning" id="beginning" class="time" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/> à
-						<input type="time" name="end" id="end" class="time" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
-						<?php echo (isset($contents['errors']['heures'])?$contents['errors']['heures']:''); ?>
+						<label for="beginning">Heure de début <i class="fa fa-asterisk"></i> : </label>
+						<input type="time" name="beginning" id="beginning" class="time" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/>
 					</div>
 					<div class="champ">
 						<label for="price">Tarif :</label> <input type="number" name="price" id="price" class="tarif" value="<?php echo isset($contents['values']['price'])?$contents['values']['price']:''; ?>"/> €
@@ -46,8 +45,21 @@
 					</div>
 				</div>
 				<div class="ligne">
+					<div class="champ">
+						<label for="date_fin">Date de fin <i class="fa fa-asterisk"></i> :</label>
+						<input type="date" name="date_fin" id="date_fin" value="<?php echo isset($contents['values']['date_fin'])?$contents['values']['date_fin']:''; ?>"/>
+						<?php echo isset($contents['errors']['date_fin'])?$contents['errors']['date_fin']:''; ?>
+					</div>
+					<div class="champ">
+						<label for="end">Heure de fin <i class="fa fa-asterisk"></i> : </label>
+						<input type="time" name="end" id="end" class="time" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
+					</div>
+					<div class="champ">
+					</div>
+				</div>
+				<div class="ligne">
 					<div class="champ" style="width:96%">
-						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"><?php echo isset($contents['values']['description'])?$contents['values']['description']:''; ?>"</textarea>
+						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"><?php echo isset($contents['values']['description'])?$contents['values']['description']:''; ?></textarea>
 					</div>
 				</div>
 				<div class="ligne">
@@ -59,16 +71,16 @@
 					<div class="champ">
 						<label for="visibility">Visibilité <i class="fa fa-asterisk"></i> :</label>
 						<select id="visibility" name="visibility">
-							<option>Public</option>
-							<option>Privé</option>
+							<option value="0">Public</option>
+							<option value="1">Privé</option>
 						</select>
 						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:''; ?>
 					</div>
 					<div class="champ">
 						<label for="participation">Liberté de participer <i class="fa fa-asterisk"></i> :</label>
 						<select id="participation" name="participation">
-							<option>Libre</option>
-							<option>Sur confirmation d'un organisateur</option>
+							<option value="0">Libre</option>
+							<option value="1">Sur confirmation d'un organisateur</option>
 						</select>
 						<?php echo isset($contents['errors']['participation'])?$contents['errors']['participation']:''; ?>
 					</div>
@@ -89,22 +101,24 @@
 						<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:''; ?>
 					</div>
 					<div class="champ">
-						<label for="max_attendees">Nombre maximum de participants :</label>
+						<label for="max_attendees">Nombre maximal de participants :</label>
 						<input type="number" name="max_attendees" id="max_attendees" value="<?php echo isset($contents['values']['max_attendees'])?$contents['values']['max_attendees']:''; ?>"/>
 						<?php echo isset($contents['errors']['max_attendees'])?$contents['errors']['max_attendees']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="attachment">Ajouter une image :</label> <input type="file" id="attachment" name="attachment"/>
+						<label for="attachment">Ajouter une image :</label>
+						<input type="file" id="attachment" name="attachment"/>
 					</div>
 					<div class="champ">
-						<label for="website">Site Web :</label> <input type="url" id="website" name="website" placeholder="URL" value="<?php echo isset($contents['values']['website'])?$contents['values']['website']:''; ?>"/>
+						<label for="website">Site Web :</label>
+						<input type="url" id="website" name="website" placeholder="inactif" value="<?php echo isset($contents['values']['website'])?$contents['values']['website']:''; ?>"/>
 						<?php echo isset($contents['errors']['website'])?$contents['errors']['website']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="sponsors">Sponsors :</label>
-						<input type="text" placeholder="ex : Orangina" id="sponsors" name="sponsors" value="<?php echo isset($contents['values']['sponsors'])?$contents['values']['sponsors']:''; ?>"/>
+						<input type="text" placeholder="Sponsors" id="sponsors" name="sponsors" value="<?php echo isset($contents['values']['sponsors'])?$contents['values']['sponsors']:''; ?>"/>
 						<?php echo isset($contents['errors']['sponsors'])?$contents['errors']['sponsors']:'' ?>
 					</div>
 				</div>
