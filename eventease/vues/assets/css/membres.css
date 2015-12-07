@@ -14,9 +14,12 @@
     padding-left: 1.25%;
     vertical-align: top;
 }
+#photo_profil {
+    text-align: center;
+}
 #photo_profil img {
-    width: 100%;
-    height: auto;
+    width: 230px;
+    height: 230px ;
 }
 #pseudo_profil {
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
