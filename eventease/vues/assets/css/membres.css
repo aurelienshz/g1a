@@ -52,8 +52,7 @@ h2 {
 }
 #general {
     background-color: #FAFAFA;
-    padding: 20px;
-    border: 1px solid #565A5C;
+    border: none;
 }
 #general ul {
     padding: 0;
