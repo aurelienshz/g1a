@@ -50,8 +50,7 @@ if(!empty($_POST)){
 		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
 	// Adresse : 
-	echo "<br />VALEUR CHECK ADRESSE GOOGLE : ".var_dump($testeur = googleCheckAddress($_POST['adresse']));
-	if (!empty($_POST['adresse']) AND $testeur){
+	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
 	}
 	// Langue : 
