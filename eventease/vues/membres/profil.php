@@ -3,9 +3,9 @@
 ?>
 <div class="wrapper">
     <div class="page_container">
-        <div class="col_gauche">
-            <div class="photo_profil">
-                <img alt="Nom du profil" src="<?php echo $contents['photo']; ?>" title="Nom du profil" height="230" width="230"/>
+        <div id="col_gauche">
+            <div id="photo_profil">
+                <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>" height="230" width="230"/>
             </div>
 <?php if(!$contents['monProfil']) { ?>
             <ul id="interaction_profil">
@@ -21,8 +21,12 @@
             </ul>
 <?php } // connected() ?>
         </div>
-        <div class="col_droite">
-            <h2><?php echo $contents['pseudo']; ?> <span id="statut"><?php echo $contents['statut']; ?></span></h2>
+        <div id="col_droite">
+            <div id='pseudo_profil'><?php echo $contents['pseudo']; ?> <span id="statut"><?php echo $contents['statut']; ?></span></div>
+            <div id="description">
+                <h3>Description</h3>
+                <p> <?php echo $contents['description']; ?></p>
+            </div>
             <div id="general">
                 <ul>
                     <li><strong>Nom : </strong><?php echo $contents['nom']; ?></li>
@@ -30,10 +34,6 @@
                     <li><strong>Date de naissance : </strong><?php echo $contents['ddn']; ?></li>
                     <li><strong>Langue : </strong><?php echo $contents['langue']; ?></li>
                 </ul>
-            </div>
-            <div class="description">
-                <h3>Description</h3>
-                <p><?php echo $contents['description']; ?></p>
             </div>
 
 
