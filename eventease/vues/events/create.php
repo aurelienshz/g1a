@@ -10,60 +10,51 @@
 				<div class="ligne">
 					<div class="champ">
 						<label for="titre">Nom de l'événement <i class="fa fa-asterisk"></i> :</label>
-						<input type="text" placeholder="Nom de l'événement" id="titre" name="titre" />
-						<?php echo isset($contents['errors']['titre'])?$contents['errors']['titre']:'' ?>
+						<input type="text" placeholder="Nom de l'événement" id="titre" name="titre" value="<?php echo isset($contents['values']['titre'])?$contents['values']['titre']:''; ?>" />
+						<?php echo isset($contents['errors']['titre'])?$contents['errors']['titre']:'';; ?>
 					</div>
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
 						<select id="type" name="type">
-							<option value="1">Pique-Nique</option>
-							<option value="2">Brocante</option>
-							<option value="3">Concert</option>
-							<option value="4">Conférence</option>
-							<option value="5">Vente privée</option>
-							<option value="6">Cours de cuisine</option>
-							<option value="7">Cours de danse</option>
-							<option value="8">Cours de musique</option>
-							<option value="9">Dégustation</option>
-							<option value="10">Oenologie</option>
-							<option value="11">Exposition</option>
-							<option value="12">Autre</option>
+							<?php foreach ($contents['types'] as $key => $value) {
+								echo '<option value="'.$key.'"'.($contents['values']['type']==$key?' selected':'').'>'.$value.'</option>';
+							} ?>
 						</select>
-						<?php echo isset($contents['errors']['type'])?$contents['errors']['type']:'' ?>
+						<?php echo isset($contents['errors']['type'])?$contents['errors']['type']:'';; ?>
 					</div>
 					<div class="champ">
 						<label for="place">Adresse <i class="fa fa-asterisk"></i> :</label>
-						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="place" name="place"/>
-						<?php echo isset($contents['errors']['place'])?$contents['errors']['place']:'' ?>
+						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="place" name="place" value="<?php echo isset($contents['values']['place'])?$contents['values']['place']:''; ?>"/>
+						<?php echo isset($contents['errors']['place'])?$contents['errors']['place']:'';; ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ">
 						<label for="date">Date <i class="fa fa-asterisk"></i> :</label>
-						<input type="date" name="date" id="date"/>
-						<?php echo isset($contents['errors']['date'])?$contents['errors']['date']:'' ?>
+						<input type="date" name="date" id="date" value="<?php echo isset($contents['values']['date'])?$contents['values']['date']:''; ?>"/>
+						<?php echo isset($contents['errors']['date'])?$contents['errors']['date']:''; ?>
 					</div>
 					<div class="champ">
 						<label for="beginning">Heure <i class="fa fa-asterisk"></i> : </label>
-						De <input type="time" name="beginning" id="beginning" class="time"/> à
-						<input type="time" name="end" id="end" class="time"/>
-						<?php echo (isset($contents['errors']['beginning']) || isset($contents['errors']['end']))?$contents['errors']['end']:'' ?>
+						De <input type="time" name="beginning" id="beginning" class="time" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/> à
+						<input type="time" name="end" id="end" class="time" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
+						<?php echo (isset($contents['errors']['heures'])?$contents['errors']['heures']:''); ?>
 					</div>
 					<div class="champ">
-						<label for="price">Tarif :</label> <input type="number" name="price" id="price" class="tarif"/> €
-						<?php echo isset($contents['errors']['price'])?$contents['errors']['price']:''; ?>
+						<label for="price">Tarif :</label> <input type="number" name="price" id="price" class="tarif" value="<?php echo isset($contents['values']['price'])?$contents['values']['price']:''; ?>"/> €
+						<?php echo isset($contents['errors']['price'])?$contents['errors']['price']:'';; ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ" style="width:96%">
-						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"></textarea>
+						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"><?php echo isset($contents['values']['description'])?$contents['values']['description']:''; ?>"</textarea>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ">
 						<label for="hosts">Organisateur(s) <i class="fa fa-asterisk"></i> :</label>
-						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts"/>
-						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:'' ?>
+						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts" value="<?php echo isset($contents['values']['hosts'])?$contents['values']['hosts']:''; ?>"/>
+						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:''; ?>
 					</div>
 					<div class="champ">
 						<label for="visibility">Visibilité <i class="fa fa-asterisk"></i> :</label>
@@ -71,7 +62,7 @@
 							<option>Public</option>
 							<option>Privé</option>
 						</select>
-						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:'' ?>
+						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:''; ?>
 					</div>
 					<div class="champ">
 						<label for="participation">Liberté de participer <i class="fa fa-asterisk"></i> :</label>
@@ -79,7 +70,7 @@
 							<option>Libre</option>
 							<option>Sur confirmation d'un organisateur</option>
 						</select>
-						<?php echo isset($contents['errors']['participation'])?$contents['errors']['participation']:'' ?>
+						<?php echo isset($contents['errors']['participation'])?$contents['errors']['participation']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
@@ -87,17 +78,20 @@
 						<label for="age_min">Type de public :</label>
 						De  <input type="number" name="age_min" id="age_min"class="price"/>
 						à <input type="number" name="age_max" id="age_max"class="price"/> ans
+						<?php echo isset($contents['errors']['age_max'])?$contents['errors']['age_max']:''; ?>
 					</div>
 					<div class="champ">
 						<label for="langue">Langue :</label>
-							<select id="langue" name="langue">
-								<option>Français</option>
-								<option>Anglais</option>
-							</select>
+						<select id="langue" name="langue">
+							<option>Français</option>
+							<option>Anglais</option>
+						</select>
+						<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:''; ?>
 					</div>
 					<div class="champ">
-						<label for="max-attendees">Nombre maximum de participants :</label>
-						<input type="number" name="max-attendees" id="max-attendees"/>
+						<label for="max_attendees">Nombre maximum de participants :</label>
+						<input type="number" name="max_attendees" id="max_attendees" value="<?php echo isset($contents['values']['max_attendees'])?$contents['values']['max_attendees']:''; ?>"/>
+						<?php echo isset($contents['errors']['max_attendees'])?$contents['errors']['max_attendees']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
@@ -105,11 +99,13 @@
 						<label for="attachment">Ajouter une image :</label> <input type="file" id="attachment" name="attachment"/>
 					</div>
 					<div class="champ">
-						<label for="website">Site Web :</label> <input type="url" id="website" name="website"/>
+						<label for="website">Site Web :</label> <input type="url" id="website" name="website" placeholder="URL" value="<?php echo isset($contents['values']['website'])?$contents['values']['website']:''; ?>"/>
+						<?php echo isset($contents['errors']['website'])?$contents['errors']['website']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="sponsors">Sponsors :</label>
-						<input type="text" placeholder="ex : Orangina" id="sponsors" name="sponsors"/>
+						<input type="text" placeholder="ex : Orangina" id="sponsors" name="sponsors" value="<?php echo isset($contents['values']['sponsors'])?$contents['values']['sponsors']:''; ?>"/>
+						<?php echo isset($contents['errors']['sponsors'])?$contents['errors']['sponsors']:'' ?>
 					</div>
 				</div>
 		        <br><input type="submit" value="Créer" />

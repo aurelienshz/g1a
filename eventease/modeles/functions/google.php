@@ -20,15 +20,24 @@ function googleAddressToCoord($address){
 	$address = preg_replace('/ /','+',$address);
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA";
 	$coord = curlGoogleDecodeJson($url);
-	$lat = $coord -> results[0] -> geometry -> location-> lat;
-	$lng = $coord -> results[0] -> geometry -> location -> lng;
-	return array($lat,$lng);
+	if(!empty($coord -> results)) {
+		$lat = $coord -> results[0] -> geometry -> location-> lat;
+		$lng = $coord -> results[0] -> geometry -> location -> lng;
+		return array($lat,$lng);
+	}
+	else {
+		return False;
+	}
 }
 function googleCheckAddress($address){
-	$test = googleAddressToCoord($address);
-	if(is_float($test[0]) AND is_float($test[1]) ){
-		return True;
-	}else{
+	if($test = googleAddressToCoord($address)) {
+		if(is_float($test[0]) AND is_float($test[1]) ){
+			return True;
+		}else{
+			return False;
+		}
+	}
+	else {
 		return False;
 	}
 }
