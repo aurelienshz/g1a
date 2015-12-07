@@ -22,7 +22,7 @@
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 1cm;
 	line-height: 1.43;
-	color: #565A5C;
+	color: #287DFF;
 }
 #interaction_profil {
     padding: 0;
@@ -52,7 +52,7 @@ h2 {
 }
 #general {
     background-color: #FAFAFA;
-    border: none;
+    margin: 8px 0;
 }
 #general ul {
     padding: 0;

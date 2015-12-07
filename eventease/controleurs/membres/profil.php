@@ -23,13 +23,15 @@ function loadContents($details) {
     $contents = array_merge($contents, [
                 'pseudo' => $details['pseudo'],
                 'mail' => $details['mail'],
+                'tel' => isset($details['tel'])?$details['tel']:'Non renseigné',
+                'civilite' => isset($details['civilite'])?($details['civilite']?'Mme':'M.'):'',
+                'adresse_condensee' => isset($details['adresse_condensee'])?$details['adresse_condensee']:'Non renseignée',
     /* fac */   'photo' => isset($details['id_photo']) && $details['id_photo']!=0?'usermedia/'.$details['id_photo']:IMAGES.'photo_profil_defaut.jpg',
-    /* fac */   'nom' => isset($details['nom'])?$details['nom']:'Non renseigné',
-    /* fac */   'prenom' => isset($details['prenom'])?$details['prenom']:'Non reseigné',
+    /* fac */   'nom' => isset($details['nom'])?$details['nom']:'',
+    /* fac */   'prenom' => isset($details['prenom'])?$details['prenom']:'',
     /* fac */   'ddn' => isset($details['ddn'])?$details['ddn']:'Non renseignée',
     /* fac */   'description' => isset($details['description'])?$details['description']:'Pas de description',
-    /* fac */   'langue' => (isset($details['langue'])?($details['langue']?'Anglais':'Français'):'Non renseignée')
-             // 'adresse' => $details[''],
+    /* fac */   'langue' => isset($details['langue'])?($details['langue']?'Anglais':'Français'):'Non renseignée',
         ]);
     switch($details['niveau']==1) {
         case 1:
@@ -111,6 +113,13 @@ else {  // (empty($_GET['id']))
 $styles[] = 'membres.css';
 $blocks[] = 'profil';
 
+/**** Enlève la civilité si le nom est absent ****/
+if ($contents['nom']==='') {
+    $contents['civilite']='';
+}
+if ($contents['prenom']==='' AND $contents['nom']==='') {
+    $contents['civilite']='Non renseigné';
+}
 /**** Fonction affichage mois en FR ****/
 function date_mois_fr($mois_num){
     $mois_fr = ['01'=>'Janvier','02'=>'Février','03'=>'Mars','04'=>'Avril','05'=>'Mai','06'=>'Juin','07'=>'Juillet','08'=>'Août','09'=>'Septembre','10'=>'Octobre','11'=>'Novembre','12'=>'Décembre'];
