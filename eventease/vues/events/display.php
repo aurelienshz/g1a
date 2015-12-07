@@ -52,11 +52,11 @@
         </p>
 				<div class="details">
 		<ul>
-            <li class="fixed_details">Type :</li>
+            <li class="fixed_details">Type</li>
             <li><?php echo $contents['type']; ?> </li>
-            <li class="fixed_details">Prix :</li>
+            <li class="fixed_details">Prix</li>
             <li> <?php echo $contents['tarif']; ?> €</li>
-            <li class="fixed_details">Visibilité :</li>
+            <li class="fixed_details">Visibilité</li>
             <li><?php echo $contents['visibilite']; ?></li>
             <li class="fixed_details">Type de public</li>
             <li><?php if (is_null($contents['age_min']) && is_null($contents['age_max'])) {echo 'Tout public'; }
@@ -65,11 +65,11 @@
                       elseif (($contents['age_min']==1) && (is_null($contents['age_max']))) {echo 'À partir de ' . $contents['age_min'] . ' an' ; }
                       elseif (!(is_null($contents['age_min'])) && (is_null($contents['age_max']))) {echo 'À partir de ' . $contents['age_min'] . ' ans' ; }
                       else{echo 'De ' . $contents['age_min'] . ' à ' . $contents['age_max'] . ' ans'; } ?></li>
-            <li class="fixed_details">Langue :</li>
+            <li class="fixed_details">Langue</li>
             <li><?php echo $contents['langue']; ?></li>
             <li class="fixed_details">Sponsor(s)</li>
             <li><?php echo $contents['sponsor']; ?></li>
-            <li class="fixed_details">Site web :</li>
+            <li class="fixed_details">Site web</li>
             <li><a href="<?php echo $contents['site']; ?>"><?php echo $contents['site']; ?></a></li>
           </ul>
 				</div>
@@ -94,16 +94,16 @@
 		  <div>
                 <div class="previous">&lt;</div>
                 <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][1][0];}
+                                else {$img = $contents['images'][0][0];}
                                 echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
                 <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][1][0];}
+                                else {$img = $contents['images'][0][0];}
                                 echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
                 <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][1][0];}
+                                else {$img = $contents['images'][0][0];}
                                 echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
                 <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][1][0];}
+                                else {$img = $contents['images'][0][0];}
                                 echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
                 <div class="next">&gt;</div>
 			</div>
@@ -121,17 +121,17 @@
 		<table style="width=100%">
 			<tr height="15%">
 				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                        else {$img = $contents['images'][1][0];}
-                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+                        else {$img = $contents['images'][0][0];}
+                        echo PHOTO_EVENT."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
 				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                        else {$img = $contents['images'][1][0];}
-                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+                        else {$img = $contents['images'][0][0];}
+                        echo PHOTO_EVENT."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
 				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                        else {$img = $contents['images'][1][0];}
-                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+                        else {$img = $contents['images'][0][0];}
+                        echo PHOTO_EVENT."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
 				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                        else {$img = $contents['images'][1][0];}
-                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+                        else {$img = $contents['images'][0][0];}
+                        echo PHOTO_EVENT."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
 			</tr>
 			<tr>
 				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>

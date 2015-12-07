@@ -7,16 +7,16 @@
 // Appels au modèle
 require MODELES.'events/getEvents.php';
 
-
 // Chargement des paramètres de la page
-$title = "'Affichage d\'un évènement'";
+$event = getEvents($_GET['id']);
+$contents['titreEvenement'] = $event['titre'];
+$title = $event['titre'];
 $styles = ['events.css','form.css'];
 $scripts = ['alert.js','slideshow.js','slideshow_event.js'];
 $blocks = ['display'];
 
 // Affectation des valeurs spécifiques à l'event :
 // @ Guillaume & Aude : si l'event n'est pas trouvé, il faut rediriger vers getLink(['accueil','404'])
-$event = getEvents($_GET['id']);
 $type = EventType($_GET['id']);
 $contents['type']=$type[0];
 $site = Sponsor($_GET['id']);
@@ -29,7 +29,6 @@ $comment = GetComments($_GET['id']);
 $contents['comment']=$comment[0];
 $adresse = GetAdress($_GET['id']);
 $contents['adresse']=$adresse;
-$contents['titreEvenement'] = $event['titre'];
 $contents['tarif'] = $event['tarif'];
 $contents['age_min']=$event['age_min'];
 $contents['age_max']=$event['age_max'];
