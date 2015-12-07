@@ -76,28 +76,10 @@
                 <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
                                 else {$img = $contents['images'][0][0];}
                                 echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
                 <div class="next">&gt;</div>
           </div>
 		  <div>
                 <div class="previous">&lt;</div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
                 <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
                                 else {$img = $contents['images'][0][0];}
                                 echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
