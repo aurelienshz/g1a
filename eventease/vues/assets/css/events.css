@@ -2,23 +2,17 @@
 .intro_evenement {
 	display:block;
 	width:100%;
-	height: 300px;
 }
 .photo_evenement {
-	position:relative;
 	display:block;
 	float:left;
 	width:30%;
-	height:100%;
 }
-.photo_evenement img{
-	width: 415px;
+.photo_evenement img {
+    width: 100%;
     height: auto;
-	position:absolute;
-	top:50%;
-	padding: 2px;
-	border: 1px solid black;
-	transform: translate(0, -50%);
+    padding: 2px;
+    border: 1px solid black;
 }
 #useful_infos ul li {
 	list-style-type:none;

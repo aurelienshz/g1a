@@ -51,7 +51,7 @@
 						<?php echo isset($contents['errors']['date_fin'])?$contents['errors']['date_fin']:''; ?>
 					</div>
 					<div class="champ">
-						<label for="end">Heure de début <i class="fa fa-asterisk"></i> : </label>
+						<label for="end">Heure de fin <i class="fa fa-asterisk"></i> : </label>
 						<input type="time" name="end" id="end" class="time" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
 					</div>
 					<div class="champ">
