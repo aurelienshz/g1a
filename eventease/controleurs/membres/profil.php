@@ -41,6 +41,10 @@ function loadContents($details) {
         case 3:
             $contents['statut'] = 'Administrateur';
             break;
+        case 0:
+        default:
+            $contents['statut'] = 'Non validé';
+            break;
     }
 
     return True;
@@ -66,6 +70,9 @@ function monProfil() {
     $title = 'Mon profil';
 
     $details = getUserDetails($_SESSION['id']);
+    echo '<pre>';
+    var_dump($details);
+    echo '</pre>';
     loadContents($details);
 
     return True;
