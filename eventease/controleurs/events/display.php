@@ -10,6 +10,7 @@ require MODELES.'events/getEvents.php';
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
 $contents['titreEvenement'] = $event['titre'];
+
 $title = $event['titre'];
 $styles = ['events.css','form.css'];
 $scripts = ['alert.js','slideshow.js','slideshow_event.js'];

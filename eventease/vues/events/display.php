@@ -1,3 +1,4 @@
+<?php var_dump($contents['creators'][1]);?>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -107,12 +108,12 @@
 		<div class = "hosts">
 		<h2>Organisateurs</h2>
 			<ul>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php if (!$contents['creators']) {echo 'Pas d\'organisateur';} else {echo $contents['creators'][0][0];} ?></a> </li>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php if (!$contents['creators']) {echo 'Pas d\'organisateur';} else {echo $contents['creators'][1][0];} ?></a> </li>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php if (!$contents['creators']) {echo 'Pas d\'organisateur';} else {echo $contents['creators'][2][0];} ?></a> </li>
+				<li> <img src="<?php echo PHOTO_PROFIL.$contents['creators'][0][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['creators'][0][1]]); ?>"><?php if (!$contents['creators']) {echo "</a>" . 'Pas d\'organisateur';} else {echo $contents['creators'][0][0];} ?></a> </li>
+				<li> <img src="<?php echo PHOTO_PROFIL.$contents['creators'][1][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['creators'][1][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][1][0]))) {echo "</a>" . 'Pas de second organisateur';} else {echo $contents['creators'][1][0];} ?></a> </li>
+				<li> <img src="<?php echo PHOTO_PROFIL.$contents['creators'][2][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['creators'][2][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][2][0]))) {echo "</a>" . 'Pas de troisième organisateur';} else {echo $contents['creators'][2][0];} ?></a> </li>
 		</div>
 		<div class = "friends_going">
-		<h2> Vos amis qui y vont </h2>
+		<h2> Personnes qui y vont </h2>
 		<table style="width=100%">
 			<tr height="15%">
 				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
@@ -163,7 +164,7 @@
 				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
 		      <br>
           <br>
-          Chercher le message dans la base de données.
+          <?php echo $contents['comment']; ?>
 				</p>
 			</div>
 		</div>
