@@ -36,31 +36,43 @@ if(!empty($_POST)){
 	}
 	// Nom & Prénom
 	if(!preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['nom'])){
-		$errors['nom'] = 'Nom Invalide';
+		$errors['nom'] = 'Nom invalide';
 	}
 	if(!preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['prenom'])){
-		$errors['prenom'] = 'Prenom Invalide';
+		$errors['prenom'] = 'Prenom invalide';
 	}
 	//DDN
 	if (!validateDateFormat($_POST['ddn'],"Y-m-d") OR !validatePastDate($_POST['ddn'])){
-		$errors['ddn'] = 'Date non valide';
+		$errors['ddn'] = 'Date invalide';
 	}
-
-	// Vérifications
-	// 		Tel : Vérifier 10 chiffres ou mieux ?
-	//		Addresse : checkAddressegoogle
-	// 		Langue : 0 ou 1 uniquement
-	// 		Description : Chais pas
-	// if $error vide : passer la requete -> sinon refresh avec erreurs
-	//updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description)
-
-
-// Construit tableau contenant les messages d'erreurs individuels
-	if (isset($errors)){
-		foreach ($errors as $key => $value){
-			$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
-		}
+	//Tel
+	if(!preg_match("/^0\d(?:[ .-]?\d{2}){4}$/", $_POST['tel'])){
+		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
+	// Addresse : 
+	if (!googleCheckAddress($_POST['adresse'])){
+		$errors['adresse'] = 'Adresse invalide';
+	}
+	// Langue : 
+	if($_POST['langue'] !== 1){
+		$_POST['langue'] = 0;
+	}
+	//Description :
+    $forbiddenKeywords = ['con','salop','enfoiré','hitler','nazi']; // Godwin point awarded ! //
+    foreach($forbiddenKeywords as $keyword){
+    	if (strpos($_POST['description'], $keyword) != False){
+    		$errors['description'] = 'Description invalide';
+    	}
+    }
+    //Entrée BDD si pas d'erreurs :
+    if (empty($errors)){
+    	//Execute l'envoi du formulaire
+    	//updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description)
+    }else{
+	     foreach ($errors as $key => $value){
+				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
+			}
+    }
 }
 /**** préparation de la vue ****/
 
