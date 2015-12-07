@@ -32,7 +32,7 @@ function GetImages($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
   $query = $bdd->prepare('SELECT media.lien FROM evenement, media, media_evenement WHERE evenement.id= media_evenement.id_evenement AND media_evenement.id_media = media.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
-  $images = $query->fetch();
+  $images = $query->fetchALL();
 
   return $images;
 }
