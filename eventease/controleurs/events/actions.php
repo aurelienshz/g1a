@@ -8,5 +8,6 @@ $actions = [
 $parametres = [
 'display' => ['id'],
 'create' => [],
-'search' => []
+'search' => [],
+'participe'=>[] //YOUR TIME WILL COME, YOU'LL BE BACK! HARDER, BETTER, FASTER, STRONGER!
 ];
