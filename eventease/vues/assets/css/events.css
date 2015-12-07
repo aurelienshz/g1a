@@ -34,8 +34,8 @@
 .infos {
 	display:block;
 	float:left;
-	width:69%;
-	height:60%;
+	width:70%;
+	height:auto;
 	}
 #useful_infos {
 	float:left;
@@ -48,13 +48,15 @@
 	padding-right: 20%;
 }
 .buttons {
+	display:block;
 	float:left;
 	width:30%;
+	margin-left:2.5em;
 }
 .social {
-	padding-right:5%;
+	padding-right:1%;
 	float:right;
-	width:20%;
+	width:16%;
 	color:#FF3399;
 }
 .social table {
@@ -71,11 +73,13 @@
 	display:block;
 	position:relative;
 	margin-top:5px;
-	padding: 0.2em 0.8em;
+	padding: auto;
 	width:auto;
+	height:1em;
 	margin: 0px 0.2em 0.2em 0px;
 	border-radius: 10px;
-	font-size: 100%;
+	vertical-align:middle;
+	font-size: 110%;
 	text-align:center;
 	text-decoration: none;
 	color: #FAFAFA;
