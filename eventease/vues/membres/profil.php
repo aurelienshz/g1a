@@ -7,14 +7,14 @@
             <div class="photo_profil">
                 <img alt="Nom du profil" src="<?php echo $contents['photo']; ?>" title="Nom du profil" height="230" width="230"/>
             </div>
-<?php if(!connected()) { ?>
+<?php if(!$contents['monProfil']) { ?>
             <ul id="interaction_profil">
                 <li><a class="button" href="#">Inviter à un évènement</a></li>
                 <li><a class="button" href="#">Suivre</a></li>
                 <li><a class="button" href="#">Envoyer un<br /> message privé</a></li>
             </ul>
 <?php }
-    else {  // connected()
+    else {  // c'est mon profil
 ?>
             <ul id="interaction_profil">
                 <li><a class="button" href="<?php echo getLink(['membres','modification_profil'])?>">Modifier mon profil</a></li>

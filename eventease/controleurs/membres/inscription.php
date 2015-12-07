@@ -76,6 +76,7 @@ if(!connected()) {
                 else {
                     alert('error', 'Une erreur fatale s\'est produite. L\'équipe d\'EventEase a été prévenue de ce problème.');
                     header('Location:'.getLink(['accueil']));
+                    exit();
                 }
             }
             else {
