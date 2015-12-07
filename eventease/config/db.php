@@ -12,3 +12,7 @@ Merci, bisous.
 define('DSN', 'mysql:dbname=eventease;host=127.0.0.1;charset=utf8');
 define('DBUSER', "root");
 define('DBPASS', "");
+
+/*define('DSN', 'mysql:dbname=eventease;host=94.23.145.193;charset=utf8');
+define('DBUSER', "eventease");
+define('DBPASS', "349bzZbbjz6Feauq");*/

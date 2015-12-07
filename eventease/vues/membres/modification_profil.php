@@ -95,6 +95,25 @@
 					</div>
 				</div>
 				<input type="submit" value="Modifier" />
+				<div class="champ" style="width:33%">
+					<label for="types_favori_membre">Type(s) d'événement(s) favori(s) : </label>
+					<div id="checkbox">
+						<label1 for="pique_nique">Pique-Nique : </label1>
+						<input type="checkbox" name="pique_nique" id="pique_nique"/><br>
+					</div>
+					<div id="checkbox">
+						<label1 for="concert">Concert : </label1>
+						<input type="checkbox" name="concert" id="concert"/><br>
+					</div>
+					<div id="checkbox">
+						<label1 for="exposition">Exposition : </label1>
+						<input type="checkbox" name="exposition" id="exposition"/><br>
+					</div>
+					<div id="checkbox">
+						<label1 for="brocante">Brocante : </label1>
+						<input type="checkbox" name="brocante" id="brocante"/><br>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
