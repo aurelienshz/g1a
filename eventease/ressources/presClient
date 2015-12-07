@@ -13,6 +13,8 @@ BONUS   					création d'event		  en cours
 
 Général :
     - URL rewrite -bonux-
+    - 404 si module inexistant
+
 page d'accueil
     - suggestions à rendre dynamique --> Tristan
         pour l'instant : statique

@@ -26,5 +26,6 @@ $modules = [
 'events',
 'forum',
 'messages',
-'aide'
+'aide',
+'sandbox'
 ];
