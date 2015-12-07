@@ -17,7 +17,7 @@ function Slideshow(container, defilements) {
     this.defilements = defilements;
     this.currentSlide = 0;
     this.slides = [];
-    this.playing = true;
+    this.playing = false;
     this.nav = '';
 
 
