@@ -68,7 +68,7 @@
 	</div>
 </div>
 <div class="wrapper" id="searchResults">
-	<div class="sideBar">
+	<div class="sideBar" style="display: none;">
 		<div class="barItem map">
 			MAP
 		</div>
@@ -84,7 +84,7 @@
 		</div>
 	</div>
 	<div id="resultWrapper">
-		<div class="resultBox shadow">
+		<div class="resultBox shadow"style="width:inherit;">
 			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4> 
 			<div class="table">
 				<div class="imageEvent">
