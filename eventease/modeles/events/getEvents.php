@@ -32,17 +32,17 @@ function GetImages($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
   $query = $bdd->prepare('SELECT media.lien FROM evenement, media, media_evenement WHERE evenement.id= media_evenement.id_evenement AND media_evenement.id_media = media.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
-  $images = $query->fetch();
+  $images = $query->fetchALL();
 
   return $images;
 }
-function GetCreator($id) {
+function GetCreators($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
   $query = $bdd->prepare('SELECT membre.pseudo FROM evenement, membre, organise WHERE evenement.id= organise.id_evenement AND organise.id_organisateur = membre.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
-  $creator = $query->fetch();
+  $creators = $query->fetchALL();
 
-  return $creator;
+  return $creators;
 }
 function GetComments($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
@@ -51,4 +51,12 @@ function GetComments($id) {
   $comment = $query->fetch();
 
   return $comment;
+}
+function GetAdress($id) {
+  $bdd = new PDO(DSN, DBUSER, DBPASS);
+  $query = $bdd->prepare('SELECT adresse.adresse_condensee FROM evenement, adresse WHERE evenement.id_adresse = adresse.id AND evenement.id =:id');
+  $query-> execute(['id'=>$id]);
+  $adresse = $query->fetch();
+
+  return $adresse;
 }

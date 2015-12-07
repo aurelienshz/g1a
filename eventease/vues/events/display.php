@@ -2,7 +2,9 @@
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
-            <img src="<?php echo IMAGES.'picnic1.jpg'; ?>" alt="Coucou"/>
+            <img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                            else {$img = $contents['images'][0][0];}
+                            echo PHOTO_EVENTS.$img; ?>" alt="Coucou"/>
         </div>
         <div class = "title_event">
             <h1><?php echo $contents['titreEvenement']; ?></h1>
@@ -12,7 +14,7 @@
                 <ul>
                     <li> <i class="maclasse fa fa-calendar-o"></i>   <?php echo $contents['day'] . '-' . $contents['month'] . '-' . $contents['year']; ?></li>
                     <li> <i class="maclasse fa fa-clock-o"></i>     De <?php echo $contents['heure_debut']; ?> à <?php echo $contents['heure_fin']; ?> </li>
-                    <li> <i class="maclasse fa fa-map"></i>54 rue Lecourbe, 75015, Paris</li>
+                    <li> <i class="maclasse fa fa-map"></i>   <?php echo $contents['adresse'][0]; ?></li>
 			    </ul>
             </div>
 		  <div class="buttons">
@@ -65,7 +67,7 @@
                       else{echo 'De ' . $contents['age_min'] . ' à ' . $contents['age_max'] . ' ans'; } ?></li>
             <li class="fixed_details">Langue :</li>
             <li><?php echo $contents['langue']; ?></li>
-            <li class="fixed_details">Sponsors</li>
+            <li class="fixed_details">Sponsor(s)</li>
             <li><?php echo $contents['sponsor']; ?></li>
             <li class="fixed_details">Site web :</li>
             <li><a href="<?php echo $contents['site']; ?>"><?php echo $contents['site']; ?></a></li>
@@ -75,18 +77,34 @@
     <section id="photos">
 			<div>
                 <div class="previous"><td>&lt;</td></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'img.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][0][0];}
+                                echo IMAGES."$img"; ?>"/></div>
                 <div class="next">&gt;</div>
           </div>
 		  <div>
                 <div class="previous">&lt;</div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
-                <div class="image"><img src="<?php echo IMAGES.'tomorrowland.jpg'; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
+                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                                else {$img = $contents['images'][1][0];}
+                                echo IMAGES."$img"; ?>"/></div>
                 <div class="next">&gt;</div>
 			</div>
     </section>
@@ -94,8 +112,8 @@
 		<div class = "hosts">
 		<h2>Organisateurs</h2>
 			<ul>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php echo $contents['creator']; ?></a> </li>
-				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php echo $contents['creators'][0][0]; ?></a> </li>
+				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#"><?php echo $contents['creators'][1][0]; ?></a> </li>
 				<li> <img src="<?php echo IMAGES.'img.jpg'; ?>" alt="organisateur"/> <a href="#">Pseudo</a> </li>
 			</ul>
 		</div>
@@ -103,10 +121,18 @@
 		<h2> Vos amis qui y vont </h2>
 		<table style="width=100%">
 			<tr height="15%">
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
-				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
+				<td><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
+                        else {$img = $contents['images'][1][0];}
+                        echo IMAGES."$img"; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
 			</tr>
 			<tr>
 				<td><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/> <a href="#"><br>Pseudo</a></td>
