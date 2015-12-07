@@ -13,6 +13,9 @@ $title = "'Affichage d\'un évènement'";
 $styles = ['events.css','form.css'];
 $scripts = ['alert.js','slideshow.js','slideshow_event.js'];
 $blocks = ['display'];
+
+// Affectation des valeurs spécifiques à l'event :
+// @ Guillaume & Aude : si l'event n'est pas trouvé, il faut rediriger vers getLink(['accueil','404'])
 $event = getEvents($_GET['id']);
 $type = EventType($_GET['id']);
 $contents['type']=$type[0];

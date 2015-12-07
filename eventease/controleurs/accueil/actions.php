@@ -1,5 +1,6 @@
 <?php
 // controleurs/accueil/actions.php
 $actions = [
-'index'
+'index',
+'404'
 ];
