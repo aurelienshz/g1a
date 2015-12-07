@@ -1,4 +1,4 @@
-<?php var_dump($contents['participants'][6][0]);?>
+<?php  var_dump($contents['comment'][0][3]);?>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -146,17 +146,17 @@
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
-				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
+				<p><img src="<?php echo PHOTO_PROFIL.$contents['comment'][0][3]; ?>" alt="photo de profil"/> <a href="#"><?php echo $contents['comment'][0][0]; ?></a> <span>- <?php echo $contents['comment'][0][2]; ?></span>
           <br>
           <br>
-          <?php echo $contents['comment']; ?>
+          <?php echo $contents['comment'][0][1]; ?>
         </p>
 			</div>
 			<div class="comment">
-				<p><img src="<?php echo IMAGES.'img.jpg'; ?>" alt="photo de profil"/> <a href="#">Pseudo</a> <span>- Date du commentaire</span>
+				<p><img src="<?php echo PHOTO_PROFIL.$contents['comment'][1][3]; ?>" alt="photo de profil"/> <a href="#"><?php echo $contents['comment'][1][0]; ?></a> <span>- <?php echo $contents['comment'][1][2]; ?></span>
 		      <br>
           <br>
-          <?php echo $contents['comment']; ?>
+          <?php echo $contents['comment'][1][1]; ?>
 				</p>
 			</div>
 		</div>
