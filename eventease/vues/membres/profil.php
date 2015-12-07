@@ -5,7 +5,7 @@
     <div class="page_container">
         <div id="col_gauche">
             <div id="photo_profil">
-                <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>" height="230" width="230"/>
+                <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>"/>
             </div>
 
 <?php if(!$contents['monProfil']) { ?>
