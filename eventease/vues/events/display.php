@@ -1,4 +1,4 @@
-<?php  var_dump($contents['comment'][0][3]);?>
+<?php  var_dump($contents['comment'][1]);?>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -12,7 +12,7 @@
         <div class ="infos">
             <div id="useful_infos">
                 <ul>
-                    <li> <i class="maclasse fa fa-calendar-o"></i>   <?php echo $contents['day'] . '-' . $contents['month'] . '-' . $contents['year']; ?></li>
+                    <li> <i class="maclasse fa fa-calendar-o"></i>   <?php echo 'Du ' . $contents['day_begin'] . '-' . $contents['month_begin'] . '-' . $contents['year_begin'] . ' au ' . $contents['day_end'] . '-' . $contents['month_end'] . '-' . $contents['year_end'] ; ?></li>
                     <li> <i class="maclasse fa fa-clock-o"></i>     De <?php echo $contents['heure_debut']; ?> à <?php echo $contents['heure_fin']; ?> </li>
                     <li> <i class="maclasse fa fa-map"></i>   <?php echo $contents['adresse'][0]; ?></li>
 			    </ul>
@@ -138,13 +138,14 @@
           <?php echo $contents['comment'][0][1]; ?>
         </p>
 			</div>
-			<div class="comment">
+      <div class="comment">
 				<p><img src="<?php echo PHOTO_PROFIL.$contents['comment'][1][3]; ?>" alt="photo de profil"/> <a href="#"><?php echo $contents['comment'][1][0]; ?></a> <span>- <?php echo $contents['comment'][1][2]; ?></span>
 		      <br>
           <br>
           <?php echo $contents['comment'][1][1]; ?>
 				</p>
-			</div>
+			</div>}
+      else {}
 		</div>
     </div>
 
