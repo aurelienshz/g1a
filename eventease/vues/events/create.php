@@ -16,7 +16,7 @@
 					<div class="champ">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
 						<select id="type" name="type">
-							<option disabled selected>Choisissez un type</option>
+							<option disabled <?php echo $contents['values']['type']==-1?'selected':''; ?>>Choisissez un type</option>
 							<?php foreach ($contents['types'] as $key => $value) {
 								echo '<option value="'.$key.'"'.($contents['values']['type']==$key?' selected':'').'>'.$value.'</option>';
 							} ?>
@@ -109,11 +109,12 @@
 				<div class="ligne">
 					<div class="champ">
 						<label for="attachment">Ajouter une image :</label>
-						<input type="file" id="attachment" name="attachment"/>
+						<input disabled type="file" id="photo" name="photo"/>
+						<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="website">Site Web :</label>
-						<input type="url" id="website" name="website" placeholder="inactif" value="<?php echo isset($contents['values']['website'])?$contents['values']['website']:''; ?>"/>
+						<input type="url" id="website" name="website" placeholder="URL" value="<?php echo isset($contents['values']['website'])?$contents['values']['website']:''; ?>"/>
 						<?php echo isset($contents['errors']['website'])?$contents['errors']['website']:'' ?>
 					</div>
 					<div class="champ">

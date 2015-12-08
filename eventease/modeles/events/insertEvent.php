@@ -6,6 +6,10 @@ titre, debut, fin, age_min, age_max, confidentiel, sur_invitation, tarif, descri
 
 */
 function insertEvent($push) {
+	echo '<pre>';
+	var_dump($push);
+	echo '</pre>';
+	
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
 
 	require MODELES.'functions/adresse.php';
@@ -27,8 +31,8 @@ function insertEvent($push) {
     	VALUES (:titre, :debut, :fin, :age_min, :age_max, :confidentiel, :sur_invitation, :tarif, :description, :site, :langue, :id_type, :id_adresse)');
     if($insertQuery -> execute([
 				':titre' => $push['titre'],
-				':debut' => $push['date_debut'],
-				':fin' => $push['date_fin'],
+				':debut' => $push['debut'],
+				':fin' => $push['fin'],
 				':age_min' => $push['age_min'],
 				':age_max' => $push['age_max'],
 				':confidentiel' => $push['confidentiel'],

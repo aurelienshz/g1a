@@ -212,7 +212,7 @@
 .organisation {
 	margin-top: 50px;
 	width: 100%;
-	height:340px;
+	height:400px;
 	background-color: #FAFAFA;
 }
 .organisation  h3{
@@ -253,9 +253,13 @@
 	padding: 0 0 0 1em;
 	display:block;
 	width:40%;
-	height:100%;
+	height:auto;
 	float:right;
 	border:3px solid #78C0F0;
+}
+.organisation .friends_going img{
+	max-width:50%;
+	height:auto;
 }
 .organisation .friends_going table{
 	margin-top:2.5em;

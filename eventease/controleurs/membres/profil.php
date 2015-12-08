@@ -72,9 +72,9 @@ function monProfil() {
     $title = 'Mon profil';
 
     $details = getUserDetails($_SESSION['id']);
-    echo '<pre>';
+/*    echo '<pre>';
     var_dump($details);
-    echo '</pre>';
+    echo '</pre>';*/
     loadContents($details);
 
     return True;

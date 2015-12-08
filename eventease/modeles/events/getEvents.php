@@ -44,6 +44,9 @@ function GetCreators($id) {
 
   return $creators;
 }
+function GetCreatorimage($id) {
+  $bdd = new PDO(DSN, DBUSER, DBPASS);
+}
 function GetParticipants($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
   $query = $bdd->prepare('SELECT  membre.pseudo, membre.id, media.lien FROM media, evenement, membre, invitation WHERE media.id = membre.id_photo AND invitation.id_evenement=evenement.id AND invitation.id_destinataire = membre.id AND evenement.id = :id');
@@ -54,7 +57,7 @@ function GetParticipants($id) {
 }
 function GetComments($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT membre.pseudo, commentaire.message, commentaire.timestamp, media.lien FROM media, membre, commentaire, evenement WHERE media.id = membre.id_photo AND membre.id=commentaire.id_membre AND commentaire.id_evenement=evenement.id AND evenement.id = :id');
+  $query = $bdd->prepare('SELECT membre.pseudo, commentaire.message, commentaire.timestamp, media.lien , membre.id FROM media, membre, commentaire, evenement WHERE membre.id = commentaire.id_membre AND media.id = membre.id_photo AND membre.id=commentaire.id_membre AND commentaire.id_evenement=evenement.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
   $comment = $query->fetchALL();
 
