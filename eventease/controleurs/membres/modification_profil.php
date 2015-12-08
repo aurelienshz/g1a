@@ -125,7 +125,7 @@ if(!empty($_POST)){
 
     	
     }else{
-    	echo "Il y a eu une erreur.";
+    	// echo "Il y a eu une erreur.";
 	     foreach ($errors as $key => $value){
 				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
 			}
