@@ -4,7 +4,7 @@
 // Mets tout à jour pour le moment, à rendre sélectif dans le futur.
 function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description) {
 	$extraID = getUserDetails($id);
-	$output = googleAddressToCoord(googleCorrectAddress($adresse));
+	$output = googleAddressToCoord($adresse);
 
 	
 	$bdd = new PDO(DSN, DBUSER, DBPASS);

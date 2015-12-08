@@ -51,12 +51,12 @@ if(!empty($_POST)){
 		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
 	// Adresse : 
-/*	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
+	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
-	}*/
+	}
 	// Langue : 
-	if(!empty($_POST['langue']) AND $_POST['langue'] !== 1){
-		$_POST['langue'] = 0;
+	if(!empty($_POST['langue']) AND $_POST['langue'] !== 0){
+		$_POST['langue'] = 1;
 	}
 	//Description :
 	if(!empty($_POST['description'])){
