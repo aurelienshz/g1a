@@ -57,7 +57,7 @@
 						<input type="text" name="tel" id="tel" value="<?php echo htmlspecialchars($contents["tel"]);?>"/>
 						<?php echo isset($contents['errors']['tel'])?$contents['errors']['tel']:'' ?>
 					</div>
-					<div class="champ">
+					<div class="champ" style="opacity:0.80;">
 						<label for="adresse">Adresse : </label>
 						<input class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
 						<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'' ?>
@@ -83,7 +83,7 @@
 					</div>
 				</div>
 				<div class="ligne" style="justify-content: flex-start;">
-					<div class="champ">
+					<div class="champ"  style="opacity:0.80";>
 						<div class="photo_profil">
 							<label>Photo :</label>
                 			<img alt="Photo de Profil" src="<?php echo htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]);?>" title="Photo de Profil" height="150" width="150"/> 

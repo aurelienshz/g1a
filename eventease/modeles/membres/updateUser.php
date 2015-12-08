@@ -2,9 +2,12 @@
 /* modeles/membres/updateUser.php*/
 // Attention à bien passer l'ID de l'utilisateur
 // Mets tout à jour pour le moment, à rendre sélectif dans le futur.
-function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description) {
-	$extraID = getUserDetails($id);
+function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description,$id_adresse,$id_photo) {
 	$output = googleAddressToCoord($adresse);
+	if($output = False){
+		$output[0] = 0.0;
+		$output[1] = 0.0;
+	}
 
 	
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
@@ -38,8 +41,8 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
         ':adresse'=>$adresse,
         ':lat'=>$output[0],
         ':lng'=>$output[1],
-        ':id_adresse'=>$extraID['id_adresse'],
+        ':id_adresse'=>$id_adresse,
         ':photo'=>$photo,
-        ':id_photo'=>$extraID['id_photo']
+        ':id_photo'=>$id_photo
         ]);
 }

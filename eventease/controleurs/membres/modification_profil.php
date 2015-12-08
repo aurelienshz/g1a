@@ -51,9 +51,9 @@ if(!empty($_POST)){
 		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
 	// Adresse : 
-	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
+/*	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
-	}
+	}*/
 	// Langue : 
 	if(!empty($_POST['langue']) AND $_POST['langue'] !== 0){
 		$_POST['langue'] = 1;
@@ -121,7 +121,7 @@ if(!empty($_POST)){
     	}
     	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
     	//Execute l'envoi du formulaire
-    	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $photo, $_POST['description']);
+    	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $photo, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
 
     	
     }else{
