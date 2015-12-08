@@ -92,7 +92,7 @@ if(!empty($_POST)){
 		$photo .= md5(uniqid(rand(), true));
 		$photo .= ".";
 		$photo .= $uploadedExtension;
-		echo 'NOM PHOTO : '.$photo;
+/*		echo 'NOM PHOTO : '.$photo;*/
 		
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
@@ -131,19 +131,6 @@ if(!empty($_POST)){
 			}
     }
 }
-
-?><pre><?php
-echo "POST<br />";
-var_dump($_POST);
-echo "SESSION<br />";
-var_dump($_SESSION);
-echo "FILES<br />";
-var_dump($_FILES);
-echo "contents<br />";
-var_dump($contents);
-echo "errors<br />";
-var_dump($errors);
-?></pre><?php
 /**** préparation de la vue ****/
 
 $title = 'Modifier mon profil';
