@@ -153,8 +153,9 @@
 #photos {
 	clear:both;
 	margin-top:2em;
-	height:300px;
-	background-color: #FBFBFB;
+	display:block;
+	width: 100%;
+	height:auto;
 }
 #photos > div {
 	height: 100%;
@@ -187,6 +188,17 @@
     color: #287DFF;
 }
 #photos .image {
+<<<<<<< HEAD
+	display:table-cell;
+	width:20%;
+	height:auto;
+	margin-top:1em;
+}
+#photos .image img{
+	width:50%;
+	height:auto;
+	margin:auto;
+=======
 	display: table-cell;
 	height: 100%;
 	width: 90%;
@@ -195,6 +207,7 @@
 #photos .image img {
 	height: 300px;
 
+>>>>>>> 73a8c9144757c86493113b282a32334588697799
 }
 .organisation {
 	margin-top: 50px;
