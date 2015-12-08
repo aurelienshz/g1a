@@ -44,8 +44,8 @@ function insertEvent($push) {
 				':id_type' => $id_type,
 				':id_adresse' => $adresse_id])) {
 			$eventId = $bdd -> lastInsertId();
+			var_dump($insertQuery -> errorInfo());
 			return $eventId;
-				var_dump($insertQuery -> errorInfo());
 		}
 		else {
 			return False;
