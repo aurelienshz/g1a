@@ -280,9 +280,12 @@
 }
 .calendar table caption .previous-month {
     float: left;
+    text-decoration: none;
+    color: #303030;
 }
 .calendar table caption .next-month {
     float: right;
+    text-decoration: none;
 }
 
 .calendar table tr {

@@ -54,7 +54,7 @@ if(connected()) {
 
 			// Type dans le bon intervalle :
 			if(isset($_POST['type'])) {
-				if(intval($_POST['type']) <= 0 OR intval($_POST['type'] <12 )) {
+				if(intval($_POST['type']) <= 0 OR intval($_POST['type'] > 12 )) {
 					$errors['type'] = 'Type invalide';
 				}
 				else {
