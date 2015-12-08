@@ -60,9 +60,13 @@ list($contents['year_end'], $contents['month_end'], $contents['day_end'])=explod
 $contents['heure_debut'] = date('H:i:s',strtotime($event['debut']));
 $contents['heure_fin'] = date('H:i:s',strtotime($event['fin']));
 /**** Affichage de la page ****/
-if(isset($_GET['id'])) {}
-else {alert('error','La page demandée n\'a pas été trouvée. Vous avez été redirigé vers l\'accueil.');
-header('Location: '.getLink(['accueil']));
-exit();}
+if(isset($_GET['id'])) {
+    // test sur la valeur
+}
+else {
+    // alert('error','La page demandée n\'a pas été trouvée. Vous avez été redirigé vers l\'accueil.');
+    header('Location: '.getLink(['accueil','404']));
+    exit();
+}
 //Appels des vues :
 vue($blocks, $styles, $title, $contents, $scripts );

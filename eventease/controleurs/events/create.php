@@ -39,7 +39,6 @@ if(connected()) {
 				$errors[$field] = 'Ce champ est requis';
 			}
 		}
-		var_dump($errors);
 		if(empty($errors)) {	// Si aucune erreur n'a été générée par la vérif des champs vides
 
 			//titre, debut, fin, journee_entiere, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse

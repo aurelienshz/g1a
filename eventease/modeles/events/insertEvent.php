@@ -9,7 +9,7 @@ function insertEvent($push) {
 	echo '<pre>';
 	var_dump($push);
 	echo '</pre>';
-	
+
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
 
 	require MODELES.'functions/adresse.php';
@@ -45,6 +45,7 @@ function insertEvent($push) {
 				':id_adresse' => $adresse_id])) {
 			$eventId = $bdd -> lastInsertId();
 			return $eventId;
+				var_dump($insertQuery -> errorInfo());
 		}
 		else {
 			return False;
