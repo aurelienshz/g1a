@@ -33,8 +33,8 @@ function insertEvent($push) {
 				':titre' => $push['titre'],
 				':debut' => $push['debut'],
 				':fin' => $push['fin'],
-				':age_min' => $push['age_min'],
-				':age_max' => $push['age_max'],
+				':age_min' => 0,
+				':age_max' => 0,
 				':confidentiel' => $push['confidentiel'],
 				':sur_invitation' => $push['sur_invitation'],
 				':tarif' => $push['price'],
@@ -47,7 +47,7 @@ function insertEvent($push) {
 			return $eventId;
 		}
 		else {
-			var_dump($insertQuery -> errorInfo());
+			// var_dump($insertQuery -> errorInfo());
 			return False;
 		}
 
