@@ -57,9 +57,9 @@
 						<input type="text" name="tel" id="tel" value="<?php echo htmlspecialchars($contents["tel"]);?>"/>
 						<?php echo isset($contents['errors']['tel'])?$contents['errors']['tel']:'' ?>
 					</div>
-					<div class="champ">
+					<div class="champ" style="opacity:0.80;">
 						<label for="adresse">Adresse : </label>
-						<input disabled class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
+						<input class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
 						<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'' ?>
 					</div>
 					<div class="champ">
@@ -88,7 +88,7 @@
 							<label>Photo :</label>
                 			<img alt="Photo de Profil" src="<?php echo htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]);?>" title="Photo de Profil" height="150" width="150"/> 
 							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 4Mo)
-							<input disabled type="file" id="photo" name="photo"/>
+							<input type="file" id="photo" name="photo"/>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>	
 					</div>
