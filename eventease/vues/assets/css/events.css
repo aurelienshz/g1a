@@ -188,27 +188,18 @@
     color: #287DFF;
 }
 #photos .image {
-<<<<<<< HEAD
 	display:table-cell;
-	width:20%;
 	height:auto;
 	margin-top:1em;
 }
 #photos .image img{
-	width:50%;
-	height:auto;
+	height: 300px;
+	width:auto;
 	margin:auto;
-=======
 	display: table-cell;
-	height: 100%;
-	width: 90%;
 	text-align: center;
 }
-#photos .image img {
-	height: 300px;
 
->>>>>>> 73a8c9144757c86493113b282a32334588697799
-}
 .organisation {
 	margin-top: 50px;
 	width: 100%;

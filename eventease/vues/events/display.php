@@ -83,7 +83,6 @@
                 <div class="previous">&lt;</div>
                 <div class="image"><img src="<?php if (!array_key_exists(2,$contents['images'])) {echo '' ;} else {echo PHOTO_EVENT.$contents['images'][2][0];}?>"/></div>
                 <div class="next">&gt;</div>
-                <div class="next">&gt;</div>
             </div>
 		</div>
     </section>
