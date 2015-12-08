@@ -117,7 +117,6 @@
 		<h2> Commentaires </h2>
 		<div class="add_comment">
             <form>
-				<img src="<?php echo IMAGES.'img.jpg'; ?>" alt="Ami"/><br><br>
                 <label>Ajouter un commentaire</label>
                 <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
     			<div class="add_media">
