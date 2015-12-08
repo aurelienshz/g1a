@@ -8,6 +8,7 @@ require MODELES.'membres/updateUser.php';
 require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
 
+
 if(connected()) {
     $user = getUserDetails($_SESSION['id']);
     if(!$user) {
@@ -31,7 +32,7 @@ $contents = $user;
 // ===== VERIFIE ET INSERE LES DONNES =====
 if(!empty($_POST)){
 	//Civilité
-	if($_POST['civilite'] !== 0){
+	if(!empty($_POST['civilite']) AND $_POST['civilite'] !== 0){
 		$_POST['civilite'] = 1;
 	}
 	// Nom & Prénom
@@ -50,11 +51,11 @@ if(!empty($_POST)){
 		$errors['tel'] = 'Numéro de téléphone invalide';
 	}
 	// Adresse : 
-	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
+/*	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
-	}
+	}*/
 	// Langue : 
-	if($_POST['langue'] !== 1){
+	if(!empty($_POST['langue']) AND $_POST['langue'] !== 1){
 		$_POST['langue'] = 0;
 	}
 	//Description :
@@ -71,31 +72,60 @@ if(!empty($_POST)){
 	if(!empty($_FILES)){
 		$errors['photo']="";
 		// Gérer si erreur d'envoi
-		if ($_FILES["photo"]['error'] > 0 OR $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
+		if ($_FILES["photo"]['error'] > 0 AND $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
 		// Poids Maxi
 		$maxsize = 4194304;
 		if ($_FILES["photo"]['size'] > $maxsize) $errors['photo'].="Le fichier est trop gros. ";
 		// Dimensions Maxi - plus tard.
 
 		// extensions Valides
-		$validExtensions = array('jpg', 'jpeg', 'png');
+		$validExtensions = array('.jpg', '.jpeg', '.png');
 		$uploadedExtension = strtolower( substr( strrchr($_FILES["photo"]['name'], '.') ,1) );
 		if (in_array($uploadedExtension, $validExtensions) ) $errors['photo'].="L'extension est invalide. ";
 
 		if($errors['photo'] == ""){
-			$errors['photo'] = NULL;	
+			unset($errors['photo']);	
 		}
 		//Variable pour la BDD
-		$photo = "{$_SESSION['id']}.{$uploadedExtension}";
+		$photo  = $_SESSION['username'];
+		$photo .= "-";
+		$photo .= md5(uniqid(rand(), true));
+		$photo .= ".";
+		$photo .= $uploadedExtension;
 		echo 'NOM PHOTO : '.$photo;
 		
 	}
+	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
+	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
+	foreach($_POST as $cle => $valeur){
+		if(!in_array($cle, $champsAttendus)){
+			unset($_POST[$cle]);
+		}elseif (!isset($_POST[$cle])) {
+			$_POST[$cle]="";
+		}
+	}
+	// DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
+
+	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire et uniquement les champs corrects.
+    foreach($_POST as $cle => $valeur){
+		if($valeur != $contents[$cle] AND !isset($errors[$cle]) ){
+			$contents[$cle]=$valeur;
+		}
+	}
     //Entrée BDD si pas d'erreurs :
     if (empty($errors)){
+    	foreach($_POST as $cle => $valeur){
+    		if($valeur == ""){
+    			$_POST[$cle]=$contents[$cle];
+    		}
+    	}
+    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
     	//Execute l'envoi du formulaire
     	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $photo, $_POST['description']);
-    	if($_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
+
+    	
     }else{
+    	echo "Il y a eu une erreur.";
 	     foreach ($errors as $key => $value){
 				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
 			}
@@ -105,8 +135,8 @@ if(!empty($_POST)){
 ?><pre><?php
 echo "POST<br />";
 var_dump($_POST);
-/*echo "SESSION<br />";
-var_dump($_SESSION);*/
+echo "SESSION<br />";
+var_dump($_SESSION);
 echo "FILES<br />";
 var_dump($_FILES);
 echo "contents<br />";
@@ -119,8 +149,9 @@ var_dump($errors);
 $title = 'Modifier mon profil';
 $styles = ['form.css','accueil.css','search.css','modify.css'];
 $blocks = ['modification_profil'];
+$scripts = ['googleAutocompleteAddress.js'];
 
 /****Affichage de la page *****/
 //Appel de la vue :
-vue($blocks, $styles, $title, $contents);
+vue($blocks, $styles, $title, $contents,$scripts);
 ?>

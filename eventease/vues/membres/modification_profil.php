@@ -25,7 +25,7 @@
 						{
 						    if($value == $contents['civilite'])
 						    {
-						         echo "<option selected='selected' value='".$value."'>".$name."</option>";
+						         echo "<option value='".$value."' selected>".$name."</option>";
 						    }
 						    else
 						    {
@@ -59,7 +59,7 @@
 					</div>
 					<div class="champ">
 						<label for="adresse">Adresse : </label>
-						<input type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
+						<input class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
 						<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'' ?>
 					</div>
 					<div class="champ">
@@ -71,7 +71,7 @@
 								{
 								    if($value == $contents['langue'])
 								    {
-								         echo "<option selected='selected' value='".$value."'>".$name."</option>";
+								         echo "<option value='".$value."' selected>".$name."</option>";
 								    }
 								    else
 								    {
@@ -89,7 +89,6 @@
                 			<img alt="Photo de Profil" src="<?php echo htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]);?>" title="Photo de Profil" height="150" width="150"/> 
 							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 4Mo)
 							<input type="file" id="photo" name="photo"/>
-							<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>	
 					</div>
