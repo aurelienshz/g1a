@@ -1,4 +1,4 @@
-<?php  /* var_dump($contents['creators'][1]); */?>
+<?php  /* var_dump($contents['creators']); */?>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -51,7 +51,7 @@
             <li class="fixed_details">Type</li>
             <li><?php echo $contents['type']; ?> </li>
             <li class="fixed_details">Prix</li>
-            <li> <?php echo $contents['tarif']; ?> €</li>
+            <li> <?php if (is_null($contents['tarif'])) {echo 'Non renseigné';} else {echo $contents['tarif'] . ' €';} ?> </li>
             <li class="fixed_details">Visibilité</li>
             <li><?php echo $contents['visibilite']; ?></li>
             <li class="fixed_details">Type de public</li>
@@ -70,22 +70,19 @@
           </ul>
 				</div>
     </div>
-    <section id="photos">
+    <section id="photos" <?php if (!array_key_exists(1, $contents['images']) && !array_key_exists(2, $contents['images'])) {echo 'style=display:none';} ?>>
 			<div>
                 <div class="slideshow-container">
                     <div class="previous"><td>&lt;</td></div>
-                    <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                    else {$img = $contents['images'][0][0];}
-                                    echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
+                    <div class="image"><img src="<?php if (!array_key_exists(1,$contents['images'])) {echo '' ;} else {echo PHOTO_EVENT.$contents['images'][1][0];}?>"/></div>
                     <div class="next">&gt;</div>
                 </div>
           </div>
 		  <div>
             <div class="slideshow-container">
                 <div class="previous">&lt;</div>
-                <div class="image"><img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                                else {$img = $contents['images'][0][0];}
-                                echo PHOTO_EVENT.$img; ?>" alt="Coucou"/></div>
+                <div class="image"><img src="<?php if (!array_key_exists(2,$contents['images'])) {echo '' ;} else {echo PHOTO_EVENT.$contents['images'][2][0];}?>"/></div>
+                <div class="next">&gt;</div>
                 <div class="next">&gt;</div>
             </div>
 		</div>
@@ -94,24 +91,24 @@
 		<div class = "hosts">
 		<h2>Organisateurs</h2>
 			<ul>
-				<li> <img src="<?php if (isset($contents['creators'][0][2])) {echo  PHOTO_PROFIL.$contents['creators'][0][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][0][1]]); ?>"><?php if (!$contents['creators']) {echo "</a>" . 'Pas d\'organisateur';} else {echo $contents['creators'][0][0];} ?></a> </li>
-				<li> <img src="<?php if (isset($contents['creators'][1][2])) {echo  PHOTO_PROFIL.$contents['creators'][1][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][1][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][1][0]))) {echo "</a>" . '';} else {echo $contents['creators'][1][0];} ?></a> </li>
-				<li> <img src="<?php if (isset($contents['creators'][2][2])) {echo  PHOTO_PROFIL.$contents['creators'][2][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][2][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][2][0]))) {echo "</a>" . '';} else {echo $contents['creators'][2][0];} ?></a> </li>
+				<li> <img src="<?php if (array_key_exists(0, $contents['creators'])) {echo  PHOTO_PROFIL.$contents['creators'][0][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][0][1]]); ?>"><?php if (!array_key_exists(0, $contents['creators'])) {echo "</a>" . 'Pas d\'organisateur';} else {echo $contents['creators'][0][0];} ?></a> </li>
+				<li> <img src="<?php if (array_key_exists(1, $contents['creators'])) {echo  PHOTO_PROFIL.$contents['creators'][1][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][1][1]]); ?>"><?php if (!array_key_exists(1, $contents['creators'])) {echo "</a>" . '';} else {echo $contents['creators'][1][0];} ?></a> </li>
+				<li> <img src="<?php if (array_key_exists(2, $contents['creators'])) {echo  PHOTO_PROFIL.$contents['creators'][2][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][2][1]]); ?>"><?php if (!array_key_exists(2, $contents['creators'])) {echo "</a>" . '';} else {echo $contents['creators'][2][0];} ?></a> </li>
 		</div>
 		<div class = "friends_going">
 		<h2> Personnes qui y vont </h2>
 		<table style="width=100%">
 			<tr height="15%">
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php if (array_key_exists(0, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][0][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"/><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php if (array_key_exists(1, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][1][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][1][1]]); ?>"/><br><?php if (array_key_exists(1, $contents['participants'])) {echo $contents['participants'][1][0];} else {echo "</a>" . '';} ?></a></td>
+				<td><img src="<?php if (array_key_exists(2, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][2][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][2][1]]); ?>"/><br><?php if (array_key_exists(2, $contents['participants'])) {echo $contents['participants'][2][0];} else {echo "</a>" . '';} ?></a></td>
+				<td><img src="<?php if (array_key_exists(3, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][3][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][3][1]]); ?>"/><br><?php if (array_key_exists(3, $contents['participants'])) {echo $contents['participants'][3][0];} else {echo "</a>" . '';}?></a></td>
 			</tr>
 			<tr>
-        <td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+        <td><img src="<?php if (array_key_exists(4, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][4][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][4][1]]); ?>"/><br><?php if (array_key_exists(4, $contents['participants']))  {echo $contents['participants'][4][0];} else {echo "</a>" . '';} ?></a></td>
+				<td><img src="<?php if (array_key_exists(5, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][5][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][5][1]]); ?>"/><br><?php if (array_key_exists(5, $contents['participants']))  {echo $contents['participants'][5][0];} else {echo "</a>" . '';} ?></a></td>
+				<td><img src="<?php if (array_key_exists(6, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][6][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][6][1]]); ?>"/><br><?php if (array_key_exists(6, $contents['participants']))  {echo $contents['participants'][6][0];} else {echo "</a>" . '';} ?></a></td>
+				<td><img src="<?php if (array_key_exists(7, $contents['participants'])) {echo  PHOTO_PROFIL.$contents['participants'][7][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['participants'][7][1]]); ?>"/><br><?php if (array_key_exists(7, $contents['participants']))  {echo $contents['participants'][7][0];} else {echo "</a>" . '';} ?></a></td>
 			</tr>
 		</table>
 		</div>
@@ -132,18 +129,18 @@
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
-				<p><img src="<?php echo PHOTO_PROFIL.$contents['comment'][0][3]; ?>" alt="photo de profil"/> <a href="#"><?php echo $contents['comment'][0][0]; ?></a> <span>- <?php echo $contents['comment'][0][2]; ?></span>
+				<p><img src="<?php if (array_key_exists(0, $contents['comment'])) {echo  PHOTO_PROFIL.$contents['comment'][0][3];} else {echo ' ';} ?>"/> <a href="<?php echo getLink(['membres','profil',$contents['comment'][0][4]]); ?>"><?php if (array_key_exists(0, $contents['comment'])) {echo $contents['comment'][0][0];} else {echo '';} ?></a> <span><?php if (array_key_exists(0, $contents['comment'])) {echo '- ' . $contents['comment'][0][2];} else {echo '';} ?></span>
           <br>
           <br>
-          <?php echo $contents['comment'][0][1]; ?>
+          <?php if (array_key_exists(0, $contents['comment'])) {echo $contents['comment'][0][1];} else {echo '';} ?>
         </p>
 			</div>
       <div class="comment">
-				<p><img src="<?php echo PHOTO_PROFIL.$contents['comment'][1][3]; ?>" alt="photo de profil"/> <a href="#"><?php echo $contents['comment'][1][0]; ?></a> <span>- <?php echo $contents['comment'][1][2]; ?></span>
-		      <br>
+        <p><img src="<?php if (array_key_exists(1, $contents['comment'])) {echo  PHOTO_PROFIL.$contents['comment'][1][3];} else {echo ' ';} ?>"/> <a href="<?php echo getLink(['membres','profil',$contents['comment'][1][4]]); ?>"><?php if (array_key_exists(1, $contents['comment'])) {echo $contents['comment'][1][0];} else {echo '';} ?></a> <span><?php if (array_key_exists(1, $contents['comment'])) {echo '- ' . $contents['comment'][1][2];} else {echo '';} ?></span>
           <br>
-          <?php echo $contents['comment'][1][1]; ?>
-				</p>
+          <br>
+          <?php if (array_key_exists(1, $contents['comment'])) {echo $contents['comment'][1][1];} else {echo '';} ?>
+        </p>
 			</div>
 		</div>
     </div>
