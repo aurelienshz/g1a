@@ -61,8 +61,8 @@ header ul li a:hover {
     color: #287DFF;
 }
 header #pseudo {
-    text-transform: none    ;
-    color: green;
+    text-transform: none;
+    color: #287DFF;
 }
 #raccourcis li {
     float: left;

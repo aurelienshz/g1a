@@ -36,5 +36,5 @@ fonctionnalités CdC lors de la soutenance : ce qui a été intégré = bonus po
 
 
 Idée Aurélien :
-Mes évènements --> fil d'actualité ? ~~ dashboard
-places max : plusieurs events *sur EE* qui correspondent à la même chose en réalité ??
+- Mes évènements --> fil d'actualité ? ~~ dashboard
+- places max : plusieurs events *sur EE* qui correspondent à la même chose en réalité ??
