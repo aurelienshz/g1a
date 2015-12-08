@@ -14,9 +14,9 @@ $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($_POST);
+// echo '</pre>';
 
 if(connected()) {
 	if (empty($_POST)) {
@@ -54,7 +54,7 @@ if(connected()) {
 
 			// Type dans le bon intervalle :
 			if(isset($_POST['type'])) {
-				if(intval($_POST['type']) <= 0 OR intval($_POST['type'] <12 )) {
+				if(intval($_POST['type']) <= 0 OR intval($_POST['type'] > 12 )) {
 					$errors['type'] = 'Type invalide';
 				}
 				else {
