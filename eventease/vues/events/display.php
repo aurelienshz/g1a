@@ -1,4 +1,4 @@
-<?php  var_dump($contents['comment'][1]);?>
+<?php  /* var_dump($contents['creators'][1]); */?>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -94,24 +94,24 @@
 		<div class = "hosts">
 		<h2>Organisateurs</h2>
 			<ul>
-				<li> <img src="<?php echo PHOTO_PROFIL.$contents['creators'][0][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['creators'][0][1]]); ?>"><?php if (!$contents['creators']) {echo "</a>" . 'Pas d\'organisateur';} else {echo $contents['creators'][0][0];} ?></a> </li>
-				<li> <img src="<?php echo PHOTO_PROFIL.$contents['creators'][1][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['creators'][1][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][1][0]))) {echo "</a>" . 'Pas de second organisateur';} else {echo $contents['creators'][1][0];} ?></a> </li>
-				<li> <img src="<?php echo PHOTO_PROFIL.$contents['creators'][2][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['creators'][2][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][2][0]))) {echo "</a>" . 'Pas de troisième organisateur';} else {echo $contents['creators'][2][0];} ?></a> </li>
+				<li> <img src="<?php if (isset($contents['creators'][0][2])) {echo  PHOTO_PROFIL.$contents['creators'][0][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][0][1]]); ?>"><?php if (!$contents['creators']) {echo "</a>" . 'Pas d\'organisateur';} else {echo $contents['creators'][0][0];} ?></a> </li>
+				<li> <img src="<?php if (isset($contents['creators'][1][2])) {echo  PHOTO_PROFIL.$contents['creators'][1][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][1][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][1][0]))) {echo "</a>" . '';} else {echo $contents['creators'][1][0];} ?></a> </li>
+				<li> <img src="<?php if (isset($contents['creators'][2][2])) {echo  PHOTO_PROFIL.$contents['creators'][2][2];} else {echo ' ';} ?>" /> <a href="<?php echo getLink(['membres','profil',$contents['creators'][2][1]]); ?>"><?php if ((!$contents['creators']) || (!isset($contents['creators'][2][0]))) {echo "</a>" . '';} else {echo $contents['creators'][2][0];} ?></a> </li>
 		</div>
 		<div class = "friends_going">
 		<h2> Personnes qui y vont </h2>
 		<table style="width=100%">
 			<tr height="15%">
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['participants']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
 			</tr>
 			<tr>
-        <td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
-				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="organisateur"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php echo $contents['participants'][0][0]; ?></a></td>
+        <td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
+				<td><img src="<?php echo PHOTO_PROFIL.$contents['participants'][0][2]; ?>" alt="participant"/> <a href="<?php echo getLink(['membres','profil',$contents['participants'][0][1]]); ?>"><br><?php if (!$contents['creators']) {echo "</a>" . 'Pas de participant';} else {echo $contents['participants'][0][0];} ?></a></td>
 			</tr>
 		</table>
 		</div>
@@ -144,8 +144,7 @@
           <br>
           <?php echo $contents['comment'][1][1]; ?>
 				</p>
-			</div>}
-      else {}
+			</div>
 		</div>
     </div>
 
