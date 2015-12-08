@@ -21,12 +21,6 @@
     width: 230px;
     height: 230px ;
 }
-#pseudo_profil {
-	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 1cm;
-	line-height: 1.43;
-	color: #287DFF;
-}
 #interaction_profil {
     padding: 0;
 }
@@ -39,19 +33,32 @@
 h2 {
     border: 0;
 }
+#pseudo_profil {
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 1.2cm;
+	line-height: 1.43;
+	color: #287DFF;
+        text-align: center;
+}
 #statut {
     border: 1px solid #303030;
     background-color: #287DFF;
     color: #FAFAFA;
     font-weight: bold;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     border-radius: 1em;
-    padding: 0.1em 1em;
-    font-size: 0.8em;
-    float: right;
+    padding: 2px 1em;
+    margin: 10px auto;
+    font-size: 15px;
+    text-align: center;
+    width: 2cm;
+    line-height: 1.6;
 }
 #description p {
     border: 1px solid #565A5C; /* couleur : gris semi-clair */
     padding: 20px;
+    height: 3cm;
+    overflow: auto;
 }
 #general {
     background-color: #FAFAFA;
