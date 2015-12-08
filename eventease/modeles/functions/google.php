@@ -33,7 +33,7 @@ function googleCorrectAddress($address) {
 	$address = preg_replace('/ /','+',$address);
 	$url = "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA";
 	$result = curlGoogleDecodeJson($url);
-	if(!empty($coord -> results)) {
+	if(!empty($result -> results)) {
 		return $result -> results[0] -> formatted_address;
 	}
 	else {
@@ -41,7 +41,7 @@ function googleCorrectAddress($address) {
 	}
 }
 
-function googleCheckAddress($address){
+function googleCheckAddress($address) {
 	if($test = googleAddressToCoord($address)) {
 		if(is_float($test[0]) AND is_float($test[1]) ){
 			return True;
