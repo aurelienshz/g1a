@@ -34,8 +34,8 @@
               </a>
             </div>
             <div class="eventDetails">
-                <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
-                <h5><?php echo $contents['titreSuggestion']; ?> 1</h5>
+                <div id="typeSuggestion">Une idée...</div>
+                <h5><?php echo $contents['titreSuggestion']; ?></h5>
                 <div id="infosPratiques">
                     <p></p>
                     <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
@@ -56,16 +56,16 @@
               </a>
             </div>
             <div class="eventDetails">
-                <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
-                <h5><?php echo $contents['titreSuggestion']; ?> 2</h5>
+                <div id="typeSuggestion">Près de vous...</div>
+                <h5>Afterwork ISEP</h5>
                 <div id="infosPratiques">
                     <p></p>
-                    <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
-                    <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
-                    <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
+                    <span class="fa fa-calendar"></span><p>Jeudi 10 décembre</p>
+                    <span class="fa fa-tag"></span><p>Soirée</p>
+                    <span class="fa fa-map-marker"></span><p>Issy-les-Moulineaux</p>
                 </div>
                 <p id="eventDescription">
-                    Description des familles.
+                    Description...
                 </p>
             </div>
             <div class="next">&gt;</div>
@@ -78,13 +78,13 @@
               </a>
             </div>
             <div class="eventDetails">
-                <div id="typeSuggestion"><?php echo $contents['natureSuggestion'];?></div>
+                <div id="typeSuggestion">Bientôt...</div>
                 <h5><?php echo $contents['titreSuggestion']; ?> 3</h5>
                 <div id="infosPratiques">
                     <p></p>
-                    <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
-                    <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
-                    <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
+                    <span class="fa fa-calendar"></span><p>Demain</p>
+                    <span class="fa fa-tag"></span><p>Pique-Nique</p>
+                    <span class="fa fa-map-marker"></span><p>Paris</p>
                 </div>
                 <p id="eventDescription">
                     Ipsum Lorem
