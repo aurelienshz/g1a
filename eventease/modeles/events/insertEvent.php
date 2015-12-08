@@ -47,7 +47,7 @@ function insertEvent($push) {
 			return $eventId;
 		}
 		else {
-			// var_dump($insertQuery -> errorInfo());
+			var_dump($insertQuery -> errorInfo());
 			return False;
 		}
 
