@@ -4,9 +4,10 @@
 
 // ===== RECUPERE LES VALEURS DEJA PRESENTES DE L'UTILISATEUR =====
 require MODELES.'membres/getUserDetails.php';
-require MODELES.'membres/updateUser.php';
-require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
+require MODELES.'functions/date.php';
+require MODELES.'membres/updateUser.php';
+
 
 
 if(connected()) {
@@ -108,7 +109,7 @@ if(!empty($_POST)){
 
 	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire et uniquement les champs corrects.
     foreach($_POST as $cle => $valeur){
-		if($valeur != $contents[$cle] AND !isset($errors[$cle]) ){
+		 if($valeur != $contents[$cle]){
 			$contents[$cle]=$valeur;
 		}
 	}
