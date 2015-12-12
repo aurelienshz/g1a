@@ -38,39 +38,39 @@ if(!empty($_POST)){
 	}
 	// Nom & Prénom
 	if(!empty($_POST['nom']) AND !preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['nom'])){
-		$errors['nom'] = 'Nom invalide';
+		$errors['nom'] = 'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
 	}
 	if(!empty($_POST['prenom']) AND !preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['prenom'])){
-		$errors['prenom'] = 'Prenom invalide';
+		$errors['prenom'] = 'Prenom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
 	}
 	//DDN
 	if (!empty($_POST['ddn']) AND (!validateDateFormat($_POST['ddn'],"Y-m-d") OR !validatePastDate($_POST['ddn']))){
-		$errors['ddn'] = 'Date invalide';
+		$errors['ddn'] = 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
 	}
 	//Tel
-	if(!empty($_POST['tel']) AND !preg_match("/^0\d(?:[ .-]?\d{2}){4}$/", $_POST['tel'])){
-		$errors['tel'] = 'Numéro de téléphone invalide';
+	if(!empty($_POST['tel']) AND !preg_match("/^0\d{9}$/", $_POST['tel'])){
+		$errors['tel'] = 'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.';
 	}
 	// Adresse : 
-/*	if (!empty($_POST['adresse']) AND googleCheckAddress($_POST['adresse'])){
+	if (!empty($_POST['adresse']) AND !googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
-	}*/
+	}
 	// Langue : 
 	if(!empty($_POST['langue']) AND $_POST['langue'] !== 0){
 		$_POST['langue'] = 1;
 	}
 	//Description :
 	if(!empty($_POST['description'])){
-	    $forbiddenKeywords = ['con','salop','enfoiré','hitler','nazi'];
+	    $forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
 	    foreach($forbiddenKeywords as $keyword){
 	    	if (strpos($_POST['description'], $keyword) > 0){
-	    		$errors['description'] = 'Description invalide';
+	    		$errors['description'] = 'Description invalide, il contient des mots interdits.';
 	    	}
 	    	break;
 	    }
 	}
 	//Photo de Profil
-	if(!empty($_FILES)){
+	if(!empty($_FILES['name'])){
 		$errors['photo']="";
 		// Gérer si erreur d'envoi
 		if ($_FILES["photo"]['error'] > 0 AND $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
@@ -93,8 +93,10 @@ if(!empty($_POST)){
 		$photo .= md5(uniqid(rand(), true));
 		$photo .= ".";
 		$photo .= $uploadedExtension;
-/*		echo 'NOM PHOTO : '.$photo;*/
+		$contents['lien_photo'] = $photo;
 		
+	}elseif(!empty($contents['lien_photo'])) {
+		$contents['lien_photo']  = 'photo_profil_defaut.jpg' ; 
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -107,11 +109,9 @@ if(!empty($_POST)){
 	}
 	// DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
 
-	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire et uniquement les champs corrects.
+	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
     foreach($_POST as $cle => $valeur){
-		 if($valeur != $contents[$cle]){
 			$contents[$cle]=$valeur;
-		}
 	}
     //Entrée BDD si pas d'erreurs :
     if (empty($errors)){
@@ -120,13 +120,13 @@ if(!empty($_POST)){
     			$_POST[$cle]=$contents[$cle];
     		}
     	}
-    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
+    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$contents['lien_photo']);
     	//Execute l'envoi du formulaire
-    	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $photo, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
+    	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $contents['lien_photo'], $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
 
     	
     }else{
-    	// echo "Il y a eu une erreur.";
+    	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
 	     foreach ($errors as $key => $value){
 				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
 			}
