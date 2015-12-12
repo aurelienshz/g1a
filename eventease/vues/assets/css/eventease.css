@@ -9,7 +9,7 @@ html {
     color: #303030;
 }
 .clearfix {
-    overflow: auto;
+    /*overflow: auto;*/
 }
 body {
     padding: 0 auto;

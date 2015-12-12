@@ -1,0 +1,91 @@
+.eventPreview {
+}
+.eventPreview h4 {
+	border-bottom: 0;
+	padding: 10px 0;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+	background-color: #287DFF;
+}
+.eventPreview h4 a {
+    text-decoration: none;
+    color: #FAFAFA;
+}
+.eventPreview img {
+    box-sizing: border-box;
+    moz-box-sizing: border-box;
+    webkit-box-sizing: border-box;
+    width: 25%;
+    padding: 5px;
+    float: left;
+}
+.eventPreview .infosPratiques p {
+    /*display: inline-block;*/
+    width: 25%;
+    float: left;
+}
+.eventPreview .clearfix {
+    clear: both;
+    width: 100%;
+    height: 0;
+}
+
+
+.eventDetails h5 {
+    margin: 0 0 10px 0;
+    padding: 0 0 5px 0;
+    font-size: 1.2em;
+    border-bottom: 1px solid lightgray;
+}
+.eventDetails h5 span.participation {
+    background-color: #287DFF;
+    color: #FAFAFA;
+    font-weight: bold;
+    border-radius: 5px;
+    line-height: 1em;
+    padding: 0.2em 0.5em 0.3em 0.5em;
+    font-size: 0.8em;
+    float: right;
+}
+.eventDetails .infosPratiques {
+    /*float: left;*/
+    line-height: 1.2em;
+    width: 20%;
+    margin: 0 10px 10px 0;
+}
+.eventDetails #infosPratiques p {
+    margin-top: 0;
+}
+.eventDetails #infosPratiques span {
+    color: #287DFF;
+    width: 1.5em;
+    display: block;
+    float: left;
+}
+.eventDetails p#eventDescription {
+    text-align: justify;
+    line-height: 1.2em;
+    margin-top: 0;
+}
+
+.imageContainer {
+    display: table-cell;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 0;
+}
+.imageContainer img {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid black;
+}
+.eventPreview .eventDetails {
+    width: 75%;
+    padding-left: 1em;
+    vertical-align: top;
+    display: table-cell;
+    box-sizing: border-box;
+    color: #303030;
+}
