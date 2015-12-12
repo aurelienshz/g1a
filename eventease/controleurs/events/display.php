@@ -45,7 +45,7 @@ switch ($event['langue']){
     $contents['langue']='Anglais';
     break;
 }
-switch ($event['confidentiel']){
+switch ($event['visibilite']){
   case 0:
     $contents['visibilite']='Public';
     break;
