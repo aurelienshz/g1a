@@ -65,7 +65,7 @@ CREATE TABLE `bddversion` (
 --
 
 INSERT INTO `bddversion` (`id`, `version`) VALUES
-(0, '1.10');
+(0, '1.11');
 
 -- --------------------------------------------------------
 
