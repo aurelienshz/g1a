@@ -17,18 +17,11 @@ function generateUpdateMember($photo_id, $adresse_id) {
 
 }
 
-function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description,$id_adresse = -1,$id_photo = -1) {
-	$adresse = str_replace(",","", $adresse);
+function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description,$id_adresse = NULL,$id_photo = NULL) {
 	$output = googleAddressToCoord($adresse);
 		?> <pre> <?php
-    var_dump($adresse);
-    var_dump($output[0]);   
+    var_dump(isset($id_adresse));  
 ?> </pre> <?php
-	if($output == False){
-		$output[0] = 0.0;
-		$output[1] = 0.0;
-		echo "Google a fail.<br />";
-	}
 
 	$updateAddress = 'UPDATE adresse
 					  SET adresse_condensee = :adresse,
@@ -36,7 +29,7 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 					  	  coordonnee_long = :lng
 					  WHERE id = :id_adresse;'; 
 
-	$insertAddress = 'INSERT INTO adresse(adresse_condensee, coordonnee_lat, coordonnee_lng)
+	$insertAddress = 'INSERT INTO adresse(adresse_condensee, coordonnee_lat, coordonnee_long)
 						    VALUES(:adresse, :lat, :lng);
 						  	SET @adresse_id = LAST_INSERT_ID();';
 
@@ -51,18 +44,18 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 	$requete = '';
 	$execution = array(":lat"=>$output[0],":lng"=>$output[1]);
 	// Construction de requête : 
-	 if ($id_adresse == -1 && $id_photo == -1) {
+	 if (!isset($id_adresse) && !isset($id_photo)) {
 	 	$requete .= $insertAddress;
 	 	$requete .= $insertMedia;
 	 	$requete .= generateUpdateMember('@photo_id','@adresse_id');
 
-	 }elseif ($id_adresse == -1 && $id_photo != -1) {
+	 }elseif (!isset($id_adresse) && isset($id_photo)) {
 	 	$requete .= $insertAddress;
 	 	$requete .= $updateMedia;
 	 	$requete .= generateUpdateMember(':id_photo','@adresse_id');
 	 	$execution = array_merge([":id_photo"=>$id_photo],$execution);
 
-	 }elseif ($id_adresse != -1 && $id_photo == -1) {
+	 }elseif (isset($id_adresse) && !isset($id_photo)) {
 	 	$requete .= $updateAddress;
 	 	$requete .= $insertMedia;
 	 	$requete .= generateUpdateMember('@photo_id',':id_adresse');

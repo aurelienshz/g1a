@@ -192,3 +192,9 @@ input[type="file"]{
 #description {
 	resize: vertical;
 }
+#mainError{
+	color:red;
+	font-weight: bold;
+	font-size: 1.5em;	
+	text-align: center;
+}
