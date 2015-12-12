@@ -1,5 +1,7 @@
 <?php /* BARRE DE DEBUG : */  ?>
 
+<?php var_dump($_SESSION); ?> 
+
 <div id="palette" style="">
     <div id="color1">#303030</div>
     <div id="color2">#FAFAFA</div>

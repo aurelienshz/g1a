@@ -59,7 +59,7 @@ input, select{
 }
 #tabEvent{
 	background-color: #FAFAFA;
-	border-radius: 0 0 0 10px;
+	border-radius: 0 0 0 5px;
 	border: 0;
 }
 #tabUser {
@@ -174,7 +174,7 @@ input[type="file"]{
 	margin-right: 3%;
 }
 .calendarBottom {
-	border-radius: 0 0 10px 10px;
+	border-radius: 0 0 5px 5px;
 }
 .sideBar {
 	display: inline-block;

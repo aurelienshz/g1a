@@ -178,12 +178,13 @@
     border-bottom: 1px solid lightgray;
 }
 .eventDetails h5 span.participation {
-    border: 1px solid #303030;
+    /*border: 1px solid #303030;*/
     background-color: #287DFF;
     color: #FAFAFA;
     font-weight: bold;
-    border-radius: 1em;
-    padding: 0.1em 0.5em;
+    border-radius: 5px;
+    line-height: 1em;
+    padding: 0.2em 0.5em 0.3em 0.5em;
     font-size: 0.8em;
     float: right;
 }
@@ -274,8 +275,8 @@
     padding: 0 1em;
     line-height: 2em;
     border: 0;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom: 5px solid #F94339;
 }
 .calendar table caption .previous-month {

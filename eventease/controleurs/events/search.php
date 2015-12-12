@@ -7,6 +7,8 @@ $contents = [];
 
 if(!empty($_POST)) { // On est arrivé en postant un formulaire
     if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
+        //searchType : menu déroulant sur la gauche de la recherche condensée de l'accueil
+
         // Traiter la recherche faite depuis la page d'accueil
         // Charger la valeur du champ rempli sur l'accueil dans le champ correspondant du form avancé ?
         $contents = ['results' => []];

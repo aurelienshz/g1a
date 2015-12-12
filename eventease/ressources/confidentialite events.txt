@@ -1,0 +1,8 @@
+Confidentialité :
+    - public : tout le monde peut voir et participer
+    - privé : tout le monde peut afficher mais il faut faire une demande pour être invité
+    - secret : seuls les invités peuvent voir l'event (et y participer)
+
+Qui peut inviter : cette option apparaît seulement si on choisit privé ou secret
+    - tous les participants
+    - seulement les organisateurs

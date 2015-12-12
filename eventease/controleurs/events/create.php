@@ -94,19 +94,19 @@ if(connected()) {
 			$_POST['description'] = htmlspecialchars($_POST['description']);
 
 			// visibility :
-			if($_POST['visibility'] == 0) {
-				$push['confidentiel'] = 1;
+			if($_POST['visibility'] == 0 || $_POST['visibility'] == 1) {
+				$push['visibilite'] = intval($_POST['visibility']);
 			}
 			else {
-				$push['confidentiel'] = 0;
+				$push['visibilite'] = 2;
 			}
 
 			// participation :
-			if($_POST['participation'] == 0) {
-				$push['sur_invitation'] = 0;
+			if($_POST['invitation'] == 0) {
+				$push['invitation'] = 0;
 			}
 			else {
-				$push['sur_invitation'] = 0;
+				$push['invitation'] = 0;
 			}
 
 			// type public : si définis !
