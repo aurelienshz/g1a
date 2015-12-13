@@ -1,0 +1,71 @@
+.prettyform{
+	padding:0;
+	padding-bottom: 2em;
+}
+.prettyform .calendarPin {
+	position: relative;
+	top:-25px;
+	left:-10%;
+	height: 80px;
+	display: inline;
+	z-index: 10;
+}
+.prettyform .calendarPin2 {
+	left:10%;
+}
+.prettyform .title-wrapper {
+	background-color: #4D93FF;
+	border-bottom: 15px solid #287DFF;
+	padding: 0;
+	text-align: center;
+}
+.prettyform .title-wrapper h2 {
+	color: #FAFAFA;
+	font-size: 2em;
+	border-bottom: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+.prettyform form {
+	margin: 0;
+	padding: 1em 4em;
+	background-color: #FAFAFA;
+}
+.prettyform .tabs {
+	display: table;
+	width: 100%;
+}
+.prettyform .tabs .tab {
+	display: table-cell;
+	height: 100px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #FAFAFA;
+	vertical-align: middle;
+}
+.prettyform .tabs .tab a {
+	text-decoration: none;
+}
+.prettyform .tabs #tab-events {
+	background-color: #4D93FF;
+	border-top: 15px solid #287DFF;
+	border-radius: 0 0 0 5px;
+}
+.prettyform .tabs #tab-users {
+	border-left: 2px solid #CDCDCD;
+}
+/* Le trick du siècle : on a un bloc interne pour éviter que les bordures ne se bizeautent */
+.prettyform .tabs #tab-users p {
+	height: 100%;
+	line-height: 100px;
+	padding: 0;
+	margin: 0;
+    background-color: #FD5544;
+	border-radius: 0 0 5px 0;
+	border-top: 15px solid #DD3D30;
+	color: white;
+}
+.prettyform .tabs #tab-users p:hover {
+	background-color: #DD3D30;
+}

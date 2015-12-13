@@ -20,25 +20,20 @@
 	?>
 
 	<!-- Barre latérale de sélection des filtres -->
-	<div class="sideBar">
-		<div class="barItem map">
-			MAP
-		</div>
-		<div class="barItem">
- 			<ul>Type
-	 			<li> Un </li>
-	 			<li> Deux </li>
-	 			<li> Trois </li>
- 			</ul>
-			<ul>Date</ul>
-			<ul>Lieu</ul>
-			<ul>Tarif</ul>
-		</div>
+	<div class="sidebar">
+		Type d'activité :
+		<form>
+			<label><input name="categorie" type="radio" value="0" />Test</label><br />
+			<label><input name="categorie" type="radio" value="0" />Test</label><br />
+			<label><input name="categorie" type="radio" value="0" />Test</label><br />
+			<label><input name="categorie" type="radio" value="0" />Test</label><br />
+			<label><input name="categorie" type="radio" value="0" />Test</label><br />
+		</form>
 	</div>
 
 	<div class="results">
 		<div class="eventPreview shadow">
-			<h4><a href=#>Pic-nique -  Devant le palais du Luxembourg</a></h4>
+			<h4><a href=#>Pique-nique -  Devant le palais du Luxembourg</a></h4>
 			<a href="<?php echo getLink(['events','display']); ?>">
 				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
 			</a>
@@ -46,9 +41,29 @@
 				<p><span class="fa fa-calendar"></span>Demain</p>
 				<p><span class="fa fa-tag"></span>Pique-Nique</p>
 				<p><span class="fa fa-map-marker"></span>Paris</p>
+				<p><span class="fa fa-eur"></span>10€ - 50€</p>
+				<p><span class="fa fa-child"></span>> 18ans</p>
 			</div>
-			<div class="clearfix"></div>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<a class="button" href="#">Voir l'évènement</a>
 		</div>
+
+		<div class="eventPreview shadow">
+			<h4><a href=#>Pique-nique -  Devant le palais du Luxembourg</a></h4>
+			<a href="<?php echo getLink(['events','display']); ?>">
+				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+			</a>
+			<div class="infosPratiques">
+				<p><span class="fa fa-calendar"></span>Demain</p>
+				<p><span class="fa fa-tag"></span>Pique-Nique</p>
+				<p><span class="fa fa-map-marker"></span>Paris</p>
+				<p><span class="fa fa-eur"></span>10€ - 50€</p>
+				<p><span class="fa fa-child"></span>> 18ans</p>
+			</div>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<a class="button" href="#">Voir l'évènement</a>
+		</div>
+		
 	</div>
 </div>
 

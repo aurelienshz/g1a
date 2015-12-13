@@ -1,4 +1,7 @@
 .eventPreview {
+    padding: 0 0 10px 0;
+    overflow: auto; /* Empêche la hauteur de s'effondrer s'il n'y a pas assez de contenu */
+    margin: 0 0 2em 0;
 }
 .eventPreview h4 {
 	border-bottom: 0;
@@ -16,76 +19,35 @@
     box-sizing: border-box;
     moz-box-sizing: border-box;
     webkit-box-sizing: border-box;
-    width: 25%;
-    padding: 5px;
+    width: 33%;
+    height: auto;
+    padding: 1em 1em 0 1em;
     float: left;
+}
+.eventPreview .infosPratiques {
+    display: table;
+    width: 66%;
+    margin: 1em 0 0 0;
 }
 .eventPreview .infosPratiques p {
-    /*display: inline-block;*/
-    width: 25%;
+    width: 33%;
     float: left;
-}
-.eventPreview .clearfix {
-    clear: both;
-    width: 100%;
-    height: 0;
-}
-
-
-.eventDetails h5 {
-    margin: 0 0 10px 0;
-    padding: 0 0 5px 0;
-    font-size: 1.2em;
-    border-bottom: 1px solid lightgray;
-}
-.eventDetails h5 span.participation {
-    background-color: #287DFF;
-    color: #FAFAFA;
+    margin: 0 0 1em 0;
+    font-size: 1.1em;
     font-weight: bold;
-    border-radius: 5px;
-    line-height: 1em;
-    padding: 0.2em 0.5em 0.3em 0.5em;
-    font-size: 0.8em;
-    float: right;
 }
-.eventDetails .infosPratiques {
-    /*float: left;*/
-    line-height: 1.2em;
-    width: 20%;
-    margin: 0 10px 10px 0;
-}
-.eventDetails #infosPratiques p {
-    margin-top: 0;
-}
-.eventDetails #infosPratiques span {
+.eventPreview .infosPratiques p span {
     color: #287DFF;
-    width: 1.5em;
-    display: block;
-    float: left;
+    width: 1em;
+    margin: 0 .5em;
+    text-align: center;
 }
-.eventDetails p#eventDescription {
+.eventPreview p.description {
+    margin: 0 1em 0 1em;
     text-align: justify;
-    line-height: 1.2em;
-    margin-top: 0;
+    line-height: 1.3em;
 }
-
-.imageContainer {
-    display: table-cell;
-    width: 25%;
-    box-sizing: border-box;
-    padding: 0;
-}
-.imageContainer img {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 5px;
-    border: 1px solid black;
-}
-.eventPreview .eventDetails {
-    width: 75%;
-    padding-left: 1em;
-    vertical-align: top;
-    display: table-cell;
-    box-sizing: border-box;
-    color: #303030;
+.eventPreview .button {
+    margin: 1em 1em 0 auto;
+    width: 33%;
 }

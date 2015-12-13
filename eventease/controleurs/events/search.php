@@ -8,7 +8,7 @@ $contents = [];
 
 function searchController() {
     $title = 'Recherche d\'évènements';
-    $styles = ['form.css','search.css'];
+    $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
     $blocks = ['searchForm','search'];
     $scripts = ['googleAutocompleteAddress.js'];
     $contents = [];
@@ -17,7 +17,7 @@ function searchController() {
 
 function listController() {
     $title = 'Liste des évènements';
-    $styles = ['search.css', 'list-events.css', 'eventPreview.css'];
+    $styles = ['search_v2.css','list-events.css', 'eventPreview.css'];
     $blocks = ['search'];
     $scripts = ['googleAutocompleteAddress.js'];
     $contents = [];
