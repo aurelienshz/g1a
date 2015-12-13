@@ -13,7 +13,7 @@ require MODELES.'events/suggestions.php';
 
 /**** Préparation des ressources de la page ****/
 $title = 'Accueil';
-$styles = ['accueil.css'];
+$styles = ['accueil.css','eventPreview.css'];
 $scripts = ['bigform.js', 'slideshow.js', 'accueil.js','googleAutocompleteAddress.js'];
 $blocs = ['index'];
 

@@ -6,7 +6,9 @@
 // On pourra ajouter des params tq des limites de nb d'events à retourner (3 prochains mois...)
 // On pourra aussi avoir un mode qui sort tous les évènements publics (pas forcément la même fonction)
 
-function getMemberEvents('id') {
+function getMemberEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $query = $bdd->prepare('SELECT ')
+      $query = $bdd->prepare('');
+
+
 }

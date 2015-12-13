@@ -5,7 +5,7 @@
 
 // Appels au modèle
 // Appels au modèle
-require MODELES.'events/getEvents.php';
+require MODELES.'events/getEventDetails.php';
 
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
@@ -45,7 +45,7 @@ switch ($event['langue']){
     $contents['langue']='Anglais';
     break;
 }
-switch ($event['confidentiel']){
+switch ($event['visibilite']){
   case 0:
     $contents['visibilite']='Public';
     break;

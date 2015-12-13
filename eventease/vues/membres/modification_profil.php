@@ -1,4 +1,4 @@
-<div class="wrapper createCalendar">
+<div class="wrapper prettyform">
 	<div class="shadow">
 		<div class="titleWrapper" style="background-color: #4d93ff; border-bottom-color: #287DFF">
 			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
@@ -11,10 +11,12 @@
 				Changer mon mot de passe
 				</a>
 				<a class="champ button" href="#">
-				Changer mon adresse mail	
+				Changer mon adresse mail
 				</a>
 			</div>
+
 			<form method="post" action="<?php getLink(['membres','modify']); ?>" enctype="multipart/form-data"> <!-- A CORRIGER action -->
+				<?php echo isset($contents['errors']['general'])?$contents['errors']['general']:'' ?>
 				<div class="ligne">
 					<div class="champ" style="width:10%;">
 					<label for="civilite">Civilité : </label>
@@ -37,29 +39,29 @@
 					</div>
 					<div class="champ">
 						<label for="nom">Nom : </label>
-						<input type="text" name="nom" id="nom" value="<?php echo htmlspecialchars($contents["nom"]);?>">
+						<input type="text" name="nom" id="nom" value="<?php echo isset($contents["nom"])?htmlspecialchars($contents["nom"]):'' ?>" placeholder="Dupont">
 						<?php echo isset($contents['errors']['nom'])?$contents['errors']['nom']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="prenom">Prénom : </label>
-						<input type="text" name="prenom" id="prenom" value="<?php echo htmlspecialchars($contents["prenom"]);?>"/>
+						<input type="text" name="prenom" id="prenom" value="<?php echo isset($contents["prenom"])?htmlspecialchars($contents["prenom"]):'' ?>" placeholder="Jean"/>
 						<?php echo isset($contents['errors']['prenom'])?$contents['errors']['prenom']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="ddn">Date de naissance :</label>
-						<input type="date" name="ddn" id="date" value="<?php echo htmlspecialchars($contents["ddn"]);?>" placeholder="AAAA-MM-JJ"/>
+						<input type="date" name="ddn" id="date" value="<?php echo isset($contents["ddn"])?htmlspecialchars($contents["ddn"]):'' ?>" placeholder="AAAA-MM-JJ"/>
 						<?php echo isset($contents['errors']['ddn'])?$contents['errors']['ddn']:'' ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ" style="width:20%;">
 						<label for="tel">Téléphone : </label>
-						<input type="text" name="tel" id="tel" value="<?php echo htmlspecialchars($contents["tel"]);?>"/>
+						<input type="text" name="tel" id="tel" value="<?php echo isset($contents["tel"])?htmlspecialchars($contents["tel"]):'' ?>" placeholder="06 01 01 01 01"/>
 						<?php echo isset($contents['errors']['tel'])?$contents['errors']['tel']:'' ?>
 					</div>
-					<div class="champ" style="opacity:0.80;">
+					<div class="champ">
 						<label for="adresse">Adresse : </label>
-						<input class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo htmlspecialchars($contents["adresse"]); ?>"/>
+						<input class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo isset($contents["adresse"])?htmlspecialchars($contents["adresse"]):'' ?>" placeholder="26 rue Notre Dame des Champs, Paris, France"/>
 						<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'' ?>
 					</div>
 					<div class="champ">
@@ -83,18 +85,18 @@
 					</div>
 				</div>
 				<div class="ligne" style="justify-content: flex-start;">
-					<div class="champ"  style="opacity:0.80";>
+					<div class="champ">
 						<div class="photo_profil">
 							<label>Photo :</label>
-                			<img alt="Photo de Profil" src="<?php echo htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]);?>" title="Photo de Profil" height="150" width="150"/> 
+                			<img alt="Photo de Profil" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/>
 							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 4Mo)
 							<input type="file" id="photo" name="photo"/>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
-            			</div>	
+            			</div>
 					</div>
 					<div class="champ" style="width: calc(185% /3)">
 						<label>A propos de moi :</label>
-						<textarea name="description" id="description"><?php echo htmlspecialchars($contents["description"]);?></textarea>
+						<textarea name="description" id="description" placeholder="Une brève description de vous."><?php echo isset($contents["description"])?htmlspecialchars($contents["description"]):'' ?></textarea>
 						<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:'' ?>
 					</div>
 				</div>

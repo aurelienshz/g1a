@@ -69,20 +69,21 @@
 						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:''; ?>
 					</div>
 					<div class="champ">
-						<label for="visibility">Visibilité <i class="fa fa-asterisk"></i> :</label>
+						<label for="visibility">Confidentialité <i class="fa fa-asterisk"></i> :</label>
 						<select id="visibility" name="visibility">
 							<option value="0">Public</option>
 							<option value="1">Privé</option>
+							<option value="2">Secret</option>
 						</select>
 						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:''; ?>
 					</div>
 					<div class="champ">
-						<label for="participation">Liberté de participer <i class="fa fa-asterisk"></i> :</label>
-						<select id="participation" name="participation">
-							<option value="0">Libre</option>
-							<option value="1">Sur confirmation d'un organisateur</option>
+						<label for="invitation">Qui peut inviter <i class="fa fa-asterisk"></i> :</label>
+						<select id="invitation" name="invitation">
+							<option value="0">Tout le monde</option>
+							<option value="1">Seulement les organisateurs</option>
 						</select>
-						<?php echo isset($contents['errors']['participation'])?$contents['errors']['participation']:''; ?>
+						<?php echo isset($contents['errors']['invitation'])?$contents['errors']['invitation']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
