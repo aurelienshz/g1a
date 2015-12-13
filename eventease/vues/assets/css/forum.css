@@ -1,0 +1,90 @@
+h1{color:blue;}
+
+.tableau 
+{
+  display: table;
+  border-spacing: 1rem;
+  border-collapse: collapse;
+}
+
+.cellule 
+{
+  display: table-cell;
+  padding: 0.5rem; 
+  border: 1px solid #999;
+}
+
+.ligne 
+{
+  display: table-row;
+}
+
+/* Quelques sélecteurs */
+.ligne:nth-child(odd) 
+{
+  background: #e5f1f4;
+}
+
+.ligne:nth-child(even) 
+{
+  background: #f8fbfc;
+}
+
+.ligne:hover 
+{
+  background: #ecfbd4;
+  cursor:pointer;
+}
+
+.col 
+{
+  display: table-column;
+}
+
+.corp 
+{
+  display: table-row-group
+}
+
+.colgroupe 
+{
+  display: table-column-group;
+}
+
+.pied 
+{
+  display: table-footer-group;
+  font-weight:bold;
+  background-color:#eee;
+}
+
+.tete 
+{
+  background-color:#36B136  ;
+  color:#36B136 ;
+  display: table-header-group;
+  font-weight:bold;
+  text-align:center;
+}
+
+.legende 
+{
+  display: table-caption;
+  caption-side: top;
+  background-color:#eee;
+}
+
+.titleWrapper1 
+{
+  background-color: #36B136;
+  border-bottom:15px solid #2a8a2a;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.titleWrapper1 h2 {
+  color: #FAFAFA;
+  font-size: 2em;
+  border-bottom: 0;
+  display: inline-block;
+  vertical-align: top;
