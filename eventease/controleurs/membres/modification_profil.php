@@ -111,18 +111,19 @@ if(!empty($_POST)){
 
 	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
     foreach($_POST as $cle => $valeur){
-			$contents[$cle]=$valeur;
+			$contents[$cle]=htmlspecialchars($valeur);
+			$_POST[$cle]=htmlspecialchars($valeur);
 	}
     //Entrée BDD si pas d'erreurs :
     if (empty($errors)){
     	foreach($_POST as $cle => $valeur){
     		if($valeur == ""){
-    			$_POST[$cle]=$contents[$cle];
+    			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
     	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$contents['lien_photo']);
     	//Execute l'envoi du formulaire
-    	updateUser($_SESSION['id'], $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $contents['lien_photo'], $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
+    	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $contents['lien_photo'], $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
 
     	
     }else{
