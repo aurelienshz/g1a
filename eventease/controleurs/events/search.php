@@ -7,6 +7,8 @@ $contents = [];
 
 
 function searchController() {
+
+    // Préparation et appel de la vue :
     $title = 'Recherche d\'évènements';
     $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
     $blocks = ['searchForm','search'];
@@ -16,11 +18,42 @@ function searchController() {
 }
 
 function listController() {
+    require MODELES.'events/getEvents.php';
+
+    if(connected()) {
+        $events = getEvents($_SESSION['id']);
+    }
+    else {
+        $events = getEvents();
+    }
+
+    // Traitement des contenus :
+    foreach($events as $key=>$event) {
+        if(isset($event['age_min'], $event['age_max'])) {
+            $events[$key]['tranche_age'] = 'De '.$event['age_min'].' à '.$event['age_max'].' ans';
+        }
+        elseif(isset($event['age_min'])) {
+            $events[$key]['tranche_age'] = 'À partir de '.$event['age_min'].' ans';
+        }
+        elseif(isset($event['age_max'])) {
+            $events[$key]['tranche_age'] = 'Jusqu\'à '.$event['age_max'].' ans';
+        }
+        else {
+            $events[$key]['tranche_age'] = '';
+        }
+    }
+
+    echo '<pre>';
+    var_dump($events);
+    echo '</pre>';
+
+    $contents['searchResults'] = $events;
+
+    // Préparation et appel de la vue :
     $title = 'Liste des évènements';
     $styles = ['search_v2.css','list-events.css', 'eventPreview.css'];
     $blocks = ['search'];
     $scripts = ['googleAutocompleteAddress.js'];
-    $contents = [];
     vue($blocks,$styles,$title,$contents,$scripts);
 }
 
