@@ -70,15 +70,18 @@ if(!empty($_POST)){
 	    }
 	}
 	//Photo de Profil
-	if(!empty($_FILES['name'])){
+	if(is_uploaded_file($_FILES['photo']['tmp_name'])){
 		$errors['photo']="";
 		// Gérer si erreur d'envoi
 		if ($_FILES["photo"]['error'] > 0 AND $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
 		// Poids Maxi
-		$maxsize = 4194304;
+		$maxsize = 2097152;
 		if ($_FILES["photo"]['size'] > $maxsize) $errors['photo'].="Le fichier est trop gros. ";
 		// Dimensions Maxi - plus tard.
-
+		$max_height = 1000;
+		$max_width  = 1000;
+		$size = getimagesize($_FILES['photo']['tmp_name']);
+		if ($size[0] > $max_width OR $size[1] > $max_height) $errors['photo'].="Le fichier dépasse les dimensions autorisées. ";
 		// extensions Valides
 		$validExtensions = array('.jpg', '.jpeg', '.png');
 		$uploadedExtension = strtolower( substr( strrchr($_FILES["photo"]['name'], '.') ,1) );
@@ -93,10 +96,7 @@ if(!empty($_POST)){
 		$photo .= md5(uniqid(rand(), true));
 		$photo .= ".";
 		$photo .= $uploadedExtension;
-		$contents['lien_photo'] = $photo;
 
-	}elseif(!empty($contents['lien_photo'])) {
-		$contents['lien_photo']  = 'photo_profil_defaut.jpg' ;
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -121,9 +121,21 @@ if(!empty($_POST)){
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
-    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$contents['lien_photo']);
+    	
     	//Execute l'envoi du formulaire
-    	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $contents['lien_photo'], $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
+		if (is_dir(PHOTO_PROFIL) && is_writable(PHOTO_PROFIL)) {
+    			if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) {
+    				if (!empty($contents["lien_photo"])) unlink(PHOTO_PROFIL.$contents["lien_photo"]);
+    				move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
+    				$contents['lien_photo'] = $photo;
+    			}
+    			
+			} else {
+				unset($photo);
+		}
+
+
+    	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
 
 
     }else{
