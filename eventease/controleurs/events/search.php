@@ -30,6 +30,7 @@ function listController() {
     if($events) {
         // Traitement des contenus :
         foreach($events as $key=>$event) {
+
             // Préparation de la chaîne représentant la tranche d'âge :
             if(isset($event['age_min'], $event['age_max'])) {
                 $events[$key]['tranche_age'] = 'De '.$event['age_min'].' à '.$event['age_max'].' ans';

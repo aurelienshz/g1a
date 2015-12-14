@@ -13,9 +13,9 @@
 		<label for="évènement">Mots-clés : </label><input type="search" name="évènement" id="évènement" placeholder="ex : Concert de Madonna">
 		<!-- <label for="date">Date : </label> <input type="date" name="date" id="date"/> -->
 		<!-- <label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France" class="google-autocomplete-address"/> -->
-		<label>Tarif :</label>
-		De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à
-			<input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> €
+		<!-- <label>Tarif :</label> -->
+		<!-- De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à
+			<input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € -->
 		<div class="buttons">
 			<input type="submit" value="Chercher" />
 			<a href="<?php echo getLink(['events','search','list']); ?>" class="button">Tous les évènements</a>

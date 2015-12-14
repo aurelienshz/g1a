@@ -29,7 +29,9 @@
 
 	<div class="results">
 
-<?php	foreach($contents['searchResults'] as $event) { ?>
+<?php
+if(isset($contents['searchResults'])) {
+	foreach($contents['searchResults'] as $event) { ?>
 
 		<div class="eventPreview shadow">
 			<h4><a href="<?php echo getLink(['events','display',$event['id']]); ?>">
@@ -56,7 +58,13 @@
 			<a class="button" href="#">Voir l'évènement</a>
 		</div>
 
-<?php 	}		?>
+<?php
+	}
+}
+else {	// !isset($contents['searchResults'])
+	echo '<p>Votre recherche n\'a renvoyé aucun résultat</p>';
+}
+?>
 
 
 	</div>
