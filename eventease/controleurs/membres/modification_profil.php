@@ -51,11 +51,11 @@ if(!empty($_POST)){
 	if(!empty($_POST['tel']) AND !preg_match("/^0\d{9}$/", $_POST['tel'])){
 		$errors['tel'] = 'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.';
 	}
-	// Adresse : 
+	// Adresse :
 	if (!empty($_POST['adresse']) AND !googleCheckAddress($_POST['adresse'])){
 		$errors['adresse'] = 'Adresse invalide';
 	}
-	// Langue : 
+	// Langue :
 	if(!empty($_POST['langue']) AND $_POST['langue'] !== 0){
 		$_POST['langue'] = 1;
 	}
@@ -88,7 +88,7 @@ if(!empty($_POST)){
 		if (in_array($uploadedExtension, $validExtensions) ) $errors['photo'].="L'extension est invalide. ";
 
 		if($errors['photo'] == ""){
-			unset($errors['photo']);	
+			unset($errors['photo']);
 		}
 		//Variable pour la BDD
 		$photo  = $_SESSION['username'];
@@ -96,7 +96,7 @@ if(!empty($_POST)){
 		$photo .= md5(uniqid(rand(), true));
 		$photo .= ".";
 		$photo .= $uploadedExtension;
-		
+
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -136,7 +136,7 @@ if(!empty($_POST)){
 
     	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
 
-    	
+
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
 	     foreach ($errors as $key => $value){
@@ -147,7 +147,7 @@ if(!empty($_POST)){
 /**** préparation de la vue ****/
 
 $title = 'Modifier mon profil';
-$styles = ['form.css','accueil.css','search.css','modify.css'];
+$styles = ['form.css','accueil.css', 'search.css', 'prettyform.css', 'modify.css'];
 $blocks = ['modification_profil'];
 $scripts = ['googleAutocompleteAddress.js'];
 
