@@ -99,6 +99,6 @@
 					<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:'' ?>
 				</div>
 			</div>
-			<input type="submit" value="Modifier" />
+			<input style="width: 33%;" type="submit" value="Modifier" />
 		</form>
 </div>
