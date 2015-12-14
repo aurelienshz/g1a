@@ -75,7 +75,7 @@ function monProfil() {
 /*    echo '<pre>';
     var_dump($details);
     echo '</pre>';*/
-    loadContents($detaifls);
+    loadContents($details);
 
     return True;
 }
