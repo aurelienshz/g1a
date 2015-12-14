@@ -5,7 +5,6 @@
     <div class="page_container">
         <div id="col_gauche">
             <div id="photo_profil">
-                <?php echo $contents['photo'] ?>
                 <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>"/>
             </div>
         <div id="statut"><?php echo $contents['statut']; ?></div>

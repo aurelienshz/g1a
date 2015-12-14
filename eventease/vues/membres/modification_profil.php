@@ -13,7 +13,6 @@
 			Changer mon adresse mail
 			</a>
 		</div>
-
 		<form method="post" action="<?php getLink(['membres','modify']); ?>" enctype="multipart/form-data"> <!-- A CORRIGER action -->
 			<?php echo isset($contents['errors']['general'])?$contents['errors']['general']:'' ?>
 			<div class="ligne">

@@ -87,9 +87,6 @@ if(!empty($_POST)){
 		$uploadedExtension = strtolower( substr( strrchr($_FILES["photo"]['name'], '.') ,1) );
 		if (in_array($uploadedExtension, $validExtensions) ) $errors['photo'].="L'extension est invalide. ";
 
-		if($errors['photo'] == ""){
-			unset($errors['photo']);
-		}
 		//Variable pour la BDD
 		$photo  = $_SESSION['username'];
 		$photo .= "-";
@@ -97,6 +94,14 @@ if(!empty($_POST)){
 		$photo .= ".";
 		$photo .= $uploadedExtension;
 
+		//Permissions Déplacement 
+		if (!is_dir(PHOTO_PROFIL) OR !is_writable(PHOTO_PROFIL)) {
+			$errors['photo'] .= "[Erreur Serveur - Contactez l'administrateur] Les permissions sont insuffisantes pour déplacer la photo de profil. ";
+		}
+
+		if($errors['photo'] == ""){
+			unset($errors['photo']);
+		}
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -122,21 +127,15 @@ if(!empty($_POST)){
     		}
     	}
     	
-    	//Execute l'envoi du formulaire
-		if (is_dir(PHOTO_PROFIL) && is_writable(PHOTO_PROFIL)) {
-    			if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) {
-    				if (!empty($contents["lien_photo"])) unlink(PHOTO_PROFIL.$contents["lien_photo"]);
-    				move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
-    				$contents['lien_photo'] = $photo;
-    			}
-    			
-			} else {
-				unset($photo);
-		}
-
-
+    	//Execute l'envoi du formulaire et de la photo de profil
+    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) {
+				if (!empty($contents["lien_photo"])) unlink(PHOTO_PROFIL.$contents["lien_photo"]);
+				move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
+				$contents['lien_photo'] = $photo;
+			}
     	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
-
+    	header('Location: '.getLink(['membres','profil']));
+    	exit();
 
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
