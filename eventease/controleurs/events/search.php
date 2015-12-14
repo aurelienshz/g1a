@@ -5,32 +5,8 @@
 
 $contents = [];
 
-
-function searchController() {
-    require MODELES.'events/searchEvents.php'
-
-    $keywords = explode(' ', $_POST['keywords']);
-    $results = searchEvents($keywords);
-
-    // Préparation et appel de la vue :
-    $title = 'Recherche d\'évènements';
-    $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
-    $blocks = ['searchForm','search'];
-    $scripts = ['googleAutocompleteAddress.js'];
-    $contents = [];
-    vue($blocks,$styles,$title,$contents,$scripts);
-}
-
-function listController() {
-    require MODELES.'events/getEvents.php';
-
-    if(connected()) {
-        $events = getEvents($_SESSION['id']);
-    }
-    else {
-        $events = getEvents();
-    }
-
+function detailsToStrings($events) {
+    // transforme les détails en chaînes faciles à afficher type "de 8 à 30 ans"
     if($events) {
         // Traitement des contenus :
         foreach($events as $key=>$event) {
@@ -53,10 +29,68 @@ function listController() {
             $addressLines = explode(',',$event['adresse']);
             $events[$key]['lieu'] = end($addressLines);
         }
+        return $events;
     }
     else {
-        echo 'pas de résultat';
+        return False;
     }
+}
+
+function searchController() {
+    if(!empty($_POST)) {    // On est arrivé en postant un formulaire
+        if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
+            //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
+
+            // Afficher le pretty form
+            // Charger le bon champ avec la bonne valeur
+            // Afficher les résultats
+        }
+        else {              // On est arrivé en postant le form de la page de recherche avancée
+            // On traite la recherche :
+            require MODELES.'events/searchEvents.php';
+
+            if(!empty($_POST['keywords'])) {
+                $keywords = explode(' ', $_POST['keywords']);
+            }
+            else {
+                $keywords = [];
+            }
+            $results = searchEvents($keywords);
+            echo '<pre>';
+            var_dump($results);
+            echo '</pre>';
+            if($results) {
+                $results = detailsToStrings($results);
+                // Afficher les résultats
+                $contents = ['searchResults' => $results];
+            }
+            else {
+                $contents = [];
+            }
+        }
+    }
+    else {  // On n'a pas encore posté de formulaire
+    }
+
+    // Préparation et appel de la vue :
+    $title = 'Recherche d\'évènements';
+    $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
+    $blocks = ['searchForm','search'];
+    $scripts = ['googleAutocompleteAddress.js'];
+    vue($blocks,$styles,$title,$contents,$scripts);
+}
+
+function listController() {
+    require MODELES.'events/getEvents.php';
+
+    if(connected()) {
+        $events = getEvents($_SESSION['id']);
+    }
+    else {
+        $events = getEvents();
+    }
+
+    $events = detailsToStrings($events);
 
     // echo '<pre>';
     // var_dump($events);
@@ -73,28 +107,9 @@ function listController() {
 }
 
 
-if(!empty($_POST)) {    // On est arrivé en postant un formulaire
-    if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
-        //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
-
-        // Afficher le pretty form
-        // Charger le bon champ avec la bonne valeur
-        // Afficher les résultats
-
-        $contents = ['results' => []];
-    }
-    else {              // On est arrivé en postant le form de la page de recherche avancée
-        // Charger les champs correctement
-        // Afficher les résultats
-        $contents = ['results' => []];
-        searchController();
-    }
+if(isset($_GET['feature']) && $_GET['feature'] == 'list') { // On veut lister la totalité des events accessibles
+    listController();
 }
-else {      // On n'est pas arrivé en postant un formulaire
-    if(isset($_GET['feature']) && $_GET['feature'] == 'list') { // On veut lister la totalité des events accessibles
-        listController();
-    }
-    else {  // On veut le formulaire
-        searchController();
-    }
+else {  // On veut le formulaire
+    searchController();
 }
