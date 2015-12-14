@@ -3,6 +3,9 @@
 	background-color: #FAFAFA;
 	margin-bottom: 2em;
 }
+.prettyform form {
+	border-radius: 0 0 5px 5px;
+}
 .prettyform .calendarPin {
 	position: relative;
 	top:-25px;

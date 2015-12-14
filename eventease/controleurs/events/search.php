@@ -7,6 +7,10 @@ $contents = [];
 
 
 function searchController() {
+    require MODELES.'events/searchEvents.php'
+
+    $keywords = explode(' ', $_POST['keywords']);
+    $results = searchEvents($keywords);
 
     // Préparation et appel de la vue :
     $title = 'Recherche d\'évènements';
@@ -80,11 +84,10 @@ if(!empty($_POST)) {    // On est arrivé en postant un formulaire
         $contents = ['results' => []];
     }
     else {              // On est arrivé en postant le form de la page de recherche avancée
-        // Afficher le pretty form
         // Charger les champs correctement
         // Afficher les résultats
-
         $contents = ['results' => []];
+        searchController();
     }
 }
 else {      // On n'est pas arrivé en postant un formulaire
