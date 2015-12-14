@@ -89,7 +89,7 @@
 						<div class="photo_profil">
 							<label>Photo :</label>
                 			<img alt="Photo de Profil" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/>
-							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 4Mo)
+							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 2Mo | 1000x1000 max.)
 							<input type="file" id="photo" name="photo"/>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>

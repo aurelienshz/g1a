@@ -84,7 +84,7 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 		 }else{
 		 	$requete .= $updateAddress;
 		 	$requete .= $updateMedia;
-		 	$requete .= generateUpdateMember(':photo_id',':id_adresse');
+		 	$requete .= generateUpdateMember(':id_photo',':id_adresse');
 		 	$execution = array_merge([":id_adresse"=>$id_adresse],[":id_photo"=>$id_photo], $execution);
 		 }
 
@@ -118,13 +118,6 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 	}
 
 
-
-	?> <pre> <?php
-		var_dump($requete);
-		echo "<br /><br /><br /><br /><br />";
-		var_dump($execution);
-		echo "<br /><br /><br /><br /><br />";
-	?> </pre> <?php
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
     $query = $bdd->prepare("$requete");
 
@@ -139,9 +132,6 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
         ':id'=>$id],
         $execution);
 
-    ?> <pre> <?php
-    var_dump($customExec);   
-	?> </pre> <?php
     if($query -> execute($customExec)){
     	return True;
     }	
