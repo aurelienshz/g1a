@@ -188,7 +188,7 @@
     color: #287DFF;
 }
 #photos .image {
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 	display:table-cell;
 	width:20%;
 	height:auto;
@@ -198,7 +198,7 @@
 	width:50%;
 	height:auto;
 	margin:auto;
-=======
+/*=======
 	display: table-cell;
 	height: 100%;
 	width: 90%;
@@ -207,7 +207,7 @@
 #photos .image img {
 	height: 300px;
 
->>>>>>> 73a8c9144757c86493113b282a32334588697799
+/*>>>>>>> 73a8c9144757c86493113b282a32334588697799*/
 }
 .organisation {
 	margin-top: 50px;
