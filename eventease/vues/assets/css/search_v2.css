@@ -1,0 +1,20 @@
+.sidebar {
+	float: left;
+	width: 20%;
+	background-color: lightgray;
+}
+.results {
+	margin-left: 22%;
+}
+.prettyform .tabs #tab-events {
+	background-color: #FAFAFA;
+	border-top: 15px solid #FAFAFA;
+	color: #303030;
+}
+.buttons {
+	width: 100%;
+}
+.buttons input, .buttons a.button {
+	width: 50%;
+	margin: 1em auto;
+}

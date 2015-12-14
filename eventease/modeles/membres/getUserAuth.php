@@ -10,7 +10,11 @@ function getUserAuth($username) {
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $query = $bdd->prepare('SELECT id,mdp,date_derniere_connexion,niveau FROM membre WHERE pseudo = :username');
     $query -> execute(['username'=>$username]);
-    $id = $query->fetchAll();
-    // if(count($id)==1) ?
-    return $id[0];
+    if ($query->rowCount() === 1) {
+        $userAuth = $query->fetchAll();
+        return $userAuth[0];
+    }
+    else {
+        return False;
+    }
 }

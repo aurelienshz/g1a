@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Sam 12 Décembre 2015 à 18:07
+-- Généré le :  Dim 13 Décembre 2015 à 18:22
 -- Version du serveur :  5.5.46-0+deb8u1
 -- Version de PHP :  5.6.14-0+deb8u1
 
@@ -47,7 +47,25 @@ INSERT INTO `adresse` (`id`, `coordonnee_long`, `coordonnee_lat`, `adresse_conde
 (6, 2.3616607, 48.9195252, 'Stade de France, Saint-Denis, France'),
 (7, 2.3983165, 48.8636379, 'Testo, Rue Emile Landrin, Paris, France'),
 (8, 2.3585125, 48.8793511, '2 Rue de Dunkerque, Paris, France'),
-(9, 2.3756726, 48.8601827, '90 Boulevard Voltaire, Paris, France');
+(9, 2.3756726, 48.8601827, '90 Boulevard Voltaire, Paris, France'),
+(10, 2.3346295, 48.8425989, '80 Rue Michelet, Paris, France'),
+(11, 2.3346295, 48.8425989, '80 Rue Michelet, Paris, France'),
+(12, 2.3453123, 48.8826431, '80 Rue de Dunkerque, Paris, France'),
+(13, 2.3453123, 48.8826431, '80 Rue de Dunkerque, Paris, France'),
+(14, 2.3312252, 48.8434581, 'I.S.E.P Institut Supérieur d''Electronique de Paris, Rue Notre Dame des Champs, Paris, France'),
+(15, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(16, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(17, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(18, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(19, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(20, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(21, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(22, 2.3610026, 48.8768592, 'louloucam, Rue du Faubourg Saint-Martin, Paris, France'),
+(23, 2.3453123, 48.8826431, '80 Rue de Dunkerque, Paris, France'),
+(24, 2.3507352, 48.8579083, '80 Rue de Rivoli, Paris, France'),
+(25, 2.3507352, 48.8579083, '80 Rue de Rivoli, Paris, France'),
+(26, 2.3507352, 48.8579083, '80 Rue de Rivoli, Paris, France'),
+(27, 2.3507352, 48.8579083, '80 Rue de Rivoli, Paris, France');
 
 -- --------------------------------------------------------
 
@@ -65,7 +83,7 @@ CREATE TABLE `bddversion` (
 --
 
 INSERT INTO `bddversion` (`id`, `version`) VALUES
-(0, '1.11');
+(0, '1.12');
 
 -- --------------------------------------------------------
 
@@ -131,21 +149,22 @@ CREATE TABLE `evenement` (
   `site` tinytext COLLATE utf8_bin,
   `langue` tinyint(1) DEFAULT NULL,
   `id_type` int(10) UNSIGNED DEFAULT NULL,
-  `id_adresse` int(10) UNSIGNED DEFAULT NULL
+  `id_adresse` int(10) UNSIGNED DEFAULT NULL,
+  `id_media_principal` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
 
 --
 -- Contenu de la table `evenement`
 --
 
-INSERT INTO `evenement` (`id`, `titre`, `debut`, `fin`, `journee_entiere`, `age_min`, `age_max`, `visibilite`, `invitation`, `tarif`, `description`, `site`, `langue`, `id_type`, `id_adresse`) VALUES
-(1, 'Concert Johnny Hallyday', '2015-12-07 14:07:24', '2015-12-29 22:00:00', 0, NULL, NULL, 0, 0, 50, 'Concert de Johnny Hallyday au Zénith de Paris !', NULL, NULL, 1, 0),
-(2, 'Cours de Zumba', '2015-12-12 16:50:04', '2015-12-22 17:00:00', 1, 16, 99, 1, 0, 15, NULL, NULL, 0, NULL, NULL),
-(3, 'Vente privée Disney', '2015-12-20 12:00:00', '2015-12-20 17:00:00', 0, NULL, NULL, 1, 1, NULL, 'Vente privée d''objets Disney.', NULL, 0, 6, 1),
-(4, 'Concert des One Direction', '2015-12-07 14:34:23', '2015-12-29 22:00:00', 0, 10, NULL, 0, 0, 50, 'Concert du Boys Band international ONE DIRECTION à l''occasion de la sortie de leur nouvel album MADE IN THE A.M. ', NULL, 0, 2, 3),
-(5, 'Exposition à l''Atelier d''Artistes', '2015-12-07 14:33:50', '2016-01-15 01:00:00', 0, 18, NULL, 1, 1, NULL, 'Vernissage des nouveaux tableaux à l''atelier des Artistes.', NULL, 0, 8, 4),
-(6, 'Vente de gâteaux au marché de Noël de Strasbourg', '2015-12-22 14:00:00', '2015-12-22 16:30:00', 0, NULL, NULL, 0, 0, 2, 'Vente de gâteaux au profit du centre aéré lors du marché de Noël de Strasbourg le mardi 22 décembre. Venez nombreux pour aider les enfants à partir en vacances!\r\nPart de gâteau: 2€.', NULL, 0, 9, 5),
-(7, 'Brocante du village de Buçy-lès-Pierreponts', '2016-01-09 07:00:00', '2016-01-09 19:00:00', 0, NULL, NULL, 0, 0, NULL, 'Brocante sur la place de l''Eglise pour les habitants de Buçy et sa région!', NULL, 0, 7, 2);
+INSERT INTO `evenement` (`id`, `titre`, `debut`, `fin`, `journee_entiere`, `age_min`, `age_max`, `visibilite`, `invitation`, `tarif`, `description`, `site`, `langue`, `id_type`, `id_adresse`, `id_media_principal`) VALUES
+(1, 'Concert Johnny Hallyday', '2015-12-07 14:07:24', '2015-12-29 22:00:00', 0, NULL, NULL, 0, 0, 50, 'Concert de Johnny Hallyday au Zénith de Paris !', NULL, NULL, 1, 0, NULL),
+(2, 'Cours de Zumba', '2015-12-12 16:50:04', '2015-12-22 17:00:00', 1, 16, 99, 1, 0, 15, NULL, NULL, 0, NULL, NULL, NULL),
+(3, 'Vente privée Disney', '2015-12-20 12:00:00', '2015-12-20 17:00:00', 0, NULL, NULL, 1, 1, NULL, 'Vente privée d''objets Disney.', NULL, 0, 6, 1, NULL),
+(4, 'Concert des One Direction', '2015-12-07 14:34:23', '2015-12-29 22:00:00', 0, 10, NULL, 0, 0, 50, 'Concert du Boys Band international ONE DIRECTION à l''occasion de la sortie de leur nouvel album MADE IN THE A.M. ', NULL, 0, 2, 3, NULL),
+(5, 'Exposition à l''Atelier d''Artistes', '2015-12-07 14:33:50', '2016-01-15 01:00:00', 0, 18, NULL, 1, 1, NULL, 'Vernissage des nouveaux tableaux à l''atelier des Artistes.', NULL, 0, 8, 4, NULL),
+(6, 'Vente de gâteaux au marché de Noël de Strasbourg', '2015-12-22 14:00:00', '2015-12-22 16:30:00', 0, NULL, NULL, 0, 0, 2, 'Vente de gâteaux au profit du centre aéré lors du marché de Noël de Strasbourg le mardi 22 décembre. Venez nombreux pour aider les enfants à partir en vacances!\r\nPart de gâteau: 2€.', NULL, 0, 9, 5, NULL),
+(7, 'Brocante du village de Buçy-lès-Pierreponts', '2016-01-09 07:00:00', '2016-01-09 19:00:00', 0, NULL, NULL, 0, 0, NULL, 'Brocante sur la place de l''Eglise pour les habitants de Buçy et sa région!', NULL, 0, 7, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -274,7 +293,7 @@ CREATE TABLE `membre` (
 
 INSERT INTO `membre` (`id`, `pseudo`, `mdp`, `civilite`, `nom`, `prenom`, `ddn`, `mail`, `tel`, `description`, `niveau`, `langue`, `id_photo`, `id_adresse`, `date_derniere_connexion`) VALUES
 (1, 'KevinDu38', '$1$1gauBPwl$OZVvkbz3.qz4KasFYX7Te/', 0, 'Dubois', 'Kevin', '1995-02-16', 'kevindu38@kevin.com', '0611111115', 'J''aime les jeux-vidéo et j''aime sortireuh avec mes amis!', 1, 0, 0, 0, '2015-12-10 10:07:52'),
-(11, 'audypods', '$2y$10$1ukYXE5bELmYuk0Vy6eCS.6yqt62tMmt.3sS6SOknq3jdQDjcA9RW', 1, 'Roussel', 'Audrey', '1995-03-09', 'avc1.roussel@orange.fr', '0636504053', NULL, 1, 0, 3, NULL, '2015-12-11 18:15:26'),
+(11, 'audypods', '$2y$10$1ukYXE5bELmYuk0Vy6eCS.6yqt62tMmt.3sS6SOknq3jdQDjcA9RW', 1, 'Roussel', 'Audrey', '1995-03-09', 'avc1.roussel@orange.fr', '0636504053', NULL, 1, 0, 3, NULL, '2015-12-13 17:04:27'),
 (12, 'Audodo', '$2y$10$695AMn8hCZ5WIAbgQ3uTZ.5s6o7ay4XUGyqDzN3N9Hjud79LsXvhC', 1, 'de Maricourt', 'Aude', '1996-05-03', 'aude.demaricourt@gmail.com', '0627347370', 'Fan de Disney et de chatons!', 1, 0, 1, NULL, '2015-12-08 10:17:29'),
 (13, 'Oreo', '$2y$10$bUkDzeoRppk8cpf9cFNVZuBv20YrA6WR0xQFrSIEtTb1syPnsAfdq', 0, 'Oreo', 'De Maricourt', '2013-06-12', 'immannaqiw-8312@yopmail.com', '0648938274', NULL, 0, 0, 13, NULL, NULL),
 (14, 'Apolito', '$2y$10$9oWgmLVIKzneQ35dFJnC..6FU/O.jvlDECAVmcf2D.WP22VYeEVOi', 0, 'Roussel', 'Apollo', '2005-06-23', 'uffatyxo-7830@yopmail.com', '0475893049', NULL, 1, 0, 9, NULL, NULL),
@@ -293,7 +312,12 @@ INSERT INTO `membre` (`id`, `pseudo`, `mdp`, `civilite`, `nom`, `prenom`, `ddn`,
 (27, 'thedevilz0', '$2y$10$RvtVjAkb4Ew9Rjvf2jqMIexFlGaw8UKHzsuSceo12F5zBp3FFet6e', 0, '', 'Tristan', '2011-07-11', 'ohhopi@gmail.com', '0686105151', 'Je suis heureux !', 0, 1, NULL, NULL, '2015-12-08 07:33:26'),
 (28, 'glachaud', '$2y$10$3TUcbmtR4DFiri7KKKun8OOX4xcAv1gFu4/aYednQPTGDNPkbEMr2', 0, 'Lachaud', 'Guillaume', '1994-11-21', 'guillaume.lachaud78@gmail.com', '0687910379', 'J''aime le hand !', 0, 0, NULL, NULL, '2015-12-08 08:18:56'),
 (29, 'testeur', '$2y$10$B.oPCQC0GXfGE654UoH4fOylPMPeTBuk4IxzKj5ChHbTVUF7OCt.O', NULL, NULL, NULL, NULL, 'mohamed.sellami@isep.fr', NULL, NULL, 0, 0, NULL, NULL, NULL),
-(30, 'audypods1', '$2y$10$FAQo8fc8/ibOay1jbTS6ku9R0DgKmrwufHCKw9cVK7H0hohAZ52i6', NULL, NULL, NULL, NULL, 'avc1.rousselpub@gmail.com', NULL, NULL, 1, 0, NULL, NULL, '2015-12-11 14:02:19');
+(30, 'audypods1', '$2y$10$FAQo8fc8/ibOay1jbTS6ku9R0DgKmrwufHCKw9cVK7H0hohAZ52i6', NULL, NULL, NULL, NULL, 'avc1.rousselpub@gmail.com', NULL, NULL, 1, 0, NULL, NULL, '2015-12-13 16:43:21'),
+(31, 'ohhopii', '$2y$10$9kSj4BPPGfqtBRAMmScDLeLQnk5A0NOsFxAXOBZrTQbkNKcGFQvvy', 0, 'Jean', 'Dupont', '2010-02-02', 'tristan.muratore@gmail.com', '0686105151', 'Loul', 0, 0, NULL, 27, '2015-12-12 21:31:16'),
+(32, 'ohhopiii', '$2y$10$TRI8JF.eBallhzGiKsilAeLrL6yw41VN.sxz.9elpFT0YOunhhDB6', 0, 'Tristan', '', '2012-02-02', 'test@test.com', '0686105151', '<script>alert("NTM");</script>', 0, 0, NULL, 23, '2015-12-12 19:56:42'),
+(33, 'Aure', '$2y$10$iCEliVtHW.i6OCRK0k7jo.jXR8rp9VxVIpUg0tq.ruQQcqsfuSIfW', NULL, NULL, NULL, NULL, 'a@b.fr', NULL, NULL, 0, 0, NULL, NULL, NULL),
+(34, 'AAA', '$2y$10$fiR3e/Sz927OHB.MFcQ.7OK.7NppB7RXDqXxg.V8xnfKhKgyMcMri', NULL, NULL, NULL, NULL, 'aaa@bb.fr', NULL, NULL, 0, 0, NULL, NULL, NULL),
+(35, 'AAAA', '$2y$10$OYfgC6ZjqkCN0S154bNPqO.IJptm.sJcAa/sx56H9r8xqQll0yG1C', 1, 'Ol''Dirty', 'Ol''Dirty''Bastards', '0000-00-00', 'aaaa@a.q', '0611111111', '', 0, 0, NULL, 22, '2015-12-12 20:00:13');
 
 -- --------------------------------------------------------
 
@@ -468,6 +492,9 @@ CREATE TABLE `verification_membre` (
 --
 
 INSERT INTO `verification_membre` (`email`, `token`) VALUES
+('a@b.fr', '186ebc69f9d94df4763bebdc89d4c5c0b6eb5022'),
+('aaa@bb.fr', '43b89061b99ca40f0c07299c54161398ae714057'),
+('aaaa@a.q', '19d5c8f17782eb11afd48b9eded9fce18bb9eff0'),
 ('arrefferu-3945@yopmail.com', '01f8973cdd06605620daf50f64cf083c644d70cd'),
 ('aurelien.schiltz@free.fr', '200f3413ffc0781d311c282b0e94041109856b51'),
 ('avc1.roussel@orange.fr', '305d97c347258f160553be568370d147593f57ed'),
@@ -482,6 +509,8 @@ INSERT INTO `verification_membre` (`email`, `token`) VALUES
 ('ohhopi@gmail.com', '1d063ce43653e972a297a6ccc8af48a5d50afb83'),
 ('rirrajeku-4560@yopmail.com', '07c5cd25552905351828d5ce121c156373e76b65'),
 ('sovibagu-0060@yopmail.com', '5f1493d47d5f6317684c597b05c45c3cde363ce7'),
+('test@test.com', '51ea0a2bdb621542be75b7fbe3d38f4995627200'),
+('tristan.muratore@gmail.com', 'c342d1b7c915e6c1a6b832bdef9c24f6e88278f0'),
 ('uffatyxo-7830@yopmail.com', 'b8fc73715407e2f2af7c27b9e82f52d800dacd7c'),
 ('wazappofall-9459@yopmail.com', 'd834609ec881b9b0e755d9261d257ab395f02087'),
 ('wessysixi-0093@yopmail.com', '987f85d73be3f377a47ddf59f6cd87aee6bd0c57');
@@ -596,7 +625,7 @@ ALTER TABLE `verification_membre`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT pour la table `commentaire`
 --
@@ -631,7 +660,7 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT pour la table `message`
 --

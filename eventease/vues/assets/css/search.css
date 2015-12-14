@@ -1,4 +1,4 @@
-.createCalendar{
+.prettyform{
 	padding:0;
 	padding-bottom: 2em;
 }
@@ -26,58 +26,6 @@
 	display: inline-block;
 	vertical-align: top;
 }
-form{
-	padding: 0 3%;
-}
-label + input {
-	margin: 0;
-}
-label{
-	color: inherit;
-}
-input, select{
-	display: inline-block;
-}
-#formBox{
-	background-color: #FAFAFA;
-	padding: 1em 0;
-	border-collapse: collapse;
-	box-sizing: border-box;
-}
-.switchTab {
-	display: table;
-	width:100%;
-
-}
-.tab {
-	display: table-cell;
-	width: 50%;
-	height: 115px;
-	background-color: #fd5544;
-	font-weight: bold;
-	font-size: 1.5em;
-}
-#tabEvent{
-	background-color: #FAFAFA;
-	border-radius: 0 0 0 5px;
-	border: 0;
-}
-#tabUser {
-	padding-bottom: 10px;
-    border-radius: 0 0 10px 0;
-    background-color: #4d93ff;
-	border:0;
-	border-top:10px solid #287DFF;
-	border-left:5px solid #cdcdcd;
-	margin-bottom: 10px;
-	color: white;
-}
-.shadow {
-	padding-top: 0;
-	margin-top: 0;
-	border-radius: 0 0 10px 10px;
-	box-shadow: 0 10px 10px #cdcdcd;
-}
 .time{
 	width: 41.5%;
 
@@ -94,46 +42,22 @@ input[type="file"]{
 	width: 100%;
 	padding: 2% 5%;
 }
-.resultBox{
-	height: 305px;
-	width:80%;
-	margin-bottom: 35px;
-	background-color: #FAFAFA;
-	float: right;
-}
-.imageEvent{
-	display: table-cell;
-	min-width: 200px;
-	max-width: 200px;
-	padding: 20px;
-	height: 100%;
-}
 .imageEvent img {
-	width: 100%;
+	/*width: 100%;*/
 	height: auto;
 }
 .infoEvent{
 	display: table-cell;
 	width: 100%;
 	padding: 2%;
-	max-height: 300px;
 }
-.resultBox a {
-	text-decoration: none;
-	color: white;
-	padding: 10px 0;
+.resultBox {
+	margin-bottom: 100px;
 }
-.resultBox h4 {
-	border-bottom: 0;
-	padding: 10px 0;
-	margin: 0;
-	width: 100%;
-	text-align: center;
-	background-color: #fd5544;
-}
+
 .eventContainer {
 	height: 200px;
-	width: 100%;
+	/*width: 100%;*/
 	vertical-align: top;
 }
 .floatRight{
@@ -150,12 +74,6 @@ input[type="file"]{
 .tri select {
 	width: 60%;
 }
-.table {
-	display: table;
-	width: 100%;
-	border-collapse: collapse;
-	border-radius: 0 0 10px 10px;
-}
 .boldInfo{
 	font-weight: bold;
 	font-size: 1.2em;
@@ -166,20 +84,16 @@ input[type="file"]{
 .ligne{
 	display: flex;
 	justify-content: space-between;
-	width: 102%;
 	margin-bottom: 1em;
 }
 .champ {
-	width: calc(100% / 3);
-	margin-right: 3%;
+	width: 33.3333%;
 }
-.calendarBottom {
-	border-radius: 0 0 5px 5px;
-}
+
 .sideBar {
-	display: inline-block;
+	float: left;
 	background-color: red;
-	width: 17%;
+	width: 20%;
 	float: left;
 }
 .map {
@@ -195,6 +109,6 @@ input[type="file"]{
 #mainError{
 	color:red;
 	font-weight: bold;
-	font-size: 1.5em;	
+	font-size: 1.5em;
 	text-align: center;
 }

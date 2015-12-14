@@ -26,28 +26,22 @@
 <div class="wrapper">
 <h4>Suggestions</h4>
     <section id="suggestions">
-        <div>
-            <div class="previous">&lt;</div>
-            <div class="imageContainer">
-              <a href="<?php echo getLink(['events','display']); ?>">
-              <img src="<?php echo IMAGES.'picnic1.jpg'?>" />
-              </a>
-            </div>
-            <div class="eventDetails">
-                <div id="typeSuggestion">Une idée...</div>
-                <h5><?php echo $contents['titreSuggestion']; ?></h5>
-                <div id="infosPratiques">
-                    <p></p>
-                    <span class="fa fa-calendar"></span><p><?php echo $contents['dateSuggestion']; ?></p>
-                    <span class="fa fa-tag"></span><p><?php echo $contents['typeSuggestion']; ?></p>
-                    <span class="fa fa-map-marker"></span><p><?php echo $contents['lieuSuggestion']; ?></p>
-                </div>
-                <p id="eventDescription">
-                    Lorem Ipsum
-                </p>
-            </div>
-            <div class="next">&gt;</div>
-        </div>
+        <div class="eventPreview">
+			<h4><a href=#>Pique-nique -  Devant le palais du Luxembourg</a></h4>
+			<a href="<?php echo getLink(['events','display']); ?>">
+				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+			</a>
+			<div class="infosPratiques">
+				<p><span class="fa fa-calendar"></span>Demain</p>
+				<p><span class="fa fa-tag"></span>Pique-Nique</p>
+				<p><span class="fa fa-map-marker"></span>Paris</p>
+				<p><span class="fa fa-eur"></span>10€ - 50€</p>
+				<p><span class="fa fa-child"></span>> 18ans</p>
+			</div>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<a class="button" href="#">Voir l'évènement</a>
+			<div class="clearfix"></div>
+		</div>
         <div>
             <div class="previous">&lt;</div>
             <div class="imageContainer">

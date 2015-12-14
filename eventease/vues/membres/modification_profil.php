@@ -1,4 +1,4 @@
-<div class="wrapper createCalendar">
+<div class="wrapper prettyform">
 	<div class="shadow">
 		<div class="titleWrapper" style="background-color: #4d93ff; border-bottom-color: #287DFF">
 			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
@@ -11,7 +11,7 @@
 				Changer mon mot de passe
 				</a>
 				<a class="champ button" href="#">
-				Changer mon adresse mail	
+				Changer mon adresse mail
 				</a>
 			</div>
 
@@ -88,11 +88,11 @@
 					<div class="champ">
 						<div class="photo_profil">
 							<label>Photo :</label>
-                			<img alt="Photo de Profil" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/> 
+                			<img alt="Photo de Profil" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/>
 							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 4Mo)
 							<input type="file" id="photo" name="photo"/>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
-            			</div>	
+            			</div>
 					</div>
 					<div class="champ" style="width: calc(185% /3)">
 						<label>A propos de moi :</label>
