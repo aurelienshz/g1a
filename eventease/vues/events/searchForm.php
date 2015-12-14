@@ -10,7 +10,7 @@
 			- recherche keywords et lieu => champs de recherche
 			- type, tarif, date => filtres sidebar
 		-->
-		<label for="évènement">Mots-clés : </label><input type="search" name="évènement" id="évènement" placeholder="ex : Concert de Madonna">
+		<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" placeholder="ex : Concert de Madonna">
 		<!-- <label for="date">Date : </label> <input type="date" name="date" id="date"/> -->
 		<!-- <label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France" class="google-autocomplete-address"/> -->
 		<!-- <label>Tarif :</label> -->
