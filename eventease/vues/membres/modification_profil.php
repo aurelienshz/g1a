@@ -53,17 +53,17 @@
 				</div>
 			</div>
 			<div class="ligne">
-				<div class="champ" style="width:10em;">
+				<div class="champ" style="width:15%; min-width: 10em;">
 					<label for="tel">Téléphone : </label>
-					<input type="text" name="tel" id="tel" value="<?php echo isset($contents["tel"])?htmlspecialchars($contents["tel"]):'' ?>" placeholder="06 01 01 01 01"/>
+					<input type="text" name="tel" id="tel" value="<?php echo isset($contents["tel"])?htmlspecialchars($contents["tel"]):'' ?>" placeholder="0642424242"/>
 					<?php echo isset($contents['errors']['tel'])?$contents['errors']['tel']:'' ?>
 				</div>
-				<div class="champ">
+				<div class="champ" style="width: 63%;">
 					<label for="adresse">Adresse : </label>
 					<input class="google-autocomplete-address" type="text" name="adresse" id="adresse" value="<?php echo isset($contents["adresse"])?htmlspecialchars($contents["adresse"]):'' ?>" placeholder="26 rue Notre Dame des Champs, Paris, France"/>
 					<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'' ?>
 				</div>
-				<div class="champ">
+				<div class="champ" style="width: 20%;">
 					<label for="langue">Langue  : </label>
 					<select name="langue" id="langue">
 						<?php
@@ -93,7 +93,7 @@
 						<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
 	    			</div>
 				</div>
-				<div class="champ" style="width: calc(185% /3)">
+				<div class="champ" style="width: 66.66%">
 					<label>A propos de moi :</label>
 					<textarea name="description" id="description" placeholder="Une brève description de vous."><?php echo isset($contents["description"])?htmlspecialchars($contents["description"]):'' ?></textarea>
 					<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:'' ?>
