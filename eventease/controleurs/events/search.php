@@ -27,25 +27,35 @@ function listController() {
         $events = getEvents();
     }
 
-    // Traitement des contenus :
-    foreach($events as $key=>$event) {
-        if(isset($event['age_min'], $event['age_max'])) {
-            $events[$key]['tranche_age'] = 'De '.$event['age_min'].' à '.$event['age_max'].' ans';
-        }
-        elseif(isset($event['age_min'])) {
-            $events[$key]['tranche_age'] = 'À partir de '.$event['age_min'].' ans';
-        }
-        elseif(isset($event['age_max'])) {
-            $events[$key]['tranche_age'] = 'Jusqu\'à '.$event['age_max'].' ans';
-        }
-        else {
-            $events[$key]['tranche_age'] = '';
+    if($events) {
+        // Traitement des contenus :
+        foreach($events as $key=>$event) {
+            // Préparation de la chaîne représentant la tranche d'âge :
+            if(isset($event['age_min'], $event['age_max'])) {
+                $events[$key]['tranche_age'] = 'De '.$event['age_min'].' à '.$event['age_max'].' ans';
+            }
+            elseif(isset($event['age_min'])) {
+                $events[$key]['tranche_age'] = 'À partir de '.$event['age_min'].' ans';
+            }
+            elseif(isset($event['age_max'])) {
+                $events[$key]['tranche_age'] = 'Jusqu\'à '.$event['age_max'].' ans';
+            }
+            else {
+                $events[$key]['tranche_age'] = '';
+            }
+
+            // Préparation de la chaîne représentant le lieu :
+            $addressLines = explode(',',$event['adresse']);
+            $events[$key]['lieu'] = end($addressLines);
         }
     }
+    else {
+        echo 'pas de résultat';
+    }
 
-    echo '<pre>';
-    var_dump($events);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($events);
+    // echo '</pre>';
 
     $contents['searchResults'] = $events;
 

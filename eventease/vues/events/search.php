@@ -32,14 +32,16 @@
 <?php	foreach($contents['searchResults'] as $event) { ?>
 
 		<div class="eventPreview shadow">
-			<h4><a href=#><?php echo $event['titre']; ?></a></h4>
+			<h4><a href="<?php echo getLink(['events','display',$event['id']]); ?>">
+				<?php echo $event['titre']; ?>
+			</a></h4>
 			<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
-				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+				<img src="<?php echo PHOTO_EVENT.$event['lien'];?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-tag"></span><?php echo '[[type]]' ?></p>
+				<p><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
 				<p><span class="fa fa-calendar"></span><?php echo $event['debut']; ?></p>
-				<p><span class="fa fa-map-marker"></span><?php echo '[[lieu]]'; ?></p>
+				<p><span class="fa fa-map-marker"></span><?php echo $event['lieu']; ?></p>
 				<?php
 				if($event['tarif']) {
 					echo '<p><span class="fa fa-eur"></span> '.$event['tarif'].' €</p>';
