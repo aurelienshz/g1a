@@ -127,8 +127,9 @@ if(!empty($_POST)){
     			if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) {
     				if (!empty($contents["lien_photo"])) unlink(PHOTO_PROFIL.$contents["lien_photo"]);
     				move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
+    				$contents['lien_photo'] = $photo;
     			}
-    			$contents['lien_photo'] = $photo;
+    			
 			} else {
 				unset($photo);
 		}
