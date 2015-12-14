@@ -70,7 +70,8 @@ if(!empty($_POST)){
 	    }
 	}
 	//Photo de Profil
-	if(!empty($_FILES['name'])){
+	var_dump($_FILES);
+	if(isset($_FILES['name'])){
 		$errors['photo']="";
 		// Gérer si erreur d'envoi
 		if ($_FILES["photo"]['error'] > 0 AND $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
@@ -93,10 +94,7 @@ if(!empty($_POST)){
 		$photo .= md5(uniqid(rand(), true));
 		$photo .= ".";
 		$photo .= $uploadedExtension;
-		$contents['lien_photo'] = $photo;
 		
-	}elseif(!empty($contents['lien_photo'])) {
-		$contents['lien_photo']  = 'photo_profil_defaut.jpg' ; 
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -121,7 +119,15 @@ if(!empty($_POST)){
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
-    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$contents['lien_photo']);
+ //    	?> <pre> <?php
+	// 	echo "contents : ";
+	// 	var_dump($contents);
+		echo "FILES : ";
+		var_dump($_FILES);
+		echo "<br />";
+		var_dump(PHOTO_PROFIL.$photo);
+	// ?> </pre> <?php
+    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
     	//Execute l'envoi du formulaire
     	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], $contents['lien_photo'], $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
 

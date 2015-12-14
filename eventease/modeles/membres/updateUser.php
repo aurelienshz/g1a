@@ -27,7 +27,7 @@ function generateUpdateMember($photo_id, $adresse_id) {
 
 }
 
-function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description,$id_adress,$id_photo) {
+function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue, $photo, $description,$id_adresse,$id_photo) {
 	if(!empty($adresse))	{
 		$output = googleAddressToCoord($adresse);
 		if($output == False){
@@ -54,7 +54,6 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 
 	$requete = '';
 	$execution = array();
-	
 	// Construction de requête :
 // $photo isset && address isset
 // 		Faire ce qui est ci-dessous
@@ -72,12 +71,12 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 		 	$requete .= $insertAddress;
 		 	$requete .= $insertMedia;
 		 	$requete .= generateUpdateMember('@photo_id','@adresse_id');
-		 }elseif (empty($id_adresse) && empty($id_photo)) {
+		 }elseif (empty($id_adresse) && !empty($id_photo)) {
 		 	$requete .= $insertAddress;
 		 	$requete .= $updateMedia;
 		 	$requete .= generateUpdateMember(':id_photo','@adresse_id');
 		 	$execution = array_merge([":id_photo"=>$id_photo],$execution);
-		 }elseif (empty($id_adresse) && empty($id_photo)) {
+		 }elseif (!empty($id_adresse) && empty($id_photo)) {
 		 	$requete .= $updateAddress;
 		 	$requete .= $insertMedia;
 		 	$requete .= generateUpdateMember('@photo_id',':id_adresse');
@@ -85,7 +84,7 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 		 }else{
 		 	$requete .= $updateAddress;
 		 	$requete .= $updateMedia;
-		 	$requete .= generateUpdateMember(':photo_id',':adresse_id');
+		 	$requete .= generateUpdateMember(':photo_id',':id_adresse');
 		 	$execution = array_merge([":id_adresse"=>$id_adresse],[":id_photo"=>$id_photo], $execution);
 		 }
 
@@ -110,7 +109,7 @@ function updateUser($id, $civilite, $nom, $prenom, $ddn, $tel, $adresse, $langue
 		 	$requete .= generateUpdateMember('','@adresse_id');
 		 }else{
 		 	$requete .= $updateAddress;
-		 	$requete .= generateUpdateMember('',':adresse_id');
+		 	$requete .= generateUpdateMember('',':id_adresse');
 		 	$execution = array_merge([":id_adresse"=>$id_adresse], $execution);
 		 }
 
