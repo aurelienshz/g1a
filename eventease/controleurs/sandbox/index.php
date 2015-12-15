@@ -3,7 +3,11 @@ echo '<h1>SANDBOX ~ EVENTEASE</h1>';
 
 // -------------------------------------------------- //
 
-require MODELES.'functions/adresse.php';
-require_once MODELES.'functions/google.php';
+require MODELES.'events/searchEvents.php';
 
-var_dump(googleCorrectAddress('28 notre dame des champs, paris'));
+echo '<pre>';
+$res = searchEvents('concert');
+
+echo '<h2>Résultats retournés :</h2>';
+var_dump($res);
+echo '</pre>';

@@ -99,10 +99,6 @@ input[type="file"]{
 .map {
 	background-color: blue;
 }
-.ligneBoutons {
-	margin: .5em 0;
-	width:90%;
-}
 #description {
 	resize: vertical;
 }
