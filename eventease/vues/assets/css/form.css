@@ -18,9 +18,13 @@ input, textarea {
     margin: 0 auto 0 auto;
     padding: 0 1em;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: white;
     font-size: 1.2em;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #287DFF;
 }
 textarea {
     width: 100%;
@@ -29,7 +33,7 @@ textarea {
     border-radius: 0px;
 }
 label+input {
-    margin: 0 auto 15px auto;
+    margin: 0 auto 1em auto;
 }
 input[type="file"] {
     border: 0;
@@ -38,23 +42,30 @@ input[type="file"] {
     padding: 0;
 }
 input[type="submit"] {
-    width: 15%;
-    height:2em;
-    line-height:2em;
-    min-width: 10em;
-    margin: 20px 0 0 auto;
+    height: auto;
+    font-size: 1em;
+    line-height: 1em;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em 0;
+    vertical-align: middle;
+    border-radius: 5px;
     border: 0;
-    border-radius: 20px;
     border-bottom: 2px solid #303030;
     background-color: #287DFF;
-    color: #FAFAFA;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:#FAFAFA;
+    text-decoration: none;
+    text-align: center;
 }
 input[type="submit"]:hover {
     background-color: #015791;
 }
 input[type="submit"]:active {
     background-color: #015791;
-    border: 1px solid #303030;
+    border-top: 1px solid #303030;
+    border-bottom: 1px solid #303030;
 }
 form .formError {
     color: red;
@@ -69,7 +80,7 @@ select{
     margin: 0 auto;
     padding: 0 1em;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: white;
     font-size: 1.2em;
 }
@@ -85,3 +96,17 @@ checkbox {
     display: inline-block;
     height: 20px;
     margin: auto;
+}
+ .tableau {display: table;border-spacing: 0.5rem;border-collapse: collapse;}
+  .cellule {display: table-cell;padding: 0.5rem; border: 1px solid #999;}
+  .ligne {display: table-row;}
+  /* Quelques sélecteurs */
+  .ligne:nth-child(odd) {background: #e5f1f4;}
+  .ligne:nth-child(even) {background: #f8fbfc;}
+  .ligne:hover {background: #ecfbd4;cursor:pointer;} 
+  .col {display: table-column;}
+  .corp {display: table-row-group}
+  .colgroupe {display: table-column-group;}
+  .pied {display: table-footer-group;font-weight:bold;background-color:#eee;}
+  .tete {background-color:#4a98af;color:#ffffff;display: table-header-group;font-weight:bold;text-align:center;}
+  .legende {display: table-caption;caption-side: top;background-color:#eee;}

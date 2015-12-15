@@ -12,11 +12,12 @@
 }
 
 #palette {
+    display: table-row;
+    display: none;
     position: absolute;
     right: 0;
     top: 0;
     border: 1px solid black;
-    display: table-row;
 }
 *[id^="color"] {
     width: 100px;

@@ -8,9 +8,7 @@ html {
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     color: #303030;
 }
-.clearfix {
-    overflow: auto;
-}
+
 body {
     padding: 0 auto;
     width: 100%;
@@ -22,6 +20,12 @@ body {
 .disabled {
     cursor: not-allowed;
 }
+
+.shadow {
+	border-radius: 0 0 5px 5px;
+	box-shadow: 0 10px 10px #CDCDCD;
+}
+
 /*********************************/
 
 /* Header : */
@@ -61,8 +65,8 @@ header ul li a:hover {
     color: #287DFF;
 }
 header #pseudo {
-    text-transform: none    ;
-    color: green;
+    text-transform: none;
+    color: #287DFF;
 }
 #raccourcis li {
     float: left;
@@ -168,7 +172,7 @@ h4 {
     margin: 0 auto;
     padding: 1em 0;
     vertical-align: middle;
-    border-radius: 15px;
+    border-radius: 5px;
     border: 0;
     border-bottom: 2px solid #303030;
     background-color: #287DFF;
@@ -180,12 +184,13 @@ h4 {
     text-align: center;
 }
 .button:hover {
-    background-color: 015791;
+    background-color: #015791;
 }
 .button:active {
-/*    width: calc(100% - 2px);*/
+    width: calc(initial - 2px);
     background-color: 015791;
-    border: 1px solid #303030;
+    border-top: 1px solid #303030;
+    border-bottom: 1px solid #303030;
 }
 
 

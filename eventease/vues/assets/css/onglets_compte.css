@@ -8,16 +8,25 @@
     border-right: 2px solid #303030;
 }
 .left_tab a {
-    background-color: #4d93ff;
-    border-bottom: 10px solid #287DFF;
+    /*background-color: #4d93ff;*/
+    border-top: 10px solid #287DFF;
 }
 .center_tab a {
-    background-color: #fd5544;
-    border-bottom: 10px solid #dd3d30;
+    /*background-color: #fd5544;*/
+    border-top: 10px solid #F94339;
 }
 .right_tab a {
-    background-color: #63cf63;
-    border-bottom: 10px solid #36B136;
+    /*background-color: #63cf63;*/
+    border-top: 10px solid #36B136;
+}
+.onglets li.left_tab a:hover {
+    /*background-color: #287DFF;*/
+}
+.onglets li.center_tab a:hover {
+    /*background-color: #DD3D30;*/
+}
+.onglets li.right_tab a:hover {
+    /*background-color: #36B136;*/
 }
 
 
@@ -33,29 +42,25 @@
     border-collapse: collapse;
 }
 .onglets li {
-    /*border-top-left-radius: 1em;
-    border-top-right-radius: 1em;*/
+/*  border-top-left-radius: 1em;
+    border-top-right-radius: 1em; */
+    background-color: #FAFAFA;
     display: table-cell;
     width: 33.333333%;
     padding:0;
     margin:0;
 }
 .onglets li a {
-    color: #FAFAFA;
+    color: #303030;
+    border-bottom: 2px solid #303030;
 }
-.onglets li.left_tab a:hover {
-    background-color: #287DFF;
-}
-.onglets li.center_tab a:hover {
-    background-color: #DD3D30;
-}
-.onglets li.right_tab a:hover {
-    background-color: #36B136;
-}
-.onglets li.active a {
+.onglets li.active {
     background-color: white;
     border-bottom-color: white;
     color: #303030;
+}
+.onglets li.active a {
+    border-bottom: 0;
 }
 .onglets li.active a:hover {
     background-color: white;
@@ -71,6 +76,6 @@
 .profil_onglets {
     display: table;
     width: 100%;
-    background-color: lightgray;
+    background-color: white;
 }
 /* */

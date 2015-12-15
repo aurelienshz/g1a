@@ -21,6 +21,7 @@ if(!empty($_POST)) {        // Formulaire envoyé
             // Positionnement des variables de session :
             $_SESSION['connected'] = True;
             $_SESSION['username'] = $_POST['username'];
+            $_SESSION['niveau'] = $auth['niveau'];
             $_SESSION['id'] = $auth['id'];
 
             if(!isset($auth['date_derniere_connexion'])) {

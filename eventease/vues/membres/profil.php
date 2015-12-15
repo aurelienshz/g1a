@@ -7,7 +7,7 @@
             <div id="photo_profil">
                 <img alt="<?php echo $contents['pseudo']; ?>" src="<?php echo $contents['photo']; ?>" title="<?php echo $contents['pseudo']; ?>"/>
             </div>
-
+        <div id="statut"><?php echo $contents['statut']; ?></div>
 <?php if(!$contents['monProfil']) { ?>
             <ul id="interaction_profil">
                 <li><a class="button" href="#">Inviter à un évènement</a></li>
@@ -23,7 +23,7 @@
 <?php } // connected() ?>
         </div>
         <div id="col_droite">
-            <div id='pseudo_profil'><?php echo $contents['pseudo']; ?> <span id="statut"><?php echo $contents['statut']; ?></span></div>
+            <div id='pseudo_profil'><?php echo $contents['pseudo']; ?></div>
             <div id="description">
                 <h3>À propos de moi :</h3>
                 <p> <?php echo $contents['description']; ?></p>
@@ -41,7 +41,6 @@
             </div>
 
         </div>
-        </div>
-            <div id="clearfix"></div>
     </div>
+            <div id="clearfix"></div> <?php /**empêche le débordement des float sur le footer**/ ?>
 </div>

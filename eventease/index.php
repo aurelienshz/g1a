@@ -14,7 +14,7 @@ require CONTROLEURS.'shared/vue.php';
 
 require_once MODELES.'membres/connected.php';
 
-define('DEBUG', False); // Activation du mode debug. Passer à False pour désactiver.
+define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 // Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
 if(!connected()) {
@@ -33,7 +33,7 @@ if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on 
     $_SESSION['previousPage'] = $landingPage;   // Page d'atterrissage : paramétrée dans config.php
     $_SESSION['currentPage'] = $landingPage;
 }
-elseif($_SESSION['currentPage'] != array_values($_GET)) {	    // Si on a réellement chargé une nouvelle page et pas simplement rafraichi. N.B : on compare index par index car $route est AUSSI associatif
+elseif($_SESSION['currentPage'] != array_values($_GET)) {
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
     $_SESSION['currentPage'] = [];
     if (count($_GET)>0) {

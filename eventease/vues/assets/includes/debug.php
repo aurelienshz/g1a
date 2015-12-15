@@ -10,7 +10,7 @@
 
 <?php
 
-$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil']];
+$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil'], ['forum','accueil']];
 
 echo '<div id="debug"><div id="session">';
 require 'controleurs/shared/bddVersion.php';

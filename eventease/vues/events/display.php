@@ -1,4 +1,4 @@
-<?php  /* var_dump($contents['creators']); */?>
+<?php   foreach($contents as $comment) {print_r($comment) . '<br/>';} ?>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -82,7 +82,6 @@
             <div class="slideshow-container">
                 <div class="previous">&lt;</div>
                 <div class="image"><img src="<?php if (!array_key_exists(2,$contents['images'])) {echo '' ;} else {echo PHOTO_EVENT.$contents['images'][2][0];}?>"/></div>
-                <div class="next">&gt;</div>
                 <div class="next">&gt;</div>
             </div>
 		</div>
