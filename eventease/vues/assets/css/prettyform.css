@@ -1,5 +1,10 @@
 .prettyform{
 	padding:0;
+	background-color: #FAFAFA;
+	margin-bottom: 2em;
+}
+.prettyform form {
+	border-radius: 0 0 5px 5px;
 }
 .prettyform .calendarPin {
 	position: relative;
@@ -12,9 +17,10 @@
 .prettyform .calendarPin2 {
 	left:10%;
 }
-.prettyform .title-wrapper {
+.prettyform .title-wrapper, .prettyform .titleWrapper {
 	background-color: #4D93FF;
 	border-bottom: 15px solid #287DFF;
+	margin-bottom: 2em;
 	padding: 0;
 	text-align: center;
 }

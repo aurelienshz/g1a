@@ -23,7 +23,7 @@ function getEvents($id = False) {
                     .$userSpecific[0].
                     "WHERE evenement.visibilite = 0".$userSpecific[1];
 
-    var_dump($query);
+    // var_dump($query);
 
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $reqEvents = $bdd -> prepare($query);
@@ -41,9 +41,9 @@ function getEvents($id = False) {
         $results = False;
     }
 
-    echo '<pre>';
-    var_dump($results);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($results);
+    // echo '</pre>';
 
     return $results;
 
