@@ -37,6 +37,7 @@ function detailsToStrings($events) {
 }
 
 function searchController() {
+    $contents = [];
     if(!empty($_POST)) {    // On est arrivé en postant un formulaire
         if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
             //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
@@ -49,16 +50,10 @@ function searchController() {
             // On traite la recherche :
             require MODELES.'events/searchEvents.php';
 
-            if(!empty($_POST['keywords'])) {
-                $keywords = explode(' ', $_POST['keywords']);
-            }
-            else {
-                $keywords = [];
-            }
-            $results = searchEvents($keywords);
-            echo '<pre>';
-            var_dump($results);
-            echo '</pre>';
+            $results = searchEvents($_POST['keywords']);
+            // echo '<pre>';
+            // var_dump($results);
+            // echo '</pre>';
             if($results) {
                 $results = detailsToStrings($results);
                 // Afficher les résultats
