@@ -28,9 +28,20 @@
     </div>
     <div class="tableau">
       <div class="header">
-        <h1>Je sais pas quoi mettre</h1>
+        <h1>Discussions</h1>
       </div>
       <div class="content">
+        <div class="question">
+          <div class="enonce">Des idées de sortie pour les enfants?</div>
+          <div class="reponses">32 réponses</div>
+          <div class="auteur">par <strong>KevinDu38</strong></div>
+        </div>
+        <div class="question">
+          <div class="enonce">Meilleur endroit pour un pique-nique à Paris</div>
+          <div class="reponses">6 réponses</div>
+          <div class="auteur">par <strong>Apolito</strong></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
