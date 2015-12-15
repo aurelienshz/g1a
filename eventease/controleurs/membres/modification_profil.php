@@ -7,6 +7,7 @@ require MODELES.'membres/getUserDetails.php';
 require MODELES.'functions/google.php';
 require MODELES.'functions/date.php';
 require MODELES.'membres/updateUser.php';
+require MODELES.'functions/form.php';
 
 
 
@@ -30,45 +31,70 @@ if (isset($user["adresse_condensee"])){
 	$user["adresse"] = googleCoordToAddress($user['coordonnee_lat'],$user['coordonnee_long']);
 }
 $contents = $user;
-// ===== VERIFIE ET INSERE LES DONNES =====
+// ===== VERIFICATION POST =====
+
+// function checkTextInput($input,$regex,$message_erreur) {
+// 	if(!empty($input) AND !preg_match($regex, $input) ) {
+// 		return $message_erreur;
+// 	}
+// 	return;
+// }
+
+// function checkTextbox($input, $forbiddenKeywords, $message_erreur){
+// 	if (!empty($input) ) {
+// 		foreach($forbiddenKeywords as $keyword){
+// 	    	if (strpos($input, $keyword) > 0){
+// 	    		return $message_erreur;
+// 	    	}
+// 	    }
+// 	}
+// 	return;
+// }
+// function checkSelect($input, $possibleValues, $default_value) {
+// 	if(!empty($input) AND !in_array($input, $possibleValues) ){
+// 		return $default_value;
+// 	}else{
+// 		return $input;
+// 	}
+// }
+
+// function checkBirthDate($input, $message_erreur){
+// 	if (!empty($input) AND (!validateDateFormat($input,"Y-m-d") OR !validatePastDate($input))){
+// 		return $message_erreur;
+// 	}
+// 	return;
+// }
+// function checkAddress($input, $message_erreur){
+// 	if (!empty($input) AND !googleCheckAddress($input)){
+// 		return $message_erreur;
+// 	}
+// 	return;
+// }
+
 if(!empty($_POST)){
 	//Civilité
-	if(!empty($_POST['civilite']) AND $_POST['civilite'] !== 0){
-		$_POST['civilite'] = 1;
-	}
-	// Nom & Prénom
-	if(!empty($_POST['nom']) AND !preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['nom'])){
-		$errors['nom'] = 'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
-	}
-	if(!empty($_POST['prenom']) AND !preg_match("/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", $_POST['prenom'])){
-		$errors['prenom'] = 'Prenom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
-	}
+	$_POST['civilite'] = checkSelect($_POST['civilite'], [0,1], 0);
+
+	// Nom & Prénom : 
+	$errors['nom'] = checkTextInput($_POST['nom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i",'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.');
+	$errors['prenom'] = checkTextInput($_POST['prenom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", 'Prénom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.');
+
 	//DDN
-	if (!empty($_POST['ddn']) AND (!validateDateFormat($_POST['ddn'],"Y-m-d") OR !validatePastDate($_POST['ddn']))){
-		$errors['ddn'] = 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
-	}
+	$errors['ddn'] = checkBirthDate($_POST['ddn'], 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA');
+
 	//Tel
-	if(!empty($_POST['tel']) AND !preg_match("/^0\d{9}$/", $_POST['tel'])){
-		$errors['tel'] = 'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.';
-	}
+	$errors['tel'] = checkTextInput($_POST['tel'],"/^0\d{9}$/",'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.');
+
 	// Adresse :
-	if (!empty($_POST['adresse']) AND !googleCheckAddress($_POST['adresse'])){
-		$errors['adresse'] = 'Adresse invalide';
-	}
+	$errors['adresse'] = checkAddress($_POST['adresse'], 'Adresse invalide');
+
 	// Langue :
-	if(!empty($_POST['langue']) AND $_POST['langue'] !== 0){
-		$_POST['langue'] = 1;
-	}
+	$_POST['langue'] = checkSelect($_POST['langue'], [0,1], 0);
+
 	//Description :
-	if(!empty($_POST['description'])){
-	    $forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
-	    foreach($forbiddenKeywords as $keyword){
-	    	if (strpos($_POST['description'], $keyword) > 0){
-	    		$errors['description'] = 'Description invalide, il contient des mots interdits.';
-	    	}
-	    	break;
-	    }
-	}
+	$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
+	$errors['description'] = checkTextbox ($_POST['description'],$forbiddenKeywords ,'Description invalide, il contient des mots interdits.' );
+
 	//Photo de Profil
 	if(is_uploaded_file($_FILES['photo']['tmp_name'])){
 		$errors['photo']="";
@@ -120,7 +146,15 @@ if(!empty($_POST)){
 			$_POST[$cle]=htmlspecialchars($valeur);
 	}
     //Entrée BDD si pas d'erreurs :
-    if (empty($errors)){
+    foreach ($errors as $key => $value) {
+    	if ($value != NULL){
+    		$doIt = False;
+    		break;
+    	}else{
+    		$doIt = True;
+    	}
+    }
+    if ($doIt){
     	foreach($_POST as $cle => $valeur){
     		if($valeur == ""){
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
@@ -134,6 +168,7 @@ if(!empty($_POST)){
 				$contents['lien_photo'] = $photo;
 			}
     	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
+    	 alert("info","Votre profil a bien été modifié.");
     	header('Location: '.getLink(['membres','profil']));
     	exit();
 
