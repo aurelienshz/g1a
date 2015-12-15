@@ -1,4 +1,4 @@
-<?php   foreach($contents as $comment) {print_r($comment) . '<br/>';} ?>
+<pre><?php  /* var_dump($contents); */?></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -105,11 +105,10 @@
 		<div class = "friends_going">
 		<h2> Personnes qui y vont </h2>
 		<table style="width=100%">
-            <?php 
-                $compteur=0;
+            <?php
+                $compteur=-1;
                 foreach($contents['participants'] as $participants)
-                {
-                    if ($compteur> 8) {echo "cliquez ici pour afficher plus de participants";}
+                {$compteur++;
                     if($compteur%4==0)
                     {
             ?>
@@ -118,13 +117,11 @@
                     }
                     else {}
             ?>
-            <?php if ($compteur>9) {echo '';}
+            <?php if ($compteur>7) {echo '';}
                     else{ ?>
-                    <td><img src="<?php echo PHOTO_PROFIL.$participants[2];?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>"><?php echo ' '. $participants[0];?></a></td>
-
+                    <td><img src="<?php echo PHOTO_PROFIL.$participants[2];?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>"><?php echo '<br/>'. $participants[0];?></a></td>
             <?php
                     }
-                $compteur++;
             }
             ?>
 		</table>
