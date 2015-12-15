@@ -1,5 +1,3 @@
-
-
 .titleWrapper1 
 {
   background-color: #36B136;
@@ -19,4 +17,36 @@
 .categorie_forum {
   margin: auto 40px auto 40px;
   padding-bottom: 20px
+}
+
+.header{
+  background-color: #36B136;
+  text-align: center;
+  margin-top: 40px
+}
+.header h1 {
+  color: #FAFAFA;
+  font-size: 1.5em;
+  display: inline-block;
+  vertical-align: top;
+}
+.content {
+  border:15px solid #afe7af;
+}
+.question {
+  border-bottom: 1px solid #afe7af;
+  padding: 10px;
+  vertical-align: top
+}
+.enonce {
+  width: 40em;
+  font-size: 20px;
+  font-weight: bold;
+}
+.reponses {
+  border-right-width: 10px;
+  font-size: 15px;
+}
+.auteur{
+  font-size: 15px;
 }
