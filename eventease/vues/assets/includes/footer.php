@@ -17,7 +17,7 @@
                 <div class="col-3">
                     <h3>EventEase</h3>
                     <a href="#">A propos</a><br />
-                    <a href="#">Mention légales</a><br />
+                    <a href="<?php echo getLink(['accueil', 'legal']); ?>">Mentions légales</a><br />
                     <a href="#">CGU</a><br /><br />
                     <a href='#' style='color:#303030;'>Administration</a>
                 </div>

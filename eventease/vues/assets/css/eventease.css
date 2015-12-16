@@ -17,6 +17,10 @@ body {
     margin: 0 auto;
 }
 
+p {
+    text-align: justify;
+}
+
 .disabled {
     cursor: not-allowed;
 }
@@ -149,6 +153,14 @@ section {
     width: 90%;
     padding: 2em 5%;
     margin: 0 auto;
+}
+.wrapper-jumbotext {
+    width: 90%;
+    padding: 1em 5%;
+    background-color: #FAFAFA;
+    max-width: 800px;
+    margin: 2em auto 2em auto;
+	box-shadow: 0 10px 10px #CDCDCD;
 }
 .wrapper-narrow {
     width: 33%;
