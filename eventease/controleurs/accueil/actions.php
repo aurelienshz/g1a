@@ -3,5 +3,6 @@
 $actions = [
 'index',
 '404',
-'legal'
+'legal',
+'sitemap'
 ];
