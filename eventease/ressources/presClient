@@ -8,56 +8,6 @@ IMPERATIF   				page events			      en cours
 BONUS   					recherche d'event	 	  en cours
 BONUS   					création d'event		  en cours
 
------------------------------------------------------------------------
---- THE ULTIMATE TODO LIST ---
-
-Général :
-    - URL rewrite -bonux-
-    - 404 si module inexistant
-
-page d'accueil
-    - suggestions à rendre dynamique --> Tristan
-        pour l'instant : statique
-    - mes évènements
-
-Création d'event :
-    - choix des types --> écrire une requete pour aller récup la liste des types en BDD - Aurélien
-    - insertion dans la base et vérif champs
-Profil : afficher / modifier --> bonus ??
-    - vue modifier
-        - value/place : Fait sauf pour adresse.
-    - modifier : script back end : Tristan
-        - charger les valeurs de champs
-        - si modif, update BDD
-Events
-    - contrôleur --> raccorder au modèle --> Guillaume & Aude
-        - Gestion des participations :
-            - demande de connexion ou d'inscription si nécessaire
-        - Commentaires, organisateurs, qui y va ? etc...
-        - spécification de l'interface si je suis organisateur
-
-    - modifier event existant : pour la suite des réjouissances
-	    - vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
-        - penser à l'action supprimer
-
-
-BDD :
-    - peupler types
-    - peupler events en ajoutant au moins 4 events : à faire lundi aprèm
-        - 2 dans le même jour
-        - 2 dans le même mois
-        - 1 dont Kevin est orga
-        - 1 auquel Kevin participe
-
-
-Recherche event / membre
-    script back end --> contrôleurs et requêtes
-        Audrey (Aurélien ?)
-Header / Footer
-    - head : forum menu Aurélien
-    - liens footer à activer et relier
-
-
 
 -----------------------------------------------------------------------
 

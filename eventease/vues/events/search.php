@@ -1,16 +1,4 @@
-<!-- <div id="searchToolbar" class="wrapper">
-	<span>XX résultats trouvés</span>
-	<div class="tri">
-		Trier par :
-		<select>
-			<option>Nom</option>
-			<option>Date</option>
-			<option>Tarif</option>
-			<option>Durée</option>
-			<option>Lieu</option>
-		</select>
-	</div>
-</div> -->
+
 <div class="wrapper">
 
 <?php
@@ -21,10 +9,39 @@
 
 	<!-- Barre latérale de sélection des filtres -->
 	<div class="sidebar">
-		Type d'activité :
-		<form>
-			QSDF
-		</form>
+		<h3>Trier</h3>
+		<div class="tri">
+			Trier par :
+			<select>
+				<option>Pertinence</option>
+				<option>Nom</option>
+				<option>Date</option>
+				<option>Tarif</option>
+				<option>Durée</option>
+				<option>Lieu</option>
+			</select>
+		</div>
+		<h3>Filtrer</h3>
+		<h5>Type</h5>
+		<div class="filter filter-type active">Tous</div>
+		<div class="filter filter-type">Pique-Nique</div>
+		<div class="filter filter-type">Concert</div>
+		<div class="filter filter-type">Vente privée</div>
+		<div class="filter filter-type">Brocante</div>
+		<div class="filter filter-type">Exposition</div>
+		<div class="filter filter-type">Rassemblement</div>
+
+		<h5>Date & heure</h5>
+		<div class="filter filter-date active">Tous</div>
+		<div class="filter filter-date">Aujourd'hui</div>
+		<div class="filter filter-date">Demain</div>
+		<div class="filter filter-date">Ce mois-ci</div>
+
+		<h5>Tarif</h5>
+		<div class="filter filter-price active">Tous</div>
+		<div class="filter filter-price">0 - 10 €</div>
+		<div class="filter filter-price">10 - 50 €</div>
+		<div class="filter filter-price">> 50 €</div>
 	</div>
 
 	<div class="results">
@@ -68,4 +85,5 @@ else {	// !isset($contents['searchResults'])
 
 
 	</div>
+	<div style="clear: both; width: 100%;"></div>
 </div>

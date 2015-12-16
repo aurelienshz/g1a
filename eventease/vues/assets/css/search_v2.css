@@ -1,8 +1,30 @@
 .sidebar {
 	float: left;
 	width: 20%;
-	background-color: lightgray;
+	/*background-color: lightgray;*/
 }
+.sidebar h3 {
+	font-size: 1.4em;
+	border-bottom: 1px solid lightgray;
+}
+.sidebar h5 {
+	font-size: 1.2em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	border-bottom: 1px solid lightgray;
+}
+.sidebar .filter {
+	cursor: pointer;
+	border: 1px solid #287DFF;
+	border-radius: 5px;
+	padding: .1em .5em;
+	margin-bottom: .2em;
+}
+.sidebar .filter.active {
+	background-color: #287DFF;
+	color: #FAFAFA;
+}
+
 .results {
 	margin-left: 22%;
 }
@@ -17,4 +39,21 @@
 .buttons input, .buttons a.button {
 	width: 50%;
 	margin: 1em auto;
+}
+
+.prettyform #criteres {
+
+}
+.prettyform #criteres .row {
+	display: flex;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.prettyform #criteres .champ {
+	display: table-cell;
+	width: 20%
+}
+.prettyform #criteres .champ label {
+	text-align: center;
 }
