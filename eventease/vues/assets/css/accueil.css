@@ -108,49 +108,13 @@
     width: 66.666666%;
 }
 /**** SLIDESHOW ~ Suggestions d'events : ****/
-.previous, .next {
-	display:table-cell;
-	width: 5%;
-	font-size: 2em;
-	font-weight:bold;
-	vertical-align: middle;
-	text-decoration: none;
-    text-align: center;
+
+#suggestions {
 }
-.previous:hover, .next:hover {
-    cursor: pointer;
-    background: #FAFAFA;
-    text-decoration: none;
-    color: #287DFF;
-}
-#suggestions .slideshow-nav {
-    text-align: center;
-    margin: 1em 0;
-}
-#suggestions .slideshow-nav span {
-    margin: 0 .5em;
+#suggestions div.eventPreview {
 }
 
-.imageContainer {
-    display: table-cell;
-    width: 28.33%;
-    box-sizing: border-box;
-    padding: 0;
-}
-.imageContainer img {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 5px;
-    border: 1px solid black;
-}
-#suggestions .eventDetails {
-    width: 61.666%;
-    padding-left: 1em;
-    vertical-align: top;
-    display: table-cell;
-    box-sizing: border-box;
-    color: #303030;
-}
+/**** CALENDRIER ****/
 
 .monthDetails {
     vertical-align: top;
