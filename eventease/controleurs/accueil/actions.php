@@ -2,5 +2,6 @@
 // controleurs/accueil/actions.php
 $actions = [
 'index',
-'404'
+'404',
+'legal'
 ];

@@ -38,7 +38,7 @@
 				<p><span class="fa fa-eur"></span>666 €</p>
 				<p><span class="fa fa-child"></span>> 18ans</p>
 			</div>
-			<p class="description">Aurélien écrit a mal travaillé sur la hauteur des boutons de défilement et mérite l'humiliation publique.</p>
+			<p class="description">Aurélien a mal travaillé sur la gestion de la hauteur des boutons de défilement et mérite l'humiliation publique.</p>
 			<a class="button" href="#">Voir l'évènement</a>
 			<div class="clearfix"></div>
 		</div>
