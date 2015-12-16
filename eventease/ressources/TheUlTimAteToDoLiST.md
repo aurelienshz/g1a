@@ -5,13 +5,13 @@ Questions pour le groupe :
 
 
 -----------------------------------------------------------------------
+
 # THE ULTIMATE TODO LIST #
 
 
 
 ## Général : ##
     - URL rewrite -bonux-
-    - 404 si module inexistant --> FAIT ?
     - mentions légales
     - plan du site
     - responsive serait un bonus
