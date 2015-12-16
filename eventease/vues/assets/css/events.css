@@ -188,6 +188,10 @@
     color: #287DFF;
 }
 #photos .image {
+<<<<<<< HEAD
+/*<<<<<<< HEAD*/
+=======
+>>>>>>> 56a1ef3d9287a02e7faf5d51d027f076233ce8c5
 	display:table-cell;
 	height:auto;
 	margin-top:1em;
@@ -196,10 +200,19 @@
 	height: 300px;
 	width:auto;
 	margin:auto;
+<<<<<<< HEAD
+/*=======
+=======
+>>>>>>> 56a1ef3d9287a02e7faf5d51d027f076233ce8c5
 	display: table-cell;
 	text-align: center;
 }
 
+<<<<<<< HEAD
+/*>>>>>>> 73a8c9144757c86493113b282a32334588697799*/
+}
+=======
+>>>>>>> 56a1ef3d9287a02e7faf5d51d027f076233ce8c5
 .organisation {
 	margin-top: 50px;
 	width: 100%;
