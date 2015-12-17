@@ -7,12 +7,12 @@
     float: left;
     width: 20%;
     padding: 0 2.5%;
-    border-right: 1px solid lightgray;
 }
 #col_droite {
     margin-left: 25%;
     padding-left: 1.25%;
     vertical-align: top;
+    border-left: 1px solid lightgray;
 }
 #photo_profil {
     text-align: center;

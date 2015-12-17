@@ -16,6 +16,9 @@
         <input type="password" name="password-confirm" id="password-confirm" placeholder="Mot de Passe - encore !"/>
         <?php echo isset($contents['errors']['password-confirm'])?$contents['errors']['password-confirm']:'' ?>
 
-        <input type="submit" value="Valider"/>
+        <label class="checkbox-label"><input type="checkbox" name="sell-my-soul" />J'ai lu et j'accepte de me conformer aux <a href="#">conditions générales d'utilisation</a></label>
+        <?php echo isset($contents['errors']['sell-my-soul'])?$contents['errors']['sell-my-soul']:'' ?>
+
+        <input type="submit" value="Valider" />
     </form>
 </div>

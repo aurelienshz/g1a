@@ -64,6 +64,7 @@
 /* Le trick du siècle : on ajoute un bloc <p> interne pour éviter que les bordures ne se bizeautent */
 .prettyform .tabs #tab-users p {
 	height: 100%;
+	text-align: center;
 	line-height: 100px;
 	padding: 0;
 	margin: 0;
