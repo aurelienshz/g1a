@@ -8,6 +8,7 @@ choix dans le formulaire :
 [] je suis l'orga --> nombre de places, acceptation des participations etc
 [] je ne suis pas l'irga --> lien vers le site de l'orga, contacts etc.
 
+
 -----------------------------------------------------------------------
 
 # THE ULTIMATE TODO LIST #
@@ -106,7 +107,7 @@ Modif event -- Tristan
 - slogan et subslogan accueil
 - édition FAQ
 - catégories du forum
-
+- image de fond bigform accueil
 
 ## BDD ##
 
