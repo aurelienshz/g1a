@@ -120,7 +120,7 @@ function Slideshow(container) {
                 _this.next()
                 _this.play();
             }
-        }, 3000);
+        }, 5000);
     }
     // Afficher un slide particulier :
     this.showSlide = function(slide) {
