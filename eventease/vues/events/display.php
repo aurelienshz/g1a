@@ -1,4 +1,4 @@
-<pre><?php  /* var_dump($contents); ?*/></pre>
+<pre><?php  /* var_dump($contents); */?></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -142,15 +142,15 @@
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
-                <?php 
+                <?php
                     foreach($contents['comment'] as $commentaire)
                     {
                     ?><p><img src="<?php echo PHOTO_PROFIL.$commentaire[3]; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>"><?php echo $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
-          
+
                     <p><?php echo $commentaire[1];?><br/></p>
 
                 <?php
-                    } 
+                    }
                 ?>
 			</div>
 		</div>
