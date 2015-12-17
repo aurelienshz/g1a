@@ -3,6 +3,10 @@ Questions pour le groupe :
 - Mes évènements --> fil d'actualité ? ~~ dashboard
 - places max : plusieurs events *sur EE* qui correspondent à la même chose en réalité ??
 
+- idée aurélien :
+choix dans le formulaire :
+[] je suis l'orga --> nombre de places, acceptation des participations etc
+[] je ne suis pas l'irga --> lien vers le site de l'orga, contacts etc.
 
 -----------------------------------------------------------------------
 
@@ -71,17 +75,18 @@ Affichage et participation aux events  -- Guillaume & Aude
 - client : bouton inviter qqun
 - client : faire attention aux alignements des blocks
 - client : ouvrir le profil de la personne dans une nouvelle fenêtre
-Aurélien : que diriez-vous d'une modale ?
-- client : contact de l'organisateur -- je ne me souviens plus de ce qu'il voulait ~ Aurélien
+    Aurélien : que diriez-vous d'une modale ?
+- client : contact de l'organisateur (l'orga n'est pas le créateur donc il faut pouvoir le contacter directement)
 - participation :
 - client : pouvoir y aller à plusieurs ("bring a friend" ? proposer aux gens de saisir les e-mails des copains qui viennent et inciter ces derniers à s'inscrire ?)
 - demande de connexion ou d'inscription si nécessaire
 - requêtes AJAX ?
 
+
 Création d'event :
 - choix des types --> écrire une requete pour aller récup la liste des types en BDD - Aurélien
---> done mais dans une sous fonction du modèle, factorisation nécessaire
---> implémenter partout où c'est requis --> Aurélien
+    --> done mais dans une sous fonction du modèle, factorisation nécessaire
+    --> implémenter partout où c'est requis --> Aurélien
 - insertion dans la base et vérif champs -- Tristan
 - photos !!!
 - ajout de photos supplémentaires (pas uniquement la photo principale)
@@ -110,7 +115,7 @@ Modif event -- Tristan
 Recherche :
 events :
 - implémentation filtres -- Aurélien
-- implémentation question âge
+- question : âges ?
 - mettre en valeur le statut de participation
 membres :
 - comment on fait ?
@@ -118,15 +123,15 @@ membres :
 Header / Footer
 - head : forum menu - Aurélien
 - header : zones actives full height
-- liens footer à activer et relier - Aurélien sauf si qqun d'autre veut le faire
+- liens footer pas tous actifs
 
 Forum : -- Audrey
-- affichage des catégories dans un prettyform ?
+- affichage des catégories dans un prettyform ??
 - nouveau message
 - nouveau sujet
 - privilèges : modifier, supprimer message, seulement les miens sauf si modérateur ou admin
 
 FAQ / Aide / Doc
 - expliquer les fonctionnalités
-- documenter in-page
-J'aimerais implémenter un système d'aide in-page mais je ne sais pas encore comment ~ Aurélien
+- documenter in-page ?
+    J'aimerais implémenter un système d'aide in-page mais je ne sais pas encore comment ~ Aurélien
