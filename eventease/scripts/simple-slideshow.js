@@ -20,7 +20,7 @@ function Slideshow(container) {
     /**********************************************/
     /*** Méthodes d'initialisation du slideshow ***/
     /**********************************************/
-    // Récupérer les slides :
+    // Récupérer les slides et les pousser dans :
     this.getSlides = function() {
         for(var i in this.container.childNodes) {
             if(this.container.childNodes[i].tagName == 'DIV') {
@@ -29,12 +29,12 @@ function Slideshow(container) {
                 container.removeChild(slide);
             }
         }
-        var slidesContainer = document.createElement('DIV');
-        slidesContainer.className = 'slideshow-slides';
+        this.slidesContainer = document.createElement('DIV');
+        this.slidesContainer.className = 'slideshow-slides';
         for(i in this.slides) {
-            slidesContainer.appendChild(this.slides[i]);
+            this.slidesContainer.appendChild(this.slides[i]);
         }
-        this.container.insertBefore(slidesContainer, this.container.childNodes[1]);
+        // this.container.insertBefore(slidesContainer, this.container.childNodes[1]);
     }
     // Initialiser le slideshow :
     this.init = function() {
@@ -47,18 +47,22 @@ function Slideshow(container) {
         this.activateNav(this.currentSlide);
     }
 
-    // Ajouter les "nav" --> accès directs aux suggestions (points cliquables)
-    // Wanted : un meilleur nom pour cette fonctionnalité (autre que "nav").
+    // Ajouter les boutons gauche et droite :
     this.addScrolls = function() {
         var scrollLeft = document.createElement('DIV'),
-            scrollRight = document.createElement('DIV');
+            scrollRight = document.createElement('DIV'),
+            slideshowContents = document.createElement('DIV');
+
         scrollLeft.className = 'previous';
         scrollLeft.innerHTML = '<span>&lt;</span>';
         scrollRight.className = 'next';
         scrollRight.innerHTML = '<span>&gt;</span>';
+        slideshowContents.className = 'slideshow-contents';
 
-        this.container.insertBefore(scrollRight, container.childNodes[0]);
-        this.container.insertBefore(scrollLeft, container.childNodes[0]);
+        slideshowContents.appendChild(scrollLeft);
+        slideshowContents.appendChild(this.slidesContainer);
+        slideshowContents.appendChild(scrollRight);
+        this.container.appendChild(slideshowContents);
 
         return [scrollLeft, scrollRight];
     }

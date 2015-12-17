@@ -30,9 +30,7 @@ choix dans le formulaire :
 
 ## Accueil ##
 
-- slideshow suggestions à remettre en forme -> Aurélien
 - suggestions à rendre dynamique --> Tristan
-pour l'instant : statique
 - mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
     j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
 
@@ -52,8 +50,9 @@ CLIENT :
 - client : suggérer les règles pour les noms, les mdp... dans le message d'erreur.
 - client : nom aligné à gauche
 
-Inscription / Connexion / Validation mail :
+### Inscription / Connexion / Validation mail : ###
 - clarifier et remettre à plat les étapes et leurs articulations
+- date dernière connexion
 - inscription : conditions sur le mdp
 - ajouter bouton d'inscription sur page de connexion
 - mot de passe oublié
@@ -122,7 +121,6 @@ membres :
 - comment on fait ?
 
 Header / Footer
-- head : forum menu - Aurélien
 - header : zones actives full height
 - liens footer pas tous actifs
 
