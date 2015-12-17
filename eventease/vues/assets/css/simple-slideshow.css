@@ -18,7 +18,12 @@ SLIDESHOW - general style rules :
 
 .simple-slideshow {
 	display: table;
+	table-layout: fixed;
 	width: 100%;
+}
+
+.simple-slideshow .slideshow-contents {
+	display: table-row;
 }
 
 /*Previous and next buttons : */
@@ -31,10 +36,7 @@ SLIDESHOW - general style rules :
     text-align: center;
     vertical-align: middle;
 }
-.previous span, .next span {
-	position:relative;
-	top: 50%;
-}
+
 .previous:hover, .next:hover {
     cursor: pointer;
     background: #FAFAFA;
@@ -58,12 +60,13 @@ SLIDESHOW - general style rules :
 }
 /* Dots on the bottom showing which slide is displayed */
 .slideshow-nav {
-	display: table-row;
+	display: table-caption;
+	caption-side: bottom;
     text-align: center;
 	font-size: 1.5em;
-    margin: .5em 0 0 1em;
 	line-height: 1em;
 	color: lightgray;
+	padding: 1em 0;
 }
 .slideshow-nav span::before, .slideshow-nav span:before {
 	content: '\25CF';
