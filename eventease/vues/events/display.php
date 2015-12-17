@@ -1,4 +1,4 @@
-<pre><?php  /* var_dump($contents); */?></pre>
+<pre><?php  /* var_dump($contents); ?*/></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
