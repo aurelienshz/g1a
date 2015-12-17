@@ -4,15 +4,12 @@
 
 
 /* Chargement des paramètres de la page
-$section = getSection($_GET['id']);
-$contents['section']=$section;
-$contents['TitreSection'] = $section['titre'];
-$contents['DescriptionSection'] = $section['description'];
+
 
 /**** Préparation de la vue ****/
-$title = 'Accueil - Forum';
+$title = 'Sujet';
 $styles = ['forum.css','search.css'];
-$blocks = ['forum'];
+$blocks = ['sujet'];
 
 
 /**** Affichage de la page ****/
@@ -21,4 +18,3 @@ $blocks = ['forum'];
 vue($blocks,$styles,$title);
 
 ?>
-
