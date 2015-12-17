@@ -28,6 +28,9 @@ function detailsToStrings($events) {
             // Préparation de la chaîne représentant le lieu :
             $addressLines = explode(',',$event['adresse']);
             $events[$key]['lieu'] = end($addressLines);
+
+            $events[$key]['debut'] = substr($events[$key]['debut'], 0, 16);
+            $events[$key]['debut'] = preg_replace('/-/','/', $events[$key]['debut']);
         }
         return $events;
     }
@@ -71,7 +74,7 @@ function searchController() {
     $title = 'Recherche d\'évènements';
     $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
     $blocks = ['searchForm','search'];
-    $scripts = ['googleAutocompleteAddress.js'];
+    $scripts = [];
     vue($blocks,$styles,$title,$contents,$scripts);
 }
 
@@ -97,7 +100,7 @@ function listController() {
     $title = 'Liste des évènements';
     $styles = ['search_v2.css','list-events.css', 'eventPreview.css'];
     $blocks = ['search'];
-    $scripts = ['googleAutocompleteAddress.js'];
+    $scripts = [];
     vue($blocks,$styles,$title,$contents,$scripts);
 }
 

@@ -7,6 +7,7 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 session_start(); //On initialise la session.
 
 require 'config/config.php';
+require 'config/constants.php';
 require 'config/db.php';
 require CONTROLEURS.'shared/routes.php';
 require CONTROLEURS.'shared/alert.php';
@@ -22,22 +23,24 @@ if(!connected()) {
 }
 
 // Choix du module vers lequel on va router :
-$module = isset($_GET['module']) ? $_GET['module'] : 'default';
-$action = isset($_GET['action']) ? $_GET['action'] : 'default';
+$module = isset($_GET['module']) ? $_GET['module'] : '';
+$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 // Routage :
 $route = route($module,$action);
+$params = array_slice($_GET, 2);
 
 // Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
 if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on vient d'atterrir)
     $_SESSION['previousPage'] = $landingPage;   // Page d'atterrissage : paramétrée dans config.php
     $_SESSION['currentPage'] = $landingPage;
 }
+// Si on a bien chargé une nouvelle page et pas redemandé la même page :
 elseif($_SESSION['currentPage'] != array_values($_GET)) {
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
-    $_SESSION['currentPage'] = [];
+    $_SESSION['currentPage'] = $route;
     if (count($_GET)>0) {
-        foreach($_GET as $value) {
+        foreach($params as $value) {
             $_SESSION['currentPage'][] = $value;
         }
     }

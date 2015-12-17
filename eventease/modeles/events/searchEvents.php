@@ -1,7 +1,7 @@
 <?php
 function searchEvents($searchString) {
 
-    $keywords = explode(' ',$searchString);
+    $keywords = explode(' ',strtolower($searchString));
 
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     // squelette des requêtes sur les champs :
@@ -13,10 +13,30 @@ function searchEvents($searchString) {
                     WHERE ";
 
     // On met en place la pondération pour chaque champ
-    $fields = ['evenement.titre'=>5,
-                'type.nom'=>4,
-                'evenement.description'=>2,
-                'adresse.adresse_condensee'=>1];
+
+    $fields = [];
+    if(isset($_POST['criteres_all']) && $_POST['criteres_all']) {
+        $fields = ['evenement.titre'=>5,
+            'type.nom'=>4,
+            'evenement.description'=>2,
+            'adresse.adresse_condensee'=>1];
+    }
+    else {
+        if(isset($_POST['criteres_nom']) && $_POST['criteres_nom']) {
+            $fields['evenement.titre'] = 5;
+        }
+        if(isset($_POST['criteres_lieu']) && $_POST['criteres_lieu']) {
+            $fields['adresse.adresse_condensee'] = 4;
+        }
+        if(isset($_POST['criteres_description']) && $_POST['criteres_description']) {
+            $fields['evenement.description'] = 2;
+        }
+        if(isset($_POST['criteres_type']) && $_POST['criteres_type']) {
+            $fields['type.nom'] = 1;
+        }
+    }
+
+    // var_dump($fields);
 
     // initialisation des résultats de recherche :
     $results = [];

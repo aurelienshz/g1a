@@ -1,4 +1,4 @@
-<?php  /* var_dump($contents['creators']); */?>
+<pre><?php  /* var_dump($contents); */?></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -105,11 +105,10 @@
 		<div class = "friends_going">
 		<h2> Personnes qui y vont </h2>
 		<table style="width=100%">
-            <?php 
-                $compteur=0;
+            <?php
+                $compteur=-1;
                 foreach($contents['participants'] as $participants)
-                {
-                    if ($compteur> 8) {echo "cliquez ici pour afficher plus de participants";}
+                {$compteur++;
                     if($compteur%4==0)
                     {
             ?>
@@ -118,13 +117,11 @@
                     }
                     else {}
             ?>
-            <?php if ($compteur>9) {echo '';}
+            <?php if ($compteur>7) {echo '';}
                     else{ ?>
-                    <td><img src="<?php echo PHOTO_PROFIL.$participants[2];?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>"><?php echo ' '. $participants[0];?></a></td>
-
+                    <td><img src="<?php echo PHOTO_PROFIL.$participants[2];?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>"><?php echo '<br/>'. $participants[0];?></a></td>
             <?php
                     }
-                $compteur++;
             }
             ?>
 		</table>
@@ -145,18 +142,16 @@
 		</div>
 		<div class="previous_comments">
 			<div class="comment">
-				<p><img src="<?php if (array_key_exists(0, $contents['comment'])) {echo  PHOTO_PROFIL.$contents['comment'][0][3];} else {echo ' ';} ?>"/> <a href="<?php echo getLink(['membres','profil',$contents['comment'][0][4]]); ?>"><?php if (array_key_exists(0, $contents['comment'])) {echo $contents['comment'][0][0];} else {echo '';} ?></a> <span><?php if (array_key_exists(0, $contents['comment'])) {echo '- ' . $contents['comment'][0][2];} else {echo '';} ?></span>
-          <br>
-          <br>
-          <?php if (array_key_exists(0, $contents['comment'])) {echo $contents['comment'][0][1];} else {echo '';} ?>
-        </p>
-			</div>
-      <div class="comment">
-        <p><img src="<?php if (array_key_exists(1, $contents['comment'])) {echo  PHOTO_PROFIL.$contents['comment'][1][3];} else {echo ' ';} ?>"/> <a href="<?php echo getLink(['membres','profil',$contents['comment'][1][4]]); ?>"><?php if (array_key_exists(1, $contents['comment'])) {echo $contents['comment'][1][0];} else {echo '';} ?></a> <span><?php if (array_key_exists(1, $contents['comment'])) {echo '- ' . $contents['comment'][1][2];} else {echo '';} ?></span>
-          <br>
-          <br>
-          <?php if (array_key_exists(1, $contents['comment'])) {echo $contents['comment'][1][1];} else {echo '';} ?>
-        </p>
+                <?php
+                    foreach($contents['comment'] as $commentaire)
+                    {
+                    ?><p><img src="<?php echo PHOTO_PROFIL.$commentaire[3]; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>"><?php echo $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
+
+                    <p><?php echo $commentaire[1];?><br/></p>
+
+                <?php
+                    }
+                ?>
 			</div>
 		</div>
     </div>

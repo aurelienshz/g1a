@@ -29,6 +29,7 @@
                 <li><a href="<?php echo getLink();?>"><span class="fa fa-home"></span>&nbsp;Accueil</a></li>
                 <li><a href="<?php echo getLink(['events','create']);?>"><span class="fa fa-plus"></span>&nbsp;Créer</a></li>
                 <li><a href="<?php echo getLink(['events','search']); ?>"><span class="fa fa-search"></span>&nbsp;Chercher</a></li>
+                <li><a href="<?php echo getLink(['forum']); ?>"><span class="fa fa-bullhorn"></span>&nbsp;&nbsp;Forum</a></li>
             </ul>
 <?php
 /* SI USER CONNECTÉ : */

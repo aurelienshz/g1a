@@ -1,0 +1,107 @@
+/*
+
+###    SUPER-SIMPLE SLIDESHOW by aurelienshz    ###
+
+Distributed under The MIT License (MIT).
+tl;dr : you're free to do anything you want with the code as long as you provide attribution back to me and don’t hold me liable.
+See LICENSE file in the repo.
+
+Copyright (c) 2015 Aurélien Schiltz - All Rights Reserved.
+
+*/
+
+
+
+
+
+
+
+/*
+
+SLIDESHOW - specific style rules for the provided example
+
+*/
+
+/* Set the height of the container, and you're done : */
+#demo {
+	height: 300px;
+	margin-bottom: 4em;
+}
+
+
+/*
+
+SLIDESHOW - general style rules :
+
+*/
+
+
+/********************* READ ME *********************/
+/* This part is a kind of Font-Awesome emulation : */
+/* If you have font-awesome on your website, simply delete this part */
+
+/***************************************************/
+
+/*Previous and next buttons : */
+.previous, .next {
+	width: 4%;
+	height: 100%;
+    position: absolute;
+	font-size: 2em;
+	font-weight:bold;
+	text-decoration: none;
+    text-align: center;
+	display: table-cell;
+    vertical-align: middle;
+}
+.previous {
+    left: 5%;
+	/*float: left;*/
+}
+.next {
+	/*float: right;*/
+    right: 5%;
+}
+.previous span, .next span {
+	line-height: 0;
+	position:relative;
+	top: 50%;
+}
+.previous:hover, .next:hover {
+    cursor: pointer;
+    background: #FAFAFA;
+    text-decoration: none;
+    color: #287DFF;
+}
+.previous:active, .next:active {
+    background: lightgray;
+    color: #303030;
+    text-decoration: none;
+}
+
+/* Slides and their container (added by the JS) : */
+.slideshow-slides {
+	width: 90%;
+	height: 100%;
+	margin-left: 5%;
+}
+.slideshow .slideshow-slides > div {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+/* Dots on the bottom showing which slide is displayed */
+.slideshow-nav {
+    text-align: center;
+	font-size: 1.5em;
+    margin: .5em 0 0 1em;
+	line-height: 1em;
+	color: lightgray;
+}
+.slideshow-nav span::before, .slideshow-nav span:before {
+	content: '\25CF';
+    margin: 0 .5em;
+}
+.nav-active {
+	color: black;
+}

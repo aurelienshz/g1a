@@ -67,6 +67,11 @@ input[type="submit"]:active {
     border-top: 1px solid #303030;
     border-bottom: 1px solid #303030;
 }
+input[type="radio"], input[type="checkbox"] {
+    margin: 21px 10px 10px auto;
+    line-height: 1em;
+    height: 1em;
+}
 form .formError {
     color: red;
     margin-top: 0;

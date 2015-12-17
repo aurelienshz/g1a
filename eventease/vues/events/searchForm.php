@@ -5,17 +5,20 @@
 		<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 	</div>
 	<form method="post" action="<?php echo getLink(['events','search']); ?>">
-		<!--
-		Je note mon délire avant d'aller dodo :
-			- recherche keywords et lieu => champs de recherche
-			- type, tarif, date => filtres sidebar
-		-->
-		<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" placeholder="ex : Concert de Madonna">
-		<!-- <label for="date">Date : </label> <input type="date" name="date" id="date"/> -->
-		<!-- <label for="lieu">Lieu : </label><input type="search" name="lieu" id="lieu" placeholder="ex: Stade de France" class="google-autocomplete-address"/> -->
-		<!-- <label>Tarif :</label> -->
-		<!-- De <input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € à
-			<input type="number" name="tarif_minimum" id="tarif_minimum" class="price"/> € -->
+		<fieldset>
+			<legend>Rechercher</legend>
+			<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" placeholder="ex : Concert de Madonna">
+		</fieldset>
+		<fieldset id="criteres">
+		<legend>Rechercher sur</legend>
+			<div class="row">
+				<div class="champ"><input type="checkbox" checked name="criteres_all" />				<label>Tous</label>				</div>
+				<div class="champ"><input type="checkbox" name="criteres_nom" />				<label>Nom</label>				</div>
+				<div class="champ"><input type="checkbox" name="criteres_lieu" />				<label>Lieu</label>				</div>
+				<div class="champ"><input type="checkbox" name="criteres_description" />		<label>Description</label>		</div>
+				<div class="champ"><input type="checkbox" name="criteres_type" />				<label>Type</label>				</div>
+			</div>
+		</fieldset>
 		<div class="buttons">
 			<input type="submit" value="Chercher" />
 			<a href="<?php echo getLink(['events','search','list']); ?>" class="button">Tous les évènements</a>

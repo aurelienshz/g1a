@@ -1,29 +1,28 @@
-- ajouter bouton d'inscription sur page de connexion
-- réafficher valeurs au rechargement de la pages
-- suggestions : valeurs autorisées pour un nom (chiffres interdits)
-- gros onglets -> bof , rester sur style arrondi et allégé
-- réécriture d'URL !!!
-- se questionner sur la valeur du bouton "inviter à un event"
-- calendrier -> auxquels vous êtes inscrits ?
-- créateur et organisateur pas la même chose : orga c'est une info, créateur c'est un privilège d'admin de l'event
-- comment gérer le nbre de personnes qui peuvent venir ?
+x ajouter bouton d'inscription sur page de connexion
+x réafficher valeurs au rechargement de la pages
+x suggestions : valeurs autorisées pour un nom (chiffres interdits)
+x gros onglets -> bof , rester sur style arrondi et allégé
+x se questionner sur la valeur du bouton "inviter à un event"
+x calendrier -> auxquels vous êtes inscrits ?
+x créateur et organisateur pas la même chose : orga c'est une info, créateur c'est un privilège d'admin de l'event
+x comment gérer le nbre de personnes qui peuvent venir ?
     - pouvoir faire participer plusieurs personnes
-    - se mettre à la place de l'utilisateur
+    - se mettre à la place de l'utilisateur <-- ???
 - pour toutes les fonctionnalités : aller jusqu'au bout sinon pas implémenter
 - être précis sur la doc pour expliquer nos fonctionnalités
-- photo par défaut : par type !
-- nom aligné à gauche
-- mettre en valeur le statut de participation
-- bouton inviter sur page event
-- faire attention aux alignements des blocks
-- profil de la personne dans une nouvelle fenêtre
-- contact de l'organisateur
-- filtrage âge recherche
-- inscription : case à cocher conditions générales : on ne les rédige pas
-- mentions légales : à rédiger
-- plan du site !
-- responsive serait un bonus ?
-- bandeaux des formulaires pas rouges !
+x photo par défaut : par type !
+x nom aligné à gauche
+x mettre en valeur le statut de participation
+x bouton inviter sur page event
+x faire attention aux alignements des blocks
+x profil de la personne dans une nouvelle fenêtre
+x contact de l'organisateur
+x filtrage âge recherche
+x inscription : case à cocher conditions générales : on ne les rédige pas
+x mentions légales : à rédiger
+x plan du site !
+x responsive serait un bonus ?
+x bandeaux des formulaires pas rouges !
 
 
 PRIORITÉS :
@@ -32,9 +31,3 @@ recherche ultra urgente
 montrer la recherche la semaine prochaine
 
 fonctionnalités CdC lors de la soutenance : ce qui a été intégré = bonus points
-
-
-
-Idée Aurélien :
-- Mes évènements --> fil d'actualité ? ~~ dashboard
-- places max : plusieurs events *sur EE* qui correspondent à la même chose en réalité ??

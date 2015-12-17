@@ -1,25 +1,12 @@
 <?php
-/*
-Configuration du site :
-Ces constantes sont incluses dans le contrôleur frontal et sont donc accessibles depuis tous les scripts.
-*/
-
-define('PATH_ASSETS', "vues/assets/");
-define('CSS', PATH_ASSETS."css/");
-define('IMAGES', PATH_ASSETS . "images/");
-define('INCLUDES', PATH_ASSETS . "includes/");
-define('SCRIPTS', "scripts/");
-define('USER_ASSETS', "user_media/");
-define('PHOTO_PROFIL',USER_ASSETS."photos_profil/");
-define('PHOTO_EVENT',USER_ASSETS."photos_event/");
+/***
+Page d'aterrissage (page d'accueil du site)
+***/
 $landingPage = ['accueil','index'];
 
-define('CONTROLEURS', "controleurs/");
-define('VUES', "vues/");
-define('MODELES', "modeles/");
-
-// Définition des modules constituant l'application
-// Le premier sera le module chargé par défaut en cas de lien brisé (pas de page 404 pour l'instant)
+/***
+Définition des modules constituant l'application
+***/
 $modules = [
 'accueil',
 'membres',
@@ -29,3 +16,17 @@ $modules = [
 'aide',
 'sandbox'
 ];
+
+/***
+Informations sur le site :
+***/
+define('WEBSITE_NAME', 'tochange.eventease.ohhopi.com');
+define('WEBSITE_OWNER', 'Association X');
+define('WEBSITE_OWNER_ARTICLE', 'l\'');     // exemple : <<la>> pour une SARL, <<l'>> pour une assoc...
+define('WEBSITE_OWNER_STATUS', 'association à but non lucratif');
+define('WEBSITE_OWNER_CONTACT', 'host@example.com');
+define('WEBSITE_HOST', 'hebergement.example.com');
+/***
+Créateurs du site :
+***/
+define('WEBSITE_CREATOR', 'SARL/SA ? Web\'Design');
