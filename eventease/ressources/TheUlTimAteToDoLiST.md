@@ -53,6 +53,7 @@ CLIENT :
 
 Inscription / Connexion / Validation mail :
 - clarifier et remettre à plat les étapes et leurs articulations
+- date dernière connexion
 - inscription : conditions sur le mdp
 - ajouter bouton d'inscription sur page de connexion
 - mot de passe oublié
@@ -121,7 +122,6 @@ membres :
 - comment on fait ?
 
 Header / Footer
-- head : forum menu - Aurélien
 - header : zones actives full height
 - liens footer pas tous actifs
 

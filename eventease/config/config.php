@@ -22,7 +22,7 @@ Informations sur le site :
 ***/
 define('WEBSITE_NAME', 'tochange.eventease.ohhopi.com');
 define('WEBSITE_OWNER', 'Association X');
-define('WEBSITE_OWNER_ARTICLE', 'l\'');     // exemple : <<la>> pour une SARL, <<l'>> pour une assoc...
+define('WEBSITE_OWNER_ARTICLE', 'l\'');  // exemple : <<la>> pour une SARL, <<l'>> pour une association...
 define('WEBSITE_OWNER_STATUS', 'association à but non lucratif');
 define('WEBSITE_OWNER_CONTACT', 'host@example.com');
 define('WEBSITE_HOST', 'hebergement.example.com');

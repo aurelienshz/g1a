@@ -20,7 +20,7 @@ function Slideshow(container) {
     /**********************************************/
     /*** Méthodes d'initialisation du slideshow ***/
     /**********************************************/
-    // Récupérer les slides :
+    // Récupérer les slides et les pousser dans :
     this.getSlides = function() {
         for(var i in this.container.childNodes) {
             if(this.container.childNodes[i].tagName == 'DIV') {
@@ -57,8 +57,8 @@ function Slideshow(container) {
         scrollRight.className = 'next';
         scrollRight.innerHTML = '<span>&gt;</span>';
 
-        this.container.insertBefore(scrollRight, container.childNodes[0]);
         this.container.insertBefore(scrollLeft, container.childNodes[0]);
+        this.container.appendChild(scrollRight, container);
 
         return [scrollLeft, scrollRight];
     }
