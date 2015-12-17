@@ -1,4 +1,4 @@
-<pre><?php  /* var_dump($contents); */?></pre>
+<pre><?php  /* var_dump($_POST); */?></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -130,9 +130,9 @@
     <div class = "commentaire">
 		<h2> Commentaires </h2>
 		<div class="add_comment">
-            <form>
+            <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
                 <label>Ajouter un commentaire</label>
-                <textarea id="comment" placeholder="Ajouter un commentaire"></textarea>
+                <textarea name="comment" id="comment" placeholder="Ajouter un commentaire"></textarea>
     			<div class="add_media">
     				<label for="attachment">Ajouter un fichier</label>
                     <input type="file" id="attachment" name="attachment"/>

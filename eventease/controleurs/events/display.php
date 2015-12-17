@@ -6,6 +6,7 @@
 // Appels au modèle
 // Appels au modèle
 require MODELES.'events/getEventDetails.php';
+require MODELES.'events/insert_comment.php';
 
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
@@ -67,6 +68,9 @@ else {
     // alert('error','La page demandée n\'a pas été trouvée. Vous avez été redirigé vers l\'accueil.');
     header('Location: '.getLink(['accueil','404']));
     exit();
+}
+if (isset($_POST)) {
+  insert_comment($_POST['comment'], $_GET['id'], $_SESSION['id']);
 }
 //Appels des vues :
 vue($blocks, $styles, $title, $contents, $scripts );
