@@ -6,7 +6,7 @@
 // On pourra ajouter des params tq des limites de nb d'events à retourner (3 prochains mois...)
 // On pourra aussi avoir un mode qui sort tous les évènements publics (pas forcément la même fonction)
 
-function getMemberEvents($id) {
+function getUserEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
       $query = $bdd->prepare('SELECT'
               . 'membre.id,'
@@ -34,7 +34,7 @@ function getMemberEvents($id) {
         return $result[0];
     }
     else {
-        echo 'Erreur requête mes events <br />';
+        echo 'Erreur requête \"mes events\" <br />';
         return False;
     }
 }
