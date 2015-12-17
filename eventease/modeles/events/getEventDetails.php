@@ -57,7 +57,7 @@ function GetParticipants($id) {
 }
 function GetComments($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT membre.pseudo, commentaire.message, commentaire.timestamp, media.lien , membre.id FROM media, membre, commentaire, evenement WHERE membre.id = commentaire.id_membre AND media.id = membre.id_photo AND commentaire.id_evenement=evenement.id AND evenement.id = :id');
+  $query = $bdd->prepare('SELECT membre.pseudo, commentaire.message, commentaire.timestamp, media.lien , membre.id FROM media, membre, commentaire, evenement WHERE membre.id = commentaire.id_membre AND media.id = membre.id_photo AND commentaire.id_evenement=evenement.id AND evenement.id = :id ORDER BY commentaire.timestamp DESC');
   $query-> execute(['id'=>$id]);
   $comment = $query->fetchALL();
 
