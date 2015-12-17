@@ -54,3 +54,7 @@
   display: inline-block;
   width:15%;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
