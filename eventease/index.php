@@ -7,6 +7,7 @@ UTILISATION : Le paramètre correspondant à la page demandée est passé dans l
 session_start(); //On initialise la session.
 
 require 'config/config.php';
+require 'config/constants.php';
 require 'config/db.php';
 require CONTROLEURS.'shared/routes.php';
 require CONTROLEURS.'shared/alert.php';

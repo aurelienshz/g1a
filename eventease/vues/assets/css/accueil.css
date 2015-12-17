@@ -12,6 +12,9 @@
     padding: 4em 0;
     border-bottom: 1px solid #303030;
 }
+#bigform p {
+    text-align: center;
+}
 #catchphrase, #subcatchphrase {
     text-shadow: 0 0 0.5em #FAFAFA;
 }

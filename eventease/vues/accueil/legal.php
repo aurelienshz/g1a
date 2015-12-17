@@ -2,18 +2,19 @@
     <h1>Mentions légales</h1>
 
         <p>
-        Le présent site (ci-après "le site Internet") est la propriété de l'association <?php echo '???'; ?>, qui est également son exploitant.
             <ul>
-                <li>Nom du Site : <?php echo '???'; ?></li>
-                <li>Forme juridique du propriétaire : Association à but non lucratif</li>
-                <li>Contact du propriétaire : <?php echo '???'; ?></li>
-                <li>Hébergement : <?php echo '???' ?></li>
-                <li>Création : <?php echo '???' ?></li>
+                <li><strong>Nom du Site :</strong> <?php echo WEBSITE_NAME; ?></li>
+                <li><strong>Propriétaire :</strong> <?php echo WEBSITE_OWNER; ?></li>
+                <li><strong>Forme juridique du propriétaire :</strong> <?php echo WEBSITE_OWNER_STATUS; ?></li>
+                <li><strong>Contact du propriétaire :</strong> <?php echo WEBSITE_OWNER_CONTACT; ?></li>
+                <li><strong>Hébergement :</strong> <?php echo WEBSITE_HOST ?></li>
+                <li><strong>Création :</strong> <?php echo WEBSITE_CREATOR ?></li>
             </ul>
+        Le présent site (ci-après "le site Internet") est la propriété de <?php echo WEBSITE_OWNER_ARTICLE.WEBSITE_OWNER_STATUS.' '.WEBSITE_OWNER; ?>, qui est également son exploitant.
         </p>
 
         <p>
-            L’utilisateur du site Internet reconnaît disposer de la compétence et des moyens nécessaires pour accéder àu site Internet et l'utiliser. Il reconnaît également avoir pris connaissance des présentes mentions légales et s’engage à s'y conformer.
+            L’utilisateur du site Internet reconnaît disposer de la compétence et des moyens nécessaires pour accéder àu site Internet et pour l'utiliser. Il reconnaît également avoir pris connaissance des présentes mentions légales et s’engage à s'y conformer.
         </p>
 
 
@@ -26,7 +27,7 @@
 
             <p>
                 La mise en place d’un lien hypertexte vers le présent site ne nécessite pas d’autorisation préalable du propriétaire.<br />
-                Le propriétaires ne peuvent en aucun cas être tenus pour responsable des sites ayant un lien hypertexte pointant vers ce présent site et déclinent toute responsabilité quant à leur contenu et à leur utilisation. De même, le propriétaire ne peut être tenu pour responsable du contenu des sites externes au présent site pointés par des liens hypertextes sur le présent site.
+                Le propriétaire ne peut en aucun cas être tenu pour responsable des sites ayant un lien hypertexte pointant vers ce présent site et déclinent toute responsabilité quant à leur contenu et à leur utilisation. De même, le propriétaire ne peut être tenu pour responsable du contenu des sites externes au présent site pointés par des liens hypertextes sur le présent site.
             </p>
     <h3>Limitation de responsabilité</h3>
 
@@ -87,7 +88,7 @@
 
     <h2>Litiges</h2>
 
-        <p>Ce site est soumis à la loi française. En cas de litige, les tribunaux français seront seuls compétents.</p>
+        <p>Ce site est soumis à la loi française. En cas de litige, les tribunaux français sont seuls compétents.</p>
 
 
     <h2>Modification des présentes mentions légales</h2>

@@ -10,47 +10,49 @@ Questions pour le groupe :
 
 
 
-## Général : ##
+## Points à aborder en groupe ##
 
-- URL rewrite -bonux-
-- mentions légales -> done (à valider) à part les contenus variables, qu'il faut
-- plan du site
 - responsive serait un bonus
-- charte graphique à retravailer, notamment couleurs
+- charte graphique à retravailler, notamment couleurs
 - relire le CdC et être attentif à ce qu'on a implémenté (ou pas)
+
+
+## ToDo - général ##
+
+- URL rewrite : demande client
+- plan du site --> à remplir (accueil -> sitemap)
 
 
 ## Accueil ##
 
-
+- slideshow suggestions à remettre en forme -> Aurélien
 - suggestions à rendre dynamique --> Tristan
 pour l'instant : statique
-- slideshow suggestions à remettre en forme -> Aurélien
 - mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
-- calendrier : j'aimerais proposer l'option mes évènements / évènements publics, proposer le bouton créer à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait <3
+    j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
+
 
 ## Profil / gestion des membres ##
 
-Afficher / modifier -- Loann
-- front end :
+### Afficher / modifier -- Loann ###
+front end :
 - Aurélien doit-il réparer la vue (prettyform and shit)
 - réafficher le contenu des champs si le form est sorti en erreur
-- client : suggérer les règles pour les noms, les mdp... dans le message d'erreur.
-- client : nom aligné à gauche
 - back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann)
 - suppression du profil ?
 - modification mdp / adresse mail
 CLIENT :
 - gros onglets -> bof , rester sur style arrondi et allégé
-- que fait le bouton "iviter à un event" ? interface ? options ?
+- que fait le bouton "inviter à un event" ? interface ? options ?
+- client : suggérer les règles pour les noms, les mdp... dans le message d'erreur.
+- client : nom aligné à gauche
 
-Inscription / Connexion / Vaidation mail :
+Inscription / Connexion / Validation mail :
 - clarifier et remettre à plat les étapes et leurs articulations
 - inscription : conditions sur le mdp
 - ajouter bouton d'inscription sur page de connexion
 - mot de passe oublié
 - case à cocher conditions générales
-- mentions légales : à rédiger
 
 
 ## EVENTS ##
@@ -115,6 +117,7 @@ membres :
 
 Header / Footer
 - head : forum menu - Aurélien
+- header : zones actives full height
 - liens footer à activer et relier - Aurélien sauf si qqun d'autre veut le faire
 
 Forum : -- Audrey
