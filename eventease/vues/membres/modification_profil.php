@@ -1,5 +1,5 @@
 <div class="wrapper prettyform shadow">
-		<div class="titleWrapper" style="background-color: #4d93ff; border-bottom-color: #287DFF">
+		<div class="titleWrapper">
 			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 			<h2><i class="fa fa-pencil"></i> Modifier mon profil </h2>
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
@@ -35,17 +35,17 @@
 				?>
 				</select>
 				</div>
-				<div class="champ" style="width:29%;">
+				<div class="champ" style="width:35%;">
 					<label for="nom">Nom : </label>
 					<input type="text" name="nom" id="nom" value="<?php echo isset($contents["nom"])?htmlspecialchars($contents["nom"]):'' ?>" placeholder="Dupont">
 					<?php echo isset($contents['errors']['nom'])?$contents['errors']['nom']:'' ?>
 				</div>
-				<div class="champ" style="width:29%;">
+				<div class="champ" style="width:35%;">
 					<label for="prenom">Prénom : </label>
 					<input type="text" name="prenom" id="prenom" value="<?php echo isset($contents["prenom"])?htmlspecialchars($contents["prenom"]):'' ?>" placeholder="Jean"/>
 					<?php echo isset($contents['errors']['prenom'])?$contents['errors']['prenom']:'' ?>
 				</div>
-				<div class="champ" style="width:29%;">
+				<div class="champ" style="width:17%;">
 					<label for="ddn">Date de naissance :</label>
 					<input type="date" name="ddn" id="date" value="<?php echo isset($contents["ddn"])?htmlspecialchars($contents["ddn"]):'' ?>" placeholder="AAAA-MM-JJ"/>
 					<?php echo isset($contents['errors']['ddn'])?$contents['errors']['ddn']:'' ?>

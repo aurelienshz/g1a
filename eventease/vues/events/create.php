@@ -1,14 +1,12 @@
-<div class="wrapper createCalendar">
-	<div class="shadow calendarBottom">
+<div class="wrapper prettyform">
 		<div class="titleWrapper">
-			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
+			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 			<h2><i class="fa fa-plus"></i> Créer un événement</h2>
-			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin.png'; ?>">
+			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 		</div>
-		<div id="formBox" class="calendarBottom">
-	   		<form method="post" action="<?php getLink(['events','create']); ?>">
+	   		<form method="post" action="<?php getLink(['events','create']); ?>" enctype="multipart/form-data">
 				<div class="ligne">
-					<div class="champ">
+					<div class="champ" style="width:30%;">
 						<label for="titre">Nom de l'événement <i class="fa fa-asterisk"></i> :</label>
 						<input type="text" placeholder="Nom de l'événement" id="titre" name="titre" value="<?php echo isset($contents['values']['titre'])?$contents['values']['titre']:''; ?>" />
 						<?php echo isset($contents['errors']['titre'])?$contents['errors']['titre']:'';; ?>
@@ -127,6 +125,4 @@
 		        <br><input type="submit" value="Créer" />
 				<p class="importantRed"> <i class="fa fa-asterisk"></i> Champs obligatoires</p>
 	 	    </form>
-	    </div>
-	</div>
 </div>
