@@ -96,9 +96,9 @@ if(!empty($_POST)) {
 		if ($upload) {
 			$contents["lien_photo"] = $photo;
     		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
-    		// alert("info","Votre profil a bien été modifié.");
-    		// header('Location: '.getLink(['membres','profil']));
-    		// exit();
+    		alert("info","Votre profil a bien été modifié.");
+    		header('Location: '.getLink(['membres','profil']));
+    		exit();
     	}else{
     		$errors["photo"] = "[Erreur Serveur - Contactez l'administrateur] Erreur dans la copie de la photo.";
     	}
