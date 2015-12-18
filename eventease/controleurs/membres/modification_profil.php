@@ -9,16 +9,13 @@ require MODELES.'functions/date.php';
 require MODELES.'membres/updateUser.php';
 require MODELES.'functions/form.php';
 
-
-
 if(connected()) {
     $user = getUserDetails($_SESSION['id']);
     if(!$user) {
     	// Si la récup BDD marche pas
     	exit();
     }
-}
-else{
+}else{
 	    alert("error","Vous devez être connecté !");
     	header("Location: ".getLink(["membres","connexion"]));
     	exit();
@@ -33,45 +30,7 @@ if (isset($user["adresse_condensee"])){
 $contents = $user;
 // ===== VERIFICATION POST =====
 
-// function checkTextInput($input,$regex,$message_erreur) {
-// 	if(!empty($input) AND !preg_match($regex, $input) ) {
-// 		return $message_erreur;
-// 	}
-// 	return;
-// }
-
-// function checkTextbox($input, $forbiddenKeywords, $message_erreur){
-// 	if (!empty($input) ) {
-// 		foreach($forbiddenKeywords as $keyword){
-// 	    	if (strpos($input, $keyword) > 0){
-// 	    		return $message_erreur;
-// 	    	}
-// 	    }
-// 	}
-// 	return;
-// }
-// function checkSelect($input, $possibleValues, $default_value) {
-// 	if(!empty($input) AND !in_array($input, $possibleValues) ){
-// 		return $default_value;
-// 	}else{
-// 		return $input;
-// 	}
-// }
-
-// function checkBirthDate($input, $message_erreur){
-// 	if (!empty($input) AND (!validateDateFormat($input,"Y-m-d") OR !validatePastDate($input))){
-// 		return $message_erreur;
-// 	}
-// 	return;
-// }
-// function checkAddress($input, $message_erreur){
-// 	if (!empty($input) AND !googleCheckAddress($input)){
-// 		return $message_erreur;
-// 	}
-// 	return;
-// }
-
-if(!empty($_POST)){
+if(!empty($_POST)) {
 	//Civilité
 	$_POST['civilite'] = checkSelect($_POST['civilite'], [0,1], 0);
 
@@ -95,39 +54,11 @@ if(!empty($_POST)){
 	$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
 	$errors['description'] = checkTextbox ($_POST['description'],$forbiddenKeywords ,'Description invalide, il contient des mots interdits.' );
 
-	//Photo de Profil
-	if(is_uploaded_file($_FILES['photo']['tmp_name'])){
-		$errors['photo']="";
-		// Gérer si erreur d'envoi
-		if ($_FILES["photo"]['error'] > 0 AND $_FILES["photo"]['error'] != 4) $errors['photo'].="Le fichier a été mal transferé. ";
-		// Poids Maxi
-		$maxsize = 2097152;
-		if ($_FILES["photo"]['size'] > $maxsize) $errors['photo'].="Le fichier est trop gros. ";
-		// Dimensions Maxi - plus tard.
-		$max_height = 1000;
-		$max_width  = 1000;
-		$size = getimagesize($_FILES['photo']['tmp_name']);
-		if ($size[0] > $max_width OR $size[1] > $max_height) $errors['photo'].="Le fichier dépasse les dimensions autorisées. ";
-		// extensions Valides
-		$validExtensions = array('.jpg', '.jpeg', '.png');
-		$uploadedExtension = strtolower( substr( strrchr($_FILES["photo"]['name'], '.') ,1) );
-		if (in_array($uploadedExtension, $validExtensions) ) $errors['photo'].="L'extension est invalide. ";
-
-		//Variable pour la BDD
-		$photo  = $_SESSION['username'];
-		$photo .= "-";
-		$photo .= md5(uniqid(rand(), true));
-		$photo .= ".";
-		$photo .= $uploadedExtension;
-
-		//Permissions Déplacement 
-		if (!is_dir(PHOTO_PROFIL) OR !is_writable(PHOTO_PROFIL)) {
-			$errors['photo'] .= "[Erreur Serveur - Contactez l'administrateur] Les permissions sont insuffisantes pour déplacer la photo de profil. ";
-		}
-
-		if($errors['photo'] == ""){
-			unset($errors['photo']);
-		}
+	$check = checkOnePhoto("photo" ,2097152, 1000, 1000, ['.jpg', '.jpeg', '.png'], $_SESSION['username'], PHOTO_PROFIL);
+	if ($check[0]) {
+		$photo = $check[1];
+	}else{
+		$errors["photo"] = $check[1];
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -145,7 +76,7 @@ if(!empty($_POST)){
 			$contents[$cle]=htmlspecialchars($valeur);
 			$_POST[$cle]=htmlspecialchars($valeur);
 	}
-    //Entrée BDD si pas d'erreurs :
+    //Entrée BDD si pas d'erreurs et sécuristation des entrées aux injections :
     foreach ($errors as $key => $value) {
     	if ($value != NULL){
     		$doIt = False;
@@ -160,17 +91,17 @@ if(!empty($_POST)){
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
-    	
     	//Execute l'envoi du formulaire et de la photo de profil
-    	if(!empty($_FILES) AND $_FILES["photo"]['error'] != 4) {
-				if (!empty($contents["lien_photo"])) unlink(PHOTO_PROFIL.$contents["lien_photo"]);
-				move_uploaded_file($_FILES["photo"]['tmp_name'],PHOTO_PROFIL.$photo);
-				$contents['lien_photo'] = $photo;
-			}
-    	updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
-    	 alert("info","Votre profil a bien été modifié.");
-    	header('Location: '.getLink(['membres','profil']));
-    	exit();
+		$upload = uploadOnePhoto("photo", $contents["lien_photo"], PHOTO_PROFIL, $photo);
+		if ($upload) {
+			$contents["lien_photo"] = $photo;
+    		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
+    		// alert("info","Votre profil a bien été modifié.");
+    		// header('Location: '.getLink(['membres','profil']));
+    		// exit();
+    	}else{
+    		$errors["photo"] = "[Erreur Serveur - Contactez l'administrateur] Erreur dans la copie de la photo.";
+    	}
 
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';

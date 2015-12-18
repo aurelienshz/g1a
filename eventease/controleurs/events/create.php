@@ -9,7 +9,7 @@ $contents['types'] = ['Soirée', 'Pique-Nique', 'Concert', 'Manifestation', 'Ver
 
 /**** Préparation de la vue ****/
 $title = 'Créer event';
-$styles = ['create.css','form.css', 'search.css'];
+$styles = ['create.css','form.css','search.css', 'prettyform.css'];
 $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
@@ -26,7 +26,6 @@ if(connected()) {
 		// Recherche d'erreurs lors du remplissage du formulaire :
 		// Initialisation de la liste des erreurs :
 		$errors = [];
-		// echo 'loul';
 		foreach($_POST as $key=>$value) {
 			$_POST[$key] = htmlspecialchars($_POST[$key]);
 			$contents['values'][$key] = htmlspecialchars($_POST[$key]);
