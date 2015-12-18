@@ -10,11 +10,13 @@
 
 <?php
 
+
 $maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil']];
 
-echo '<div id="debug"><div id="session">';
+
+echo '<div id="debug">';
 require 'controleurs/shared/bddVersion.php';
-echo '<h3>Session :</h3>';
+echo '<div id="session" style="display:none;"><h3>Session :</h3>';
 echo 'user connecté : ';
 echo connected() ? "Oui ! :)<br />" : "Non !<br />";
 echo '<a href="controleurs/shared/sessionDestroy.php">Détruire session (simuler une arrivée sur le site)</a><br />';

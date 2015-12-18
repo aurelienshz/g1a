@@ -56,6 +56,9 @@ if(!connected()) {
             else {
                 $errors['password'] = 'Le mot de passe est trop faible';
             }
+            if(!isset($_POST['sell-my-soul']) || !$_POST['sell-my-soul']) {
+                $errors['sell-my-soul'] = 'Vous devez accepter les conditions générales d\'utilisation';
+            }
             // Si tout s'est bien passé, tous les champs de $errors sont vides
             if(implode('',$errors)=='') {
                 // On envoie un mail pour confirmer l'adresse mail
@@ -70,7 +73,7 @@ if(!connected()) {
                         ."Merci de votre inscription, et à bientôt !\n"
                         ."-- L'équipe EventEase",
                         'From: no-reply@eventease.com')) {
-                            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT));
+                            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password']));
                             vue(['validationInscription'],$style,$title);
                 }
                 else {

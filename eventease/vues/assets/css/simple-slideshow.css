@@ -10,63 +10,33 @@ Copyright (c) 2015 Aurélien Schiltz - All Rights Reserved.
 
 */
 
-
-
-
-
-
-
-/*
-
-SLIDESHOW - specific style rules for the provided example
-
-*/
-
-/* Set the height of the container, and you're done : */
-#demo {
-	height: 300px;
-	margin-bottom: 4em;
-}
-
-
 /*
 
 SLIDESHOW - general style rules :
 
 */
 
+.simple-slideshow {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
 
-/********************* READ ME *********************/
-/* This part is a kind of Font-Awesome emulation : */
-/* If you have font-awesome on your website, simply delete this part */
-
-/***************************************************/
+.simple-slideshow .slideshow-contents {
+	display: table-row;
+}
 
 /*Previous and next buttons : */
 .previous, .next {
-	width: 4%;
-	height: 100%;
-    position: absolute;
+	display: table-cell;
+	width: 5%;
 	font-size: 2em;
 	font-weight:bold;
 	text-decoration: none;
     text-align: center;
-	display: table-cell;
     vertical-align: middle;
 }
-.previous {
-    left: 5%;
-	/*float: left;*/
-}
-.next {
-	/*float: right;*/
-    right: 5%;
-}
-.previous span, .next span {
-	line-height: 0;
-	position:relative;
-	top: 50%;
-}
+
 .previous:hover, .next:hover {
     cursor: pointer;
     background: #FAFAFA;
@@ -81,22 +51,22 @@ SLIDESHOW - general style rules :
 
 /* Slides and their container (added by the JS) : */
 .slideshow-slides {
+	display: table-cell;
 	width: 90%;
-	height: 100%;
-	margin-left: 5%;
 }
 .slideshow .slideshow-slides > div {
 	width: 100%;
-	height: 100%;
 	overflow: auto;
 }
 /* Dots on the bottom showing which slide is displayed */
 .slideshow-nav {
+	display: table-caption;
+	caption-side: bottom;
     text-align: center;
 	font-size: 1.5em;
-    margin: .5em 0 0 1em;
 	line-height: 1em;
 	color: lightgray;
+	padding: 1em 0;
 }
 .slideshow-nav span::before, .slideshow-nav span:before {
 	content: '\25CF';

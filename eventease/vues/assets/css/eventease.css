@@ -30,6 +30,11 @@ p {
 	box-shadow: 0 10px 10px #CDCDCD;
 }
 
+p.error-message {
+    font-weight: bold;
+    color: red;
+    font-size: 1.2em;
+}
 /*********************************/
 
 /* Header : */

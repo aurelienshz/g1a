@@ -1,4 +1,9 @@
 <div class="wrapper-narrow">
+    <?php
+    if(isset($contents['errorMessage'])) {
+        echo "<p class=\"error-message\">".$contents['errorMessage']."</p>";
+    }
+    ?>
     <form method="post" action="<?php echo getLink(['membres','connexion']); ?>">
         <label for="username">Nom d'utilisateur</label>
         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur"/>

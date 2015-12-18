@@ -38,17 +38,14 @@ if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on 
 // Si on a bien chargé une nouvelle page et pas redemandé la même page :
 elseif($_SESSION['currentPage'] != array_values($_GET)) {
     $_SESSION['previousPage'] = $_SESSION['currentPage'];
-    $_SESSION['currentPage'] = $route;
-    if (count($_GET)>0) {
-        foreach($params as $value) {
-            $_SESSION['currentPage'][] = $value;
-        }
-    }
-    else {
-        $_SESSION['currentPage'] = $landingPage;
-        $_SESSION['currentPage'] = $landingPage;
+    $_SESSION['currentPage'] = [$route[0], $route[1]];
+
+    foreach($params as $value) {
+        var_dump($_SESSION['currentPage']);
+        $_SESSION['currentPage'][] = $value;
     }
 }
+// Si on a redemandé la même page : on ne fait rien ! On laisse currentPage et previousPage à leurs valeurs initiales.
 
 // Appel final du contrôleur dont on a besoin :
 require CONTROLEURS.$route['module'].'/'.$route['action'].'.php';

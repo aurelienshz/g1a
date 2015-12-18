@@ -1,7 +1,7 @@
 .eventPreview {
     padding: 0 0 10px 0;
     overflow: auto; /* Empêche la hauteur de s'effondrer s'il n'y a pas assez de contenu */
-    margin: 0 0 2em 0;
+    margin: 0;
 }
 .eventPreview h4 {
 	border-bottom: 0;

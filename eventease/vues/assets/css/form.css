@@ -26,6 +26,9 @@ input:focus, textarea:focus {
     outline: none;
     border-color: #287DFF;
 }
+input[type="checkbox"]:focus, input[type="radio"]:focus {
+    outline: 1px solid #287DFF;
+}
 textarea {
     width: 100%;
     font-size: 1em;
@@ -67,11 +70,23 @@ input[type="submit"]:active {
     border-top: 1px solid #303030;
     border-bottom: 1px solid #303030;
 }
+
 input[type="radio"], input[type="checkbox"] {
-    margin: 21px 10px 10px auto;
+    font-size: 1em;
+    margin: 0 .5em 0 0;
     line-height: 1em;
     height: 1em;
+    width: 1em;
 }
+label > input[type="radio"], label > input[type="checkbox"], input[type="checkbox"] + label, input[type="radio"] + label {
+    float: left;
+}
+label.checkbox-label, label.radio-label {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.3em;
+}
+
 form .formError {
     color: red;
     margin-top: 0;
