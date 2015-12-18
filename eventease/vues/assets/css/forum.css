@@ -25,7 +25,7 @@
 .header{
   background-color: #36B136;
   text-align: center;
-  margin-top: 2%
+  margin-top: 4%
 }
 .header h1 {
   color: #FAFAFA;
@@ -94,3 +94,32 @@ h2{
 .reponse{
   padding-bottom: 2%;
 }
+#createButtonContainer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #36B136;
+}
+.button{
+  background-color: #36B136;
+  margin: 7% auto;
+  text-decoration: none;
+
+}
+.repondre{
+  display: inline-block;
+  float:right;
+  width:30%;
+  margin-right: 2%;
+}
+.retour{
+  display: inline-block;
+  float: left;
+  width:30%;
+  margin-left: 2%
+}
+.header2{
+  padding-bottom: 5%
+}
+.button:hover{
+  background-color:#36B136;
+  }

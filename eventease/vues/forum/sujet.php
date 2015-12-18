@@ -5,12 +5,28 @@
       <h2><i class="fa fa-comments"></i> Forum - Catégories </h2>
       <img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_green.png'; ?>">
     </div>
+    <div class="header2">
+      <div class="repondre">
+        <div id="createButtonContainer">
+          <a class="button" id="createButton" href="#">
+              Répondre à ce sujet
+          </a>
+        </div>
+      </div>
+      <div class="retour">
+        <div id="createButtonContainer">
+          <a class="button" id="createButton" href="#">
+              Retourner à l'accueil du forum
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="tableau">
       <div class="header">
         <h1>Je n'arrive pas à me connecter</h1>
       </div>
       <div class="content_sujet">
-        <p>
+        <p><small>Posté le 21/11/15 à 17h34</br></br></small>
               Cum autem commodis intervallata temporibus convivia longa et 
           noxia coeperint apparari vel distributio sollemnium sportularum, 
           anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, 
@@ -39,10 +55,10 @@
     <div class="reponse">
       <div class="tableau">
         <div class="header">
-          <h2>Léa</h2>
+          <h2>Shakespeare</h2>
         </div>
         <div class="content_sujet">
-          <p>To be, or not to be--that is the question:
+          <p><small>Posté le 25/11/15 à 19h34</br></br></small>To be, or not to be--that is the question:
               Whether 'tis nobler in the mind to suffer
               The slings and arrows of outrageous fortune
               Or to take arms against a sea of troubles
@@ -89,7 +105,7 @@
           <h2>Otis</h2>
         </div>
         <div class="content_sujet">
-          <p>Mais, vous savez, moi je ne crois pas qu'il y ait de bonne ou de mauvaise 
+          <p><small>Posté le 1/12/15 à 12h34</br></br></small>Mais, vous savez, moi je ne crois pas qu'il y ait de bonne ou de mauvaise 
             situation. Moi, si je devais résumer ma vie aujourd'hui avec vous, je dirais
             que c'est d'abord des rencontres, des gens qui m'ont tendu la main, peut-être
             à un moment où je ne pouvais pas, où j'étais seul chez moi. Et c'est assez 

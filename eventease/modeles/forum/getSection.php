@@ -1,9 +1,9 @@
 <?php
-function getSection($id) {
+function getSujet($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT * FROM section WHERE id = :id');
+  $query = $bdd->prepare('SELECT * FROM sujet WHERE id = :id');
   $query-> execute(['id'=>$id]);
-  $section = $query->fetch();
-  return $section ;
+  $sujet = $query->fetch();
+  return $sujet ;
 }
 ?>
