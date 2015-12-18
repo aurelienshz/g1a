@@ -1,5 +1,9 @@
 <?php
 // controleurs/forum/actions.php
 $actions =[
-    'index'
+    'index',
+    'sujet'
+];
+$parametres = [
+	'index' => ['id'],
 ];
