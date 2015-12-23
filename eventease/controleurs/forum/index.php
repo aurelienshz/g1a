@@ -1,13 +1,13 @@
 <?php
 /* CONTROLEUR D'ACTION */
-//require MODELES. 'forum/getSection.php';
+//Appels au modèle
+require MODELES.'forum/getTopic.php';
+
+$topic = getTopic ();
 
 
-/* Chargement des paramètres de la page
-$section = getSection($_GET['id']);
-$contents['section']=$section;
-$contents['TitreSection'] = $section['titre'];
-$contents['DescriptionSection'] = $section['description'];
+$contents['topic']=$topic;
+$contents['titre']=$topic['titre'];
 
 /**** Préparation de la vue ****/
 $title = 'Accueil - Forum';
@@ -18,7 +18,5 @@ $blocks = ['forum'];
 /**** Affichage de la page ****/
 //Appel de la vue :
 
-vue($blocks,$styles,$title);
-
+vue($blocks,$styles,$title,$contents);
 ?>
-

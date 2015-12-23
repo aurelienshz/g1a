@@ -11,11 +11,17 @@
       </div>
       <div class="content">
         <div class="question">
-          <a href="<?php echo getLink(['forum','sujet'])?>">
-          <div class="enonce">Je n'arrive pas à me connecter</div>
-          <div class="reponses">48 réponses</div>
-          <div class="auteur">par <strong>Audodo</strong></div>
-          </a>
+          <?php 
+            foreach($contents['topic'] as $topic)
+            { ?>
+              <a href="<?php echo getLink(['forum','sujet'])?>">
+              <div class="enonce"><?php echo $topic;?></div>
+              <div class="reponses">48 réponses</div>
+              <div class="auteur">par <strong>Audodo</strong></div>
+              </a>
+              <?php
+            }
+          ?>
         </div>
         <div class="question">
           <a href="<?php echo getLink(['forum','sujet'])?>">
@@ -57,4 +63,3 @@
   </br>
   </div>
 </div>
-
