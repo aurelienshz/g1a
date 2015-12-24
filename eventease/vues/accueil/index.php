@@ -11,9 +11,9 @@
             <option>Près de...</option>
             <option>Prochainement...</option>
         </select><!--
-     --><input name="searchValue" class="champCentral" type="text" placeholder="Mots-clés"/><!--
-     --><input name="searchValue" class="champCentral google-autocomplete-address" type="text" placeholder="Adresse" style="display:none;"/><!--
-     --><input name="searchValue" class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
+     --><input name="searchValueKeywords" class="champCentral" type="text" placeholder="Mots-clés"/><!--
+     --><input name="searchValuePlace" class="champCentral google-autocomplete-address" type="text" placeholder="Adresse" style="display:none;"/><!--
+     --><input name="searchValueDate" class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">

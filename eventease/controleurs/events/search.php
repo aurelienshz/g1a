@@ -42,9 +42,21 @@ function detailsToStrings($events) {
 function searchController() {
     $contents = [];
     if(!empty($_POST)) {    // On est arrivé en postant un formulaire
-        if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
+        if(isset($_POST['searchType']) && (isset($_POST['searchValueKeywords']) || isset($_POST['searchValuePlace']) || isset($_POST['searchValueDate']))) {   // On est arrivé en postant le form de la page d'accueil
             //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
+            echo '<pre>';
+            var_dump($_POST);
+            echo '</pre>';
 
+            if($_POST['searchValueKeywords']) {
+                $results = searchEvents($_POST['searchValueKeywords']);
+            }
+            elseif($_POST['searchValuePlace']) {
+
+            }
+            else {
+
+            }
             // Afficher le pretty form
             // Charger le bon champ avec la bonne valeur
             // Afficher les résultats
