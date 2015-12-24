@@ -21,6 +21,12 @@ p {
     text-align: justify;
 }
 
+/*
+Surligner tous les liens qui ne pointent nulle part :
+a[href="#"] {
+    background-color: yellow;
+}
+*/
 .disabled {
     cursor: not-allowed;
 }
@@ -39,7 +45,7 @@ p.error-message {
 
 /* Header : */
 header {
-    height: 70px;
+    height: 90px;
     margin: 0 auto 0 auto;
     border-bottom: 2px solid #303030;
     padding: 10px 5% 10px 5%;
@@ -63,6 +69,7 @@ header ul {
 header ul li {
     list-style-type: none;
     text-align: center;
+    display: inline-block;
 }
 header ul li a {
     color: #303030;
@@ -78,11 +85,12 @@ header #pseudo {
     color: #287DFF;
 }
 #raccourcis li {
-    float: left;
     margin: 0 2em 0 0;
 }
-#membre > li {
+#membre {
     float: right;
+}
+#membre > li {
     margin: 0 0 0 2em;
 }
 

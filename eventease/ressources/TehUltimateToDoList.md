@@ -6,7 +6,7 @@ Questions pour le groupe :
 - idée aurélien :
 choix dans le formulaire :
 [] je suis l'orga --> nombre de places, acceptation des participations etc
-[] je ne suis pas l'irga --> lien vers le site de l'orga, contacts etc.
+[] je ne suis pas l'orga --> lien vers le site de l'orga, contacts etc.
 
 
 -----------------------------------------------------------------------
@@ -41,11 +41,13 @@ choix dans le formulaire :
 ### Afficher / modifier -- Loann ###
 front end :
 - **Question :** Afficher la date de dernière connexion ?
-- Aurélien doit-il réparer la vue (prettyform and shit)
+- Aurélien doit-il réparer la vue (prettyform and shit) ?
 - réafficher le contenu des champs si le form est sorti en erreur
 - back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann)
+- quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
 - suppression du profil ?
 - modification mdp / adresse mail
+- désactiver lien pour l'onglet actif (PHP ou JS)
 CLIENT :
 - gros onglets -> bof , rester sur style arrondi et allégé
 - que fait le bouton "inviter à un event" ? interface ? options ?
@@ -114,6 +116,7 @@ Modif event -- Tristan
 
 Recherche :
 events :
+- liste : gérer les privilèges (admin/modo = TOUS !)
 - implémentation filtres -- Aurélien
 - question : âges ?
 - mettre en valeur le statut de participation
