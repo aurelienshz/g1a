@@ -42,42 +42,50 @@ function detailsToStrings($events) {
 function searchController() {
     $contents = [];
     if(!empty($_POST)) {    // On est arrivé en postant un formulaire
-        if(isset($_POST['searchType']) && (isset($_POST['searchValueKeywords']) || isset($_POST['searchValuePlace']) || isset($_POST['searchValueDate']))) {   // On est arrivé en postant le form de la page d'accueil
+    require MODELES.'events/searchEvents.php';
+        if(isset($_POST['searchType']) && (isset($_POST['searchKeywords']) || isset($_POST['searchPlace']) || isset($_POST['searchDate']))) {   // On est arrivé en postant le form de la page d'accueil
             //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
             echo '<pre>';
             var_dump($_POST);
             echo '</pre>';
 
-            if($_POST['searchValueKeywords']) {
-                $results = searchEvents($_POST['searchValueKeywords']);
+            switch($_POST['searchType']) {
+                case "place":
+                    $results = [];
+                break;
+                case "date":
+                    $results = [];
+                break;
+                case "keywords":
+                default:
+                    echo $_POST['searchKeywords'];
+                    $results = searchEvents($_POST['searchKeywords']);
+                    echo '<pre>';
+                    var_dump($results);
+                    echo '</pre>';
+                break;
             }
-            elseif($_POST['searchValuePlace']) {
-
-            }
-            else {
-
-            }
-            // Afficher le pretty form
             // Charger le bon champ avec la bonne valeur
             // Afficher les résultats
         }
-        else {              // On est arrivé en postant le form de la page de recherche avancée
+        else {  // On est arrivé en postant le form de la page de recherche avancée
             // On traite la recherche :
-            require MODELES.'events/searchEvents.php';
-
             $results = searchEvents($_POST['keywords']);
-            // echo '<pre>';
-            // var_dump($results);
-            // echo '</pre>';
-            if($results) {
-                $results = detailsToStrings($results);
-                // Afficher les résultats
-                $contents = ['searchResults' => $results];
-            }
-            else {
-                $contents = [];
-            }
         }
+
+        echo '<pre>';
+        var_dump($results);
+        echo '</pre>';
+        // On prépare pour affichage les résultats de recherche :
+        if($results) {
+            $results = detailsToStrings($results);
+            // Afficher les résultats
+            $contents = ['searchResults' => $results];
+        }
+        else {
+            $contents = [];
+        }
+
     }
     else {  // On n'a pas encore posté de formulaire
     }

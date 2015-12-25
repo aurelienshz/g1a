@@ -52,7 +52,7 @@ if(isset($contents['searchResults'])) {
 
 		<div class="eventPreview shadow">
 			<h4><a href="<?php echo getLink(['events','display',$event['id']]); ?>">
-				<?php echo $event['titre']; ?>
+				<?php echo $event['titre'] . ' - points : '.$event['points']; ?>
 			</a></h4>
 			<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
 				<img src="<?php echo PHOTO_EVENT.$event['lien'];?>" />

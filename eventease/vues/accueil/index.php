@@ -7,13 +7,13 @@
 <p id="subcatchphrase">Trouvez et participez aux évènements qui vous correspondent</p>
     <form method="post" action="<?php echo getLink(['events','search']); ?>">
         <select name="searchType">
-            <option>Mots-clés...</option>
-            <option>Près de...</option>
-            <option>Prochainement...</option>
+            <option value="keywords">Mots-clés...</option>
+            <option value="place">Près de...</option>
+            <option value="date">Prochainement...</option>
         </select><!--
-     --><input name="searchValueKeywords" class="champCentral" type="text" placeholder="Mots-clés"/><!--
-     --><input name="searchValuePlace" class="champCentral google-autocomplete-address" type="text" placeholder="Adresse" style="display:none;"/><!--
-     --><input name="searchValueDate" class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
+     --><input name="searchKeywords" class="champCentral" type="text" placeholder="Mots-clés"/><!--
+     --><input name="searchPlace" class="champCentral google-autocomplete-address" type="text" placeholder="Adresse" style="display:none;"/><!--
+     --><input name="searchDate" class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">

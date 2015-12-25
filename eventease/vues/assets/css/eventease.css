@@ -34,6 +34,7 @@ a[href="#"] {
 .shadow {
 	border-radius: 0 0 5px 5px;
 	box-shadow: 0 10px 10px #CDCDCD;
+    margin: 0 0 1em 0;
 }
 
 p.error-message {
