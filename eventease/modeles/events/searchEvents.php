@@ -24,7 +24,7 @@ function searchEvents($searchString, $criteres = []) {
         if(in_array('nom',$criteres)) {
             $fields['evenement.titre'] = 5;
         }
-        if(in_array('adresse',$criteres)) {
+        if(in_array('adresse',$criteres) || in_array('lieu', $criteres)) {
             $fields['adresse.adresse_condensee'] = 4;
         }
         if(in_array('description',$criteres)) {
@@ -35,7 +35,7 @@ function searchEvents($searchString, $criteres = []) {
         }
     }
 
-    var_dump($fields);
+    // var_dump($fields);
 
     // initialisation des résultats de recherche :
     $results = [];
@@ -51,7 +51,7 @@ function searchEvents($searchString, $criteres = []) {
         $whereClauses = implode(' OR ', $conditions);
         // var_dump($whereClauses);
 
-        echo '<h2>Executing query : </h2>'.$query.$whereClauses.'<br />';
+        // echo '<h2>Executing query : </h2>'.$query.$whereClauses.'<br />';
 
         $req = $bdd -> prepare($query.$whereClauses);
         $req -> execute();

@@ -45,9 +45,10 @@ function searchController() {
     require MODELES.'events/searchEvents.php';
         if(isset($_POST['searchType']) && (isset($_POST['searchKeywords']) || isset($_POST['searchPlace']) || isset($_POST['searchDate']))) {   // On est arrivé en postant le form de la page d'accueil
             //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
-            echo '<pre>';
-            var_dump($_POST);
-            echo '</pre>';
+
+            // echo '<pre>';
+            // var_dump($_POST);
+            // echo '</pre>';
 
             switch($_POST['searchType']) {
                 case "place":
@@ -58,11 +59,10 @@ function searchController() {
                 break;
                 case "keywords":
                 default:
-                    echo $_POST['searchKeywords'];
                     $results = searchEvents($_POST['searchKeywords']);
-                    echo '<pre>';
-                    var_dump($results);
-                    echo '</pre>';
+                    // echo '<pre>';
+                    // var_dump($results);
+                    // echo '</pre>';
                 break;
             }
             // Charger le bon champ avec la bonne valeur
@@ -70,12 +70,30 @@ function searchController() {
         }
         else {  // On est arrivé en postant le form de la page de recherche avancée
             // On traite la recherche :
-            $results = searchEvents($_POST['keywords']);
+            $criteres = [];
+            if(isset($_POST['criteres_all']) && $_POST['criteres_all']) {
+                $criteres = [];
+            }
+            else {
+                if(isset($_POST['criteres_nom']) && $_POST['criteres_nom']) {
+                    $criteres[] = 'nom';
+                }
+                if(isset($_POST['criteres_lieu']) && $_POST['criteres_lieu']) {
+                    $criteres[] = 'adresse';
+                }
+                if(isset($_POST['criteres_description']) && $_POST['criteres_description']) {
+                    $criteres[] = 'description';
+                }
+                if(isset($_POST['criteres_type']) && $_POST['criteres_type']) {
+                    $criteres[] = 'type';
+                }
+            }
+            $results = searchEvents($_POST['keywords'], $criteres);
         }
 
-        echo '<pre>';
-        var_dump($results);
-        echo '</pre>';
+        // echo '<pre>';
+        // var_dump($results);
+        // echo '</pre>';
         // On prépare pour affichage les résultats de recherche :
         if($results) {
             $results = detailsToStrings($results);
