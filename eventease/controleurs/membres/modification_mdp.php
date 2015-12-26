@@ -1,6 +1,6 @@
 <?php
 require MODELES.'membres/getUserAuth.php';
-require MODELES.'membres/updatePass.php';
+require MODELES.'membres/updateOneUserField.php';
 
 if(!connected()) {
     alert("error","Vous devez être connecté !");
@@ -25,15 +25,19 @@ if(!empty($_POST)) {        // Formulaire envoyé
 	        	// Les mots de passe correspondent.
 
 		            // Changement du mdp.
-	        		if(updatePass ($_SESSION['id'], password_hash($_POST['password'],PASSWORD_DEFAULT) )) {
+	        		if(updateOneUserField($_SESSION['id'],'mdp',password_hash($_POST['password'],PASSWORD_DEFAULT) )) {
 	        			// Sortie du script et redirection vers la page de profil :
 	                	alert('info', 'Vous avez bien changé votre mot de passe.');
-	                	// header('Location: '.getLink(['membres','profil']));
-	                	// exit();
+	                	// mail($_POST['email'],
+                  //       'Modification Mot de Passe sur EventEase',
+                  //       "Salutations !\n"
+                  //       ."Le mot de passe de votre compte à été modifié. Si vous n'avez pas effectué ce changement, contactez immédiatement le support EventEase.\n-- L'équipe EventEase",
+                  //       'From: no-reply@eventease.com'); 
+	                	header('Location: '.getLink(['membres','profil']));
+	                	exit();
 	        		}else{
 	        			$errorMessage = "Une erreur est survenue dans la requête. Merci de réessayer !";
 	        		}
-
 	        	}else{
 	        		$errorMessage = "Les mots de passes ne correspondent pas. Merci de réessayer !";
 	        	}

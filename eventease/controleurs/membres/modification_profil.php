@@ -123,9 +123,9 @@ if(!empty($_POST)) {
     		}
     	}
 		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], htmlspecialchars(isset($photo)?$photo:NULL), $_POST['description'],htmlspecialchars($contents['id_adresse']),htmlspecialchars($contents['id_photo']));
-		// alert("info","Votre profil a bien été modifié.");
-		// header('Location: '.getLink(['membres','profil']));
-		// exit();
+		alert("info","Votre profil a bien été modifié.");
+		header('Location: '.getLink(['membres','profil']));
+		exit();
 
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
