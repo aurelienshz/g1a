@@ -27,6 +27,10 @@ if (isset($user["adresse_condensee"])){
 	// Convertit coordonnées vers adresse
 	$user["adresse"] = googleCoordToAddress($user['coordonnee_lat'],$user['coordonnee_long']);
 }
+// (A supprimer si je trouve pourquoi) Nettoie les -1 qui trainent en cas de suppression.
+foreach ($user as $key => $value) {
+	if($value == -1) $value = '';
+}
 $contents = $user;
 // ===== VERIFICATION POST =====
 
@@ -46,6 +50,10 @@ if(!empty($_POST)) {
 
 	// Adresse :
 	$errors['adresse'] = checkAddress($_POST['adresse'], 'Adresse invalide');
+	// Cas de suppression d'adresse
+	if (!empty($contents['id_adresse']) AND empty($_POST['adresse']) ){
+		$_POST['adresse'] = -1;
+	}
 
 	// Langue :
 	$_POST['langue'] = checkSelect($_POST['langue'], [0,1], 0);
@@ -59,6 +67,12 @@ if(!empty($_POST)) {
 		$photo = $check[1];
 	}else{
 		$errors["photo"] = $check[1];
+	}
+	// Si il veut supprimer la photo
+	if (isset($_POST['photo']) ) {
+		if ($_POST['photo'] == -1){
+			$photo = -1;
+		}
 	}
 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
@@ -85,23 +99,31 @@ if(!empty($_POST)) {
     		$doIt = True;
     	}
     }
+
+    if (!empty($photo) AND $photo != -1 AND $doIt == True){
+    		$upload = uploadOnePhoto("photo", $contents["lien_photo"], PHOTO_PROFIL, $photo);
+    		if ($upload) {
+    			$contents["lien_photo"] = $photo;
+    		}else{
+    		$errors["photo"] = "[Erreur Serveur - Contactez l'administrateur] Erreur dans la copie de la photo.";
+			$doIt = False;
+   			}
+    	}
+    if ($photo == -1 AND $doIt == True) {
+    	unlink(PHOTO_PROFIL. $contents["lien_photo"]);
+    	unset($contents["lien_photo"]);
+    }
     if ($doIt){
+    	//Sécurisation par htmlspecialchars
     	foreach($_POST as $cle => $valeur){
     		if($valeur == ""){
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
-    	//Execute l'envoi du formulaire et de la photo de profil
-		$upload = uploadOnePhoto("photo", $contents["lien_photo"], PHOTO_PROFIL, $photo);
-		if ($upload) {
-			$contents["lien_photo"] = $photo;
-    		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], isset($photo)?$photo:NULL, $_POST['description'],$contents['id_adresse'],$contents['id_photo']);
-    		alert("info","Votre profil a bien été modifié.");
-    		header('Location: '.getLink(['membres','profil']));
-    		exit();
-    	}else{
-    		$errors["photo"] = "[Erreur Serveur - Contactez l'administrateur] Erreur dans la copie de la photo.";
-    	}
+		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], htmlspecialchars(isset($photo)?$photo:NULL), $_POST['description'],htmlspecialchars($contents['id_adresse']),htmlspecialchars($contents['id_photo']));
+		// alert("info","Votre profil a bien été modifié.");
+		// header('Location: '.getLink(['membres','profil']));
+		// exit();
 
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
@@ -110,6 +132,7 @@ if(!empty($_POST)) {
 			}
     }
 }
+
 /**** préparation de la vue ****/
 
 $title = 'Modifier mon profil';
