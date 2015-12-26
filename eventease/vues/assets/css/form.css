@@ -88,7 +88,7 @@ label.checkbox-label, label.radio-label {
     line-height: 1.3em;
 }
 
-form .formError {
+.formError {
     color: red;
     margin-top: 0;
     text-align: right;
@@ -112,11 +112,15 @@ select{
 .importantRed {
     color: red;
 }
-checkbox {
+.checkbox {
     font-size: 11px;
     display: inline-block;
     height: 20px;
     margin: auto;
+}
+.ligneBoutons {
+    display: flex;
+    
 }
 /*.tableau {display: table;border-spacing: 0.5rem;border-collapse: collapse;}
 .cellule {display: table-cell;padding: 0.5rem; border: 1px solid #999;}

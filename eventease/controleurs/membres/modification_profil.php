@@ -109,10 +109,12 @@ if(!empty($_POST)) {
 			$doIt = False;
    			}
     	}
-    if ($photo == -1 AND $doIt == True) {
-    	unlink(PHOTO_PROFIL. $contents["lien_photo"]);
-    	unset($contents["lien_photo"]);
-    }
+    if (isset($photo) ) {
+	    if ($photo == -1 AND $doIt == True) {
+	    	unlink(PHOTO_PROFIL. $contents["lien_photo"]);
+	    	unset($contents["lien_photo"]);
+	    }
+	}
     if ($doIt){
     	//Sécurisation par htmlspecialchars
     	foreach($_POST as $cle => $valeur){

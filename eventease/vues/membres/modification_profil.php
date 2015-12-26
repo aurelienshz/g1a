@@ -6,14 +6,14 @@
 		</div>
 
 		<div class="ligne ligneBoutons">
-			<a class="champ button" href="#">
+			<a class="champ button" href="<?php echo getLink(['membres','modification_mdp']); ?>">
 			Changer mon mot de passe
 			</a>
-			<a class="champ button" href="#">
+			<a class="champ button" href="<?php echo getLink(['membres','modification_mail']); ?>">
 			Changer mon adresse mail
 			</a>
 		</div>
-		<form method="post" action="<?php getLink(['membres','modify']); ?>" enctype="multipart/form-data"> <!-- A CORRIGER action -->
+		<form method="post" action="<?php echo getLink(['membres','modification_profil']); ?>" enctype="multipart/form-data"> <!-- A CORRIGER action -->
 			<?php echo isset($contents['errors']['general'])?$contents['errors']['general']:'' ?>
 			<div class="ligne">
 				<div class="champ" style="width:10%;">
@@ -99,6 +99,10 @@
 					<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:'' ?>
 				</div>
 			</div>
-			<input style="width: 33%;" type="submit" value="Modifier" />
+			<div class="ligneBoutons" style="padding-bottom: 1em;">
+			<input style="width: 33%; margin-left:33%;" type="submit" value="Modifier" />
+			<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['membres','delete']); ?>">Supprimer son compte</a>
+		</div>
 		</form>
+		
 </div>

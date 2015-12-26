@@ -45,7 +45,7 @@ front end :
 - [x] réafficher le contenu des champs si le form est sorti en erreur
 - [x] back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann) - ça marche pas forcément en local, il suffit que ça marche sur le serveur.
 - [x]quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
-- suppression du profil ?
+- [x]suppression du profil ?
 - modification mdp / adresse mail
 - désactiver lien pour l'onglet actif (PHP ou JS)
 CLIENT :

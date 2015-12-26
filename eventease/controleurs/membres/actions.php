@@ -9,7 +9,10 @@ $actions = [
 'deconnexion',
 'inscription',
 'modification_profil',
-'confirm'
+'modification_mdp',
+'modification_mail',
+'confirm',
+'delete'
 ];
 
 $parametres = [
