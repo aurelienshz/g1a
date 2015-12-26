@@ -73,7 +73,7 @@ if(!connected()) {
                         ."Merci de votre inscription, et à bientôt !\n"
                         ."-- L'équipe EventEase",
                         'From: no-reply@eventease.com')) {
-                            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password']));
+                            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password']),PASSWORD_DEFAULT);
                             vue(['validationInscription'],$style,$title);
                 }
                 else {

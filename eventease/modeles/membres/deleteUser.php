@@ -23,6 +23,7 @@ function deleteUser($id){
 		}
 		if ($details["id_photo"]){
 			$requete .= $removeMedia;
+			unlink(PHOTO_PROFIL.$details['lien_photo']);
 			$execution = array_merge([':id_photo'=>$details['id_photo']],$execution);
 		}
 		$bdd = new PDO(DSN, DBUSER, DBPASS);

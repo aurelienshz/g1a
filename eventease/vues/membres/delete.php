@@ -12,7 +12,7 @@
 	    ?>
        	<div class="ligneBoutons" style="margin-bottom:2em;">
 			<input style="width: 40%;" type="submit" value="Valider"/>	
-			<a style="width: 40%; background-color: #F94339	" class="champ button" href="<?php echo getLink(['membres','profil']); ?>">Annuler</a>
+			<a style="width: 40%; background-color: #F94339	" class="champ button" href="<?php echo getLink(['membres','modification_profil']); ?>">Annuler</a>
 		</div>
 	</form>
 </div>

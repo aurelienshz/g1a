@@ -89,20 +89,20 @@
                 			<img alt="Photo de Profil" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/>
 							<label for="photo"><br>Modifier ma photo de profil :</label>(.jpg ou .png | max. : 2Mo | 1000x1000 max.)
 							<input type="file" id="photo" name="photo"/>
-							<?php echo isset($contents["lien_photo"])?"<input type='radio' name='photo' value='-1' >Supprimer la photo de profil":NULL ?>
+							<?php echo isset($contents["lien_photo"])?"<input type='checkbox' name='photo' value='-1' >Supprimer la photo de profil":NULL ?>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>
 					</div>
-				<div class="champ" style="width: 66.66%">
+				<div class="champ" style="width: 69.66%">
 					<label>A propos de moi :</label>
 					<textarea name="description" id="description" placeholder="Une brève description de vous."><?php echo isset($contents["description"])?htmlspecialchars($contents["description"]):'' ?></textarea>
 					<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:'' ?>
 				</div>
 			</div>
 			<div class="ligneBoutons" style="padding-bottom: 1em;">
-			<input style="width: 33%; margin-left:33%;" type="submit" value="Modifier" />
-			<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['membres','delete']); ?>">Supprimer son compte</a>
-		</div>
+				<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','profil']); ?>">Annuler</a>
+				<input style="width: 33%;" type="submit" value="Modifier" />
+				<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['membres','delete']); ?>">Supprimer mon compte</a>
+			</div>
 		</form>
-		
 </div>
