@@ -81,7 +81,9 @@ if(!empty($_POST)) {
 			unset($_POST[$cle]);
 		}elseif (!isset($_POST[$cle])) {
 			$_POST[$cle]="";
-		}
+		}else{
+    		$_POST[$cle]=htmlspecialchars($_POST[$cle]);
+    	}
 	}
 	// DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
 

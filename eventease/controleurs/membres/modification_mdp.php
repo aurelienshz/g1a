@@ -11,6 +11,18 @@ if(!connected()) {
 $errorMessage = '';
 
 if(!empty($_POST)) {        // Formulaire envoyé
+
+    // Vérifie qu'il n'y a pas des champs en trop ou en moins.
+    $champsAttendus = array('password','old_password','confirm-password');
+    foreach($_POST as $cle => $valeur){
+        if(!in_array($cle, $champsAttendus)){
+            unset($_POST[$cle]);
+        }elseif (!isset($_POST[$cle])) {
+            $_POST[$cle]="";
+        }else{
+            $_POST[$cle] = htmlspecialchars($_POST[$cle]);
+        }
+    }
     if($_POST['old_password'] && $_POST['password'] && $_POST['confirm-password']) { 
     // Les champs sont remplis
         $auth = getUserAuth($_SESSION['username']);

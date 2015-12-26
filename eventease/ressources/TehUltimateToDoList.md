@@ -44,10 +44,10 @@ front end :
 - Aurélien doit-il réparer la vue (prettyform and shit) ?
 - [x] réafficher le contenu des champs si le form est sorti en erreur
 - [x] back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann) - ça marche pas forcément en local, il suffit que ça marche sur le serveur.
-- [x]quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
-- [x]suppression du profil ?
-- [x]modification mdp 
-- []adresse mail (besoin que les token marchent).
+- [x] quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
+- [x] suppression du profil ?
+- [x] modification mdp 
+- [] adresse mail (besoin que les token marchent).
 - désactiver lien pour l'onglet actif (PHP ou JS)
 CLIENT :
 - gros onglets -> bof , rester sur style arrondi et allégé
