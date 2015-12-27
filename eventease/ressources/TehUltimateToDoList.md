@@ -86,9 +86,6 @@ Affichage et participation aux events  -- Guillaume & Aude
 
 
 Création d'event :
-- choix des types --> écrire une requete pour aller récup la liste des types en BDD - Aurélien
-    --> done mais dans une sous fonction du modèle, factorisation nécessaire
-    --> implémenter partout où c'est requis --> Aurélien
 - insertion dans la base et vérif champs -- Tristan
 - photos !!!
 - ajout de photos supplémentaires (pas uniquement la photo principale)

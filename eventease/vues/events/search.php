@@ -24,12 +24,10 @@
 		<h3>Filtrer</h3>
 		<h5>Type</h5>
 		<div class="filter filter-type active">Tous</div>
-		<div class="filter filter-type">Pique-Nique</div>
-		<div class="filter filter-type">Concert</div>
-		<div class="filter filter-type">Vente privée</div>
-		<div class="filter filter-type">Brocante</div>
-		<div class="filter filter-type">Exposition</div>
-		<div class="filter filter-type">Rassemblement</div>
+		<?php foreach($contents['types'] as $type) {
+			echo '<div class="filter filter-type">'.$type.'</div>';
+		}
+		?>
 
 		<h5>Date & heure</h5>
 		<div class="filter filter-date active">Tous</div>
@@ -52,7 +50,7 @@ if(isset($contents['searchResults'])) {
 
 		<div class="eventPreview shadow">
 			<h4><a href="<?php echo getLink(['events','display',$event['id']]); ?>">
-				<?php echo $event['titre'] . ' - points : '.$event['points']; ?>
+				<?php echo $event['titre']; ?>
 			</a></h4>
 			<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
 				<img src="<?php echo PHOTO_EVENT.$event['lien'];?>" />
