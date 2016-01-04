@@ -53,17 +53,10 @@
     padding-bottom: 3px;
     background-color: lightgrey;
 }
-/* .onglets li.active {
-    background-color: white;
-    border-bottom-color: white;
-    color: #303030;
-} */
-/* .onglets li.active a {
-    border-bottom: 0;
-}
 .onglets li.active a:hover {
-    background-color: white;
-} */
+    cursor : default;
+    background-color: #FAFAFA;
+}
 .onglets a {
     display : block;
   /*color : #303030; */
