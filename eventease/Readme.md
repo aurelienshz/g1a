@@ -57,9 +57,9 @@ CLIENT :
 
 ### Inscription / Connexion / Validation mail : ###
 - inscription : conditions sur le mdp
-- ajouter bouton d'inscription sur page de connexion
+- [x] ajouter bouton d'inscription sur page de connexion
 - mot de passe oublié
-- case à cocher conditions générales
+- [x] case à cocher conditions générales
 
 
 ## EVENTS ##
