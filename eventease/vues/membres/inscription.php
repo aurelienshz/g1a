@@ -19,6 +19,9 @@
         <label class="checkbox-label"><input type="checkbox" name="sell-my-soul" />J'ai lu et j'accepte de me conformer aux <a href="#">conditions générales d'utilisation</a></label>
         <?php echo isset($contents['errors']['sell-my-soul'])?$contents['errors']['sell-my-soul']:'' ?>
 
-        <input type="submit" value="Valider" />
+        <div class="ligneBoutons" style="margin-bottom:2em;">
+            <input style="width: 40%;" type="submit" value="Valider"/>   
+            <a style="width: 40%; background-color: grey" class="champ button" href="<?php echo getLink(['membres','connexion']); ?>">Se connecter</a>
+        </div>
     </form>
 </div>

@@ -11,6 +11,9 @@
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password" placeholder="Mot de Passe"/>
 
-        <input type="submit" value="Valider"/>
+        <div class="ligneBoutons" style="margin-bottom:2em;">
+               <input style="width: 40%;" type="submit" value="Valider"/>   
+               <a style="width: 40%; background-color: grey" class="champ button" href="<?php echo getLink(['membres','inscription']); ?>">S'inscrire</a>
+        </div>
     </form>
 </div>
