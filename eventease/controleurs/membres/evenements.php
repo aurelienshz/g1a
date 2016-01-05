@@ -14,7 +14,7 @@ require MODELES.'events/getUserEvents.php';
 $contents['ongletActif'] = 'evenements';
 /* $title = 'Evenements de '.$contents['pseudo']; */
 $title = 'Mes évènements';
-$styles = ['onglets_compte.css'];
+$styles = ['onglets_compte.css','mes_events.css'];
 $blocks = ['onglets_compte', 'evenements'];
 //Appels des vues :
 vue($blocks,$styles,$title,$contents);

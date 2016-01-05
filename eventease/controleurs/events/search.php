@@ -3,7 +3,9 @@
 
 /**** Préparation des contenus ****/
 
-$contents = [];
+// $contents = [];
+
+require MODELES.'events/getTypes.php';
 
 function detailsToStrings($events) {
     // transforme les détails en chaînes faciles à afficher type "de 8 à 30 ans"
@@ -40,32 +42,69 @@ function detailsToStrings($events) {
 }
 
 function searchController() {
-    $contents = [];
+    $contents['types'] = getTypes();
     if(!empty($_POST)) {    // On est arrivé en postant un formulaire
-        if(isset($_POST['searchType'])) {   // On est arrivé en postant le form de la page d'accueil
+    require MODELES.'events/searchEvents.php';
+        if(isset($_POST['searchType']) && (isset($_POST['searchKeywords']) || isset($_POST['searchPlace']) || isset($_POST['searchDate']))) {   // On est arrivé en postant le form de la page d'accueil
             //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
 
-            // Afficher le pretty form
+            // echo '<pre>';
+            // var_dump($_POST);
+            // echo '</pre>';
+
+            switch($_POST['searchType']) {
+                case "place":
+                    $results = searchEvents($_POST['searchPlace'], ['adresse']);
+                    echo '<pre>';
+                    var_dump($results);
+                    echo '</pre>';
+                break;
+                case "date":
+                    $results = [];
+                break;
+                case "keywords":
+                default:
+                    $results = searchEvents($_POST['searchKeywords']);
+                break;
+            }
             // Charger le bon champ avec la bonne valeur
             // Afficher les résultats
         }
-        else {              // On est arrivé en postant le form de la page de recherche avancée
+        else {  // On est arrivé en postant le form de la page de recherche avancée
             // On traite la recherche :
-            require MODELES.'events/searchEvents.php';
-
-            $results = searchEvents($_POST['keywords']);
-            // echo '<pre>';
-            // var_dump($results);
-            // echo '</pre>';
-            if($results) {
-                $results = detailsToStrings($results);
-                // Afficher les résultats
-                $contents = ['searchResults' => $results];
+            $criteres = [];
+            if(isset($_POST['criteres_all']) && $_POST['criteres_all']) {
+                $criteres = [];
             }
             else {
-                $contents = [];
+                if(isset($_POST['criteres_nom']) && $_POST['criteres_nom']) {
+                    $criteres[] = 'nom';
+                }
+                if(isset($_POST['criteres_lieu']) && $_POST['criteres_lieu']) {
+                    $criteres[] = 'adresse';
+                }
+                if(isset($_POST['criteres_description']) && $_POST['criteres_description']) {
+                    $criteres[] = 'description';
+                }
+                if(isset($_POST['criteres_type']) && $_POST['criteres_type']) {
+                    $criteres[] = 'type';
+                }
             }
+            $results = searchEvents($_POST['keywords'], $criteres);
         }
+
+        // echo '<pre>';
+        // var_dump($results);
+        // echo '</pre>';
+        // On prépare pour affichage les résultats de recherche :
+        if($results) {
+            $results = detailsToStrings($results);
+            // Afficher les résultats
+            $contents['searchResults'] = $results;
+        }
+        else {
+        }
+
     }
     else {  // On n'a pas encore posté de formulaire
     }
@@ -74,12 +113,13 @@ function searchController() {
     $title = 'Recherche d\'évènements';
     $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
     $blocks = ['searchForm','search'];
-    $scripts = [];
+    $scripts = ['searchForm.js'];
     vue($blocks,$styles,$title,$contents,$scripts);
 }
 
 function listController() {
     require MODELES.'events/getEvents.php';
+    $contents['types'] = getTypes();
 
     if(connected()) {
         $events = getEvents($_SESSION['id']);
@@ -98,7 +138,7 @@ function listController() {
 
     // Préparation et appel de la vue :
     $title = 'Liste des évènements';
-    $styles = ['search_v2.css','list-events.css', 'eventPreview.css'];
+    $styles = ['search_v2.css','list-events.css', 'eventPreview.css', 'form.css'];
     $blocks = ['search'];
     $scripts = [];
     vue($blocks,$styles,$title,$contents,$scripts);

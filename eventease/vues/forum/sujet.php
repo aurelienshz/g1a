@@ -7,18 +7,14 @@
     </div>
     <div class="header2">
       <div class="repondre">
-        <div id="createButtonContainer">
-          <a class="button" id="createButton" href="#">
+          <a class="button" href="#">
               Répondre à ce sujet
           </a>
-        </div>
       </div>
       <div class="retour">
-        <div id="createButtonContainer">
-          <a class="button" id="createButton" href="<?php echo getLink(['forum'])?>">
+          <a class="button" href="<?php echo getLink(['forum'])?>">
               Retourner à l'accueil du forum
           </a>
-        </div>
       </div>
     </div>
     <div class="cadre">
@@ -28,22 +24,22 @@
         </div>
         <div class="content_sujet">
           <p><small>Posté le 21/11/15 à 17h34</br></br></small>
-                Cum autem commodis intervallata temporibus convivia longa et 
-            noxia coeperint apparari vel distributio sollemnium sportularum, 
-            anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, 
-            peregrinum invitari conveniet, et si digesto plene consilio id placuerit 
-            fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam 
+                Cum autem commodis intervallata temporibus convivia longa et
+            noxia coeperint apparari vel distributio sollemnium sportularum,
+            anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur,
+            peregrinum invitari conveniet, et si digesto plene consilio id placuerit
+            fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam
             profitetur aut secretiora quaedam se nosse confingit.</br></br>
 
-                Proinde concepta rabie saeviore, quam desperatio incendebat et fames, 
-            amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae 
-            efferebantur, quam comes tuebatur Castricius tresque legiones bellicis 
+                Proinde concepta rabie saeviore, quam desperatio incendebat et fames,
+            amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae
+            efferebantur, quam comes tuebatur Castricius tresque legiones bellicis
             sudoribus induratae.</br></br>
 
                 Isdem diebus Apollinaris Domitiani gener, paulo ante agens palatii Caesaris
-            curam, ad Mesopotamiam missus a socero per militares numeros immodice 
-            scrutabatur, an quaedam altiora meditantis iam Galli secreta susceperint 
-            scripta, qui conpertis Antiochiae gestis per minorem Armeniam lapsus 
+            curam, ad Mesopotamiam missus a socero per militares numeros immodice
+            scrutabatur, an quaedam altiora meditantis iam Galli secreta susceperint
+            scripta, qui conpertis Antiochiae gestis per minorem Armeniam lapsus
             Constantinopolim petit exindeque per protectores retractus artissime tenebatur.</br>
           </p>
           <div class="membre">
@@ -106,21 +102,21 @@
             <h2>Otis</h2>
           </div>
           <div class="content_sujet">
-            <p><small>Posté le 1/12/15 à 12h34</br></br></small>Mais, vous savez, moi je ne crois pas qu'il y ait de bonne ou de mauvaise 
+            <p><small>Posté le 1/12/15 à 12h34</br></br></small>Mais, vous savez, moi je ne crois pas qu'il y ait de bonne ou de mauvaise
               situation. Moi, si je devais résumer ma vie aujourd'hui avec vous, je dirais
               que c'est d'abord des rencontres, des gens qui m'ont tendu la main, peut-être
-              à un moment où je ne pouvais pas, où j'étais seul chez moi. Et c'est assez 
-              curieux de se dire que les hasards, les rencontres forgent une destinée... 
+              à un moment où je ne pouvais pas, où j'étais seul chez moi. Et c'est assez
+              curieux de se dire que les hasards, les rencontres forgent une destinée...
               Parce que quand on a le goût de la chose, quand on a le goût de la chose bien
-              faite, le beau geste, parfois on ne trouve pas l'interlocuteur en face, je 
-              dirais, le miroir qui vous aide à avancer. Alors ce n'est pas mon cas, comme 
-              je le disais là, puisque moi au contraire, j'ai pu ; et je dis merci à la vie, 
-              je lui dis merci, je chante la vie, je danse la vie... Je ne suis qu'amour ! 
-              Et finalement, quand beaucoup de gens aujourd'hui me disent "Mais comment 
-              fais-tu pour avoir cette humanité ?", eh ben je leur réponds très simplement, 
-              je leur dis que c'est ce goût de l'amour, ce goût donc qui m'a poussé 
-              aujourd'hui à entreprendre une construction mécanique, mais demain, qui sait, 
-              peut-être seulement à me mettre au service de la communauté, à faire le don, 
+              faite, le beau geste, parfois on ne trouve pas l'interlocuteur en face, je
+              dirais, le miroir qui vous aide à avancer. Alors ce n'est pas mon cas, comme
+              je le disais là, puisque moi au contraire, j'ai pu ; et je dis merci à la vie,
+              je lui dis merci, je chante la vie, je danse la vie... Je ne suis qu'amour !
+              Et finalement, quand beaucoup de gens aujourd'hui me disent "Mais comment
+              fais-tu pour avoir cette humanité ?", eh ben je leur réponds très simplement,
+              je leur dis que c'est ce goût de l'amour, ce goût donc qui m'a poussé
+              aujourd'hui à entreprendre une construction mécanique, mais demain, qui sait,
+              peut-être seulement à me mettre au service de la communauté, à faire le don,
               le don de soi...</p>
               <div class="membre">
               <img class="photo_profil" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></br>

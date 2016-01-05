@@ -34,6 +34,7 @@ a[href="#"] {
 .shadow {
 	border-radius: 0 0 5px 5px;
 	box-shadow: 0 10px 10px #CDCDCD;
+    margin: 0 0 1em 0;
 }
 
 p.error-message {
@@ -45,10 +46,10 @@ p.error-message {
 
 /* Header : */
 header {
-    height: 90px;
+    height: 80px;
     margin: 0 auto 0 auto;
     border-bottom: 2px solid #303030;
-    padding: 10px 5% 10px 5%;
+    padding: 10px 5%;
     background-color: #FAFAFA;
 }
 
@@ -64,7 +65,10 @@ header h1 img { /* LOGO */
 }
 header ul {
     margin: 0;
-    margin-top: 25px;
+    line-height: 80px;
+}
+header ul#raccourcis {
+    width: 70%;
 }
 header ul li {
     list-style-type: none;
@@ -72,10 +76,12 @@ header ul li {
     display: inline-block;
 }
 header ul li a {
+    display: block;
     color: #303030;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
+    line-height: 80px;
 }
 header ul li a:hover {
     color: #287DFF;
@@ -87,10 +93,10 @@ header #pseudo {
 #raccourcis li {
     margin: 0 2em 0 0;
 }
-#membre {
+header ul#membre {
     float: right;
 }
-#membre > li {
+header ul#membre > li {
     margin: 0 0 0 2em;
 }
 
@@ -107,12 +113,14 @@ header #pseudo {
     margin: 0;
 }
 .menuDeroulant li {
+    display: block;
+    line-height: 1em;
     text-align: right;
 }
-.menuDeroulant li a {
+.menuDeroulant li a, .menuDeroulant p {
+    line-height: 1.5em;
     text-transform: none;
     display: block;
-    margin: 0.5em 0.5em;
 }
 
 

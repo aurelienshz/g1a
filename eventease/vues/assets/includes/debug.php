@@ -1,17 +1,17 @@
 <?php /* BARRE DE DEBUG : */  ?>
 
-<div id="palette" style="">
+<!--<div id="palette" style="">
     <div id="color1">#303030</div>
     <div id="color2">#FAFAFA</div>
     <div id="color3">#F94339</div>
     <div id="color4">#36B136</div>
     <div id="color5">#287DFF</div>
-</div>
+</div>-->
 
 <?php
 
 
-$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil']];
+$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil'], ['events','modify']];
 
 
 echo '<div id="debug">';
