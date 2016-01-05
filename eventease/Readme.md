@@ -20,6 +20,7 @@ choix dans le formulaire :
 - responsive serait un bonus
 - charte graphique à retravailler, notamment couleurs
 - relire le CdC et être attentif à ce qu'on a implémenté (ou pas)
+- possibilité d'ajouter une ligne à l'adresse pour spécifier étage, sale etc...
 
 
 ## ToDo - général ##
@@ -46,7 +47,7 @@ front end :
 - [x] back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann) - ça marche pas forcément en local, il suffit que ça marche sur le serveur.
 - [x] quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
 - [x] suppression du profil ?
-- [x] modification mdp 
+- [x] modification mdp
 - [] adresse mail (besoin que les token marchent).
 - désactiver lien pour l'onglet actif (PHP ou JS)
 CLIENT :
