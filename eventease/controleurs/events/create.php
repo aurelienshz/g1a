@@ -14,9 +14,9 @@ $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
-// echo '<pre>';
-// var_dump($_POST);
-// echo '</pre>';
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
 
 if(connected()) {
 	if (empty($_POST)) {
@@ -31,7 +31,7 @@ if(connected()) {
 			$contents['values'][$key] = htmlspecialchars($_POST[$key]);
 		}
 		// On vérifie que tous les champs requis sont bien remplis :
-		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','participation'];
+		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','invitation'];
 		// $requiredFields = ['titre'];
 		foreach($requiredFields as $field) {
 			if(empty($_POST[$field]) && $_POST[$field] != "0") {
