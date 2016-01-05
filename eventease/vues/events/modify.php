@@ -1,10 +1,11 @@
-<div class="wrapper prettyform">
+<div class="wrapper prettyform shadow">
 		<div class="titleWrapper">
 			<img class="calendarPin" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
-			<h2><i class="fa fa-plus"></i> Créer un événement</h2>
+			<h2><i class="fa fa-pencil"></i> Modifier mon évènement </h2>
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 		</div>
-		<form method="post" action="<?php echo getLink(['events','create']); ?>" enctype="multipart/form-data">
+
+		<form method="post" action="<?php echo getLink(['events','modify']); ?>" enctype="multipart/form-data">
 			<?php echo isset($contents['errors']['general'])?$contents['errors']['general']:'' ?>
 			<div class="ligne">
 					<div class="champ" style="width: 34%;">
@@ -54,6 +55,9 @@
 				<div class="ligne">
 					<div class="champ" style="width: 50%;">
 						<div class="photo">
+							<label>Photo :</label>
+                			<img alt="Photo" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/>
+							
 							<label for="photo"><br>Modifier la photo :</label>(.jpg ou .png | max. : 2Mo | 1000x1000 max.)
 							<input type="file" id="photo" name="photo"/>
 							<?php echo isset($contents["lien_photo"])?"<input type='checkbox' name='photo' value='-1' >Supprimer la photo":NULL ?>
@@ -103,8 +107,9 @@
 				</div>
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
 					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','profil']); ?>"><i class="fa fa-ban"></i> Annuler</a>
-					<input style="width: 58%;" type="submit" value="Modifier" />
-				</div>
+					<input style="width: 33%;" type="submit" value="Modifier" />
+					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['event','delete']); ?>"><i class="fa fa-trash"></i> Supprimer</a>
+			</div>
 				<p class="importantRed"> <i class="fa fa-asterisk"></i> Champs obligatoires</p>
 		</form>
 </div>
