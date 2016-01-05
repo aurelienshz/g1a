@@ -106,7 +106,7 @@
 
 				</div>
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
-					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','profil']); ?>"><i class="fa fa-ban"></i> Annuler</a>
+					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','evenements']); ?>"><i class="fa fa-ban"></i> Annuler</a>
 					<input style="width: 33%;" type="submit" value="Modifier" />
 					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['event','delete']); ?>"><i class="fa fa-trash"></i> Supprimer</a>
 			</div>

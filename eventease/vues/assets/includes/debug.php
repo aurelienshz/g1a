@@ -11,7 +11,7 @@
 <?php
 
 
-$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil']];
+$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil'], ['events','modify']];
 
 
 echo '<div id="debug">';
