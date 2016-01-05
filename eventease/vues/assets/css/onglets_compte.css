@@ -8,27 +8,20 @@
     border-right: 2px solid #303030;
 }
 .left_tab a {
-    /*background-color: #4d93ff;*/
-    border-top: 10px solid #287DFF;
+/*  background-color: #4d93ff; */
+    background-color: #FAFAFA;
+    color: #287DFF;
 }
 .center_tab a {
-    /*background-color: #fd5544;*/
-    border-top: 10px solid #F94339;
+/*  background-color: #fd5544; */
+    background-color: #FAFAFA;
+    color: #F94339;
 }
 .right_tab a {
-    /*background-color: #63cf63;*/
-    border-top: 10px solid #36B136;
+/*  background-color: #63cf63; */
+    background-color: #FAFAFA;
+    color: #36B136;
 }
-.onglets li.left_tab a:hover {
-    /*background-color: #287DFF;*/
-}
-.onglets li.center_tab a:hover {
-    /*background-color: #DD3D30;*/
-}
-.onglets li.right_tab a:hover {
-    /*background-color: #36B136;*/
-}
-
 
 /* Définition des styles généraux des onglets : */
 .onglets {
@@ -42,8 +35,7 @@
     border-collapse: collapse;
 }
 .onglets li {
-/*  border-top-left-radius: 1em;
-    border-top-right-radius: 1em; */
+/*  border-radius: 1em; */
     background-color: #FAFAFA;
     display: table-cell;
     width: 33.333333%;
@@ -51,23 +43,26 @@
     margin:0;
 }
 .onglets li a {
-    color: #303030;
+  /*color: #303030; */
+    padding-top: 3px;
+    padding-bottom: 3px;
     border-bottom: 2px solid #303030;
 }
-.onglets li.active {
-    background-color: white;
-    border-bottom-color: white;
-    color: #303030;
+.onglets li a:hover {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: lightgrey;
 }
 .onglets li.active a {
-    border-bottom: 0;
+    border-bottom: none;
 }
 .onglets li.active a:hover {
-    background-color: white;
+    cursor : default;
+    background-color: #FAFAFA;
 }
 .onglets a {
     display : block;
-    color : #303030;
+  /*color : #303030; */
     text-decoration : none;
     height : 60px;
     line-height: 60px;
@@ -78,4 +73,3 @@
     width: 100%;
     background-color: white;
 }
-/* */

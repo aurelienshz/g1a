@@ -14,7 +14,8 @@ $modules = [
 'forum',
 'messages',
 'aide',
-'sandbox'
+'sandbox',
+'admin'
 ];
 
 /***

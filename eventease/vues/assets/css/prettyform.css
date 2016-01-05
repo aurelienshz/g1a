@@ -2,6 +2,7 @@
 	padding:0;
 	background-color: #FAFAFA;
 	margin-bottom: 2em;
+	min-width: 1330px;
 }
 .prettyform form {
 	border-radius: 0 0 5px 5px;
