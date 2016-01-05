@@ -23,25 +23,28 @@ $blocks = ['display'];
 
 // Affectation des valeurs spécifiques à l'event :
 // @ Guillaume & Aude : si l'event n'est pas trouvé, il faut rediriger vers getLink(['accueil','404'])
-$type = EventType($_GET['id']);
+$type = eventType($_GET['id']);
 $contents['type']=$type[0];
-$site = Sponsor($_GET['id']);
+$site = sponsor($_GET['id']);
 $contents['sponsor']=$site[0];
-$images = GetImages($_GET['id']);
+$images = getImages($_GET['id']);
 $contents['images']=$images;;
-$creators=GetCreators($_GET['id']);
+$creators=getCreators($_GET['id']);
 $contents['creators']=$creators;
-$comment = GetComments($_GET['id']);
+$comment = getComments($_GET['id']);
 $contents['comment']=$comment;
-$participants= GetParticipants($_GET['id']);
+$participants= getParticipants($_GET['id']);
 $contents['participants']=$participants;
-$adresse = GetAdress($_GET['id']);
+$adresse = getAdress($_GET['id']);
 $contents['adresse']=$adresse;
 $contents['tarif'] = $event['tarif'];
 $contents['age_min']=$event['age_min'];
 $contents['age_max']=$event['age_max'];
 $contents['description']=$event['description'];
 $contents['site']=$event['site'];
+$creator=getCreator($_GET['id']);
+$contents['creator']=$creator;
+$contents['id_evenement']=$_GET['id'];
 switch ($event['langue']){
   case 0:
     $contents['langue']='Français';
