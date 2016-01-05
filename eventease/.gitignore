@@ -3,3 +3,6 @@
 .settings
 WebContent
 nbproject
+.DS_Store
+index.sublime-workspace
+.sublime-workspace

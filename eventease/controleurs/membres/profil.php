@@ -16,7 +16,7 @@
 
 require MODELES.'membres/getUserDetails.php';
 $contents = [];
-
+$scripts = ['active_tab_disable.js'];
 function loadContents($details) {
     global $contents;
 
@@ -130,4 +130,4 @@ $contents['ddn']=explode(' ',$contents['ddn']) ;
 $contents['ddn'][1]=date_mois_fr($contents['ddn'][1]);
 $contents['ddn']=implode(' ',$contents['ddn']) ;
 /**** Affichage de la page ****/
-vue($blocks,$styles,$title, $contents);
+vue($blocks,$styles,$title,$contents,$scripts);

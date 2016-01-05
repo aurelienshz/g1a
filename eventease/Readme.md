@@ -42,11 +42,12 @@ choix dans le formulaire :
 front end :
 - **Question :** Afficher la date de dernière connexion ?
 - Aurélien doit-il réparer la vue (prettyform and shit) ?
-- réafficher le contenu des champs si le form est sorti en erreur
-- back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann)
-- quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
-- suppression du profil ?
-- modification mdp / adresse mail
+- [x] réafficher le contenu des champs si le form est sorti en erreur
+- [x] back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann) - ça marche pas forcément en local, il suffit que ça marche sur le serveur.
+- [x] quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
+- [x] suppression du profil ?
+- [x] modification mdp 
+- [] adresse mail (besoin que les token marchent).
 - désactiver lien pour l'onglet actif (PHP ou JS)
 CLIENT :
 - gros onglets -> bof , rester sur style arrondi et allégé
@@ -56,9 +57,9 @@ CLIENT :
 
 ### Inscription / Connexion / Validation mail : ###
 - inscription : conditions sur le mdp
-- ajouter bouton d'inscription sur page de connexion
+- [x] ajouter bouton d'inscription sur page de connexion
 - mot de passe oublié
-- case à cocher conditions générales
+- [x] case à cocher conditions générales
 
 
 ## EVENTS ##
