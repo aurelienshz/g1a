@@ -17,23 +17,24 @@
 			<?php echo isset($contents['errors']['general'])?$contents['errors']['general']:'' ?>
 			<div class="ligne">
 				<div class="champ" style="width:10%;">
-				<label for="civilite">Civilité : </label>
-				<select name="civilite" id="civilite">
-				<?php
-					$array = array (0 => "M.",1 => "Mme");
-					foreach($array as $value=>$name)
-					{
-					    if($value == $contents['civilite'])
-					    {
-					         echo "<option value='".$value."' selected>".$name."</option>";
-					    }
-					    else
-					    {
-					         echo "<option value='".$value."'>".$name."</option>";
-					    }
-					}
-				?>
-				</select>
+					<label for="civilite">Civilité : </label>
+					<select name="civilite" id="civilite">
+						<?php
+							$array = array (0 => "M.",1 => "Mme");
+							foreach($array as $value=>$name)
+							{
+							    if($value == $contents['civilite'])
+							    {
+							         echo "<option value='".$value."' selected>".$name."</option>";
+							    }
+							    else
+							    {
+							         echo "<option value='".$value."'>".$name."</option>";
+							    }
+							}
+						?>
+					</select>
+					<?php echo isset($contents['errors']['civilite'])?$contents['errors']['civilite']:'' ?>
 				</div>
 				<div class="champ" style="width:35%;">
 					<label for="nom">Nom : </label>
@@ -80,6 +81,7 @@
 							}
 						?>
 					</select>
+					<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:'' ?>
 				</div>
 			</div>
 				<div class="ligne" style="justify-content: flex-start;">

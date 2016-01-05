@@ -35,38 +35,63 @@ $contents = $user;
 // ===== VERIFICATION POST =====
 
 if(!empty($_POST)) {
-	//Civilité
-	$_POST['civilite'] = checkSelect($_POST['civilite'], [0,1], 0);
 
+	foreach($_POST as $key=>$value) {
+			$_POST[$key] = htmlspecialchars($_POST[$key]);
+	}
+
+	foreach($contents as $key=>$value) {
+			$contents[$key] = htmlspecialchars($contents[$key]);
+	}
+	//Civilité
+	if (!checkSelect($_POST['civilite'], [0,1])){
+		$errors['civilite'] = "Langue Invalide";
+		$_POST['civilite'] = 0;
+ 	}
 	// Nom & Prénom : 
-	$errors['nom'] = checkTextInput($_POST['nom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i",'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.');
-	$errors['prenom'] = checkTextInput($_POST['prenom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", 'Prénom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.');
+	
+	if (!checkTextInput($_POST['nom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")){
+		$errors['nom'] = 'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
+	}
+	if(!checkTextInput($_POST['prenom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i") ){
+		$errors['prenom'] = 'Prénom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
+	}
 
 	//DDN
-	$errors['ddn'] = checkBirthDate($_POST['ddn'], 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA');
+	if (!checkBirthDate($_POST['ddn'])){
+		$errors['ddn'] = 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
+	}
 
 	//Tel
-	$errors['tel'] = checkTextInput($_POST['tel'],"/^0\d{9}$/",'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.');
+	if (!checkTextInput($_POST['tel'],"/^0\d{9}$/")){
+		$errors['tel'] = 'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.';
+	}
 
 	// Adresse :
-	$errors['adresse'] = checkAddress($_POST['adresse'], 'Adresse invalide');
+	if (!checkAddress($_POST['adresse'])){
+		$errors['adresse'] =  'Adresse invalide';
+	}
 	// Cas de suppression d'adresse
 	if (!empty($contents['id_adresse']) AND empty($_POST['adresse']) ){
 		$_POST['adresse'] = -1;
 	}
 
 	// Langue :
-	$_POST['langue'] = checkSelect($_POST['langue'], [0,1], 0);
+	if (!checkSelect($_POST['langue'], [0,1])){
+		$errors['langue'] = "Langue Invalide";
+		$_POST['langue'] = 0;
+ 	}
 
 	//Description :
 	$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
-	$errors['description'] = checkTextbox ($_POST['description'],$forbiddenKeywords ,'Description invalide, il contient des mots interdits.' );
-
+	if(!checkTextbox ($_POST['description'],$forbiddenKeywords)){
+		$errors['description'] = 'Description invalide, il contient des mots interdits.';
+	}
 	$check = checkOnePhoto("photo" ,2097152, 1000, 1000, ['.jpg', '.jpeg', '.png'], $_SESSION['username'], PHOTO_PROFIL);
 	if ($check[0]) {
 		$photo = $check[1];
 	}else{
-		$errors["photo"] = $check[1];
+		if ($check[1] != NULL) $errors["photo"] = $check[1];
 	}
 	// Si il veut supprimer la photo
 	if (isset($_POST['photo']) ) {
@@ -85,22 +110,19 @@ if(!empty($_POST)) {
     		$_POST[$cle]=htmlspecialchars($_POST[$cle]);
     	}
 	}
-	// DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
 
 	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
     foreach($_POST as $cle => $valeur){
-			$contents[$cle]=htmlspecialchars($valeur);
-			$_POST[$cle]=htmlspecialchars($valeur);
+			$contents[$cle]=$valeur;
 	}
-    //Entrée BDD si pas d'erreurs et sécuristation des entrées aux injections :
-    foreach ($errors as $key => $value) {
-    	if ($value != NULL){
-    		$doIt = False;
-    		break;
-    	}else{
-    		$doIt = True;
-    	}
-    }
+    //Entrée BDD si pas d'erreurs :
+    var_dump(empty($errors));
+    var_dump($errors);
+	if (!empty($errors)){
+		$doIt = False;
+	}else{
+		$doIt = True;
+	}
 
     if (!empty($photo) AND $photo != -1 AND $doIt == True){
     		$upload = uploadOnePhoto("photo", $contents["lien_photo"], PHOTO_PROFIL, $photo);
