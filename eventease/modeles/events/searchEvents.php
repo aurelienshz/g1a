@@ -1,8 +1,7 @@
 <?php
-function searchEvents($searchString) {
+function searchEvents($searchString, $criteres = []) {
 
     $keywords = explode(' ',strtolower($searchString));
-
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     // squelette des requêtes sur les champs :
     $query = "SELECT DISTINCT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, type.nom AS type, adresse.adresse_condensee AS adresse, media.lien
@@ -15,23 +14,23 @@ function searchEvents($searchString) {
     // On met en place la pondération pour chaque champ
 
     $fields = [];
-    if(isset($_POST['criteres_all']) && $_POST['criteres_all']) {
+    if(!$criteres) {
         $fields = ['evenement.titre'=>5,
             'type.nom'=>4,
             'evenement.description'=>2,
             'adresse.adresse_condensee'=>1];
     }
     else {
-        if(isset($_POST['criteres_nom']) && $_POST['criteres_nom']) {
+        if(in_array('nom',$criteres)) {
             $fields['evenement.titre'] = 5;
         }
-        if(isset($_POST['criteres_lieu']) && $_POST['criteres_lieu']) {
+        if(in_array('adresse',$criteres) || in_array('lieu', $criteres)) {
             $fields['adresse.adresse_condensee'] = 4;
         }
-        if(isset($_POST['criteres_description']) && $_POST['criteres_description']) {
+        if(in_array('description',$criteres)) {
             $fields['evenement.description'] = 2;
         }
-        if(isset($_POST['criteres_type']) && $_POST['criteres_type']) {
+        if(in_array('type',$criteres)) {
             $fields['type.nom'] = 1;
         }
     }
