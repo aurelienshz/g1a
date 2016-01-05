@@ -1,24 +1,11 @@
 <?php
-function getTopic($id) {
+function getTopic($id_section) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT * FROM topic WHERE id = ?');
-  $query-> execute(['id'=>$id]);
- 
-  $topic = $query->fetch();
-  return $topic ;
-}
-?>
-<?php 
+  $query = $bdd->prepare('SELECT topic.titre, topic.id_auteur, membre.pseudo FROM topic, membre WHERE id_section = :id_section AND topic.id_auteur=membre.id');
+  $query-> execute(['id_section'=>$id_section]);
+  $topic = $query->fetchAll();
 
-/*$req = $bdd->prepare('SELECT titre FROM topic WHERE id = ? AND id_section=1');
-$req->execute(array($id));
+  return $topic;
 
-
-while ($donnees = $req->fetch())
-{
-	echo $donnees['titre'];
 }
 
-$req->closeCursor();
-
-?>*/
