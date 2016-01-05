@@ -53,6 +53,9 @@
     padding-bottom: 3px;
     background-color: lightgrey;
 }
+.onglets li.active a {
+    border-bottom: none;
+}
 .onglets li.active a:hover {
     cursor : default;
     background-color: #FAFAFA;

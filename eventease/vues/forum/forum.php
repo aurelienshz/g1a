@@ -10,27 +10,17 @@
         <h1>Aide</h1>
       </div>
       <div class="content">
+        <?php
+          foreach($contents['topic1'] as $topic1)
+          {?>
         <div class="question">
-          <a href="<?php echo getLink(['forum','sujet'])?>">
-          <div class="enonce">Je n'arrive pas à me connecter</div>
-          <div class="reponses">48 réponses</div>
-          <div class="auteur">par <strong>Audodo</strong></div>
-          </a>
+            <a href="<?php echo getLink(['forum','sujet'])?>">
+            <div class="enonce"><?php echo $topic1['titre']; ?></div>
+            <div class="reponses">48 messages</div>
+            <div class="auteur">par <strong><?php echo $topic1['pseudo']; ?></strong></div>
+            </a>
         </div>
-        <div class="question">
-          <a href="<?php echo getLink(['forum','sujet'])?>">
-          <div class="enonce">Comment changer sa photo de profil?</div>
-          <div class="reponses">2 réponses</div>
-          <div class="auteur">par <strong>audypods</strong></div>
-          </a>
-        </div>
-        <div class="question">
-          <a href="<?php echo getLink(['forum','sujet'])?>">
-          <div class="enonce">Peut-on modifier son profil?</div>
-          <div class="reponses">61 réponses</div>
-          <div class="auteur">par <strong>ellie-smiley</strong></div>
-          </a>
-        </div>
+        <?php } ?>
       </div>
     </div>
     <div class="tableau">
@@ -38,23 +28,19 @@
         <h1>Discussions</h1>
       </div>
       <div class="content">
+        <?php
+          foreach($contents['topic2'] as $topic2)
+          {?>
         <div class="question">
           <a href="<?php echo getLink(['forum','sujet'])?>">
-          <div class="enonce">Des idées de sortie pour les enfants?</div>
+          <div class="enonce"><?php echo $topic2['titre']; ?></div>
           <div class="reponses">32 réponses</div>
-          <div class="auteur">par <strong>KevinDu38</strong></div>
+          <div class="auteur">par <strong><?php echo $topic2['pseudo']; ?></strong></div>
           </a>
         </div>
-        <div class="question">
-          <a href="<?php echo getLink(['forum','sujet'])?>">
-          <div class="enonce">Meilleur endroit pour un pique-nique à Paris?</div>
-          <div class="reponses">6 réponses</div>
-          <div class="auteur">par <strong>Apolito</strong></div>
-          </a>
-        </div>
+        <?php } ?>
       </div>
     </div>
   </br>
   </div>
 </div>
-
