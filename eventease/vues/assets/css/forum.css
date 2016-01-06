@@ -17,7 +17,7 @@
 
 .categorie_forum {
   margin: auto 20% auto 20%;
-  padding-bottom: 10%
+  padding-bottom: 10%;
 }
 
 .tableau{
@@ -151,4 +151,6 @@ h2{
   text-decoration: none;
   width:20%;
 }
-
+.form{
+  padding:0 2%;
+}
