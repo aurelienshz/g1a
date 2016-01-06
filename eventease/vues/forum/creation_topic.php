@@ -6,22 +6,23 @@
       <img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_green.png'; ?>">
     </div>
     <div class="form">
-      <form method="post" action="#">
+      <form action="<?php echo getLink(['forum','creation_topic']); ?>" method="post">
         <label for="titre">Titre :</label>
-        <input type="text" placeholder="Titre" id="titre" style="width:20%; float:left; margin-bottom:0" >
+        <input type="text" name="titre" placeholder="Titre" id="titre" style="width:60%; float:left; margin-bottom:0" >
         </br></br>
-        <div class="champ" style="width: 40%; display:inherit">
+        <div class="champ" style="width: 60%; display:inherit">
           <label for="message" style="display:inline-block">Message :</label> 
           <textarea name="message" id="message" placeholder="Votre message"></textarea>
         </div>
         <label for="categorie">Catégorie :</label>
-        <select name="categorie" id="categorie" style="width:20%; display:inherit; margin:0 0">
+        <select name="id_section" id="categorie" style="width:20%; display:inherit; margin:0 0">
           <option value="0">--</option>
           <option value="1">Aide</option>
           <option value="2">Discussions</option>
          </select>
+         <h3><input type="submit" value="Créer un topic"/></h3>
          <div class="creer">
-          <h3><a class="button" href="#" type="submit">
+          <h3><a class="button" type="submit" href="<?php echo getLink(['forum','sujet']); ?>" >
             Créer un topic</a></h3>
         </div>
         </div>
