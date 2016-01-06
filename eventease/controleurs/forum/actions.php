@@ -2,8 +2,8 @@
 // controleurs/forum/actions.php
 $actions =[
     'index',
-    'sujet'
+    'sujet',
+    'creation_topic',
 ];
 $parametres = [
-	'index' => ['id'],
 ];
