@@ -17,7 +17,7 @@ if (empty($_POST)) { // Le formulaire n'a pas été rempli
 	vue(['creation_topic'],$styles,$title);
 }
 else {
-	insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section']);
+	insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section'], $_SESSION['id']);
 	vue(['sujet'],$styles,$title,$contents);
 }
 
