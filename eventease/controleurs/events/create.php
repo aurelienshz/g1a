@@ -3,6 +3,7 @@
 require MODELES.'events/insertEvent.php';
 require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
+require MODELES.'functions/form.php';
 
 $contents['types'] = ['Soirée', 'Pique-Nique', 'Concert', 'Manifestation', 'Vernissage', 'Conférence', 'Vente privée', 'Brocante', 'Exposition', 'Rassemblement'];
 
@@ -14,9 +15,9 @@ $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
-// echo '<pre>';
-// var_dump($_POST);
-// echo '</pre>';
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
 
 if(connected()) {
 	if (empty($_POST)) {
@@ -31,7 +32,7 @@ if(connected()) {
 			$contents['values'][$key] = htmlspecialchars($_POST[$key]);
 		}
 		// On vérifie que tous les champs requis sont bien remplis :
-		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','participation'];
+		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','invitation'];
 		// $requiredFields = ['titre'];
 		foreach($requiredFields as $field) {
 			if(empty($_POST[$field]) && $_POST[$field] != "0") {
@@ -46,22 +47,20 @@ if(connected()) {
 			// Puis on fait les vérifications spécifiques :
 
 			// Nom conforme :
-			if(!preg_match("/^[-a-zâäàéèùêëîïôöçñ' 0-9@#]+$/i", $_POST['titre'])) {
+			if(!checkTextInput($_POST['titre'],"/^[-a-zâäàéèùêëîïôöçñ' 0-9@#]+$/i")) {
 				$errors['titre'] = 'Titre invalide';
 			}
 
 			// Type dans le bon intervalle :
-			if(isset($_POST['type'])) {
-				if(intval($_POST['type']) <= 0 OR intval($_POST['type'] > 12 )) {
-					$errors['type'] = 'Type invalide';
-				}
-				else {
-					$push['id_type'] = $_POST['type'];
-				}
+			if(!checkSelect($_POST['type'], range(0,11)) ){
+				$errors['type'] = "Type Invalide";
+				$_POST['type'] = 0;
+			}else{
+				$push['id_type'] = $_POST['type'];
 			}
 
 			// Lieu : passer une recherche avec Google et vérifier qu'on a une réponse en coordonnées
-			if(!googleCheckAddress($_POST['place'])) {
+			if(!checkAddress($_POST['place'])) {
 				$errors['place'] = isset($errors['place'])?$errors['place']:'L\'adresse semblait invalide. Nous avons tenté de la corriger.';
 				$contents['values']['place'] = googleCorrectAddress($_POST['place']);
 			}
@@ -79,7 +78,7 @@ if(connected()) {
 			else {
 				$push['debut'] = $startTime;
 			}
-			if(strtotime($startTime) >= strtotime($endTime)) {
+			if( !validateDateFormat($endTime, 'Y-m-d H:i') OR strtotime($startTime) >= strtotime($endTime)) {
 				$errors['date_fin'] = 'La date et l\'heure de fin doivent être après la date et l\'heure de début';
 			}
 			else {
@@ -89,8 +88,11 @@ if(connected()) {
 			if(intval($_POST['price']) < 0) {
 				$errors['price'] = 'Tarif invalide';
 			}
-			// description : htmlspecialchars
-			$_POST['description'] = htmlspecialchars($_POST['description']);
+			// description
+			$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
+			if(!checkTextbox($_POST['description'], $forbiddenKeywords)){
+				$errors['description'] = 'Votre description contient des termes interdits';
+			}
 
 			// visibility :
 			if($_POST['visibility'] == 0 || $_POST['visibility'] == 1) {
@@ -127,7 +129,7 @@ if(connected()) {
 
 
 			// site web : est-ce bien une URL ?
-			if(isset($_POST['website']) && (False)) {	// filter_var($_POST['website'], FILTER_VALIDATE_URL
+			if(isset($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
 				$errors['website'] = 'URL invalide';
 			}
 
