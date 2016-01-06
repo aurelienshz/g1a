@@ -27,16 +27,16 @@ function insertEvent($push) {
 // insérer dans organise ou organise = coming soon
 
 	$insertQuery = $bdd->prepare('INSERT INTO
-		evenement (titre, debut, fin, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, id_adresse)
-    	VALUES (:titre, :debut, :fin, :age_min, :age_max, :confidentiel, :sur_invitation, :tarif, :description, :site, :langue, :id_type, :id_adresse)');
+		evenement (titre, debut, fin, age_min, age_max, visibilite, invitation, tarif, description, site, langue, id_type, id_adresse)
+    	VALUES (:titre, :debut, :fin, :age_min, :age_max, :visibilite, :invitation, :tarif, :description, :site, :langue, :id_type, :id_adresse)');
     if($insertQuery -> execute([
 				':titre' => $push['titre'],
 				':debut' => $push['debut'],
 				':fin' => $push['fin'],
 				':age_min' => 0,
 				':age_max' => 0,
-				':confidentiel' => $push['confidentiel'],
-				':sur_invitation' => $push['sur_invitation'],
+				':visibilite' => $push['visibilite'],
+				':invitation' => $push['invitation'],
 				':tarif' => $push['price'],
 				':description' => $push['description'],
 				':site' => $push['website'],

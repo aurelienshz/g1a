@@ -40,7 +40,11 @@
         </div>
         <?php } ?>
       </div>
+      <div class="creer">
+      <a class="button" href="<?php echo getLink(['forum','creation_topic'])?>">
+        Rajouter un topic
+      </a>
     </div>
-  </br>
+    </div>
   </div>
 </div>
