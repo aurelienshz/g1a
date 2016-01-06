@@ -19,12 +19,9 @@
             </div>
 		  <div class="buttons">
 			<ul>
-            <li> <a class="button" href="#" > Participe </a></li>
-            <li><a class="button" href="#" >Participe peut-être</a></li>
-            <li><a class="button" href="#" > Ne participe pas </a></li>
-            <li> <input id="button1" type="submit" value="Participe" onclick="Pikachu()"></li>
-            <li><input id="button2" type="submit" value="Participe peut-être" onclick="Pikachu()"</li>
-            <li><input id="button2" type="submit" value="Ne participe pas" onclick="Pikachu()"</li>
+                <li> <a class="button" href="#" > Participe </a></li>
+	            <li><a class="button" href="#" >Participe peut-être</a></li>
+                <li><a class="button" href="<?php echo getLink(['events','invite',$_GET['id']]); ?>" ><i class="fa fa-plus"></i> Inviter un ami </a></li>
 			</ul>
 		  </div>
             <div class="social">

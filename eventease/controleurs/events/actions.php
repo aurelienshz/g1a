@@ -3,6 +3,7 @@ $actions = [
 'display',
 'create',
 'search',
+'invite',
 'modify'
 ];
 
@@ -10,6 +11,7 @@ $parametres = [
 'display' => ['id'],
 'create' => [],
 'search' => ['feature'],
-'modify' => ['id'],
-'participe'=>[] //YOUR TIME WILL COME, YOU'LL BE BACK! HARDER, BETTER, FASTER, STRONGER!
+'participe'=>[], //YOUR TIME WILL COME, YOU'LL BE BACK! HARDER, BETTER, FASTER, STRONGER!
+'invite'=>['id'],
+'modify' => ['id']
 ];
