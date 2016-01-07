@@ -20,11 +20,7 @@
           <option value="1">Aide</option>
           <option value="2">Discussions</option>
          </select>
-         <h3><input type="submit" value="Créer un topic"/></h3>
-         <div class="creer">
-          <h3><a class="button" type="submit" href="<?php echo getLink(['forum','sujet']); ?>" >
-            Créer un topic</a></h3>
-        </div>
+         <h3><input type="submit" value="Créer un topic" style="width:20%; background-color:#36B136"/></h3>
         </div>
         
       </form>
