@@ -71,6 +71,8 @@
             		</div>
 					<div class="champ" style="width: 100%;">
 						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"><?php echo isset($contents['values']['description'])?$contents['values']['description']:''; ?></textarea>
+						<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:''; ?>
+
 					</div>
 				</div>
 				<div class="ligne">

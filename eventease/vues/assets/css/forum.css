@@ -17,11 +17,12 @@
 
 .categorie_forum {
   margin: auto 20% auto 20%;
-  padding-bottom: 10%
+  padding-bottom: 10%;
 }
 
 .tableau{
   margin: auto 2%;
+  padding-bottom: 0.5em;
 }
 
 .header{
@@ -113,16 +114,14 @@ h2{
   padding-bottom: 2%;
 }
 
-#createButtonContainer {
-  width: 100%;
-  margin: 0 auto;
-  background-color: #36B136;
-}
-
 .button{
   background-color: #36B136;
   margin: 7% auto;
   text-decoration: none;
+}
+
+.button h3{
+  width:20%;
 }
 
 .repondre{
@@ -146,4 +145,13 @@ h2{
 .button:hover{
   background-color:#36B136;
 }
-
+.creer{
+  background-color: #36B136;
+  margin: 2% auto;
+  text-decoration: none;
+  width:20%;
+}
+.form{
+  padding:0 2%;
+  padding-bottom: 2%;
+}
