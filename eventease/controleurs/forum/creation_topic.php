@@ -12,13 +12,18 @@ $styles = ['forum.css','search.css','form.css'];
 
 /**** Affichage de la page ****/
 //Appel de la vue :
-
-if (empty($_POST)) { // Le formulaire n'a pas été rempli
-	vue(['creation_topic'],$styles,$title);
+if(connected()){
+	if (empty($_POST)) { // Le formulaire n'a pas été rempli
+		vue(['creation_topic'],$styles,$title);
+	}
+	else {
+		insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section'], $_SESSION['id']);
+		vue(['sujet'],$styles,$title,$contents);
+	}
 }
-else {
-	insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section'], $_SESSION['id']);
-	vue(['sujet'],$styles,$title,$contents);
+else{
+	alert('info','Merci de vous connecter pour créer un topic !');
+	header('Location: '.getLink(['membres','connexion']));
+	exit();
 }
-
 ?>
