@@ -85,6 +85,7 @@ Affichage et participation aux events  -- Guillaume & Aude
 - client : pouvoir y aller à plusieurs ("bring a friend" ? proposer aux gens de saisir les e-mails des copains qui viennent et inciter ces derniers à s'inscrire ?)
 - demande de connexion ou d'inscription si nécessaire
 - requêtes AJAX ?
+- Ajout d'images par défaut PAR catégorie
 
 
 Création d'event :
