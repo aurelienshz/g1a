@@ -12,7 +12,7 @@
 		<fieldset id="criteres">
 		<legend>Rechercher sur</legend>
 			<div class="row">
-				<div class="champ"><input type="checkbox" checked name="criteres_all" />				<label>Tous</label>				</div>
+				<div class="champ"><input type="checkbox" checked name="criteres_all" />		<label>Tous</label>				</div>
 				<div class="champ"><input type="checkbox" name="criteres_nom" />				<label>Nom</label>				</div>
 				<div class="champ"><input type="checkbox" name="criteres_lieu" />				<label>Lieu</label>				</div>
 				<div class="champ"><input type="checkbox" name="criteres_description" />		<label>Description</label>		</div>
