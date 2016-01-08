@@ -4,25 +4,48 @@ require MODELES.'events/getEventDetails.php';
 require MODELES.'membres/checkUsed.php';
 require MODELES.'events/insertInvite.php';
 
+
 $event=getEvents($_GET['id']);
 $expediteur=$_SESSION['id'];
-$contents['destinataire']=$_POST['destinataire'];
 $contents['titreEvenement'] = $event['titre'];
 
-
-$title ="Inviter un ami à l'événement". $contents['titreEvenement'];
+$destinataire=getMemberId($_POST['destinataire']);
+$contents['destinataire']=$destinataire;
+$title ="Inviter un ami à l'événement ". $contents['titreEvenement'];
 $styles = ['events.css','form.css'];
 $blocks = ['invite'];
 
+$errors=[];
 
-if(!checkUsed($destinataire)){
-	$errors['destinataire'] = 'Le pseudo renseigné n\'existe pas';
+if(connected()){
+	if(empty($_POST)){ ///Si le bloc est vide///
+		vue($blocks,$styles,$title,$contents);
+	}
+	else{
+		if(!checkUsed($_POST['destinataire'])){ ///si le pseudo n'existe pas///
+			$errors['destinataire'] = 'Le pseudo renseigné n\'existe pas';
+		}
+
+		else{    ///On récupère l'ID du pseudo rentré///
+			$destinataire=getMemberId($_POST['destinataire']);
+		}
+
+	}
+	if(empty($errors)) {
+			/// INSERTION EN BDD : ///
+				$destinataire=getMemberId($_POST['destinataire']);
+				insertInvite($expediteur,$_GET['id'],$destinataire['id']);
+			}
+	else{
+		vue($blocks,$styles,$title,$contents,$scripts);
+	}
 }
 else{
-
+	alert('info','Merci de vous connecter pour créer un évènement !');
+	header('Location: '.getLink(['membres','connexion']));
+	exit();
 }
 
-insertInvite($expediteur,$destinataire,$_GET['id']);
 
 vue($blocks,$styles,$title,$contents);
 
