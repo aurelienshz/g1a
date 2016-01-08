@@ -113,7 +113,7 @@ function searchController() {
     $title = 'Recherche d\'évènements';
     $styles = ['form.css', 'prettyform.css', 'search_v2.css', 'eventPreview.css'];
     $blocks = ['searchForm','search'];
-    $scripts = ['searchForm.js'];
+    $scripts = ['searchForm.js','searchFilters.js'];
     vue($blocks,$styles,$title,$contents,$scripts);
 }
 
@@ -140,7 +140,7 @@ function listController() {
     $title = 'Liste des évènements';
     $styles = ['search_v2.css','list-events.css', 'eventPreview.css', 'form.css'];
     $blocks = ['search'];
-    $scripts = [];
+    $scripts = ['searchFilters.js'];
     vue($blocks,$styles,$title,$contents,$scripts);
 }
 

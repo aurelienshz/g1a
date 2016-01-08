@@ -56,19 +56,19 @@ if(isset($contents['searchResults'])) {
 				<img src="<?php echo PHOTO_EVENT.$event['lien'];?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
-				<p><span class="fa fa-calendar"></span><?php echo $event['debut']; ?></p>
+				<p class="eventCategorie"><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
+				<p class="eventDate"><span class="fa fa-calendar"></span><?php echo $event['debut']; ?></p>
 				<p><span class="fa fa-map-marker"></span><?php echo $event['lieu']; ?></p>
 				<?php
 				if($event['tarif']) {
-					echo '<p><span class="fa fa-eur"></span> '.$event['tarif'].' €</p>';
+					echo '<p class="eventTarif"><span class="fa fa-eur"></span>'.$event['tarif'].' €</p>';
 				}
 				if($event['tranche_age']) {
 					echo '<p><span class="fa fa-child"></span> '.$event['tranche_age'].'</p>';
 				} ?>
 			</div>
 			<?php if(isset($event['description'])) {
-				echo '<p class="description"> '.$event['description'].'</p>';
+				echo '<p class="description">'.$event['description'].'</p>';
 			} ?>
 			<a class="button" href="#">Voir l'évènement</a>
 		</div>
