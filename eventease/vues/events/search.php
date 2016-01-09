@@ -9,8 +9,8 @@
 
 	<!-- Barre latérale de sélection des filtres -->
 	<div class="sidebar">
+		<div style="display:none;" class="tri">
 		<h3>Trier</h3>
-		<div class="tri">
 			Trier par :
 			<select>
 				<option>Pertinence</option>
@@ -23,20 +23,20 @@
 		</div>
 		<h3>Filtrer</h3>
 		<h5>Type</h5>
-		<div class="filter filter-type active">Tous</div>
+		<div class="filter filter-type filter-type-all selected">Tous</div>
 		<?php foreach($contents['types'] as $type) {
 			echo '<div class="filter filter-type">'.$type.'</div>';
 		}
 		?>
 
 		<h5>Date & heure</h5>
-		<div class="filter filter-date active">Tous</div>
+		<div class="filter filter-date selected">Tous</div>
 		<div class="filter filter-date">Aujourd'hui</div>
 		<div class="filter filter-date">Demain</div>
 		<div class="filter filter-date">Ce mois-ci</div>
 
 		<h5>Tarif</h5>
-		<div class="filter filter-price active">Tous</div>
+		<div class="filter filter-price selected">Tous</div>
 		<div class="filter filter-price">0 - 10 €</div>
 		<div class="filter filter-price">10 - 50 €</div>
 		<div class="filter filter-price">> 50 €</div>

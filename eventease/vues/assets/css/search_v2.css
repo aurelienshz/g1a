@@ -20,7 +20,7 @@
 	padding: .1em .5em;
 	margin-bottom: .2em;
 }
-.sidebar .filter.active {
+.sidebar .filter.selected {
 	background-color: #287DFF;
 	color: #FAFAFA;
 }
