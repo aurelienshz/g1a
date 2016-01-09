@@ -96,8 +96,8 @@
 					<div class="champ" style="width: 24%">
 						<label for="langue">Langue :</label>
 						<select id="langue" name="langue">
-							<option>Français</option>
-							<option>Anglais</option>
+							<option value='0'>Français</option>
+							<option value='1'>Anglais</option>
 						</select>
 						<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:''; ?>
 					</div>
@@ -110,7 +110,7 @@
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="hosts">Organisateur(s) <i class="fa fa-asterisk"></i> :</label>
+						<label for="hosts">Organisateur(s) :</label>
 						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts" value="<?php echo isset($contents['values']['hosts'])?$contents['values']['hosts']:''; ?>"/>
 						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:''; ?>
 					</div>

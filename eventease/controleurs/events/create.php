@@ -4,9 +4,9 @@ require MODELES.'events/insertEvent.php';
 require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
 require MODELES.'functions/form.php';
+require MODELES.'events/getTypes.php';
 
-$contents['types'] = ['Soirée', 'Pique-Nique', 'Concert', 'Manifestation', 'Vernissage', 'Conférence', 'Vente privée', 'Brocante', 'Exposition', 'Rassemblement'];
-
+$contents['types'] = getTypes();
 
 /**** Préparation de la vue ****/
 $title = 'Créer event';
@@ -15,9 +15,6 @@ $blocks = ['create'];
 $scripts = ['googleAutocompleteAddress.js'];
 
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
 
 if(connected()) {
 	if (empty($_POST)) {
@@ -32,7 +29,7 @@ if(connected()) {
 			$contents['values'][$key] = htmlspecialchars($_POST[$key]);
 		}
 		// On vérifie que tous les champs requis sont bien remplis :
-		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','hosts','visibility','invitation'];
+		$requiredFields = ['titre','type','date_debut','date_fin','place','beginning','visibility','invitation'];
 		// $requiredFields = ['titre'];
 		foreach($requiredFields as $field) {
 			if(empty($_POST[$field]) && $_POST[$field] != "0") {
@@ -43,6 +40,8 @@ if(connected()) {
 
 			//titre, debut, fin, journee_entiere, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse
 			$push = $_POST;
+			// On lui passe l'id de l'utilisateur qui a crée l'évent :
+			$push['id_createur'] = $_SESSION['id'];
 
 			// Puis on fait les vérifications spécifiques :
 
@@ -78,7 +77,12 @@ if(connected()) {
 			else {
 				$push['debut'] = $startTime;
 			}
-			if( !validateDateFormat($endTime, 'Y-m-d H:i') OR strtotime($startTime) >= strtotime($endTime)) {
+			if(empty($_POST['end'])){
+				$endTimeTest = !validateDateFormat($endTime, 'Y-m-d');
+			}else{
+				$endTimeTest = !validateDateFormat($endTime, 'Y-m-d H:i');
+			}
+			if( $endTimeTest AND strtotime($startTime) >= strtotime($endTime)) {
 				$errors['date_fin'] = 'La date et l\'heure de fin doivent être après la date et l\'heure de début';
 			}
 			else {
@@ -107,7 +111,7 @@ if(connected()) {
 				$push['invitation'] = 0;
 			}
 			else {
-				$push['invitation'] = 0;
+				$push['invitation'] = 1;
 			}
 
 			// type public : si définis !
@@ -120,7 +124,7 @@ if(connected()) {
 				}
 			}
 			// langue : si 1, alors 1, sinon 0
-			$_POST['langue'] = ($_POST['langue'] == 1)?1:0;
+			$push['langue'] = ($_POST['langue'] == 1)?1:0;
 
 			// max_attendees : positif
 			if(intval($_POST['max_attendees'])<0) {
@@ -129,16 +133,41 @@ if(connected()) {
 
 
 			// site web : est-ce bien une URL ?
-			if(isset($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
+			if(!empty($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
 				$errors['website'] = 'URL invalide';
 			}
-
+			// Organisateurs : regex Tristan
+			if(!empty($_POST['hosts'])) {
+				if(False) {
+					$errors['hosts'] = 'Hôte invalide';
+				}
+			}
 			// Sponsors : regex Tristan
 			if(!empty($_POST['sponsors'])) {
 				if(False) {
 					$errors['sponsors'] = 'Nom invalide';
 				}
 			}
+			if (!empty($_FILES)){
+				//Photo
+				$check = checkOnePhoto("photo" ,2097152, 1000, 1000, ['.jpg', '.jpeg', '.png'], NULL, PHOTO_EVENT);
+				if ($check[0]) {
+					$photo = $check[1];
+				}else{
+					if ($check[1] != NULL) $errors["photo"] = $check[1];
+				}	
+			}
+		}
+		//Upload de la Photo
+		if (empty($errors)){
+			if (!empty($photo) AND $photo != -1){
+	    		$upload = uploadOnePhoto("photo", NULL, PHOTO_EVENT, $photo);
+	    		if ($upload) {
+	    			$push["lien_photo"] = $photo;
+	    		}else{
+	    		$errors["photo"] = "[Erreur Serveur - Contactez l'administrateur] Erreur dans la copie de la photo.";
+	   			}
+	    	}
 		}
 
 		// Insertion de l'event ou affichage de la vue avec les erreurs :
