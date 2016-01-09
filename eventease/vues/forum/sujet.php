@@ -20,32 +20,17 @@
     <div class="cadre">
       <div class="tableau">
         <div class="header">
-          <h1>Je n'arrive pas à me connecter</h1>
+          <h1><?php echo $contents['titre'];?></h1>
         </div>
         <div class="content_sujet">
-          <p><small>Posté le 21/11/15 à 17h34</br></br></small>
-                Cum autem commodis intervallata temporibus convivia longa et
-            noxia coeperint apparari vel distributio sollemnium sportularum,
-            anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur,
-            peregrinum invitari conveniet, et si digesto plene consilio id placuerit
-            fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam
-            profitetur aut secretiora quaedam se nosse confingit.</br></br>
-
-                Proinde concepta rabie saeviore, quam desperatio incendebat et fames,
-            amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae
-            efferebantur, quam comes tuebatur Castricius tresque legiones bellicis
-            sudoribus induratae.</br></br>
-
-                Isdem diebus Apollinaris Domitiani gener, paulo ante agens palatii Caesaris
-            curam, ad Mesopotamiam missus a socero per militares numeros immodice
-            scrutabatur, an quaedam altiora meditantis iam Galli secreta susceperint
-            scripta, qui conpertis Antiochiae gestis per minorem Armeniam lapsus
-            Constantinopolim petit exindeque per protectores retractus artissime tenebatur.</br>
+          <p><small>Posté le <?php echo $contents['jour'] . "/" . $contents['mois'] . "/" . $contents['annee'] . " à " . $contents['heure'] . "h" . $contents['minute'];?>
+          </br></br></small>
+                <?php echo $contents['message'];?></br>
           </p>
           <div class="membre">
             <img class="photo_profil" src="<?php echo IMAGES.'tiger-face.jpeg'; ?>"></br>
-            <strong>Audypods</strong></br>
-            <p>78 messages</p>
+            <strong><?php echo $contents['pseudo'];?></strong></br>
+            <p><?php echo $contents['COUNT(*)'];?> message(s)</p>
           </div>
         </div>
       </div>
@@ -55,7 +40,8 @@
             <h2>Shakespeare</h2>
           </div>
           <div class="content_sujet">
-            <p><small>Posté le 25/11/15 à 19h34</br></br></small>To be, or not to be--that is the question:
+            <p><small>Posté le 25/11/15 à 19h34</br></br></small>
+                To be, or not to be--that is the question:
                 Whether 'tis nobler in the mind to suffer
                 The slings and arrows of outrageous fortune
                 Or to take arms against a sea of troubles
