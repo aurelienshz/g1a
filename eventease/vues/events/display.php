@@ -1,4 +1,4 @@
-<pre><?php   /*var_dump($contents['id_evenement']);*/ ?></pre>
+<pre><?php   /*var_dump($_POST);*/ ?></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -131,14 +131,14 @@
     <div class = "commentaire">
 		<h2> Commentaires </h2>
 		<div class="add_comment">
-            <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+            <form id='insert_comment' action="<?php $_SERVER['REQUEST_URI'];?>" method="post" />
                 <label>Ajouter un commentaire</label>
                 <textarea name="comment" id="comment" placeholder="Ajouter un commentaire"></textarea>
-    			<div class="add_media">
-    				<label for="attachment">Ajouter un fichier</label>
-                    <input type="file" id="attachment" name="attachment"/>
-    			</div>
-    			<input type="submit" value="Ajouter" id="button_submit" />
+          			<div class="add_media">
+          				<label for="attachment">Ajouter un fichier</label>
+                          <input type="file" id="attachment" name="attachment"/>
+          			</div>
+          			<input name ='submit' type="submit" value="Ajouter" id="button_submit" />
             </form>
 		</div>
 		<div class="previous_comments">

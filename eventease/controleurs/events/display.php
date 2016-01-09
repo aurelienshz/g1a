@@ -7,7 +7,7 @@
 // Appels au modèle
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/insert_comment.php';
-if (!empty($_POST)) {
+if (!empty($_POST) && !empty($_POST['comment'])) {
 
   insert_comment($_POST['comment'], $_GET['id'], $_SESSION['id']);
   header("Location: ". getLink(['events','display',$_GET['id']]));
