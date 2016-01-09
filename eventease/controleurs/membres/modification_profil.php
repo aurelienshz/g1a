@@ -87,6 +87,7 @@ if(!empty($_POST)) {
 	if(!checkTextbox ($_POST['description'],$forbiddenKeywords)){
 		$errors['description'] = 'Description invalide, il contient des mots interdits.';
 	}
+	//Photo
 	$check = checkOnePhoto("photo" ,2097152, 1000, 1000, ['.jpg', '.jpeg', '.png'], $_SESSION['username'], PHOTO_PROFIL);
 	if ($check[0]) {
 		$photo = $check[1];
