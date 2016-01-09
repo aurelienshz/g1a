@@ -9,8 +9,8 @@
 
 	<!-- Barre latérale de sélection des filtres -->
 	<div class="sidebar">
+		<div style="display:none;" class="tri">
 		<h3>Trier</h3>
-		<div class="tri">
 			Trier par :
 			<select>
 				<option>Pertinence</option>
@@ -23,20 +23,20 @@
 		</div>
 		<h3>Filtrer</h3>
 		<h5>Type</h5>
-		<div class="filter filter-type active">Tous</div>
+		<div class="filter filter-type filter-type-all selected">Tous</div>
 		<?php foreach($contents['types'] as $type) {
 			echo '<div class="filter filter-type">'.$type.'</div>';
 		}
 		?>
 
 		<h5>Date & heure</h5>
-		<div class="filter filter-date active">Tous</div>
+		<div class="filter filter-date selected">Tous</div>
 		<div class="filter filter-date">Aujourd'hui</div>
 		<div class="filter filter-date">Demain</div>
 		<div class="filter filter-date">Ce mois-ci</div>
 
 		<h5>Tarif</h5>
-		<div class="filter filter-price active">Tous</div>
+		<div class="filter filter-price selected">Tous</div>
 		<div class="filter filter-price">0 - 10 €</div>
 		<div class="filter filter-price">10 - 50 €</div>
 		<div class="filter filter-price">> 50 €</div>
@@ -56,19 +56,19 @@ if(isset($contents['searchResults'])) {
 				<img src="<?php echo PHOTO_EVENT.$event['lien'];?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
-				<p><span class="fa fa-calendar"></span><?php echo $event['debut']; ?></p>
+				<p class="eventCategorie"><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
+				<p class="eventDate"><span class="fa fa-calendar"></span><?php echo $event['debut']; ?></p>
 				<p><span class="fa fa-map-marker"></span><?php echo $event['lieu']; ?></p>
 				<?php
 				if($event['tarif']) {
-					echo '<p><span class="fa fa-eur"></span> '.$event['tarif'].' €</p>';
+					echo '<p class="eventTarif"><span class="fa fa-eur"></span>'.$event['tarif'].' €</p>';
 				}
 				if($event['tranche_age']) {
 					echo '<p><span class="fa fa-child"></span> '.$event['tranche_age'].'</p>';
 				} ?>
 			</div>
 			<?php if(isset($event['description'])) {
-				echo '<p class="description"> '.$event['description'].'</p>';
+				echo '<p class="description">'.$event['description'].'</p>';
 			} ?>
 			<a class="button" href="#">Voir l'évènement</a>
 		</div>

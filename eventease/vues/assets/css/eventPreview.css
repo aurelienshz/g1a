@@ -36,7 +36,7 @@
     font-size: 1.1em;
     font-weight: bold;
 }
-.eventPreview .infosPratiques p span {
+.eventPreview .infosPratiques p span.fa {
     color: #287DFF;
     width: 1em;
     margin: 0 .5em;
