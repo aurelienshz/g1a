@@ -22,7 +22,7 @@
 
 .tableau{
   margin: auto 2%;
-  padding-bottom: 0.5em;
+  padding-bottom: 2em;
 }
 
 .header{
@@ -76,13 +76,12 @@ a {
 .content_sujet{
   vertical-align: middle;
   border: 1px solid #36B136;
-  border-top: 0px;
   min-height: 150px;
 }
 
 .content_sujet  p{
   margin: 15px 25px 15px 15px;
-  width:80%;
+  width:70%;
   display: inline-block;
 }
 
@@ -176,4 +175,14 @@ textarea{
   float:right;
   color: white;
   border-radius: 4px;
+}
+i {
+  float: right;
+  border: solid #36B136 1px;
+  border-radius: 4px;
+  padding:5px;
+  background-color: #36B136;
+  color:white;
+  margin:10px;
+  margin-left: 0px;
 }
