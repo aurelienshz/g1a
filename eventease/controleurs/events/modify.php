@@ -8,25 +8,30 @@ require MODELES.'functions/date.php';
 require MODELES.'functions/form.php';
 require MODELES.'events/getTypes.php';
 require MODELES.'events/checkOrganiser.php';
-?><pre><?php
-var_dump(checkOrganiser($_SESSION['id'],2));
-?></pre><?php
+require MODELES.'events/getEventDetails.php';
 
 $contents['types'] = getTypes();
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
 
 //Si il n'y a pas d'eventID dans le GET
 if(!isset($_GET['id']) ){
+	alert("error","Vous n'avez pas précisé quel évènement vous vouliez !");
     header("Location: ".getLink(["accueil","404"]));
     exit();
 }
 //Si le EventID dans le GET n'est pas attribué.
+$contents['values'] = getEvents($_GET['id']);
+if (empty($contents)){
+	alert("error","Cet évènement n'existe pas !");
+    header("Location: ".getLink(["accueil","404"]));
+    exit();
+}
 
 // Fonction qui check s'il a le droit de modifier.
 if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
     
 }else{
-	if (!connnected()){
+	if (!connected()){
 		alert("error","Vous devez être connecté !");
     	header("Location: ".getLink(["membres","connexion"]));
     	exit();
@@ -37,23 +42,12 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
 	}
 	    
 }
-// // Bloc de traitement de l'adresse
-// if (isset($user["adresse_condensee"])){
-// 	$user["adresse"] = $user["adresse_condensee"];
-// }elseif(isset($user["coordonnee_long"]) AND isset($user["coordonnee_lat"])){
-// 	// Convertit coordonnées vers adresse
-// 	$user["adresse"] = googleCoordToAddress($user['coordonnee_lat'],$user['coordonnee_long']);
-// }
-// // (A supprimer si je trouve pourquoi) Nettoie les -1 qui trainent en cas de suppression.
-// foreach ($user as $key => $value) {
-// 	if($value == -1) $value = '';
-// }
-// $contents = $user;
+
 // ===== VERIFICATION POST =====
 
 // DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
 
-// 	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
+// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
 //     foreach($_POST as $cle => $valeur){
 // 			$contents[$cle]=htmlspecialchars($valeur);
 // 			$_POST[$cle]=htmlspecialchars($valeur);
@@ -112,5 +106,5 @@ $scripts = ['googleAutocompleteAddress.js'];
 
 // /****Affichage de la page *****/
 // //Appel de la vue :
-vue($blocks, $styles, $title, '',$scripts);
+vue($blocks, $styles, $title, $contents,$scripts);
 ?>
