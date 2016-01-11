@@ -17,6 +17,7 @@ if(connected()){
 		if ($_POST['titre'] && $_POST['message'] && $_POST['id_section']!=0){
 			$topicId = insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section'], $_SESSION['id']);
 			header('Location: '.getLink(['forum','sujet', $topicId]));
+			exit();
 		}
 		else {
 			alert('error', 'Tous les champs sont requis !');

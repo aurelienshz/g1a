@@ -39,4 +39,3 @@ function getNombre($id_auteur) {
 
   return $nombre;
   }
- ?>

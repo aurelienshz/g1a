@@ -5,13 +5,8 @@ function insertMessage($contenu, $id_topic, $id_auteur) {
 		message (contenu, id_auteur, date_modification, id_topic)
     	VALUES (:contenu, :id_auteur, NOW(), :id_topic);');
   $execute = [':contenu' => $contenu, ':id_auteur'=>$id_auteur, ':id_topic' => $id_topic];
-
-    if($query -> execute($execute)){
-      return True;
-    }else{
-      var_dump($query -> errorInfo());
-      return False;
-    }
+  $query -> execute($execute);
+  return;
 }
 
 function getComments($id) {

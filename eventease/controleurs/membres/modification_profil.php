@@ -169,5 +169,6 @@ $scripts = ['googleAutocompleteAddress.js'];
 
 /****Affichage de la page *****/
 //Appel de la vue :
+echo "Tu madre";
 vue($blocks, $styles, $title, $contents,$scripts);
 ?>
