@@ -41,7 +41,6 @@ elseif($_SESSION['currentPage'] != array_values($_GET)) {
     $_SESSION['currentPage'] = [$route[0], $route[1]];
 
     foreach($params as $value) {
-        var_dump($_SESSION['currentPage']);
         $_SESSION['currentPage'][] = $value;
     }
 }

@@ -10,16 +10,19 @@
         <h1>Aide</h1>
       </div>
       <div class="content">
-        <?php
+    <?php
           foreach($contents['topic1'] as $topic1)
-          {?>
+          {
+      ?>
         <div class="question">
-            <a href="<?php echo getLink(['forum','sujet', $topic1['id']])?>">
+            <a href="<?php echo getLink(['forum','sujet', $topic1['id']]); ?>"> YALLA
             <div class="enonce"><?php echo $topic1['titre']; ?></div>
             <div class="auteur" style="float:right">par <strong><?php echo $topic1['pseudo']; ?></strong></div>
             </a>
         </div>
-        <?php } ?>
+        <?php
+            }
+        ?>
       </div>
     </div>
     <div class="tableau">
