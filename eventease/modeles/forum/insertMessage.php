@@ -7,7 +7,7 @@ function insertMessage($contenu, $id_topic, $id_auteur) {
     $query -> execute([
 				':contenu' => $contenu,
 				':id_auteur'=>$id_auteur,
-				':id_topic' => $id_topic,
+				':id_topic' => $id_topic
 				]);
 
 }
