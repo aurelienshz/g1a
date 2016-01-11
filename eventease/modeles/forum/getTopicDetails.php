@@ -36,6 +36,6 @@ function getNombre($id_auteur) {
     $query = $bdd->prepare('SELECT COUNT(*) FROM topic WHERE id_auteur = :id_auteur');
     $query-> execute([':id_auteur'=>$id_auteur]);
     $nombre = $query->fetch();
-
-  return $nombre;
-  }
+    
+    return $nombre;
+}

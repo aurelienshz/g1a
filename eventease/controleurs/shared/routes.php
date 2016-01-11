@@ -59,7 +59,9 @@ function route($module = '', $action = '') {
 	}
 
 	// echo '<pre>';
+	// echo 'oui';
 	// var_dump($route);
+	// echo 'yalla';
 	// echo '</pre>';
 
 	return $route;

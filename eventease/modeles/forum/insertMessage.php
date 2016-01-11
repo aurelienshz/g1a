@@ -1,12 +1,18 @@
-<?php 
+<?php
 function insertMessage($contenu, $id_topic, $id_auteur) {
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
 	$query = $bdd->prepare('INSERT INTO
 		message (contenu, id_auteur, date_modification, id_topic)
     	VALUES (:contenu, :id_auteur, NOW(), :id_topic);');
   $execute = [':contenu' => $contenu, ':id_auteur'=>$id_auteur, ':id_topic' => $id_topic];
-  $query -> execute($execute);
-  return;
+
+    if($query -> execute($execute)){
+      return True;
+    }
+	else{
+      var_dump($query -> errorInfo());
+      return False;
+    }
 }
 
 function getComments($id) {
@@ -23,8 +29,7 @@ function getComments($id) {
       }
 
       return $comments;
-
-  }
+}
 
 
 
