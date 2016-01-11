@@ -1,3 +1,4 @@
+
 <div class="wrapper prettyform">
   <div class="shadow">
     <div class="titleWrapper1">
@@ -32,9 +33,17 @@
           <h1><?php echo $contents['titre'];?></h1>
         </div>
         <div class="content_sujet">
+          <?php 
+            if (connected()){
+              if ($contents['id_auteur']==$_SESSION['id']){?>
+                <i class="fa fa-pencil"></i>
+                <i class="fa fa-trash-o"></i>
+              <?php }
+            } ?>
           <p><small>Posté le <?php echo $contents['jour'] . "/" . $contents['mois'] . "/" . $contents['annee'] . " à " . $contents['heure'] . "h" . $contents['minute'];?>
           </br></br></small>
                 <?php echo $contents['message'];?></br>
+
           </p>
           <div class="membre">
             <?php if ($contents['lien']){?>
@@ -53,10 +62,14 @@
       <div class="reponse">
         <?php foreach ($contents['comments'] as $key => $comments) {?>
           <div class="tableau">
-            <div class="header">
-              <h2><?php echo $comments['pseudo'];?></h2>
-            </div>
             <div class="content_sujet">
+              <?php 
+                if (connected()){
+                  if ($comments['id_auteur']==$_SESSION['id']){?>
+                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-trash-o"></i>
+                  <?php }
+                } ?>
               <p><small>Posté le <?php echo $comments['jour'] . "/" . $comments['mois'] . "/" . $comments['annee'] . " à " . $comments['heure'] . "h" . $comments['minute'];?></br></br></small>
                   <?php echo $comments['contenu'];?></p>
                 <div class="membre">
@@ -73,9 +86,6 @@
         <?php } ?>
         <div class="tableau">
           <?php if (connected()){?>
-          <div class="header">
-            <h2><?php echo $contents['pseudo1']?></h2>
-          </div>
           <div class="content_sujet1" >
             <form  method="post" action="<?php echo getLink(['forum','sujet',$contents['id']])?>" >
               <div class="champ1" id="champ1" >
@@ -83,7 +93,7 @@
                 <h3><input type="submit" value="Envoyer" style="background-color:#36B136"/></h3>
               </div>
             </form>
-            <div class="membre" style="margin-top:2px">
+            <div class="membre" style="width:9%;margin-top:0px">
               <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
               <strong><?php echo $contents['pseudo1']?></strong></br>
             </div>
