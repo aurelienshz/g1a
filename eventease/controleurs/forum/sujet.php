@@ -1,11 +1,10 @@
 <?php
 /* CONTROLEUR D'ACTION */
-require MODELES. 'forum/getTopicDetails.php';
-require MODELES. 'forum/InsertMessage.php';
-require MODELES. 'forum/getUserDetails.php';
+require MODELES.'forum/getTopicDetails.php';
+require MODELES.'forum/insertMessage.php';
+require MODELES.'forum/getUserDetails.php';
 /* Chargement des paramètres de la page*/
 
-echo "1 2 3";
 // INFO TOPIC
 $id=$_GET['id'];
 $contents['id']=$id;
@@ -57,7 +56,6 @@ $contents['lien1']=$userImage['lien'];
 
 $title = $titre['titre'];
 $styles = ['forum.css','search.css'];
-echo "Tu madre";
 
 /**** Affichage de la page ****/
 //Appel de la vue :
@@ -72,7 +70,7 @@ else {
 			exit();
 			}
 		}
-		else 
+		else
 			alert('error', 'Vous n\'avez rien écrit !');
             vue(['sujet'],$styles,$title, $contents);
 	}

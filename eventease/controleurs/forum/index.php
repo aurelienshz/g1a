@@ -13,6 +13,7 @@ $blocks = ['forum'];
 $contents['topic1']=getTopic(1);
 
 $contents['topic2']=getTopic(2);
+
 /**** Affichage de la page ****/
 //Appel de la vue :
 
