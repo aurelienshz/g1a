@@ -11,8 +11,7 @@ choix dans le formulaire :
 
 -----------------------------------------------------------------------
 
-# TeH UltImAtE ToDo LiST (with catz and shit) #
-
+# TeH UltImAtE ToDo LiST (with catz and shit feat Furby) #
 
 
 ## Points à aborder en groupe ##
