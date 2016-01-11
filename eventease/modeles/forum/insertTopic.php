@@ -10,6 +10,7 @@ function insertTopic($titre, $message, $id_section, $id_auteur) {
 				':id_section' => $id_section,
 				':id_auteur'=>$id_auteur,
 				]);
-
+    $topicId = $bdd -> lastInsertId();
+	return $topicId;
 }
 ?>

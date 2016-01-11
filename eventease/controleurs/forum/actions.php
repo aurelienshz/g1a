@@ -6,4 +6,5 @@ $actions =[
     'creation_topic',
 ];
 $parametres = [
+	'sujet' => ['id'],
 ];

@@ -3,9 +3,6 @@
 //Appels au modèle
 require MODELES. 'forum/insertTopic.php';
 
-print_r($_POST);
-$contents = [];
-
 /**** Préparation de la vue ****/
 $title = 'Creation de topic';
 $styles = ['forum.css','search.css','form.css'];
@@ -17,8 +14,14 @@ if(connected()){
 		vue(['creation_topic'],$styles,$title);
 	}
 	else {
-		insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section'], $_SESSION['id']);
-		vue(['sujet'],$styles,$title,$contents);
+		if ($_POST['titre'] && $_POST['message'] && $_POST['id_section']!=0){
+			$topicId = insertTopic($_POST['titre'], $_POST['message'], $_POST['id_section'], $_SESSION['id']);
+			header('Location: '.getLink(['forum','sujet', $topicId]));
+		}
+		else {
+			alert('error', 'Tous les champs sont requis !');
+			vue(['creation_topic'],$styles,$title);
+		}
 	}
 }
 else{

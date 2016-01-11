@@ -16,8 +16,7 @@
         <div class="question">
             <a href="<?php echo getLink(['forum','sujet', $topic1['id']])?>">
             <div class="enonce"><?php echo $topic1['titre']; ?></div>
-            <div class="reponses">48 messages</div>
-            <div class="auteur">par <strong><?php echo $topic1['pseudo']; ?></strong></div>
+            <div class="auteur" style="float:right">par <strong><?php echo $topic1['pseudo']; ?></strong></div>
             </a>
         </div>
         <?php } ?>
@@ -34,8 +33,7 @@
         <div class="question">
           <a href="<?php echo getLink(['forum','sujet', $topic2['id']])?>">
           <div class="enonce"><?php echo $topic2['titre']; ?></div>
-          <div class="reponses">32 réponses</div>
-          <div class="auteur">par <strong><?php echo $topic2['pseudo']; ?></strong></div>
+          <div class="auteur" style="float:right">par <strong><?php echo $topic2['pseudo']; ?></strong></div>
           </a>
         </div>
         <?php } ?>

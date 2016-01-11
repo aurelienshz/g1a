@@ -25,7 +25,7 @@ function getDate_creation($id) {
   }
 function getMembre($id) {
   	$bdd = new PDO(DSN, DBUSER, DBPASS);
-  	$query = $bdd->prepare('SELECT topic.id_auteur, membre.pseudo FROM topic, membre WHERE topic.id = :id AND membre.id=topic.id_auteur');
+  	$query = $bdd->prepare('SELECT topic.id_auteur, membre.pseudo FROM topic, membre, media WHERE topic.id = :id AND membre.id=topic.id_auteur');
   	$query-> execute(['id'=>$id]);
   	$membre = $query->fetch();
 
