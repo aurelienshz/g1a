@@ -12,7 +12,7 @@
     margin-left: 25%;
     padding-left: 1.25%;
     vertical-align: top;
-    border-left: 1px solid lightgray;
+    border-left: 1px solid black;
 }
 #photo_profil {
     text-align: center;
@@ -34,11 +34,11 @@ h2 {
     border: 0;
 }
 #pseudo_profil {
-	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 1.2cm;
 	line-height: 1.43;
-	color: #287DFF;
+	color: black;
         text-align: center;
+        margin: 10px 0 25px 0;
 }
 #statut {
     border: 1px solid #303030;
@@ -57,12 +57,13 @@ h2 {
 #description p {
     border: 1px solid #565A5C; /* couleur : gris semi-clair */
     padding: 20px;
-    height: 3cm;
+    height: 2.5cm;
+    width: 84%;
     overflow: auto;
 }
 #general {
     background-color: #FAFAFA;
-    margin: 8px 0;
+    margin: 1cm 0;
 }
 #general ul {
     padding: 0;
@@ -77,6 +78,28 @@ h2 {
     clear: both;
 }
 
+#col1 {
+    float: left;
+    width: 44%;
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: black;
+}
+
+#col2 {
+    float: right;
+    width: 54%;
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: black;
+}
+
+.info_profil {
+    color: #287DFF;
+    padding: 5px 0 5px 0;
+}
 /**** Affichage des messages ****/
 #listeMessages table {
     width: 100%;
