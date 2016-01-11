@@ -65,6 +65,7 @@
   font-size: 1em;
   display: inline-block;
   width:15%;
+  float:right;
 }
 
 a {
@@ -76,6 +77,7 @@ a {
   vertical-align: middle;
   border: 1px solid #36B136;
   border-top: 0px;
+  min-height: 150px;
 }
 
 .content_sujet  p{
@@ -100,8 +102,8 @@ a {
 }
 
 .photo_profil{
-  height :auto;
-  width: 70%;
+  height :65px;
+  width: 65px;
   margin: 6%;
 }
 
@@ -154,4 +156,24 @@ h2{
 .form{
   padding:0 2%;
   padding-bottom: 2%;
+}
+.champ1{
+  margin: 15px 25px 15px 10px;
+  width:84%;
+  display: inline-block;
+  float: right;
+}
+.content_sujet1{
+  vertical-align: middle;
+  border: 1px solid #36B136;
+  min-height: 150px;
+}
+textarea{
+  width:100%;
+  min-height: 70px;
+}
+.content_sujet1 input{
+  float:right;
+  color: white;
+  border-radius: 4px;
 }
