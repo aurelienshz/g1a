@@ -65,11 +65,17 @@ function checkOnePhoto($fileNameInFILES ,$maxsize, $max_height, $max_width, $val
 		if (in_array($uploadedExtension, $validExtensions) ) $error.="L'extension est invalide. ";
 
 		//Variable pour la BDD
-		$photo  = $prefixPhoto;
-		$photo .= "-";
-		$photo .= md5(uniqid(rand(), true));
-		$photo .= ".";
-		$photo .= $uploadedExtension;
+		if (!empty($prefixPhoto) ){
+			$photo  = $prefixPhoto;
+			$photo .= "-";
+			$photo .= md5(uniqid(rand(), true));
+			$photo .= ".";
+			$photo .= $uploadedExtension;
+		}else{
+			$photo  = md5(uniqid(rand(), true));
+			$photo .= ".";
+			$photo .= $uploadedExtension;
+		}
 
 		//Permissions Déplacement 
 		if (!is_dir($uploadPath) OR !is_writable($uploadPath)) {

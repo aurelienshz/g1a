@@ -1,25 +1,42 @@
 <?php
-// /* CONTROLEUR D'ACTION /*
-// /****** Préparation des contenus ******/
+/* CONTROLEUR D'ACTION /*
+/****** Préparation des contenus ******/
 
-// // ===== RECUPERE LES VALEURS DEJA PRESENTES DE L'UTILISATEUR =====
-// require MODELES.'membres/getUserDetails.php';
-// require MODELES.'functions/google.php';
-// require MODELES.'functions/date.php';
-// require MODELES.'membres/updateUser.php';
-// require MODELES.'functions/form.php';
+// ===== RECUPERE LES VALEURS DEJA PRESENTES DE L'évènement =====
+require MODELES.'functions/google.php';
+require MODELES.'functions/date.php';
+require MODELES.'functions/form.php';
+require MODELES.'events/getTypes.php';
+require MODELES.'events/checkOrganiser.php';
+?><pre><?php
+var_dump(checkOrganiser($_SESSION['id'],2));
+?></pre><?php
 
-// if(connected()) {
-//     $user = getUserDetails($_SESSION['id']);
-//     if(!$user) {
-//     	// Si la récup BDD marche pas
-//     	exit();
-//     }
-// }else{
-// 	    alert("error","Vous devez être connecté !");
-//     	header("Location: ".getLink(["membres","connexion"]));
-//     	exit();
-// }
+$contents['types'] = getTypes();
+$contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
+
+//Si il n'y a pas d'eventID dans le GET
+if(!isset($_GET['id']) ){
+    header("Location: ".getLink(["accueil","404"]));
+    exit();
+}
+//Si le EventID dans le GET n'est pas attribué.
+
+// Fonction qui check s'il a le droit de modifier.
+if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
+    
+}else{
+	if (!connnected()){
+		alert("error","Vous devez être connecté !");
+    	header("Location: ".getLink(["membres","connexion"]));
+    	exit();
+	}else{
+		alert("error","Vous n'avez pas le droit de modifier cet évènement!");
+    	header("Location: ".getLink(["membres","connexion"]));
+    	exit();
+	}
+	    
+}
 // // Bloc de traitement de l'adresse
 // if (isset($user["adresse_condensee"])){
 // 	$user["adresse"] = $user["adresse_condensee"];
@@ -32,60 +49,9 @@
 // 	if($value == -1) $value = '';
 // }
 // $contents = $user;
-// // ===== VERIFICATION POST =====
+// ===== VERIFICATION POST =====
 
-// if(!empty($_POST)) {
-// 	//Civilité
-// 	$_POST['civilite'] = checkSelect($_POST['civilite'], [0,1], 0);
-
-// 	// Nom & Prénom : 
-// 	$errors['nom'] = checkTextInput($_POST['nom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i",'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.');
-// 	$errors['prenom'] = checkTextInput($_POST['prenom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i", 'Prénom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.');
-
-// 	//DDN
-// 	$errors['ddn'] = checkBirthDate($_POST['ddn'], 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA');
-
-// 	//Tel
-// 	$errors['tel'] = checkTextInput($_POST['tel'],"/^0\d{9}$/",'Numéro de téléphone invalide, il contient trop de chiffres, commence par autre chose que 0 ou des lettres et caractères non autorisés.');
-
-// 	// Adresse :
-// 	$errors['adresse'] = checkAddress($_POST['adresse'], 'Adresse invalide');
-// 	// Cas de suppression d'adresse
-// 	if (!empty($contents['id_adresse']) AND empty($_POST['adresse']) ){
-// 		$_POST['adresse'] = -1;
-// 	}
-
-// 	// Langue :
-// 	$_POST['langue'] = checkSelect($_POST['langue'], [0,1], 0);
-
-// 	//Description :
-// 	$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
-// 	$errors['description'] = checkTextbox ($_POST['description'],$forbiddenKeywords ,'Description invalide, il contient des mots interdits.' );
-
-// 	$check = checkOnePhoto("photo" ,2097152, 1000, 1000, ['.jpg', '.jpeg', '.png'], $_SESSION['username'], PHOTO_PROFIL);
-// 	if ($check[0]) {
-// 		$photo = $check[1];
-// 	}else{
-// 		$errors["photo"] = $check[1];
-// 	}
-// 	// Si il veut supprimer la photo
-// 	if (isset($_POST['photo']) ) {
-// 		if ($_POST['photo'] == -1){
-// 			$photo = -1;
-// 		}
-// 	}
-// 	// Vérifie qu'il n'y a pas des champs en trop ou en moins.
-// 	$champsAttendus = array('civilite','nom','prenom','ddn','tel','adresse','langue','description');
-// 	foreach($_POST as $cle => $valeur){
-// 		if(!in_array($cle, $champsAttendus)){
-// 			unset($_POST[$cle]);
-// 		}elseif (!isset($_POST[$cle])) {
-// 			$_POST[$cle]="";
-// 		}else{
-//     		$_POST[$cle]=htmlspecialchars($_POST[$cle]);
-//     	}
-// 	}
-// 	// DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
+// DONNEES $_POST A PRIORI VERIFIEES A PARTIR D'ICI
 
 // 	// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
 //     foreach($_POST as $cle => $valeur){

@@ -37,7 +37,7 @@ if(connected()){
 				insertInvite($expediteur,$_GET['id'],$destinataire['id']);
 			}
 	else{
-		vue($blocks,$styles,$title,$contents,$scripts);
+		vue($blocks,$styles,$title,$contents);
 	}
 }
 else{

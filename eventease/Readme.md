@@ -71,12 +71,12 @@ Général :
 
 Affichage et participation aux events  -- Guillaume & Aude
 - affichage :
-- gérer l'event inexistant
-- slideshow photos : nouvelle version à implémenter
+- [x] gérer l'event inexistant
+- [x] slideshow photos : nouvelle version à implémenter
 - Gestion des participations :
 - Commentaires, organisateurs, qui y va ? etc...
 - spécification de l'interface si je suis organisateur
-- client : bouton inviter qqun
+- [x] client : bouton inviter qqun
 - client : faire attention aux alignements des blocks
 - client : ouvrir le profil de la personne dans une nouvelle fenêtre
     Aurélien : que diriez-vous d'une modale ?

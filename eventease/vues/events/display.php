@@ -1,4 +1,4 @@
-<pre><?php  /* var_dump($_POST); */?></pre>
+<pre><?php   /*var_dump($_POST);*/ ?></pre>
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
@@ -88,20 +88,21 @@
     </section>
     <div class = "organisation">
 		<div class = "hosts">
-		<h2>Organisateurs</h2>
-			<ul>
-                <?php
-                    $compteur=0;
-                    foreach($contents['creators'] as $creators)
-                    {
-                        if ($compteur>4) {echo "cliquez ici pour afficer plus d'organisateurs.";}
-                ?>
-                        <li><img src="<?php echo PHOTO_PROFIL.$creators[2];?>"/><a href="<?php echo getLink(['membres','profil',$creators[1]]); ?>"><?php echo ' '. $creators[0];?></a></li>
-                <?php
-                        $compteur++;
-                    }
-                ?>
-				</div>
+    		<h2>Organisateurs</h2>
+      			<ul>
+              <li><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
+                      <?php
+                          $compteur=0;
+                          foreach($contents['creators'] as $creators)
+                          {
+                              if ($compteur>4) {echo "cliquez ici pour afficer plus d'organisateurs.";}
+                      ?>
+                              <li><img src="<?php echo PHOTO_PROFIL.$creators[2];?>"/><a href="<?php echo getLink(['membres','profil',$creators[1]]); ?>" target="_blank"><?php echo ' '. $creators[0];?></a></li>
+                      <?php
+                              $compteur++;
+                          }
+                      ?>
+		</div>
 		<div class = "friends_going">
 		<h2> Personnes qui y vont </h2>
 		<table style="width=100%">
@@ -117,9 +118,9 @@
                     }
                     else {}
             ?>
-            <?php if ($compteur>7) {echo '';}
+              <?php if ($compteur>7) {echo '';}
                     else{ ?>
-                    <td><img src="<?php echo PHOTO_PROFIL.$participants[2];?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>"><?php echo '<br/>'. $participants[0];?></a></td>
+                    <td><img src="<?php echo PHOTO_PROFIL.$participants[2];?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>" target="_blank"><?php echo '<br/>'. $participants[0];?></a></td>
             <?php
                     }
             }
@@ -130,14 +131,14 @@
     <div class = "commentaire">
 		<h2> Commentaires </h2>
 		<div class="add_comment">
-            <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+            <form id='insert_comment' action="<?php $_SERVER['REQUEST_URI'];?>" method="post" />
                 <label>Ajouter un commentaire</label>
                 <textarea name="comment" id="comment" placeholder="Ajouter un commentaire"></textarea>
-    			<div class="add_media">
-    				<label for="attachment">Ajouter un fichier</label>
-                    <input type="file" id="attachment" name="attachment"/>
-    			</div>
-    			<input type="submit" value="Ajouter" id="button_submit" />
+          			<div class="add_media">
+          				<label for="attachment">Ajouter un fichier</label>
+                          <input type="file" id="attachment" name="attachment"/>
+          			</div>
+          			<input name ='submit' type="submit" value="Ajouter" id="button_submit" />
             </form>
 		</div>
 		<div class="previous_comments">
@@ -145,7 +146,7 @@
                 <?php
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><img src="<?php echo PHOTO_PROFIL.$commentaire[3]; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>"><?php echo $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
+                    ?><p><img src="<?php echo PHOTO_PROFIL.$commentaire[3]; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
 
                     <p><?php echo $commentaire[1];?><br/></p>
 

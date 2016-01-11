@@ -30,17 +30,27 @@
 					</div>
 				</div>
 				<div class="ligne">
-					<div class="champ" style="width: 30%;">
-						<label for="date_debut">Début (Date & Heure) <i class="fa fa-asterisk"></i> :</label>
-						<input style="width: 55%; margin: 0; float: left; border-top-right-radius:0; border-bottom-right-radius: 0;" type="date" name="date_debut" id="date_debut" value="<?php echo isset($contents['values']['date_debut'])?$contents['values']['date_debut']:''; ?>"/>
-						<?php echo isset($contents['errors']['date_debut'])?$contents['errors']['date_debut']:''; ?>
-						<input style="width: 33%; margin: 0; float: right;position: relative; right: 12.5%; border-top-left-radius:0; border-bottom-left-radius: 0;"type="time" name="beginning" id="beginning" class="time" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/>
-					</div>					
-					<div class="champ" style="width: 30%;">
-						<label for="date_fin">Fin (Date & Heure) <i class="fa fa-asterisk"></i> :</label>
-						<input style="width: 55%; margin: 0; float: left;border-top-right-radius:0; border-bottom-right-radius: 0;" type="date" name="date_fin" id="date_fin" value="<?php echo isset($contents['values']['date_fin'])?$contents['values']['date_fin']:''; ?>"/>
-						<?php echo isset($contents['errors']['date_fin'])?$contents['errors']['date_fin']:''; ?>
-						<input style="width: 33%; margin: 0; float: right; position: relative; right: 12.5%; border-top-left-radius:0; border-bottom-left-radius: 0;" type="time" name="end" id="end" class="time" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
+					<div class="champ" style="width: 15%;">
+							<label for="date_debut">Date de Début <i class="fa fa-asterisk"></i> :</label>
+							<input type="date" name="date_debut" id="date_debut" value="<?php echo isset($contents['values']['date_debut'])?$contents['values']['date_debut']:''; ?>"/>
+							<?php echo isset($contents['errors']['date_debut'])?$contents['errors']['date_debut']:''; ?>
+					</div>	
+					<div class="champ" style="width: 15%">
+						<label for="beginning">Heure de Début <i class="fa fa-asterisk"></i> :</label>
+						<input style="width:66%" type="time" name="beginning" id="beginning" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/>
+						<?php echo isset($contents['errors']['beginning'])?$contents['errors']['beginning']:''; ?>
+					</div>				
+					<div class="champ" style="width: 15%;">
+						<div>
+							<label for="date_fin">Date de Fin <i class="fa fa-asterisk"></i> :</label>
+							<input type="date" name="date_fin" id="date_fin" value="<?php echo isset($contents['values']['date_fin'])?$contents['values']['date_fin']:''; ?>"/>
+							<?php echo isset($contents['errors']['date_fin'])?$contents['errors']['date_fin']:''; ?>
+						</div>
+					</div>
+					<div class="champ" style="width:10%;">
+						<label for="end">Heure de Fin :</label>
+						<input type="time" name="end" id="end" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
+						<?php echo isset($contents['errors']['end'])?$contents['errors']['end']:''; ?>					
 					</div>
 					<div class="champ" style="width: 10%;" >
 						<label for="price">Tarif (€) :</label> <input style="float:left;" type="number" name="price" id="price" value="<?php echo isset($contents['values']['price'])?$contents['values']['price']:''; ?>"/>
@@ -55,46 +65,60 @@
 				<div class="ligne">
 					<div class="champ" style="width: 50%;">
 						<div class="photo">
-							<label>Photo :</label>
-                			<img alt="Photo" src="<?php echo isset($contents["lien_photo"])?htmlspecialchars(PHOTO_PROFIL.$contents["lien_photo"]):IMAGES.'photo_profil_defaut.jpg' ?>" title="Photo de Profil" height="150" width="150"/>
-							
-							<label for="photo"><br>Modifier la photo :</label>(.jpg ou .png | max. : 2Mo | 1000x1000 max.)
+							<label for="photo"><br>Ajouter une photo :</label>(.jpg ou .png | max. : 2Mo | 1000x1000 max.)
 							<input type="file" id="photo" name="photo"/>
-							<?php echo isset($contents["lien_photo"])?"<input type='checkbox' name='photo' value='-1' >Supprimer la photo":NULL ?>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>
             		</div>
 					<div class="champ" style="width: 100%;">
 						<label for="description">Description :</label> <textarea name="description" id="description" placeholder="Une courte description"><?php echo isset($contents['values']['description'])?$contents['values']['description']:''; ?></textarea>
-					</div>
+						<?php echo isset($contents['errors']['description'])?$contents['errors']['description']:''; ?>
 
-				</div>
-				<div class="ligne">
-					<div class="champ" style="width:49.5%;">
-						<label for="hosts">Organisateur(s) <i class="fa fa-asterisk"></i> :</label>
-						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts" value="<?php echo isset($contents['values']['hosts'])?$contents['values']['hosts']:''; ?>"/>
-						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:''; ?>
-					</div>
-					<div class="champ" style="width:49.5%;">
-						<label for="sponsors">Sponsors :</label>
-						<input type="text" placeholder="Sponsors" id="sponsors" name="sponsors" value="<?php echo isset($contents['values']['sponsors'])?$contents['values']['sponsors']:''; ?>"/>
-						<?php echo isset($contents['errors']['sponsors'])?$contents['errors']['sponsors']:'' ?>
 					</div>
 				</div>
 				<div class="ligne">
-					<div class="champ">
+					<div class="champ" style="width: 24%">
+						<label for="visibility">Confidentialité <i class="fa fa-asterisk"></i> :</label>
+						<select id="visibility" name="visibility">
+							<option value="0">Public</option>
+							<option value="1">Privé</option>
+							<option value="2">Secret</option>
+						</select>
+						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:''; ?>
+					</div>
+					<div class="champ" style="width: 24%">
+						<label for="invitation">Qui peut inviter <i class="fa fa-asterisk"></i> :</label>
+						<select id="invitation" name="invitation">
+							<option value="0">Tout le monde</option>
+							<option value="1">Seulement les organisateurs</option>
+						</select>
+						<?php echo isset($contents['errors']['invitation'])?$contents['errors']['invitation']:''; ?>
+					</div>
+					<div class="champ" style="width: 24%">
+						<label for="langue">Langue :</label>
+						<select id="langue" name="langue">
+							<option value='0'>Français</option>
+							<option value='1'>Anglais</option>
+						</select>
+						<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:''; ?>
+					</div>
+					<div class="champ" style="width: 24%">
 						<label for="age_min">Type de public :</label>
 						De  <input type="number" name="age_min" id="age_min"class="price"/>
 						à <input type="number" name="age_max" id="age_max"class="price"/> ans
 						<?php echo isset($contents['errors']['age_max'])?$contents['errors']['age_max']:''; ?>
 					</div>
+				</div>
+				<div class="ligne">
 					<div class="champ">
-						<label for="langue">Langue :</label>
-						<select id="langue" name="langue">
-							<option>Français</option>
-							<option>Anglais</option>
-						</select>
-						<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:''; ?>
+						<label for="hosts">Organisateur(s) :</label>
+						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts" value="<?php echo isset($contents['values']['hosts'])?$contents['values']['hosts']:''; ?>"/>
+						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:''; ?>
+					</div>
+					<div class="champ">
+						<label for="sponsors">Sponsors :</label>
+						<input type="text" placeholder="Sponsors" id="sponsors" name="sponsors" value="<?php echo isset($contents['values']['sponsors'])?$contents['values']['sponsors']:''; ?>"/>
+						<?php echo isset($contents['errors']['sponsors'])?$contents['errors']['sponsors']:'' ?>
 					</div>
 					<div class="champ">
 						<label for="website">Site Web :</label>
@@ -107,9 +131,8 @@
 				</div>
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
 					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','evenements']); ?>"><i class="fa fa-ban"></i> Annuler</a>
-					<input style="width: 33%;" type="submit" value="Modifier" />
-					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['event','delete']); ?>"><i class="fa fa-trash"></i> Supprimer</a>
-			</div>
+					<input style="width: 58%;" type="submit" value="Créer" />
+				</div>
 				<p class="importantRed"> <i class="fa fa-asterisk"></i> Champs obligatoires</p>
 		</form>
 </div>
