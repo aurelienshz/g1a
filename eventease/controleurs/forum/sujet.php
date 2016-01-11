@@ -38,13 +38,15 @@ $contents['COUNT(*)']=$nombre['COUNT(*)'];
 $comments=getComments($id);
 $contents['comments']=$comments;
 
+if (connected()){
 $id_user=$_SESSION['id'];
 $userDetails=getUserDetails($id_user);
 $contents['pseudo1']=$userDetails['pseudo'];
 
+
 $userImage=getImages($id_user);
 $contents['lien1']=$userImage['lien'];
-
+}
 /**** Préparation de la vue ****/
 
 
@@ -59,8 +61,10 @@ if (empty($_POST)) { // Le formulaire n'a pas été rempli
 	}
 else {
 		if ($_POST['contenu']){
+			if (connected()){
 			insertMessage($_POST['contenu'], $id, $id_user);
 			header('Location: '.getLink(['forum','sujet', $id]));
+			}
 		}
 		else 
 			alert('error', 'Vous n\'avez rien écrit !');
