@@ -6,6 +6,8 @@ require MODELES. 'forum/InsertMessage.php';
 require MODELES. 'forum/getUserDetails.php';
 /* Chargement des paramètres de la page*/
 
+
+// INFO TOPIC
 $id=$_GET['id'];
 $contents['id']=$id;
 
@@ -33,15 +35,19 @@ $contents['lien']=$images['lien'];
 $contents['id_auteur']=$membre['id_auteur'];
 $nombre = getNombre($contents['id_auteur']);
 $contents['COUNT(*)']=$nombre['COUNT(*)'];
+// FIN INFO TOPIC
 
 
+// INFO REPONSES
 $comments=getComments($id);
 $contents['comments']=$comments;
 
+// FIN INFO REPONSES
+
 if (connected()){
 $id_user=$_SESSION['id'];
-$userDetails=getUserDetails($id_user);
-$contents['pseudo1']=$userDetails['pseudo'];
+$userDetails=getUserDetails($id_user)['pseudo'];
+$contents['pseudo1']=$userDetails;
 
 
 $userImage=getImages($id_user);

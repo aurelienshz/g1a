@@ -84,7 +84,7 @@
               </div>
             </form>
             <div class="membre" style="margin-top:2px">
-              <img class="photo_profil" src="user_media/photos_profil/<?php echo $contents['lien1']; ?>"></br>
+              <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
               <strong><?php echo $contents['pseudo1']?></strong></br>
             </div>
             <?php }?>

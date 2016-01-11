@@ -7,12 +7,3 @@ function getTopic($id_section) {
 
   return $topic;
 }
-function getNombre($id_topic) {
-    $bdd = new PDO(DSN, DBUSER, DBPASS);
-    $query = $bdd->prepare('SELECT COUNT(*) FROM message WHERE id_topic = :id_topic');
-    $query-> execute(['id_topic'=>$id_topic]);
-    $nombre = $query->fetch();
-
-  return $nombre;
-  }
-?>
