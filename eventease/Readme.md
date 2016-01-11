@@ -11,7 +11,7 @@ choix dans le formulaire :
 
 -----------------------------------------------------------------------
 
-# TeH UltImAtE ToDo LiST #
+# TeH UltImAtE ToDo LiST (with catz and shit) #
 
 
 
