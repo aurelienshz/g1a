@@ -23,15 +23,15 @@ function loadContents($details) {
     $contents = array_merge($contents, [
                 'pseudo' => $details['pseudo'],
                 'mail' => $details['mail'],
-                'tel' => isset($details['tel'])?$details['tel']:'Non renseigné',
+                'tel' => isset($details['tel'])?$details['tel']:'<i>Non renseigné</i>',
                 'civilite' => isset($details['civilite'])?($details['civilite']?'Mme':'M.'):'',
-                'adresse_condensee' => isset($details['adresse_condensee'])?$details['adresse_condensee']:'Non renseignée',
+                'adresse_condensee' => isset($details['adresse_condensee'])?$details['adresse_condensee']:'<i>Non renseignée</i>',
     /* fac */   'photo' => isset($details['id_photo']) && $details['id_photo']!=0?PHOTO_PROFIL.$details['lien_photo']:IMAGES.'photo_profil_defaut.jpg',
     /* fac */   'nom' => isset($details['nom'])?$details['nom']:'',
     /* fac */   'prenom' => isset($details['prenom'])?$details['prenom']:'',
-    /* fac */   'ddn' => isset($details['ddn'])?$details['ddn']:'Non renseignée',
-    /* fac */   'description' => isset($details['description'])?$details['description']:'Pas de description',
-    /* fac */   'langue' => isset($details['langue'])?($details['langue']?'Anglais':'Français'):'Non renseignée',
+    /* fac */   'ddn' => isset($details['ddn'])?$details['ddn']:'<i>Non renseignée</i>',
+    /* fac */   'description' => isset($details['description'])?$details['description']:'Bienvenue sur mon profil !',
+    /* fac */   'langue' => isset($details['langue'])?($details['langue']?'Anglais':'Français'):'<i>Non renseignée</i>',
         ]);
     switch($details['niveau']==1) {
         case 1:
@@ -118,7 +118,7 @@ if ($contents['nom']==='') {
     $contents['civilite']='';
 }
 if ($contents['prenom']==='' AND $contents['nom']==='') {
-    $contents['civilite']='Non renseigné';
+    $contents['civilite']='<i>Non renseigné</i>';
 }
 /**** Fonction affichage mois en FR ****/
 function date_mois_fr($mois_num){
