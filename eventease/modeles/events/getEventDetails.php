@@ -6,7 +6,7 @@
 
 function getEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $query = $bdd->prepare('SELECT * FROM evenement WHERE id = :id');
+      $query = $bdd->prepare('SELECT evenement.*, media.lien AS lien_photo FROM evenement, media WHERE evenement.id = :id AND evenement.id_media_principal = media.id;');
       $query-> execute(['id'=>$id]);
       $event = $query->fetch();
 

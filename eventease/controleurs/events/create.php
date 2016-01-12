@@ -51,7 +51,7 @@ if(connected()) {
 			}
 
 			// Type dans le bon intervalle :
-			if(!checkSelect($_POST['type'], range(0,11)) ){
+			if(!checkSelect($_POST['type'], range(0,count($contents['types'])) ){
 				$errors['type'] = "Type Invalide";
 				$_POST['type'] = 0;
 			}else{
@@ -130,7 +130,6 @@ if(connected()) {
 			if(intval($_POST['max_attendees'])<0) {
 				$errors['max_attendees'] = 'Nombre invalide';
 			}
-
 
 			// site web : est-ce bien une URL ?
 			if(!empty($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
