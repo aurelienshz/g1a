@@ -59,7 +59,7 @@ if(!empty($_POST)) {
 
 	//DDN
 	if (!checkBirthDate($_POST['ddn'])){
-		$errors['ddn'] = 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
+		$errors['ddn'] = 'Date invalide, elle est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
 	}
 
 	//Tel
