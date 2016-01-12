@@ -1,7 +1,20 @@
 (function(){
 
 var events = document.querySelectorAll(".eventPreview"),
-    hidden = {typeEvent: []};
+    today = new Date(),
+    dd = today.getDate(),
+    mm = today.getMonth()+1,
+    yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd;
+}
+if(mm<10) {
+    mm='0'+mm;
+}
+
+today = yyyy+'-'+mm+'-'+dd;
+console.log(today);
 
 
 var numberEvents = events.length;
@@ -36,71 +49,86 @@ if(numberEvents > 0) {
     }
 }
 
-var filtersType = document.querySelectorAll(".filter-type");
-for(var i=0; c=filtersType.length, i<c; i++) {
-    // console.log(filtersType[i]);
-    filtersType[i].addEventListener('click',function(e) {
-        // on purge la liste des events à cacher : elle sera reconstruite après la fin du filtrage
-        hidden.typeEvent = [];
-        // Si on a cliqué sur "tous" :
-        if(e.target.classList.contains("filter-type-all")) {
-            // on désactive tous les filtres :
-            for(var j=0; j<c; j++) {
-                filtersType[j].classList.remove("selected");
-            }
-            e.target.classList.add("selected");
-        }
-        // Si on a cliqué sur un filtre particulier :
-        else {
-            // On désactive le "tous" :
-            for(var j=0; j<c; j++) {
-                if(filtersType[j].classList.contains("filter-type-all")) {
-                    filtersType[j].classList.remove("selected");
-                }
-            }
-            e.target.classList.toggle("selected");
+var filtersType = document.getElementsByClassName("filter-type"),
+    filtersDate = document.getElementsByClassName("filter-date"),
+    filtersPrice = document.getElementsByClassName("filter-price"),
+    filters = {},
+    hidden = {};
 
-            // on compte le nombre de selected pour rallumer "tous" si besoin :
-            var compteur = 0;
-            for(var j=0; j<c; j++) {
-                if(filtersType[j].classList.contains("selected")) {
-                    compteur++;
-                }
-            }
-            // Si on a tout déselectionné :
-            if(compteur==0) {
+for(var f in names = ['type', 'date', 'price']) {
+
+    var name = &names[f];
+
+    filters[name] = document.getElementsByClassName("filter-"+name);
+
+    hidden[name] = [];
+
+    console.log(filters[name]);
+
+    for(var i=0; c=filters[name].length, i<c; i++) {
+        filters[name][i].addEventListener('click',function(e) {
+            // on purge la liste des events à cacher : elle sera reconstruite après la fin du filtrage
+            hidden[name] = [];
+            // Si on a cliqué sur "tous" :
+            if(e.target.classList.contains("filter-"+name+"-all")) {
+                // on désactive tous les filtres :
                 for(var j=0; j<c; j++) {
-                    if(filtersType[j].classList.contains("filter-type-all")) {
-                        filtersType[j].classList.add("selected");
+                    filters[name][j].classList.remove("selected");
+                }
+                e.target.classList.add("selected");
+            }
+            // Si on a cliqué sur un filtre particulier :
+            else {
+                // On désactive le "tous" :
+                for(var j=0; j<c; j++) {
+                    if(filters[name][j].classList.contains("filter-"+name+"-all")) {
+                        filters[name][j].classList.remove("selected");
+                    }
+                }
+                e.target.classList.toggle("selected");
+
+                // on compte le nombre de selected pour rallumer "tous" si besoin :
+                var compteur = 0;
+                for(var j=0; j<c; j++) {
+                    if(filters[name][j].classList.contains("selected")) {
+                        compteur++;
+                    }
+                }
+                // Si on a tout déselectionné :
+                if(compteur==0) {
+                    for(var j=0; j<c; j++) {
+                        if(filters[name][j].classList.contains("filter-"+name+"-all")) {
+                            filters[name][j].classList.add("selected");
+                        }
                     }
                 }
             }
-        }
 
-        for(var j=0; j<c; j++) {
-            // Si on rencontre le filtre Tous et qu'il est activé, on quitte la boucle en ne cachant rien :
-            if(filtersType[j].classList.contains('filter-type-all') && filtersType[j].classList.contains('selected')) {
-                hidden.typeEvent = [];
-                break;
+            for(var j=0; j<c; j++) {
+                // Si on rencontre le filtre Tous et qu'il est activé, on quitte la boucle en ne cachant rien :
+                if(filters[name][j].classList.contains("filter-"+name+"-all") && filters[name][j].classList.contains('selected')) {
+                    hidden[name] = [];
+                    break;
+                }
+                // Sinon, on charge la liste des cachés avec tous les filtres qui sont désactivés :
+                else if(!filters[name][j].classList.contains('selected') && !filters[name][j].classList.contains("filter-"+name+"-all")) {
+                    hidden[name].push(filters[name][j].innerText);
+                }
             }
-            // Sinon, on charge la liste des cachés avec tous les filtres qui sont désactivés :
-            else if(!filtersType[j].classList.contains('selected') && !filtersType[j].classList.contains('filter-type-all')) {
-                hidden.typeEvent.push(filtersType[j].innerText);
-            }
-        }
-        // console.log(hidden.typeEvent);
+            console.log(hidden[name]);
 
-        for(var j=0; j < numberEvents; j++) {
-            if(hidden.typeEvent.indexOf(events[j].categorie) >= 0) {
-                // console.log(hidden.typeEvent.indexOf(events[j].categorie));
-                events[j].style.display = 'none';
+            for(var j=0; j < numberEvents; j++) {
+                if(hidden[name].indexOf(events[j].categorie) >= 0) {
+                    // console.log(hidden[filter].indexOf(events[j].categorie));
+                    events[j].style.display = 'none';
+                }
+                else {
+                    events[j].style.display = 'block';
+                }
             }
-            else {
-                events[j].style.display = 'block';
-            }
-        }
 
-    },false);
+        },false);
+    }
 }
 
 }())

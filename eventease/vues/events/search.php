@@ -30,13 +30,13 @@
 		?>
 
 		<h5>Date & heure</h5>
-		<div class="filter filter-date selected">Tous</div>
+		<div class="filter filter-date filter-date-all selected">Tous</div>
 		<div class="filter filter-date">Aujourd'hui</div>
 		<div class="filter filter-date">Demain</div>
 		<div class="filter filter-date">Ce mois-ci</div>
 
 		<h5>Tarif</h5>
-		<div class="filter filter-price selected">Tous</div>
+		<div class="filter filter-price filter-price-all selected">Tous</div>
 		<div class="filter filter-price">0 - 10 €</div>
 		<div class="filter filter-price">10 - 50 €</div>
 		<div class="filter filter-price">> 50 €</div>
