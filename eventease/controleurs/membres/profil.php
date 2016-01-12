@@ -113,6 +113,11 @@ else {  // (empty($_GET['id']))
 $styles[] = 'membres.css';
 $blocks[] = 'profil';
 
+/*** Corrige la date par défaut '0000-00-00' ***/
+if ($contents['ddn']==='1970-01-01') {
+    $contents['ddn']='<i>Non renseignée</i>';
+}
+
 /**** Enlève la civilité si le nom est absent ****/
 if ($contents['nom']==='') {
     $contents['civilite']='';
