@@ -106,7 +106,7 @@
 	border-right:5px solid #3399FF;
 	text-shadow:0px -1px #3399FF;
 }
-#participe{
+#Participe{
 	font-size:150%;
 }
 .buttons ul li {
@@ -114,7 +114,6 @@
 }
 .buttons ul li a:hover{
 	color:#C0C0C0;
-        cursor: pointer;
 }
 .buttons ul li a.active {
 	background-color: #3399FF;
