@@ -56,13 +56,13 @@
           else {?>
             <form  action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>" method="post" >
               <div class="champ1" id="champ1" style="width:75%">
-                <textarea name="message" id="message" placeholder="Votre message" ></textarea>s
-                <h3><input type="submit" value="Modifier" style="background-color:#36B136"/></h3>
+                <textarea name="message" id="message" placeholder="Votre message" ></textarea>
+                <h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
               </div>
             </form>
           <?php }?>
           </p>
-          <div class="membre">
+          <div class="membre" style="float:none; margin-top:0">
             <?php if ($contents['lien']){?>
               <img class="photo_profil" src="user_media/photos_profil/<?php echo $contents['lien']; ?>"></br>
               <strong><?php echo $contents['pseudo'];?></strong></br>
@@ -112,7 +112,7 @@
                 <h3><input type="submit" value="Envoyer" style="background-color:#36B136"/></h3>
               </div>
             </form>
-            <div class="membre" style="width:9%;margin-top:0px">
+            <div class="membre" style="width:9%;margin-top:0px,float:none">
               <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
               <strong><?php echo $contents['pseudo1']?></strong></br>
             </div>
