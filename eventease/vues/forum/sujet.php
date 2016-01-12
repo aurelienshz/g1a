@@ -1,4 +1,3 @@
-
 <div class="wrapper prettyform">
   <div class="shadow">
     <div class="titleWrapper1">
@@ -6,6 +5,7 @@
       <h2><i class="fa fa-comments"></i> Forum - Catégories </h2>
       <img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_green.png'; ?>">
     </div>
+
     <div class="header2">
       <?php if (connected()){?>
       <div class="repondre">
@@ -27,25 +27,42 @@
           </a>
       </div>
     </div>
+
     <div class="cadre">
       <div class="tableau">
         <div class="header">
           <h1><?php echo $contents['titre'];?></h1>
         </div>
         <div class="content_sujet">
+          <div class="supprimer">
           <?php 
             if (connected()){
-              if ($contents['id_auteur']==$_SESSION['id']){?>
-                <i class="fa fa-pencil"></i>
-                <i class="fa fa-trash-o"></i>
+              if ($contents['id_auteur']==$_SESSION['id']){ ?>
+                <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>">
+                  <a href="<?php echo getLink(['forum','sujet',$contents['id'],'2'])?>"><i class="fa fa-pencil"></i></a>
+                </form>
+                <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],'1'])?>">
+                  <a href="<?php echo getLink(['forum','suppression',$contents['id'],'1'])?>"><i class="fa fa-trash-o"></i></a>
+                </form>
               <?php }
             } ?>
-          <p><small>Posté le <?php echo $contents['jour'] . "/" . $contents['mois'] . "/" . $contents['annee'] . " à " . $contents['heure'] . "h" . $contents['minute'];?>
-          </br></br></small>
-                <?php echo $contents['message'];?></br>
-
+          </div>
+          
+          
+          <?php if ($contents['id_what']==0){
+            ?><p><small>Posté le <?php echo $contents['jour'] . "/" . $contents['mois'] . "/" . $contents['annee'] . " à " . $contents['heure'] . "h" . $contents['minute']?></br></br></small>
+            <?php echo $contents['message'];?></br>
+          <?php }
+          else {?>
+            <form  action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>" method="post" >
+              <div class="champ1" id="champ1" style="width:75%">
+                <textarea name="message" id="message" placeholder="Votre message" ></textarea>
+                <h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
+              </div>
+            </form>
+          <?php }?>
           </p>
-          <div class="membre">
+          <div class="membre" style="float:none; margin-top:0">
             <?php if ($contents['lien']){?>
               <img class="photo_profil" src="user_media/photos_profil/<?php echo $contents['lien']; ?>"></br>
               <strong><?php echo $contents['pseudo'];?></strong></br>
@@ -63,13 +80,15 @@
         <?php foreach ($contents['comments'] as $key => $comments) {?>
           <div class="tableau">
             <div class="content_sujet">
+              <div class="supprimer">
               <?php 
                 if (connected()){
                   if ($comments['id_auteur']==$_SESSION['id']){?>
-                    <i class="fa fa-pencil"></i>
-                    <i class="fa fa-trash-o"></i>
+                    <a href="#"><i class="fa fa-pencil"></i></a>
+                    <a href="#"><i class="fa fa-trash-o"></i></a>
                   <?php }
                 } ?>
+              </div>
               <p><small>Posté le <?php echo $comments['jour'] . "/" . $comments['mois'] . "/" . $comments['annee'] . " à " . $comments['heure'] . "h" . $comments['minute'];?></br></br></small>
                   <?php echo $comments['contenu'];?></p>
                 <div class="membre">
@@ -93,7 +112,7 @@
                 <h3><input type="submit" value="Envoyer" style="background-color:#36B136"/></h3>
               </div>
             </form>
-            <div class="membre" style="width:9%;margin-top:0px">
+            <div class="membre" style="width:9%;margin-top:0px,float:none">
               <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
               <strong><?php echo $contents['pseudo1']?></strong></br>
             </div>

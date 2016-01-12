@@ -30,14 +30,20 @@
             </div>
             <div id="general">
                 <h3>Informations complémentaires :</h3>
-                <ul>
-                    <li><strong>Nom : </strong><?php echo $contents['civilite'].' '.$contents['prenom'].' '.$contents['nom']; ?></li>
-                    <li><strong>Date de naissance : </strong><?php echo $contents['ddn'];?></li>
-                    <li><strong>Téléphone : </strong><?php echo $contents['tel']; ?></li>
-                    <li><strong>Email : </strong><?php echo $contents['mail']; ?></li>
-                    <li><strong>Adresse : </strong><?php echo $contents['adresse_condensee']; ?></li>
-                    <li><strong>Langue : </strong><?php echo $contents['langue']; ?></li>
+                <div id="col1">
+                    <ul>
+                        <li><div class='info_profil'><strong>Nom : </strong></div><?php echo $contents['civilite'].' '.$contents['prenom'].' '.$contents['nom']; ?></li>
+                        <li><div class='info_profil'><strong>Téléphone : </strong></div><?php echo $contents['tel']; ?></li>
+                        <li><div class='info_profil'><strong>Email : </strong></div><?php echo $contents['mail']; ?></li>
+                    </ul>
+                </div>
+                <div id='col2'>
+                    <ul>
+                        <li><div class='info_profil'><strong>Date de naissance : </strong></div><?php echo $contents['ddn'];?></li>
+                        <li><div class='info_profil'><strong>Adresse : </strong></div><?php echo $contents['adresse_condensee']; ?></li>
+                        <li><div class='info_profil'><strong>Langue préférée : </strong></div><?php echo $contents['langue']; ?></li>
                 </ul>
+                </div>
             </div>
 
         </div>
