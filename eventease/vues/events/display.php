@@ -41,7 +41,6 @@ echo '</script>';
                             <td><a href="mailto:?subject=&body=:%20http%3A%2F%2Feventease.ohhopi.com" target="_blank" title="Email"><i class="mail fa fa-envelope-square"></i></a></td>
 					</tr>
                 </table>
-                </ul>
             </div>
         </div>
     </div>
