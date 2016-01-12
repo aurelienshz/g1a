@@ -1,9 +1,24 @@
 <?php require MODELES.'forum/suppression.php';
 
+$id=$_GET['id_what'];
+//2
 $id_topic=$_GET['id_topic'];
-var_dump($id_topic);
-supprimerMessage($id_topic);
+//20
 
-header('Location: '.getLink(['forum']));
-exit();
+if ($id==1){//suppression topic
+
+	supprimerTopic($id_topic);
+
+	header('Location: '.getLink(['forum']));
+	exit();
+}
+if ($id==2) {//modification topic
+	print_r($_POST);
+	$message=$_POST['message'];
+	var_dump($message);
+	var_dump($id_topic);
+	modifierTopic($id_topic, $message);
+	header('Location: '.getLink(['forum','sujet',$id_topic,'0']));
+	exit();
+}
 ?>
