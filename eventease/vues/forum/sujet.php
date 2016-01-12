@@ -33,13 +33,17 @@
           <h1><?php echo $contents['titre'];?></h1>
         </div>
         <div class="content_sujet">
+          <div class="supprimer">
           <?php 
             if (connected()){
-              if ($contents['id_auteur']==$_SESSION['id']){?>
-                <i class="fa fa-pencil"></i>
-                <i class="fa fa-trash-o"></i>
+              if ($contents['id_auteur']==$_SESSION['id']){ ?>
+                <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],'1'])?>">
+                  <a href="#"><i class="fa fa-pencil"></i></a>
+                  <a href="<?php echo getLink(['forum','suppression',$contents['id'],'1'])?>"><i class="fa fa-trash-o"></i></a>
+                </form>
               <?php }
             } ?>
+          </div>
           <p><small>Posté le <?php echo $contents['jour'] . "/" . $contents['mois'] . "/" . $contents['annee'] . " à " . $contents['heure'] . "h" . $contents['minute'];?>
           </br></br></small>
                 <?php echo $contents['message'];?></br>
@@ -63,13 +67,15 @@
         <?php foreach ($contents['comments'] as $key => $comments) {?>
           <div class="tableau">
             <div class="content_sujet">
+              <div class="supprimer">
               <?php 
                 if (connected()){
                   if ($comments['id_auteur']==$_SESSION['id']){?>
-                    <i class="fa fa-pencil"></i>
-                    <i class="fa fa-trash-o"></i>
+                    <a href="#"><i class="fa fa-pencil"></i></a>
+                    <a href="#"><i class="fa fa-trash-o"></i></a>
                   <?php }
                 } ?>
+              </div>
               <p><small>Posté le <?php echo $comments['jour'] . "/" . $comments['mois'] . "/" . $comments['annee'] . " à " . $comments['heure'] . "h" . $comments['minute'];?></br></br></small>
                   <?php echo $comments['contenu'];?></p>
                 <div class="membre">
