@@ -125,9 +125,11 @@ function date_mois_fr($mois_num){
     $mois_fr = ['01'=>'Janvier','02'=>'Février','03'=>'Mars','04'=>'Avril','05'=>'Mai','06'=>'Juin','07'=>'Juillet','08'=>'Août','09'=>'Septembre','10'=>'Octobre','11'=>'Novembre','12'=>'Décembre'];
     return $mois_fr[$mois_num];
 }
-$contents['ddn']= date('j m o',strtotime($contents['ddn']));
-$contents['ddn']=explode(' ',$contents['ddn']) ;
-$contents['ddn'][1]=date_mois_fr($contents['ddn'][1]);
-$contents['ddn']=implode(' ',$contents['ddn']) ;
+if ($contents['ddn']!='<i>Non renseignée</i>') {
+    $contents['ddn']= date('j m o',strtotime($contents['ddn']));
+    $contents['ddn']=explode(' ',$contents['ddn']) ;
+    $contents['ddn'][1]=date_mois_fr($contents['ddn'][1]);
+    $contents['ddn']=implode(' ',$contents['ddn']) ;
+}
 /**** Affichage de la page ****/
 vue($blocks,$styles,$title,$contents);
