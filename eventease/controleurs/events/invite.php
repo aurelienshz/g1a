@@ -22,8 +22,11 @@ if(connected()){
 		vue($blocks,$styles,$title,$contents);
 	}
 	else{
-		if(!checkUsed($_POST['destinataire'])){ ///si le pseudo n'existe pas///
-			$errors['destinataire'] = 'Le pseudo renseigné n\'existe pas';
+		if(!checkUsed($_POST['destinataire']) ){ ///si le pseudo n'existe pas///
+			$errors['destinataire'] = 'Le pseudo renseigné n\'existe pas !';
+		}
+		if ($expediteur==$destinataire[0]){
+			$errors['destinataire'] = 'Vous ne pouvez pas vous inviter vous même !';
 		}
 
 		else{    ///On récupère l'ID du pseudo rentré///
@@ -37,11 +40,13 @@ if(connected()){
 				insertInvite($expediteur,$_GET['id'],$destinataire['id']);
 			}
 	else{
-		vue($blocks,$styles,$title,$contents);
+		foreach($errors as $error){
+			alert('info',$error);
+		}
 	}
 }
 else{
-	alert('info','Merci de vous connecter pour créer un évènement !');
+	alert('info','Merci de vous connecter pour inviter quelqu\'un à l\'événement !');
 	header('Location: '.getLink(['membres','connexion']));
 	exit();
 }

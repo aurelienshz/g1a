@@ -9,6 +9,10 @@ require MODELES.'forum/getUserDetails.php';
 $id=$_GET['id'];
 $contents['id']=$id;
 
+//si id_what!=0 alors poissibilié de modifier
+$id_what=$_GET['id_what'];
+$contents['id_what']=$id_what;
+
 $titre = getTitre($id);
 $contents['titre']=$titre['titre'];
 

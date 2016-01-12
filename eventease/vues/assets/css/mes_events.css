@@ -5,6 +5,7 @@
     text-align:center;
     font-weight: bold;
     font-size: 2em;
+    padding: 0.6cm 0;
 }
 .sous-titre {
     font-weight: bold;
@@ -15,6 +16,6 @@
 .event-box {
     border-style: solid;
     border-width : thin;
-    padding: 10px;
+    padding: 20px;
     margin: 5px 0 5px 0;
 }

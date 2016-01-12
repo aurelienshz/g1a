@@ -4,7 +4,6 @@
 require MODELES.'forum/getTopic.php';
 
 
-
 /**** Préparation de la vue ****/
 $title = 'Accueil - Forum';
 $styles = ['forum.css','search.css'];
