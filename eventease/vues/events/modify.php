@@ -16,40 +16,39 @@
 					<div class="champ" style="width: 20%;">
 						<label for="type">Type d'événement <i class="fa fa-asterisk"></i> :</label>
 						<select id="type" name="type">
-							<option disabled <?php echo $contents['values']['type']==-1?'selected':''; ?>>Choisissez un type</option>
 							<?php foreach ($contents['types'] as $key => $value) {
-								echo '<option value="'.$key.'"'.($contents['values']['type']==$key?' selected':'').'>'.$value.'</option>';
+								echo '<option value="'.$key.'"'.($contents['values']['id_type']==$key?' selected':'').'>'.$value.'</option>';
 							} ?>
 						</select>
 						<?php echo isset($contents['errors']['type'])?$contents['errors']['type']:'';; ?>
 					</div>
 					<div class="champ"  style="width: 44%;" >
-						<label for="place">Adresse <i class="fa fa-asterisk"></i> :</label>
-						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="place" name="place" value="<?php echo isset($contents['values']['place'])?$contents['values']['place']:''; ?>"/>
-						<?php echo isset($contents['errors']['place'])?$contents['errors']['place']:'';; ?>
+						<label for="adresse">Adresse <i class="fa fa-asterisk"></i> :</label>
+						<input class="google-autocomplete-address" type="text" placeholder="Lieu" id="adresse" name="adresse" value="<?php echo isset($contents['values']['adresse'])?$contents['values']['adresse']:''; ?>"/>
+						<?php echo isset($contents['errors']['adresse'])?$contents['errors']['adresse']:'';; ?>
 					</div>
 				</div>
 				<div class="ligne">
 					<div class="champ" style="width: 15%;">
 							<label for="date_debut">Date de Début <i class="fa fa-asterisk"></i> :</label>
-							<input type="date" name="date_debut" id="date_debut" value="<?php echo isset($contents['values']['debut'])?date('Y-m-d',strtotime($contents['values']['debut'])):''; ?>"/>
+							<input type="date" name="date_debut" id="date_debut" value="<?php echo isset($contents['values']['date_debut'])?$contents['values']['date_debut']:''; ?>"/>
 							<?php echo isset($contents['errors']['date_debut'])?$contents['errors']['date_debut']:''; ?>
 					</div>	
 					<div class="champ" style="width: 15%">
 						<label for="beginning">Heure de Début <i class="fa fa-asterisk"></i> :</label>
-						<input style="width:66%" type="time" name="beginning" id="beginning" value="<?php echo isset($contents['values']['debut'])?date('H:i',strtotime($contents['values']['debut'])):''; ?>"/>
+						<input style="width:66%" type="time" name="beginning" id="beginning" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/>
 						<?php echo isset($contents['errors']['beginning'])?$contents['errors']['beginning']:''; ?>
 					</div>				
 					<div class="champ" style="width: 15%;">
 						<div>
 							<label for="date_fin">Date de Fin <i class="fa fa-asterisk"></i> :</label>
-							<input type="date" name="date_fin" id="date_fin" value="<?php echo isset($contents['values']['fin'])?date('Y-m-d',strtotime($contents['values']['fin'])):''; ?>"/>
+							<input type="date" name="date_fin" id="date_fin" value="<?php echo isset($contents['values']['date_fin'])?$contents['values']['date_fin']:''; ?>"/>
 							<?php echo isset($contents['errors']['date_fin'])?$contents['errors']['date_fin']:''; ?>
 						</div>
 					</div>
 					<div class="champ" style="width:10%;">
 						<label for="end">Heure de Fin :</label>
-						<input type="time" name="end" id="end" value="<?php echo isset($contents['values']['fin'])?date('H:i',strtotime($contents['values']['debut'])):''; ?>"/>
+						<input type="time" name="end" id="end" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
 						<?php echo isset($contents['errors']['end'])?$contents['errors']['end']:''; ?>					
 					</div>
 					<div class="champ" style="width: 10%;" >
@@ -65,8 +64,11 @@
 				<div class="ligne">
 					<div class="champ" style="width: 50%;">
 						<div class="photo">
-							<label for="photo"><br>Ajouter une photo :</label>(.jpg ou .png | max. : 2Mo | 1000x1000 max.)
+							<label for="photo"><br>Modifier la photo principale :</label>
+							<img alt="Photo Event" src="<?php echo isset($contents["values"]["lien_photo"])?htmlspecialchars(PHOTO_EVENT.$contents["values"]["lien_photo"]):IMAGES.'picnic1.jpg' ?>" title="Photo Event" height="150" width="300"/>
+							<br />(.jpg ou .png | max. : 2Mo | 1000x1000 max.)<br />
 							<input type="file" id="photo" name="photo"/>
+							<?php echo isset($contents["values"]["lien_photo"])?"<input type='checkbox' name='photo' value='-1' >Supprimer la photo":NULL ?>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>
             		</div>
@@ -131,7 +133,8 @@
 				</div>
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
 					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','evenements']); ?>"><i class="fa fa-ban"></i> Annuler</a>
-					<input style="width: 58%;" type="submit" value="Créer" />
+					<input style="width: 50%;" type="submit" value="Modifier" />
+					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['events','delete']); ?>">Supprimer l'évènement</a>
 				</div>
 				<p class="importantRed"> <i class="fa fa-asterisk"></i> Champs obligatoires</p>
 		</form>
