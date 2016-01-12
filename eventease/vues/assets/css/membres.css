@@ -30,6 +30,9 @@
     list-style-type: none;
 }
 
+#modif_button {
+    margin: 2cm auto;
+}
 h2 {
     border: 0;
 }
