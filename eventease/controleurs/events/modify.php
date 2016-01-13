@@ -21,7 +21,7 @@ if(!isset($_GET['id']) ){
 }
 //Si le EventID dans le GET n'est pas attribué.
 $contents['values'] = getEvents($_GET['id']);
-if (empty($contents)){
+if (empty($contents["values"])){
 	alert("error","Cet évènement n'existe pas !");
     header("Location: ".getLink(["accueil","404"]));
     exit();
@@ -197,7 +197,7 @@ if(!empty($_POST)){
 	//Upload de la Photo
 	if (empty($errors)){
 		if (!empty($photo) AND $photo != -1){
-    		$upload = uploadOnePhoto("photo", NULL, PHOTO_EVENT, $photo);
+    		$upload = uploadOnePhoto("photo", $contents["lien_photo"], PHOTO_EVENT, $photo);
     		if ($upload) {
     			$push["lien_photo"] = $photo;
     		}else{
@@ -245,6 +245,8 @@ echo "<br />POST soumis ? ";
 echo (!empty($_POST))?"Oui":"Non";
 echo "POST : <br />";
 var_dump($_POST);
+echo "Push : <br />";
+var_dump($push);
 ?> </pre> <?php
 
 $title = 'Modifier mon évènement';
