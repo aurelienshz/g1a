@@ -85,7 +85,7 @@
 					</div>
 				</div>
 				<div class="ligne">
-					<div class="champ" style="width: 24%">
+					<div class="champ">
 						<label for="visibility">Confidentialité <i class="fa fa-asterisk"></i> :</label>
 						<select id="visibility" name="visibility">
 							<option value="0">Public</option>
@@ -94,7 +94,7 @@
 						</select>
 						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:''; ?>
 					</div>
-					<div class="champ" style="width: 24%">
+					<div class="champ">
 						<label for="invitation">Qui peut inviter <i class="fa fa-asterisk"></i> :</label>
 						<select id="invitation" name="invitation">
 							<option value="0">Tout le monde</option>
@@ -102,7 +102,7 @@
 						</select>
 						<?php echo isset($contents['errors']['invitation'])?$contents['errors']['invitation']:''; ?>
 					</div>
-					<div class="champ" style="width: 24%">
+					<div class="champ">
 						<label for="langue">Langue :</label>
 						<select id="langue" name="langue">
 							<option value='0'>Français</option>
