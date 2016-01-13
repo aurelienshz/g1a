@@ -81,6 +81,7 @@ a {
 
 .content_sujet  p{
   margin: 15px 25px 15px 15px;
+  width:70%;
   display: inline-block;
 }
 
@@ -184,4 +185,13 @@ textarea{
   color:white;
   margin:10px;
   margin-left: 0px;
+}
+#lien {
+  display:block;
+  background-color:#36B136;
+  color:white;
+  width:initial;
+}
+#lien a {
+
 }

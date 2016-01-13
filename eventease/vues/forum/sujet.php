@@ -27,11 +27,16 @@
           </a>
       </div>
     </div>
-
+    <form  action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>" method="post" >
     <div class="cadre">
       <div class="tableau">
-        <div class="header">
-          <h1><?php echo $contents['titre'];?></h1>
+        <div class="header" style="height:60px">
+          <?php if ($contents['id_what']==0){?>
+            <h1><?php echo $contents['titre'];?></h1>
+          <?php }
+          else {?>
+            <input type="text" name="titre" id="titre" placeholder="Votre titre" style="width:40%; height:50%; margin-top:15px" ></input>
+          <?php } ?>
         </div>
         <div class="content_sujet">
           <div class="supprimer">
@@ -47,22 +52,20 @@
               <?php }
             } ?>
           </div>
-          
-          
           <?php if ($contents['id_what']==0){
             ?><p><small>Posté le <?php echo $contents['jour'] . "/" . $contents['mois'] . "/" . $contents['annee'] . " à " . $contents['heure'] . "h" . $contents['minute']?></br></br></small>
             <?php echo $contents['message'];?></br>
+          </p>
           <?php }
           else {?>
-            <form  action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>" method="post" >
-              <div class="champ1" id="champ1" style="width:75%">
-                <textarea name="message" id="message" placeholder="Votre message" ></textarea>
-                <h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
-              </div>
-            </form>
+            <div class="champ1" id="champ1" style="width:75%">
+              <textarea name="message" id="message" placeholder="Votre message" ></textarea>
+              <p id="lien"><a href="<?php echo getLink(['forum','sujet', $contents['id'],0]); ?>" style="float:right">Annuler</a></p>
+              <h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
+            </div>
           <?php }?>
-          </p>
-          <div class="membre" style="float:none; margin-top:0">
+          
+          <div class="membre" style="margin-top:0">
             <?php if ($contents['lien']){?>
               <img class="photo_profil" src="user_media/photos_profil/<?php echo $contents['lien']; ?>"></br>
               <strong><?php echo $contents['pseudo'];?></strong></br>
@@ -76,6 +79,7 @@
           </div>
         </div>
       </div>
+      </form>
       <div class="reponse">
         <?php foreach ($contents['comments'] as $key => $comments) {?>
           <div class="tableau">
