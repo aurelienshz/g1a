@@ -70,7 +70,7 @@ if(isset($contents['searchResults'])) {
 			<?php if(isset($event['description'])) {
 				echo '<p class="description">'.$event['description'].'</p>';
 			} ?>
-			<a class="button" href="#">Voir l'évènement</a>
+			<a class="button" href="<?php echo getLink(['events','display',$event['id']]); ?>">Voir l'évènement</a>
 		</div>
 
 <?php
