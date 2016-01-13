@@ -15,7 +15,7 @@
           {
       ?>
         <div class="question">
-            <a href="<?php echo getLink(['forum','sujet', $topic1['id'],'0']); ?>">
+            <a href="<?php echo getLink(['forum','sujet', $topic1['id'],'0','0']); ?>">
             <div class="enonce"><?php echo $topic1['titre']; ?></div>
             <div class="auteur" style="float:right">par <strong><?php echo $topic1['pseudo']; ?></strong></div>
             </a>
