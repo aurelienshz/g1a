@@ -7,6 +7,7 @@
 // Appels au modèle
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/insert_comment.php';
+require MODELES.'events/checkParticipation.php';
 if (!empty($_POST) && !empty($_POST['comment'])) {
 
   insert_comment($_POST['comment'], $_GET['id'], $_SESSION['id']);
@@ -18,33 +19,46 @@ $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
 $styles = ['events.css','form.css'];
-$scripts = ['alert.js','slideshow.js','slideshow_event.js'];
+$scripts = ['alert.js','slideshow.js','slideshow_event.js', 'participate.js'];
 $blocks = ['display'];
 
 // Affectation des valeurs spécifiques à l'event :
 // @ Guillaume & Aude : si l'event n'est pas trouvé, il faut rediriger vers getLink(['accueil','404'])
 $type = eventType($_GET['id']);
 $contents['type']=$type[0];
+
 $site = sponsor($_GET['id']);
 $contents['sponsor']=$site[0];
+
 $images = getImages($_GET['id']);
 $contents['images']=$images;;
+
 $creators=getCreators($_GET['id']);
 $contents['creators']=$creators;
+
 $comment = getComments($_GET['id']);
 $contents['comment']=$comment;
+
 $participants= getParticipants($_GET['id']);
 $contents['participants']=$participants;
+
 $adresse = getAdress($_GET['id']);
 $contents['adresse']=$adresse;
+
 $contents['tarif'] = $event['tarif'];
+
 $contents['age_min']=$event['age_min'];
 $contents['age_max']=$event['age_max'];
+
 $contents['description']=$event['description'];
+
 $contents['site']=$event['site'];
+
 $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
+
 $contents['id_evenement']=$_GET['id'];
+
 switch ($event['langue']){
   case 0:
     $contents['langue']='Français';
@@ -61,14 +75,30 @@ switch ($event['visibilite']){
     $contents['visibilite']='Privé';
     break;
 }
+if (isset($_SESSION['id'])){
+  $participe = checkParticipation($_GET['id'],$_SESSION['id']);
+  if($participe){
+    $contents['participe']='Ne participe plus';
+  }
+  else{
+    $contents['participe']='Participe';
+  }
+}
+else{
+  $contents['participe']='Participe';
+}
 $contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));
 $contents['date_fin'] = date('Y-m-d',strtotime($event['fin']));
 list($contents['year_begin'], $contents['month_begin'], $contents['day_begin'])=explode ('-', $contents['date_debut']);
 list($contents['year_end'], $contents['month_end'], $contents['day_end'])=explode ('-', $contents['date_fin']);
-$contents['heure_debut'] = date('H:i:s',strtotime($event['debut']));
-$contents['heure_fin'] = date('H:i:s',strtotime($event['fin']));
+$contents['heure_debut'] = date('H:i',strtotime($event['debut']));
+$contents['heure_fin'] = date('H:i',strtotime($event['fin']));
 /**** Affichage de la page ****/
 if(isset($_GET['id'])) {
+  if(!$event){
+    header('Location: '.getLink(['accueil','404']));
+    exit();
+  }
     // test sur la valeur
 }
 else {

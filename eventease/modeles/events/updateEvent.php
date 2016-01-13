@@ -1,11 +1,11 @@
 <?php
-/* modeles/membres/insertUser.php
+/* modeles/membres/updateEvent.php
 
 CHAMPS DU TABLEAU $PUSH À PASSER EN PARAMÈTRE :
 titre, debut, fin, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse
 
 */
-function insertEvent($push) {
+function updateEvent($push) {
 
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
 

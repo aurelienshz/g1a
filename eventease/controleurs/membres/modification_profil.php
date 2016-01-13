@@ -59,7 +59,7 @@ if(!empty($_POST)) {
 
 	//DDN
 	if (!checkBirthDate($_POST['ddn'])){
-		$errors['ddn'] = 'Date invalide, la date est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
+		$errors['ddn'] = 'Date invalide, elle est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
 	}
 
 	//Tel
@@ -147,7 +147,7 @@ if(!empty($_POST)) {
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
-		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], $_POST['ddn'], $_POST['tel'], $_POST['adresse'], $_POST['langue'], htmlspecialchars(isset($photo)?$photo:NULL), $_POST['description'],htmlspecialchars($contents['id_adresse']),htmlspecialchars($contents['id_photo']));
+		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], ($_POST['ddn'] == '0000-00-00'?$_POST['ddn']:NULL), $_POST['tel'], $_POST['adresse'], $_POST['langue'], htmlspecialchars(isset($photo)?$photo:NULL), $_POST['description'],htmlspecialchars($contents['id_adresse']),htmlspecialchars($contents['id_photo']));
 		alert("info","Votre profil a bien été modifié.");
 		header('Location: '.getLink(['membres','profil']));
 		exit();
