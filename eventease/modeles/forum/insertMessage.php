@@ -19,7 +19,7 @@ function getComments($id) {
       require MODELES. 'membres/getUserDetails.php';
 
       $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $query = $bdd->prepare('SELECT contenu, id_auteur, DAY(date_modification) AS jour, MONTH(date_modification) AS mois, YEAR(date_modification) AS annee, HOUR(date_modification) AS heure, MINUTE(date_modification) AS minute, SECOND(date_modification) AS seconde FROM message WHERE message.id_topic = :id;');
+      $query = $bdd->prepare('SELECT id,contenu, id_auteur, DAY(date_modification) AS jour, MONTH(date_modification) AS mois, YEAR(date_modification) AS annee, HOUR(date_modification) AS heure, MINUTE(date_modification) AS minute, SECOND(date_modification) AS seconde FROM message WHERE message.id_topic = :id;');
       $query-> execute(['id'=>$id]);
       $comments = $query->fetchAll(PDO::FETCH_ASSOC);
       foreach ($comments as $key => $value) {

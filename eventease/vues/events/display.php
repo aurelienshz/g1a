@@ -1,4 +1,4 @@
-<pre><?php   /*var_dump($contents['participe']);*/ ?></pre>
+<pre><?php /*var_dump($contents['participants']);*/ ?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
@@ -7,9 +7,7 @@ echo '</script>';
 <div class="wrapper">
     <div class ="intro_evenement">
         <div class = "photo_evenement">
-            <img src="<?php if ((!$contents['images'])) {$img = 'picnic1.jpg' ;}
-                            else {$img = $contents['images'][0][0];}
-                            echo PHOTO_EVENT.$img; ?>" alt="Coucou"/>
+            <img src="<?php echo $contents['photo_principale'];?>"/>
         </div>
         <div class = "title_event">
             <h1><?php echo $contents['titreEvenement']; ?></h1>
@@ -94,14 +92,14 @@ echo '</script>';
 		<div class = "hosts">
     		<h2>Organisateurs</h2>
       			<ul>
-              <li><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
+              <li><img src="<?php echo $contents['creator']['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
                       <?php
                           $compteur=0;
                           foreach($contents['creators'] as $creators)
                           {
                               if ($compteur>4) {echo "cliquez ici pour afficer plus d'organisateurs.";}
                       ?>
-                              <li><a href="<?php echo getLink(['membres','profil',$creators[1]]); ?>" target="_blank"><?php echo ' '. $creators[0];?></a></li>
+                              <li><img src="<?php echo $contents['creators'][$compteur]['picture'];?>"/><a href="<?php echo getLink(['membres','profil',$creators[1]]); ?>" target="_blank"><?php echo ' '. $creators[0];?></a></li>
                       <?php
                               $compteur++;
                           }
@@ -112,8 +110,8 @@ echo '</script>';
 		<table style="width=100%">
             <?php
                 $compteur=-1;
-                foreach($contents['participants'] as $participants)
-                {$compteur++;
+                foreach($contents['participants'] as $participant){
+                  $compteur++;
                     if($compteur%4==0)
                     {
             ?>
@@ -124,7 +122,7 @@ echo '</script>';
             ?>
               <?php if ($compteur>7) {echo '';}
                     else{ ?>
-                    <td><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>" target="_blank"><?php echo '<br/>'. $participants[0];?></a></td>
+                    <td><img src="<?php echo $participant['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$participant[1]]); ?>" target="_blank"><?php echo '<br/>'. $participant[0];?></a></td>
             <?php
                     }
             }
@@ -150,7 +148,7 @@ echo '</script>';
                 <?php
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
+                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
 
                     <p><?php echo $commentaire[1];?><br/></p>
 
