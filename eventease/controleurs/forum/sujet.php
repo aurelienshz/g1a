@@ -13,6 +13,10 @@ $contents['id']=$id;
 $id_what=$_GET['id_what'];
 $contents['id_what']=$id_what;
 
+if (!empty($_GET['id_comment'])){
+	$contents['id_comment']=$_GET['id_comment'];
+}
+
 $titre = getTitre($id);
 $contents['titre']=$titre['titre'];
 
@@ -62,6 +66,7 @@ $title = $titre['titre'];
 $styles = ['forum.css','search.css'];
 
 /**** Affichage de la page ****/
+
 //Appel de la vue :
 if (empty($_POST)) { // Le formulaire n'a pas été rempli
 		vue(['sujet'],$styles,$title, $contents);
@@ -69,13 +74,15 @@ if (empty($_POST)) { // Le formulaire n'a pas été rempli
 else {
 		if ($_POST['contenu']){
 			if (connected()){
-			insertMessage($_POST['contenu'], $id, $id_user);
-			header('Location: '.getLink(['forum','sujet', $id]));
-			exit();
+				insertMessage($_POST['contenu'], $id, $id_user);
+				header('Location: '.getLink(['forum','sujet', $id, 0]));
+				exit();
 			}
 		}
-		else
+		else {
 			alert('error', 'Vous n\'avez rien écrit !');
             vue(['sujet'],$styles,$title, $contents);
+           }
 	}
+
 ?>

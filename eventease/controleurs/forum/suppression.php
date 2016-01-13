@@ -1,9 +1,15 @@
 <?php require MODELES.'forum/suppression.php';
 
 $id=$_GET['id_what'];
-//2
+
 $id_topic=$_GET['id_topic'];
-//20
+
+//id_what donne la fonction à faire :
+//0->Rien du tout
+//1->supprimer topic
+//2->modifier topic
+//3->supprimer un commentaire
+//4->modifier un commentaire
 
 if ($id==1){//suppression topic
 
@@ -13,12 +19,39 @@ if ($id==1){//suppression topic
 	exit();
 }
 if ($id==2) {//modification topic
-	print_r($_POST);
-	$message=$_POST['message'];
-	var_dump($message);
-	var_dump($id_topic);
-	modifierTopic($id_topic, $message);
-	header('Location: '.getLink(['forum','sujet',$id_topic,'0']));
-	exit();
+	if ($_POST['message'] && $_POST['titre']){
+		$message=$_POST['message'];
+		$titre=$_POST['titre'];
+		modifierTopic($id_topic, $message, $titre);
+		header('Location: '.getLink(['forum','sujet',$id_topic,0]));
+		exit();
+	}
+	else {
+		alert('error', 'Vous n\'avez rien écrit !');
+        header('Location: '.getLink(['forum','sujet',$id_topic,2]));
+		exit();
+	}
+}
+if ($_GET['id_comment']){
+	if ($id==3){//supprimer commentaire
+		$id_comment=$_GET['id_comment'];
+		supprimerComment($id_comment);
+		header('Location: '.getLink(['forum','sujet',$id_topic,0]));
+		exit();
+	}
+	if($id==4){
+		if ($_POST['comment']){
+			$id_comment=$_GET['id_comment'];
+			$message=$_POST['comment'];
+			modifierComment($id_comment,$message);
+			header('Location: '.getLink(['forum','sujet',$id_topic,0,0]));
+			exit();
+		}
+		else{
+			alert('error', 'Vous n\'avez rien écrit !');
+	  		header('Location: '.getLink(['forum','sujet',$id_topic,4,0]));
+			exit();
+		}
+	}
 }
 ?>

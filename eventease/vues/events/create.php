@@ -29,36 +29,45 @@
 					</div>
 				</div>
 				<div class="ligne">
-					<div class="champ" style="width: 15%;">
+					<div class="champ" style="width: 20%;">
 							<label for="date_debut">Date de Début <i class="fa fa-asterisk"></i> :</label>
 							<input type="date" name="date_debut" id="date_debut" value="<?php echo isset($contents['values']['date_debut'])?$contents['values']['date_debut']:''; ?>"/>
 							<?php echo isset($contents['errors']['date_debut'])?$contents['errors']['date_debut']:''; ?>
 					</div>	
-					<div class="champ" style="width: 15%">
+					<div class="champ" style="width: 20%">
 						<label for="beginning">Heure de Début <i class="fa fa-asterisk"></i> :</label>
-						<input style="width:66%" type="time" name="beginning" id="beginning" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/>
+						<input style="float: left; width:66%" type="time" name="beginning" id="beginning" value="<?php echo isset($contents['values']['beginning'])?$contents['values']['beginning']:''; ?>"/>
 						<?php echo isset($contents['errors']['beginning'])?$contents['errors']['beginning']:''; ?>
 					</div>				
-					<div class="champ" style="width: 15%;">
+					<div class="champ" style="width: 20%;">
 						<div>
 							<label for="date_fin">Date de Fin <i class="fa fa-asterisk"></i> :</label>
 							<input type="date" name="date_fin" id="date_fin" value="<?php echo isset($contents['values']['date_fin'])?$contents['values']['date_fin']:''; ?>"/>
 							<?php echo isset($contents['errors']['date_fin'])?$contents['errors']['date_fin']:''; ?>
 						</div>
 					</div>
-					<div class="champ" style="width:10%;">
+					<div class="champ" style="width:20%;">
 						<label for="end">Heure de Fin :</label>
-						<input type="time" name="end" id="end" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
+						<input style="float: left; width:66%" type="time" name="end" id="end" value="<?php echo isset($contents['values']['end'])?$contents['values']['end']:''; ?>"/>
 						<?php echo isset($contents['errors']['end'])?$contents['errors']['end']:''; ?>					
 					</div>
-					<div class="champ" style="width: 10%;" >
-						<label for="price">Tarif (€) :</label> <input style="float:left;" type="number" name="price" id="price" value="<?php echo isset($contents['values']['price'])?$contents['values']['price']:''; ?>"/>
+				</div>
+				<div class="ligne">
+					<div class="champ" >
+						<label for="price">Tarif (€) :</label>
+						<input style="float:left; width: 33%;" type="number" name="price" id="price" value="<?php echo isset($contents['values']['price'])?$contents['values']['price']:''; ?>"/>
 						<?php echo isset($contents['errors']['price'])?$contents['errors']['price']:'';; ?>
 					</div>
-					<div class="champ" style="width: 20%;">
+					<div class="champ">
 						<label for="max_attendees">Nombre max. de participants :</label>
-						<input type="number" name="max_attendees" id="max_attendees" value="<?php echo isset($contents['values']['max_attendees'])?$contents['values']['max_attendees']:''; ?>"/>
+						<input style="float:left; width: 33%;" type="number" name="max_attendees" id="max_attendees" value="<?php echo isset($contents['values']['max_attendees'])?$contents['values']['max_attendees']:''; ?>"/>
 						<?php echo isset($contents['errors']['max_attendees'])?$contents['errors']['max_attendees']:''; ?>
+					</div>
+					<div class="champ">
+						<label for="age_min">Type de public :</label>
+						De  <input type="number" name="age_min" id="age_min"class="price"/>
+						à <input type="number" name="age_max" id="age_max"class="price"/> ans
+						<?php echo isset($contents['errors']['age_max'])?$contents['errors']['age_max']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
@@ -76,7 +85,7 @@
 					</div>
 				</div>
 				<div class="ligne">
-					<div class="champ" style="width: 24%">
+					<div class="champ">
 						<label for="visibility">Confidentialité <i class="fa fa-asterisk"></i> :</label>
 						<select id="visibility" name="visibility">
 							<option value="0">Public</option>
@@ -85,7 +94,7 @@
 						</select>
 						<?php echo isset($contents['errors']['visibility'])?$contents['errors']['visibility']:''; ?>
 					</div>
-					<div class="champ" style="width: 24%">
+					<div class="champ">
 						<label for="invitation">Qui peut inviter <i class="fa fa-asterisk"></i> :</label>
 						<select id="invitation" name="invitation">
 							<option value="0">Tout le monde</option>
@@ -93,19 +102,13 @@
 						</select>
 						<?php echo isset($contents['errors']['invitation'])?$contents['errors']['invitation']:''; ?>
 					</div>
-					<div class="champ" style="width: 24%">
+					<div class="champ">
 						<label for="langue">Langue :</label>
 						<select id="langue" name="langue">
 							<option value='0'>Français</option>
 							<option value='1'>Anglais</option>
 						</select>
 						<?php echo isset($contents['errors']['langue'])?$contents['errors']['langue']:''; ?>
-					</div>
-					<div class="champ" style="width: 24%">
-						<label for="age_min">Type de public :</label>
-						De  <input type="number" name="age_min" id="age_min"class="price"/>
-						à <input type="number" name="age_max" id="age_max"class="price"/> ans
-						<?php echo isset($contents['errors']['age_max'])?$contents['errors']['age_max']:''; ?>
 					</div>
 				</div>
 				<div class="ligne">
