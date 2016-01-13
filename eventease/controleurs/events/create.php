@@ -4,7 +4,7 @@ require MODELES.'events/insertEvent.php';
 require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
 require MODELES.'functions/form.php';
-require MODELES.'events/getTypes.php';
+require_once MODELES.'events/getTypes.php';
 
 $contents['types'] = getTypes();
 

@@ -9,6 +9,7 @@ require MODELES.'functions/form.php';
 require MODELES.'events/getTypes.php';
 require MODELES.'events/checkOrganiser.php';
 require MODELES.'events/getEventDetails.php';
+require MODELES.'events/updateEvent.php';
 
 $contents['types'] = getTypes();
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
@@ -21,10 +22,12 @@ if(!isset($_GET['id']) ){
 }
 //Si le EventID dans le GET n'est pas attribué.
 $contents['values'] = getEvents($_GET['id']);
+$contents['values']['lien_photo'] = getMainImage($_GET['id']);
 if (empty($contents["values"])){
 	alert("error","Cet évènement n'existe pas !");
-    header("Location: ".getLink(["accueil","404"]));
-    exit();
+	var_dump($contents['values']);
+    // header("Location: ".getLink(["accueil","404"]));
+    // exit();
 }
 
 // Fonction qui check s'il a le droit de modifier.
@@ -33,12 +36,12 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
 }else{
 	if (!connected()){
 		alert("error","Vous devez être connecté !");
-    	header("Location: ".getLink(["membres","connexion"]));
-    	exit();
+    	// header("Location: ".getLink(["membres","connexion"]));
+    	// exit();
 	}else{
 		alert("error","Vous n'avez pas le droit de modifier cet évènement!");
-    	header("Location: ".getLink(["membres","connexion"]));
-    	exit();
+    	// header("Location: ".getLink(["membres","connexion"]));
+    	// exit();
 	}
 	    
 }
@@ -197,7 +200,7 @@ if(!empty($_POST)){
 	//Upload de la Photo
 	if (empty($errors)){
 		if (!empty($photo) AND $photo != -1){
-    		$upload = uploadOnePhoto("photo", $contents["lien_photo"], PHOTO_EVENT, $photo);
+    		$upload = uploadOnePhoto("photo", $contents['values']["lien_photo"], PHOTO_EVENT, $photo);
     		if ($upload) {
     			$push["lien_photo"] = $photo;
     		}else{
@@ -220,11 +223,14 @@ if(!empty($_POST)){
 		}
 	}
     if (empty($errors)){
-    	//Mettre ici l'insertion de la BDD
-		alert("info","Votre évènement a bien été modifié.");
-		// header('Location: '.getLink(['event','display',$_GET['id']]));
-		// exit();
-
+    	$push['id_media_principal'] = $contents['values']['id_media_principal'];
+    	$push['max_type'] = count($contents['types']);
+    	$push['id'] = $_GET['id'];
+    	if (updateEvent($push)){
+	    	alert("info","Votre évènement a bien été modifié.");
+			// header('Location: '.getLink(['event','display',$_GET['id']]));
+			// exit();
+    	}
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
 	     foreach ($errors as $key => $value){
