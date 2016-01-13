@@ -37,7 +37,7 @@
 
 		<h5>Tarif</h5>
 		<div class="filter filter-price filter-price-all selected">Tous</div>
-		<div class="filter filter-price">0 - 10 €</div>
+		<div class="filter filter-price">< 10 €</div>
 		<div class="filter filter-price">10 - 50 €</div>
 		<div class="filter filter-price">> 50 €</div>
 	</div>
