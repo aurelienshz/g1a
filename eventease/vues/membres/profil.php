@@ -18,7 +18,7 @@
     else {  // c'est mon profil
 ?>
             <ul id="interaction_profil">
-                <li><a class="button" href="<?php echo getLink(['membres','modification_profil'])?>">Modifier mon profil</a></li>
+                <li><a class="button" id='modif_button' href="<?php echo getLink(['membres','modification_profil'])?>">Modifier mon profil</a></li>
             </ul>
 <?php } // connected() ?>
         </div>

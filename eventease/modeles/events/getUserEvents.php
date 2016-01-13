@@ -17,7 +17,7 @@ function getUserEvents($id) {
               . 'evenement.*,'
               . 'type.nom AS type,'
               . 'adresse.adresse_condensee AS adresse,'
-              . 'media.lien,'
+              . 'media.lien'
               . 'FROM membre'
               . 'LEFT JOIN invitation ON membre.id=invitation.id_destinataire'
               . 'LEFT JOIN evenement ON evenement.id=invitation.id_evenement'
