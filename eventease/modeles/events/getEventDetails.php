@@ -6,7 +6,7 @@
 
 function getEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $query = $bdd->prepare('SELECT evenement.*, media.lien AS lien_photo FROM evenement, media WHERE evenement.id = :id AND evenement.id_media_principal = media.id;');
+      $query = $bdd->prepare('SELECT evenement.*FROM evenement, media WHERE evenement.id = :id');
       $query-> execute(['id'=>$id]);
       $event = $query->fetch();
 
@@ -57,7 +57,7 @@ function getCreatorimage($id) {
 }
 function getParticipants($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id, media.lien FROM media, evenement, membre, invitation WHERE media.id = membre.id_photo AND invitation.id_evenement=evenement.id AND invitation.id_destinataire = membre.id AND evenement.id = :id');
+  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM  evenement, membre, invitation WHERE invitation.id_evenement=evenement.id AND invitation.id_destinataire = membre.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
   $participants = $query->fetchALL();
 
