@@ -69,9 +69,9 @@ if (empty($_POST)) { // Le formulaire n'a pas été rempli
 else {
 		if ($_POST['contenu']){
 			if (connected()){
-			insertMessage($_POST['contenu'], $id, $id_user);
-			header('Location: '.getLink(['forum','sujet', $id]));
-			exit();
+				insertMessage($_POST['contenu'], $id, $id_user);
+				header('Location: '.getLink(['forum','sujet', $id, 0]));
+				exit();
 			}
 		}
 		else

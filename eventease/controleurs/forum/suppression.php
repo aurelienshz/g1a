@@ -13,12 +13,17 @@ if ($id==1){//suppression topic
 	exit();
 }
 if ($id==2) {//modification topic
-	print_r($_POST);
-	$message=$_POST['message'];
-	var_dump($message);
-	var_dump($id_topic);
-	modifierTopic($id_topic, $message);
-	header('Location: '.getLink(['forum','sujet',$id_topic,'0']));
-	exit();
+	if ($_POST['message'] && $_POST['titre']){
+		$message=$_POST['message'];
+		$titre=$_POST['titre'];
+		modifierTopic($id_topic, $message, $titre);
+		header('Location: '.getLink(['forum','sujet',$id_topic,0]));
+		exit();
+	}
+	else {
+		alert('error', 'Vous n\'avez rien écrit !');
+        header('Location: '.getLink(['forum','sujet',$id_topic,2]));
+		exit();
+	}
 }
 ?>
