@@ -8,6 +8,7 @@
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/insert_comment.php';
 require MODELES.'events/checkParticipation.php';
+require MODELES.'events/getPicture.php';
 if (!empty($_POST) && !empty($_POST['comment'])) {
 
   insert_comment($_POST['comment'], $_GET['id'], $_SESSION['id']);
@@ -35,13 +36,35 @@ $contents['images']=$images;;
 
 $creators=getCreators($_GET['id']);
 $contents['creators']=$creators;
-
+$i=0;
+foreach($contents['creators'] as $organisateur){
+    $organisateur_photo = getPicture($organisateur['id']);
+    if ($organisateur_photo){
+      $contents['creators'][$i]['picture']=PHOTO_PROFIL.$organisateur_photo[0];
+      $i++;
+    }
+    else{
+      $contents['creators'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+      $i++;
+    }
+}
 $comment = getComments($_GET['id']);
 $contents['comment']=$comment;
 
 $participants= getParticipants($_GET['id']);
 $contents['participants']=$participants;
-
+$i=0;
+foreach($contents['participants'] as $participant){
+  $participant_photo = getPicture($participant['id']);
+  if ($participant_photo){
+    $contents['participants'][$i]['picture']=PHOTO_PROFIL.$participant_photo[0];
+    $i++;
+  }
+  else{
+    $participant['creators'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+    $i++;
+  }
+}
 $adresse = getAdress($_GET['id']);
 $contents['adresse']=$adresse;
 
@@ -56,6 +79,13 @@ $contents['site']=$event['site'];
 
 $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
+$creator_photo = getPicture($creator[0][1]);
+if ($creator_photo){
+  $contents['creator']['picture']=$creator_photo;
+}
+else{
+  $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
+}
 
 $contents['id_evenement']=$_GET['id'];
 

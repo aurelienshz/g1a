@@ -1,4 +1,4 @@
-<pre><?php   /*var_dump($contents['participe']);*/ ?></pre>
+<pre><?php  /* var_dump($contents['creators']); */?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
@@ -95,14 +95,14 @@ echo '</script>';
 		<div class = "hosts">
     		<h2>Organisateurs</h2>
       			<ul>
-              <li><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
+              <li><img src="<?php echo $contents['creator']['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
                       <?php
                           $compteur=0;
                           foreach($contents['creators'] as $creators)
                           {
                               if ($compteur>4) {echo "cliquez ici pour afficer plus d'organisateurs.";}
                       ?>
-                              <li><a href="<?php echo getLink(['membres','profil',$creators[1]]); ?>" target="_blank"><?php echo ' '. $creators[0];?></a></li>
+                              <li><img src="<?php echo $contents['creators'][$compteur]['picture'];?>"/><a href="<?php echo getLink(['membres','profil',$creators[1]]); ?>" target="_blank"><?php echo ' '. $creators[0];?></a></li>
                       <?php
                               $compteur++;
                           }
@@ -125,7 +125,7 @@ echo '</script>';
             ?>
               <?php if ($compteur>7) {echo '';}
                     else{ ?>
-                    <td><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>" target="_blank"><?php echo '<br/>'. $participants[0];?></a></td>
+                    <td><img src="<?php echo $contents['participants'][$compteur]['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$participants[1]]); ?>" target="_blank"><?php echo '<br/>'. $participants[0];?></a></td>
             <?php
                     }
             }
