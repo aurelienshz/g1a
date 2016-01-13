@@ -4,7 +4,7 @@ require MODELES.'events/insertEvent.php';
 require MODELES.'functions/date.php';
 require MODELES.'functions/google.php';
 require MODELES.'functions/form.php';
-require MODELES.'events/getTypes.php';
+require_once MODELES.'events/getTypes.php';
 
 $contents['types'] = getTypes();
 
@@ -51,7 +51,7 @@ if(connected()) {
 			}
 
 			// Type dans le bon intervalle :
-			if(!checkSelect($_POST['type'], range(0,count($contents['types'])) ){
+			if(!checkSelect($_POST['type'], range(0,count($contents['types'])) ) ){
 				$errors['type'] = "Type Invalide";
 				$_POST['type'] = 0;
 			}else{
