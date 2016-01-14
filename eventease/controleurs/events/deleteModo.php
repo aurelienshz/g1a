@@ -37,6 +37,8 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
 	}
 }
 $contents['errorMessage'] = '';
+$contents['modos'] = getCreators($_GET['id']);
+$contents['creator'] = getCreator($_GET['id']);
 if(!empty($_POST)){
 	if(!checkUsed($_POST['pseudo'], NULL, False) ){ ///si le pseudo n'existe pas///
 		$contents['errorMessage'] .= 'Le pseudo renseigné n\'existe pas ! ';
@@ -49,12 +51,12 @@ if(!empty($_POST)){
 	if(getUserDetails($orga_id)['niveau'] <= 0){
 		$contents['errorMessage'] .= 'Le pseudo renseigné n\'est pas activé ! ';
 	}
-
+	if (strtolower($contents['creator'][0][0]) == strtolower($_POST['pseudo'])){
+		$contents['errorMessage'] .= 'Vous ne pouvez pas supprimer le créateur !';
+	}
 	if(empty($contents['errorMessage']) ){
 		if(deleteModo($_GET['id'], $orga_id)){
 				alert("ok","Le modérateur a bien été supprimé !");
-    			header("Location: ".getLink(["events","modify",$_GET['id']]));
-    			exit();
 		}
 	}
 }

@@ -254,7 +254,7 @@ if(!empty($_POST)){
 // /**** préparation de la vue ****/
 
 $title = 'Modifier mon évènement';
-$styles = ['form.css','accueil.css', 'search.css', 'prettyform.css', 'modify.css'];
+$styles = ['form.css','accueil.css', 'search.css', 'prettyform.css'];
 $blocks = ['modify'];
 $scripts = ['googleAutocompleteAddress.js'];
 

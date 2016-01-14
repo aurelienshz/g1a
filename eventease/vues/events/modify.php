@@ -5,7 +5,7 @@
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 		</div>
 		<div class="ligneBoutons">
-			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','extra-media']); ?>"></i> Gèrer les images supplémentaires</a>
+			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','extra-media',$_GET['id']]); ?>"></i> Gèrer les images supplémentaires</a>
 			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','addModo',$_GET['id']]); ?>"></i> Ajouter des modérateurs</a>
 			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','deleteModo',$_GET['id']]); ?>"></i> Supprimer des modérateurs</a>
 		</div>
@@ -80,7 +80,7 @@
 							<label for="photo"><br>Modifier la photo principale :</label>
 							<img alt="Photo Event" src="<?php echo (isset($contents["values"]["lien_photo"]) AND $contents["values"]["lien_photo"] != -1)?htmlspecialchars(PHOTO_EVENT.$contents["values"]["lien_photo"]):IMAGES.'picnic1.jpg' ?>" title="Photo Event" height="150" width="300"/>
 							<br />(.jpg ou .png | max. : 2Mo | 1000x1000 max.)<br />
-							<input type="file" id="photo" name="photo"/>
+							<input type="file" id="photo" name="photo" accept=".png,.jpg,.jpeg"/>
 							<?php echo (isset($contents["values"]["lien_photo"]) AND $contents["values"]["lien_photo"] != -1 )?"<input type='checkbox' name='photo' value='-1' >Supprimer la photo":NULL ?>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>

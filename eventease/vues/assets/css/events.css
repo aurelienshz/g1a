@@ -1,4 +1,21 @@
 @CHARSET "UTF-8";
+#statut_de_participation{
+	float:right;
+	display:block;
+	width:15%;
+	height:auto;
+	margin: 0px 0.2em 0.2em 0px;
+	border-radius: 10px;
+	vertical-align:middle;
+	font-size: 100%;
+	text-align:center;
+	text-decoration: none;
+	color: #FAFAFA;
+	background-color:#78C0F0;
+	border-bottom:5px solid #3399FF;
+	border-right:5px solid #3399FF;
+	text-shadow:0px -1px #3399FF;
+}
 .intro_evenement {
 	display:block;
 	width:100%;
@@ -30,6 +47,7 @@
 	display:block;
 	width:100%;
 	height:auto;
+	text-align:left;
 }
 .infos {
 	display:block;

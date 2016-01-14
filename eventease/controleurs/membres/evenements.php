@@ -1,18 +1,26 @@
 <?php
 /*** CONTROLEUR EVENEMENTS PROFIL ***/
 
-/**** Préparation des contenus ****/
+require MODELES.'events/getMemberEvents.php';
+require MODELES.'membres/buildCalendar.php';
 
-require MODELES.'membres/getUserDetails.php';
-require MODELES.'events/getUserEvents.php';
-        
-//if(isset($_GET['id'])) {
-    $contents['pseudo'] = getUserDetails($_SESSION['id'])['pseudo'];
-//}
+// La page n'est accessible qu'à un membre connecté :
+if(!connected()) {
+    alert('error', 'Vous devez vous connecter pour voir cette page');
+    header("Location: ".getLink(['membres','connexion']));
+    exit();
+}
+else {
+    $events = getMemberEvents($_SESSION['id']);
+
+    foreach ($events as $key => $event) {
+        $yearsToBuild[] = [$event['year']];
+    }
+    var_dump($monthsToBuild);
+    $contents['calendar'] = buildCalendar(11,2015);
+}
 /**** Affichage de la page ****/
-
 $contents['ongletActif'] = 'evenements';
-/* $title = 'Evenements de '.$contents['pseudo']; */
 $title = 'Mes évènements';
 $styles = ['onglets_compte.css','mes_events.css','accueil.css'];
 $blocks = ['onglets_compte', 'evenements'];

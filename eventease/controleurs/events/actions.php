@@ -6,7 +6,8 @@ $actions = [
 'invite',
 'modify',
 'addModo',
-'deleteModo'
+'deleteModo',
+'extra-media'
 ];
 
 $parametres = [
@@ -17,5 +18,6 @@ $parametres = [
 'invite'=>['id'],
 'modify' => ['id'],
 'addModo' => ['id'],
-'deleteModo' => ['id']
+'deleteModo' => ['id'],
+'extra-media' => ['id']
 ];

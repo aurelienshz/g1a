@@ -1,0 +1,18 @@
+
+.flex-line{
+	display: flex; 
+	justify-content: space-between;
+}
+.imageBlock{
+	max-width: 20%;
+	background-color: #CDCDCD;
+	margin: 20px;
+	align-self : flex-end;
+}
+img{
+	max-width: 100%;
+}
+p{
+	margin: 10px;
+	text-align: center;
+}
