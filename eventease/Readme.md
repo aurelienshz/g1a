@@ -33,7 +33,6 @@ Questions pour le groupe :
 ### Afficher / modifier -- Loann ###
 front end :
 - **Question :** Afficher la date de dernière connexion ?
-- Aurélien doit-il réparer la vue (prettyform and shit) ?
 - [x] réafficher le contenu des champs si le form est sorti en erreur
 - [x] back end : y avait-il un bug dans la vérif d'adresse (signalé par Loann) - ça marche pas forcément en local, il suffit que ça marche sur le serveur.
 - [x] quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
@@ -46,7 +45,7 @@ front end :
 CLIENT :
 - [x] gros onglets -> bof , rester sur style arrondi et allégé
 - [ ]client : suggérer les règles pour les noms, les mdp... dans le message d'erreur. --> Tristan
-- [ ] client : nom aligné à gauche --> Aurélien
+- [x] client : nom aligné à gauche --> Aurélien
 
 ### Inscription / Connexion / Validation mail : ###
 - inscription : conditions sur le mdp --> Aurélien

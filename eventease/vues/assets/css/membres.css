@@ -7,12 +7,12 @@
     float: left;
     width: 20%;
     padding: 0 2.5%;
+    border-right: 1px solid black;
 }
 #col_droite {
     margin-left: 25%;
     padding-left: 1.25%;
     vertical-align: top;
-    border-left: 1px solid black;
 }
 #photo_profil {
     text-align: center;
@@ -40,8 +40,8 @@ h2 {
 	font-size: 1.2cm;
 	line-height: 1.43;
 	color: black;
-        text-align: center;
-        margin: 10px 0 25px 0;
+    text-align: left;
+    margin: 10px 0 25px 0;
 }
 #statut {
     border: 1px solid #303030;
@@ -60,8 +60,6 @@ h2 {
 #description p {
     border: 1px solid #565A5C; /* couleur : gris semi-clair */
     padding: 20px;
-    height: 2.5cm;
-    width: 84%;
     overflow: auto;
 }
 #general {
@@ -83,7 +81,7 @@ h2 {
 
 #col1 {
     float: left;
-    width: 44%;
+    width: 49%;
     padding-left: 5px;
     border-left-style: solid;
     border-left-width: 1px;
@@ -92,7 +90,7 @@ h2 {
 
 #col2 {
     float: right;
-    width: 54%;
+    width: 49%;
     padding-left: 5px;
     border-left-style: solid;
     border-left-width: 1px;
