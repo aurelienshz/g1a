@@ -8,7 +8,7 @@
     <div class="form">
       <form action="<?php echo getLink(['forum','creation_topic']); ?>" method="post">
         <label for="nom" style="display:inline-block">Nom :</label>
-        <input type="text" name="nom" value="<?php echo $contents['prenom'] . $contents['nom']?>" id="nom" style="width:60%; float:left; margin-bottom:0" >
+        <input type="text" name="nom" value="<?php echo $contents['prenom'] . " " . $contents['nom']?>" id="nom" style="width:60%; float:left; margin-bottom:0" >
         <?php echo isset($contents['errors']['titre'])?$contents['errors']['nom']:'' ?>
         </br></br>
 
