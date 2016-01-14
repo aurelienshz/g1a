@@ -21,6 +21,7 @@ function getMemberEvents() {
             "description" => "Lorem Ipsum"]];
     return $res;
 }
+
 function generateCalendars($events) {
     // entrée : tableau d'évènements
     // sortie : tableau (PHP) de tableaux (HTML) représentant les calendriers enre le premier et le dernier mois rencontré
@@ -59,7 +60,6 @@ function build_calendar($month,$year,$dateArray) {
      foreach($daysOfWeek as $day) {
           $calendar .= "<th class='header'>$day</th>";
      }
-
      // créerle reste du calendrier :
      // initialisation du compteur de jours :
      $currentDay = 1;
@@ -93,6 +93,13 @@ function build_calendar($month,$year,$dateArray) {
      return $calendar;
 }
 
+
+require MODELES.'membres/getUserDetails.php';
+require MODELES.'events/getMemberEvents.php';
+
+//if(isset($_GET['id'])) {
+    $contents['pseudo'] = getUserDetails($_SESSION['id'])['pseudo'];
+//}
 
 generateCalendars(getMemberEvents());
 // La page n'est accessible qu'à un membre connecté :
