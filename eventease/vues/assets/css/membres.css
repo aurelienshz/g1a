@@ -40,8 +40,8 @@ h2 {
 	font-size: 1.2cm;
 	line-height: 1.43;
 	color: black;
-        text-align: center;
-        margin: 10px 0 25px 0;
+    text-align: left;
+    margin: 10px 0 25px 0;
 }
 #statut {
     border: 1px solid #303030;
@@ -60,8 +60,6 @@ h2 {
 #description p {
     border: 1px solid #565A5C; /* couleur : gris semi-clair */
     padding: 20px;
-    height: 2.5cm;
-    width: 84%;
     overflow: auto;
 }
 #general {
@@ -82,8 +80,8 @@ h2 {
 }
 
 #col1 {
-    float: left;
-    width: 44%;
+    display: inline-block;
+    width: 49%;
     padding-left: 5px;
     border-left-style: solid;
     border-left-width: 1px;
@@ -91,8 +89,8 @@ h2 {
 }
 
 #col2 {
-    float: right;
-    width: 54%;
+    display: inline-block;
+    width: 49%;
     padding-left: 5px;
     border-left-style: solid;
     border-left-width: 1px;

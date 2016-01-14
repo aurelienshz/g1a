@@ -1,0 +1,83 @@
+/*** GÉNÉRAL ***/
+html {
+    background-color: #101010;
+    color: #FAFAFA;
+    font-family: "Open Sans","sans serif";
+}
+
+body {
+    width: 800px;
+    margin: 0 auto;
+}
+
+h1,h2 {
+    color: gray;
+}
+
+h1 {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+h1 span {
+    color: #F94339;
+}
+
+.category {
+    border-bottom: 1px solid gray;
+}
+a {
+    color: #F94339;
+}
+a:hover {
+    text-decoration: none;
+}
+
+/*** FORMULAIRES ***/
+form {
+    width: 800px;
+}
+
+form .row label, form .row input {
+    display: inline-block;
+}
+
+form .row label {
+    text-align: right;
+    margin: .5em 0;
+    font-size: 1.1em;
+    padding: 0 20px 0 0;
+    width: 280px;
+}
+form .row input {
+    width: 500px;
+}
+form input[type="submit"] {
+    background-color: #F94339;
+    border: 1px solid black;
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    padding: .4em;
+    border-radius: .4em;
+}
+form .submit-row {
+    width: 100%;
+    text-align: right;
+    margin: .5em 0;
+}
+form textarea {
+    width: 100%;
+    min-height: 400px;
+    margin: 1em 0;
+    overflow: auto;
+    resize: vertical;
+}
+/*** FAQ ***/
+ul#faq-list li {
+    margin: .5em 0;
+
+}
+ul#faq-list li span.faq-action {
+    float: right;
+}
