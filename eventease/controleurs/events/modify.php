@@ -192,6 +192,8 @@ if(!empty($_POST)){
 			if (isset($_POST['photo']) ) {
 				if ($_POST['photo'] == -1){
 					$photo = -1;
+					$contents['values']["old_lien_photo"] = $contents['values']["lien_photo"];
+					$contents['values']["lien_photo"] = -1;
 				}
 			}
 		}
@@ -207,13 +209,6 @@ if(!empty($_POST)){
     		$errors["photo"] = "[Erreur Serveur - Contactez l'administrateur] Erreur dans la copie de la photo.";
    			}
     	}
-	}
-
-    if (isset($photo) ) {
-	    if ($photo == -1 AND empty($errors)) {
-	    	unlink(PHOTO_EVENT. $contents['values']["lien_photo"]);
-	    	unset($contents['values']["lien_photo"]);
-	    }
 	}
 
 	if(!empty($push)){
@@ -241,19 +236,6 @@ if(!empty($_POST)){
 
 
 // /**** préparation de la vue ****/
-
-?> <pre> <?php
-echo "CONTENTS : <br />";
-var_dump($contents);
-echo "Erreurs ? ";
-echo (empty($errors))?"Non":"Oui";
-echo "<br />POST soumis ? ";
-echo (!empty($_POST))?"Oui":"Non";
-echo "POST : <br />";
-var_dump($_POST);
-echo "Push : <br />";
-var_dump($push);
-?> </pre> <?php
 
 $title = 'Modifier mon évènement';
 $styles = ['form.css','accueil.css', 'search.css', 'prettyform.css', 'modify.css'];

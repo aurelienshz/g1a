@@ -11,6 +11,8 @@ function updateEvent($push) {
 
 	require MODELES.'functions/adresse.php';
 	require MODELES.'functions/insertMedia.php';
+	require MODELES.'functions/updateMedia.php';
+	require MODELES.'functions/removeMedia.php';
 
 	$max_type = $push['max_type'];
 
@@ -23,20 +25,25 @@ function updateEvent($push) {
 
 	$adresse_id = insertAddress($push['adresse']);
 
-	if (!empty($push['lien_photo'])) {
-		if ($push['id_media_principal']){
-			if (updateMedia($push['lien_photo'],$push['id_media_principal'])){
-				$media_id = $push['id_media_principal'];
-			}else{
+	$media_id = NULL;
+	if (!empty($push['id_media_principal'])){
+		if (!empty($push['lien_photo'])){
+			if ($push['lien_photo'] == -1){
+				unlink(PHOTO_EVENT.$push['old_lien_photo']);
+				removeMedia($push['id_media_principal']);
 				$media_id = NULL;
+			}else{
+				updateMedia($push['lien_photo'],$push['id_media_principal']);
+				$media_id = $push['id_media_principal'];
 			}
-		}else{
-			$media_id = insertMedia($push['lien_photo']);
 		}
 	}else{
-		$media_id = NULL;
+
+		if (!empty($push['lien_photo'])){
+			$media_id = insertMedia($push['lien_photo']);
+		}
 	}
-	
+
 // insérer dans organise ou organise = coming soon
 
 	$updateQuery = $bdd->prepare('UPDATE 

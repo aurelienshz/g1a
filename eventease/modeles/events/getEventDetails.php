@@ -41,9 +41,9 @@ function getMainImage($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
   $query = $bdd->prepare('SELECT media.lien FROM evenement, media WHERE evenement.id = :id AND evenement.id_media_principal = media.id;');
   $query-> execute(['id'=>$id]);
-  $images = $query->fetchALL();
+  $images = $query->fetch();
 
-  return $images;
+  return $images[0];
 }
 function getCreator($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
