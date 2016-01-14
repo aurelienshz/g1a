@@ -79,7 +79,7 @@ input[type="radio"], input[type="checkbox"] {
     width: 1em;
     display: inline-block;
 }
-label > input[type="radio"], label > input[type="checkbox"], input[type="checkbox"] + label, input[type="radio"] + label {
+label > input[type="radio"], label > input[type="checkbox"], label + input[type="checkbox"], label + input[type="radio"] {
     float: left;
 }
 label.checkbox-label, label.radio-label {
@@ -120,7 +120,7 @@ select{
 }
 .ligneBoutons {
     display: flex;
-    
+
 }
 /*.tableau {display: table;border-spacing: 0.5rem;border-collapse: collapse;}
 .cellule {display: table-cell;padding: 0.5rem; border: 1px solid #999;}

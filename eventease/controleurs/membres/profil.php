@@ -23,15 +23,15 @@ function loadContents($details) {
     $contents = array_merge($contents, [
                 'pseudo' => $details['pseudo'],
                 'mail' => $details['mail'],
-                'tel' => isset($details['tel'])?$details['tel']:'<i>Non renseigné</i>',
-                'civilite' => isset($details['civilite'])?($details['civilite']?'Mme':'M.'):'',
-                'adresse_condensee' => isset($details['adresse_condensee'])?$details['adresse_condensee']:'<i>Non renseignée</i>',
-    /* fac */   'photo' => isset($details['id_photo']) && $details['id_photo']!=0?PHOTO_PROFIL.$details['lien_photo']:IMAGES.'photo_profil_defaut.jpg',
-    /* fac */   'nom' => isset($details['nom'])?$details['nom']:'',
-    /* fac */   'prenom' => isset($details['prenom'])?$details['prenom']:'',
-    /* fac */   'ddn' => isset($details['ddn'])?$details['ddn']:'<i>Non renseignée</i>',
-    /* fac */   'description' => isset($details['description'])?$details['description']:'Bienvenue sur mon profil !',
-    /* fac */   'langue' => isset($details['langue'])?($details['langue']?'Anglais':'Français'):'<i>Non renseignée</i>',
+                'tel' => !empty($details['tel'])?$details['tel']:'<i>Non renseigné</i>',
+                'civilite' => !empty($details['civilite'])?($details['civilite']?'Mme':'M.'):'',
+                'adresse_condensee' => !empty($details['adresse_condensee'])?$details['adresse_condensee']:'<i>Non renseignée</i>',
+    /* fac */   'photo' => !empty($details['id_photo']) && $details['id_photo']!=0?PHOTO_PROFIL.$details['lien_photo']:IMAGES.'photo_profil_defaut.jpg',
+    /* fac */   'nom' => !empty($details['nom'])?$details['nom']:'',
+    /* fac */   'prenom' => !empty($details['prenom'])?$details['prenom']:'',
+    /* fac */   'ddn' => !empty($details['ddn'])?$details['ddn']:'<i>Non renseignée</i>',
+    /* fac */   'description' => !empty($details['description'])?$details['description']:'Bienvenue sur mon profil !',
+    /* fac */   'langue' => !empty($details['langue'])?($details['langue']?'Anglais':'Français'):'<i>Non renseignée</i>',
         ]);
     switch($details['niveau']==1) {
         case 1:
@@ -120,11 +120,13 @@ if ($contents['nom']==='') {
 if ($contents['prenom']==='' AND $contents['nom']==='') {
     $contents['civilite']='<i>Non renseigné</i>';
 }
+
 /**** Fonction affichage mois en FR ****/
-function date_mois_fr($mois_num){
+function date_mois_fr($mois_num) {
     $mois_fr = ['01'=>'Janvier','02'=>'Février','03'=>'Mars','04'=>'Avril','05'=>'Mai','06'=>'Juin','07'=>'Juillet','08'=>'Août','09'=>'Septembre','10'=>'Octobre','11'=>'Novembre','12'=>'Décembre'];
     return $mois_fr[$mois_num];
 }
+
 if ($contents['ddn']!='<i>Non renseignée</i>') {
     $contents['ddn']= date('j m o',strtotime($contents['ddn']));
     $contents['ddn']=explode(' ',$contents['ddn']) ;

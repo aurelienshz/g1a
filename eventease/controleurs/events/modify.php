@@ -1,7 +1,6 @@
 <?php
 /* CONTROLEUR D'ACTION /*
 /****** Préparation des contenus ******/
-
 // ===== RECUPERE LES VALEURS DEJA PRESENTES DE L'évènement =====
 require MODELES.'functions/google.php';
 require MODELES.'functions/date.php';
@@ -10,6 +9,15 @@ require MODELES.'events/getTypes.php';
 require MODELES.'events/checkOrganiser.php';
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/updateEvent.php';
+
+	$nameTranslation = [ 
+	'price' => 'tarif',
+	'max_attendees' => 'max_participants',
+	'visibility' => 'visibilite',
+	'hosts' => 'organisateurs',
+	'sponsors' => 'sponsor',
+	'website' => 'site'
+	];
 
 $contents['types'] = getTypes();
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
@@ -20,14 +28,14 @@ if(!isset($_GET['id']) ){
     header("Location: ".getLink(["accueil","404"]));
     exit();
 }
+$_GET['id'] = htmlspecialchars($_GET['id']);
 //Si le EventID dans le GET n'est pas attribué.
 $contents['values'] = getEvents($_GET['id']);
 $contents['values']['lien_photo'] = getMainImage($_GET['id']);
 if (empty($contents["values"])){
 	alert("error","Cet évènement n'existe pas !");
-	var_dump($contents['values']);
-    // header("Location: ".getLink(["accueil","404"]));
-    // exit();
+    header("Location: ".getLink(["accueil","404"]));
+    exit();
 }
 
 // Fonction qui check s'il a le droit de modifier.
@@ -36,12 +44,12 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
 }else{
 	if (!connected()){
 		alert("error","Vous devez être connecté !");
-    	// header("Location: ".getLink(["membres","connexion"]));
-    	// exit();
+    	header("Location: ".getLink(["membres","connexion"]));
+    	exit();
 	}else{
 		alert("error","Vous n'avez pas le droit de modifier cet évènement!");
-    	// header("Location: ".getLink(["membres","connexion"]));
-    	// exit();
+    	header("Location: ".getLink(["accueil"]));
+    	exit();
 	}
 	    
 }
@@ -58,6 +66,7 @@ $contents["values"]["adresse"] = getAdress($_GET['id'])[0];
 
 //Formulaire soumis
 if(!empty($_POST)){
+
 	//Sécuriser POST
 	foreach($_POST as $cle => $valeur){
 			$_POST[$cle]=htmlspecialchars($valeur);
@@ -70,11 +79,10 @@ if(!empty($_POST)){
 				$errors[$field] = 'Ce champ est requis';
 			}
 		}
-
+	$push = $_POST;
 	//Commencer les vérifications
 	if (empty($errors)){
 		//titre, debut, fin, journee_entiere, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse
-		$push = $_POST;
 
 		// Nom conforme :
 		if(!checkTextInput($_POST['titre'],"/^[-a-zâäàéèùêëîïôöçñ' 0-9@#]+$/i")) {
@@ -114,7 +122,7 @@ if(!empty($_POST)){
 		}else{
 			$endTimeTest = !validateDateFormat($endTime, 'Y-m-d H:i');
 		}
-		if( $endTimeTest AND strtotime($startTime) >= strtotime($endTime)) {
+		if( $endTimeTest OR strtotime($startTime) >= strtotime($endTime)) {
 			$errors['date_fin'] = 'La date et l\'heure de fin doivent être après la date et l\'heure de début';
 		}
 		else {
@@ -189,9 +197,13 @@ if(!empty($_POST)){
 				if ($check[1] != NULL) $errors["photo"] = $check[1];
 			}	
 			// Si il veut supprimer la photo
-			if (isset($_POST['photo']) ) {
+			if (isset($_POST['photo']) && empty($errors) ) {
 				if ($_POST['photo'] == -1){
 					$photo = -1;
+					$push["lien_photo"] = -1;
+					var_dump($contents['values']["lien_photo"]);
+					$push["old_lien_photo"] = $contents['values']["lien_photo"];
+					$contents['values']["lien_photo"] = -1;
 				}
 			}
 		}
@@ -209,27 +221,25 @@ if(!empty($_POST)){
     	}
 	}
 
-    if (isset($photo) ) {
-	    if ($photo == -1 AND empty($errors)) {
-	    	unlink(PHOTO_EVENT. $contents['values']["lien_photo"]);
-	    	unset($contents['values']["lien_photo"]);
-	    }
-	}
-
-	if(!empty($push)){
+	if(!empty($_POST) && !empty($push)){
 		// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
-	    foreach($push as $cle => $valeur){
-				$contents['values'][$cle]=$valeur;
+		foreach($push as $cle => $valeur){
+			$contents['values'][$cle]=$push[$cle];
+		}
+		foreach ($nameTranslation as $cle => $value) {
+			$contents['values'][$value]=$push[$cle];
 		}
 	}
+
+
     if (empty($errors)){
     	$push['id_media_principal'] = $contents['values']['id_media_principal'];
     	$push['max_type'] = count($contents['types']);
     	$push['id'] = $_GET['id'];
     	if (updateEvent($push)){
 	    	alert("info","Votre évènement a bien été modifié.");
-			// header('Location: '.getLink(['event','display',$_GET['id']]));
-			// exit();
+			header('Location: '.getLink(['events','display',$_GET['id']]));
+			exit();
     	}
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
@@ -237,23 +247,11 @@ if(!empty($_POST)){
 				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
 			}
     }
+
 }
 
 
 // /**** préparation de la vue ****/
-
-?> <pre> <?php
-echo "CONTENTS : <br />";
-var_dump($contents);
-echo "Erreurs ? ";
-echo (empty($errors))?"Non":"Oui";
-echo "<br />POST soumis ? ";
-echo (!empty($_POST))?"Oui":"Non";
-echo "POST : <br />";
-var_dump($_POST);
-echo "Push : <br />";
-var_dump($push);
-?> </pre> <?php
 
 $title = 'Modifier mon évènement';
 $styles = ['form.css','accueil.css', 'search.css', 'prettyform.css', 'modify.css'];

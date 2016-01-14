@@ -8,6 +8,8 @@
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/insert_comment.php';
 require MODELES.'events/checkParticipation.php';
+require MODELES.'events/getMembersPicture.php';
+require MODELES.'events/getEventPicture.php';
 if (!empty($_POST) && !empty($_POST['comment'])) {
 
   insert_comment($_POST['comment'], $_GET['id'], $_SESSION['id']);
@@ -27,6 +29,41 @@ $blocks = ['display'];
 $type = eventType($_GET['id']);
 $contents['type']=$type[0];
 
+$photo_principale =getEventPicture($_GET['id']);
+if($photo_principale){
+  $contents['photo_principale']=PHOTO_EVENT.$photo_principale[0];
+}
+else{
+  switch($event['id_type']){
+    case 1:
+      $contents['photo_principale']="vues/assets/images/picni1.jpg";
+      break;
+    case 2:
+      $contents['photo_principale']="vues/assets/images/concertType.jpg";
+      break;
+    case 3:
+      $contents['photo_principale']="vues/assets/images/ravepartyType.jpg";
+      break;
+    case 6:
+      $contents['photo_principale']="vues/assets/images/ventepriveeType.jpg";
+      break;
+    case 7:
+      $contents['photo_principale']="vues/assets/images/brocanteType.jpg";
+      break;
+    case 8:
+      $contents['photo_principale']="vues/assets/images/expositionType.jpg";
+      break;
+    case 9:
+      $contents['photo_principale']="vues/assets/images/rassemblementType.jpg";
+      break;
+    case 10:
+      $contents['photo_principale']="vues/assets/images/logo.jpg";
+      break;
+    default:
+      break;
+  }
+}
+
 $site = sponsor($_GET['id']);
 $contents['sponsor']=$site[0];
 
@@ -35,12 +72,47 @@ $contents['images']=$images;;
 
 $creators=getCreators($_GET['id']);
 $contents['creators']=$creators;
-
+$i=0;
+foreach($contents['creators'] as $organisateur){
+    $organisateur_photo = getMembersPicture($organisateur['id']);
+    if ($organisateur_photo){
+      $contents['creators'][$i]['picture']=PHOTO_PROFIL.$organisateur_photo[0];
+      $i++;
+    }
+    else{
+      $contents['creators'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+      $i++;
+    }
+}
 $comment = getComments($_GET['id']);
 $contents['comment']=$comment;
+$i=0;
+foreach($contents['comment'] as $commentateur){
+    $commentateur_photo = getMembersPicture($commentateur['id']);
+    if ($commentateur_photo){
+      $contents['comment'][$i]['picture']=PHOTO_PROFIL.$commentateur_photo[0];
+      $i++;
+    }
+    else{
+      $contents['comment'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+      $i++;
+    }
+}
 
 $participants= getParticipants($_GET['id']);
 $contents['participants']=$participants;
+$i=0;
+foreach($contents['participants'] as $participant){
+  $participant_photo = getMembersPicture($participant['id']);
+  if ($participant_photo){
+    $contents['participants'][$i]['picture']=PHOTO_PROFIL.$participant_photo[0];
+    $i++;
+  }
+  else{
+    $contents['participants'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+    $i++;
+  }
+}
 
 $adresse = getAdress($_GET['id']);
 $contents['adresse']=$adresse;
@@ -56,6 +128,13 @@ $contents['site']=$event['site'];
 
 $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
+$creator_photo = getMembersPicture($creator[0][1]);
+if ($creator_photo){
+  $contents['creator']['picture']=$creator_photo;
+}
+else{
+  $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
+}
 
 $contents['id_evenement']=$_GET['id'];
 

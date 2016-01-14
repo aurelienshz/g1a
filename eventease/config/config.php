@@ -15,7 +15,7 @@ $modules = [
 'messages',
 'aide',
 'sandbox',
-'admin'
+'backoffice'
 ];
 
 /***

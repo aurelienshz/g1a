@@ -26,7 +26,7 @@
             <div id='pseudo_profil'><?php echo $contents['pseudo']; ?></div>
             <div id="description">
                 <h3>À propos de moi :</h3>
-                <p> <?php echo $contents['description']; ?></p>
+                <p> <?php echo nl2br($contents['description']); ?></p>
             </div>
             <div id="general">
                 <h3>Informations complémentaires :</h3>
@@ -45,7 +45,6 @@
                 </ul>
                 </div>
             </div>
-
         </div>
     </div>
             <div id="clearfix"></div> <?php /**empêche le débordement des float sur le footer**/ ?>
