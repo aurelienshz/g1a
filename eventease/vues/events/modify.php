@@ -80,7 +80,7 @@
 							<img alt="Photo Event" src="<?php echo (isset($contents["values"]["lien_photo"]) AND $contents["values"]["lien_photo"] != -1)?htmlspecialchars(PHOTO_EVENT.$contents["values"]["lien_photo"]):IMAGES.'picnic1.jpg' ?>" title="Photo Event" height="150" width="300"/>
 							<br />(.jpg ou .png | max. : 2Mo | 1000x1000 max.)<br />
 							<input type="file" id="photo" name="photo"/>
-							<?php echo (isset($contents["values"]["lien_photo"]) AND $contents["values"]["lien_photo"] != -1 )?"<input type='checkbox' name='lien_photo' value='-1' >Supprimer la photo":NULL ?>
+							<?php echo (isset($contents["values"]["lien_photo"]) AND $contents["values"]["lien_photo"] != -1 )?"<input type='checkbox' name='photo' value='-1' >Supprimer la photo":NULL ?>
 							<?php echo isset($contents['errors']['photo'])?$contents['errors']['photo']:'' ?>
             			</div>
             		</div>
