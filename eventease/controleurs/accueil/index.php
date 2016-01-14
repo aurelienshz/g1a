@@ -10,6 +10,7 @@
 
 
 require MODELES.'events/suggestions.php';
+require MODELES.'accueil/getCatchphrases.php';
 
 /**** Préparation des ressources de la page ****/
 $title = 'Accueil';
@@ -18,7 +19,8 @@ $scripts = ['bigform.js', 'simple-slideshow.js', 'googleAutocompleteAddress.js']
 $blocs = ['index'];
 
 // Préparation des contenus
-$contents = suggestions();
+$contents['suggestions'] = suggestions();
+$contents['catchPhrases'] = getCatchphrases();
 
 // Chargement de la bonne version du triptyque
 if(connected()) {

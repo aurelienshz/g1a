@@ -29,15 +29,16 @@
 		}
 		?>
 
-		<h5>Date & heure</h5>
+		<h5>Date</h5>
 		<div class="filter filter-date filter-date-all selected">Tous</div>
 		<div class="filter filter-date">Aujourd'hui</div>
 		<div class="filter filter-date">Demain</div>
-		<div class="filter filter-date">Ce mois-ci</div>
+		<div class="filter filter-date">Mois en cours</div>
+		<div class="filter filter-date">Plus tard</div>
 
 		<h5>Tarif</h5>
 		<div class="filter filter-price filter-price-all selected">Tous</div>
-		<div class="filter filter-price">0 - 10 €</div>
+		<div class="filter filter-price">< 10 €</div>
 		<div class="filter filter-price">10 - 50 €</div>
 		<div class="filter filter-price">> 50 €</div>
 	</div>
@@ -70,7 +71,7 @@ if(isset($contents['searchResults'])) {
 			<?php if(isset($event['description'])) {
 				echo '<p class="description">'.$event['description'].'</p>';
 			} ?>
-			<a class="button" href="#">Voir l'évènement</a>
+			<a class="button" href="<?php echo getLink(['events','display',$event['id']]); ?>">Voir l'évènement</a>
 		</div>
 
 <?php

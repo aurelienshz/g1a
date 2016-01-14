@@ -16,6 +16,13 @@ if(mm<10) {
 today = yyyy+'-'+mm+'-'+dd;
 console.log(today);
 
+var toHide = function(filter, event) {
+    switch(filter) {
+        case 'price':
+
+    }
+}
+
 
 var numberEvents = events.length;
 if(numberEvents > 0) {
@@ -49,28 +56,30 @@ if(numberEvents > 0) {
     }
 }
 
-var filtersType = document.getElementsByClassName("filter-type"),
-    filtersDate = document.getElementsByClassName("filter-date"),
-    filtersPrice = document.getElementsByClassName("filter-price"),
-    filters = {},
-    hidden = {};
+// var filterType = {document.getElementsByClassName("filter-type")},
+//     filterDate = document.getElementsByClassName("filter-date"),
+//     filterPrice = document.getElementsByClassName("filter-price");
+var Filter = {},
+    names = ['type', 'date', 'price'];
 
-for(var f in names = ['type', 'date', 'price']) {
+for(var f in names) {
 
-    var name = &names[f];
+    var name = names[f];
 
-    filters[name] = document.getElementsByClassName("filter-"+name);
+    Filter[name] = {filters: document.getElementsByClassName("filter-"+name), hidden: []};
 
-    hidden[name] = [];
+}
 
-    console.log(filters[name]);
+for(var name in Filter) {
+    console.log(Filter[name]);
 
-    for(var i=0; c=filters[name].length, i<c; i++) {
-        filters[name][i].addEventListener('click',function(e) {
+    for(var i=0; c=Filter[name].filters.length, i<c; i++) {
+        Filter[name].filters[i].addEventListener('click',function(e) {
             // on purge la liste des events à cacher : elle sera reconstruite après la fin du filtrage
-            hidden[name] = [];
+            Filter[name].hidden = [];
             // Si on a cliqué sur "tous" :
             if(e.target.classList.contains("filter-"+name+"-all")) {
+                console.log('jaja');
                 // on désactive tous les filtres :
                 for(var j=0; j<c; j++) {
                     filters[name][j].classList.remove("selected");
@@ -118,6 +127,7 @@ for(var f in names = ['type', 'date', 'price']) {
             console.log(hidden[name]);
 
             for(var j=0; j < numberEvents; j++) {
+                // Si on trouve la catégorie de l'event dans la liste des catégories à cacher :
                 if(hidden[name].indexOf(events[j].categorie) >= 0) {
                     // console.log(hidden[filter].indexOf(events[j].categorie));
                     events[j].style.display = 'none';

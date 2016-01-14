@@ -28,6 +28,8 @@
 .results {
 	margin-left: 22%;
 }
+
+
 .prettyform .tabs #tab-events {
 	background-color: #FAFAFA;
 	border-top: 15px solid #FAFAFA;
@@ -41,19 +43,22 @@
 	margin: 1em auto;
 }
 
-.prettyform #criteres {
-
+.prettyform form > label, .prettyform #criteres h3 {
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 1em 0 .5em 0;
 }
-.prettyform #criteres .row {
-	display: flex;
-	table-layout: fixed;
+.prettyform #criteres {
 	width: 100%;
+	margin: 2em 0;
 }
 
 .prettyform #criteres .champ {
-	display: table-cell;
-	width: 20%
+	display: inline-block;
+	text-align: center;
+	width: 19.5%;
 }
 .prettyform #criteres .champ label {
-	text-align: center;
+	margin: 0 auto;
 }
