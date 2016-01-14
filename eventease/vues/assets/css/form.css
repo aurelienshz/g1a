@@ -122,6 +122,7 @@ select{
     display: flex;
 
 }
+
 /*.tableau {display: table;border-spacing: 0.5rem;border-collapse: collapse;}
 .cellule {display: table-cell;padding: 0.5rem; border: 1px solid #999;}
 .ligne {display: table-row;}

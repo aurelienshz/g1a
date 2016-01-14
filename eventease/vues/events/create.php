@@ -113,7 +113,7 @@
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="autohosted">Organisez vous cet évènement ? </label>
+						<label for="autohosted">Organisez-vous cet évènement ? </label>
 						<span style="margin-left : 25%;"><input type="radio" id="autohosted_Yes" name="autohosted" value="True" checked="checked" /> Oui </span>
 						<span style="margin-left : 5%;"><input type="radio" id="autohosted_No" name="autohosted" value="False"/> Non</span>
 						<?php echo isset($contents['errors']['autohosted'])?$contents['errors']['autohosted']:''; ?>
