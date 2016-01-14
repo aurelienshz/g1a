@@ -180,7 +180,7 @@ id_what donne la fonction à faire :
                 <h3><input type="submit" value="Envoyer" style="background-color:#36B136"/></h3>
               </div>
             </form>
-            <div class="membre" style="width:9%;margin-top:0px,float:none">
+            <div class="membre" style="width:9%; margin:0; margin-top:0px; float:none; margin-left:20px">
               <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
               <strong><?php echo $contents['pseudo1']?></strong></br>
             </div>
