@@ -1,5 +1,5 @@
 <div class="wrapper">
-	<h2>Gèrer less images supplémentaires de l'évènement :</h2>
+	<h2>Gèrer les images supplémentaires de l'évènement :</h2>
 	<p>Vous pouvez avoir 4 images supplémentaires au maximum, pour en ajouter d'autres quand vous en avez 4, il faut en supprimer.</p>
 	<form action=<?php echo getLink(['events','extra-media',$_GET['id']]); ?> method="post" enctype="multipart/form-data">
         	

@@ -16,7 +16,7 @@ sortie : détails des évènements à venir du membre, sous forme d'un tableau
 function getMemberEvents($id) {
     // requete sql pour prendre les infos nécessaires
     $bdd = new PDO(DSN, DBUSER, DBPASS);
-    $query = 'SELECT evenement.debut, evenement.titre, type.nom AS type, adresse.adresse_condensee, evenement.tarif, evenement.age_min, evenement.age_max, evenement.description, media.lien AS image, invitation.etat AS invitation
+    $query = 'SELECT evenement.debut AS date, evenement.titre, type.nom AS type, adresse.adresse_condensee, evenement.tarif, evenement.age_min, evenement.age_max, evenement.description, media.lien AS image, invitation.etat AS invitation
                 FROM membre
                 LEFT JOIN invitation ON membre.id=invitation.id_destinataire
                 LEFT JOIN evenement ON evenement.id=invitation.id_evenement
@@ -54,8 +54,7 @@ function getMemberEvents($id) {
             $addressLines = explode(',',$event['adresse_condensee']);
             $events[$key]['ville'] = end($addressLines);
 
-            $events[$key]['debut'] = substr($events[$key]['debut'], 0, 16);
-            $events[$key]['debut'] = preg_replace('/-/','/', $events[$key]['debut']);
+            $events[$key]['date'] = date('j/m/o',strtotime($events[$key]['date']));
 
             // Préparation de la chaîne représentant la participation
             if(isset($event['invitation'])) {

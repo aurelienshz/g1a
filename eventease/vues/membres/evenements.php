@@ -1,7 +1,7 @@
 <div class="wrapper">
-    <div id='titre'>Évènements de <?php echo $contents['pseudo'] ?></div>
-        <div class='event-box' id="mes_evenements">
-                    <h4>Évènements que j'organise</h4>
+    <h1 id='titre'>Mes évènements</h1>
+    <div class='event-box' id="mes_evenements">
+        <h4>Évènements que j'organise</h4>
     <section class="row">
         <div class="calendar">
             <table>

@@ -7,6 +7,7 @@
 
 require MODELES.'events/getTypes.php';
 
+
 function detailsToStrings($events) {
     // fonction transforme les détails en chaînes faciles à afficher type "de 8 à 30 ans"
     if($events) {
