@@ -67,12 +67,12 @@ Affichage et participation aux events  -- Guillaume & Aude
 - [x] slideshow photos : nouvelle version à implémenter
 - [x] Gestion des participations :
 - [x] Commentaires,
-- [ ] organisateurs, limité à 1 --> Guillaume 
+- [ ] organisateurs, limité à 1 --> Guillaume
 - [ ] qui y va ? limité à 1 ? --> Guillaume
 - [ ] spécification de l'interface si je suis organisateur
 - [x] client : bouton inviter qqun
 - [ ] client : faire attention aux alignements des blocks
-- [ ] client : ouvrir le profil de la personne dans une nouvelle fenêtre : Modale ? 
+- [ ] client : ouvrir le profil de la personne dans une nouvelle fenêtre : Modale ?
 - [ ] client : contact de l'organisateur (l'orga n'est pas le créateur donc il faut pouvoir le contacter directement)
 - [ ] client : pouvoir y aller à plusieurs : Quand on clique sur "Participer" => modale qui propose le nombre de places demandées.
 - "bring a friend" ? proposer aux gens de saisir les e-mails des copains qui viennent et inciter ces derniers à s'inscrire ?
@@ -112,6 +112,7 @@ Modif event -- Tristan
 
 Recherche :
 events :
+- [ ] cases de critères bug si on décoche tous les critères
 - [ ] liste : gérer les privilèges (admin/modo = TOUS !)
 - [ ] implémentation filtres -- Aurélien
 - [ ] question : âges ?
@@ -131,5 +132,5 @@ Forum : --> Audrey
 
 FAQ / Aide / Doc
 - [ ] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
-- [ ] Aide : Formulaire de Contact 
+- [ ] Aide : Formulaire de Contact
 - [ ] A propos
