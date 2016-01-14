@@ -23,7 +23,7 @@ function getEvents($id = False) {
                     LEFT JOIN type on evenement.id_type = type.id
                     LEFT JOIN adresse on evenement.id_adresse = adresse.id
                     LEFT JOIN media ON evenement.id_media_principal = media.id
-                    LEFT JOIN invitation ON evenement.id = invitation.id_evenement"
+                    LEFT JOIN invitation ON evenement.id = invitation.id_evenement "
                     .$userSpecific;
 
     var_dump($query);
