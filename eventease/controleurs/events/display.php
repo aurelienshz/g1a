@@ -146,7 +146,6 @@ else{
   $contents['info_organisateur']="Non renseigné";
 }
 
-var_dump($event['site']);
 if($event['site']){
   $contents['site']="<li><a href=\"" . $contents['site'] . "\">" . $contents['site'] ." </a></li>";
 }
@@ -158,7 +157,7 @@ $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
 $creator_photo = getMembersPicture($creator[0][1]);
 if ($creator_photo){
-  $contents['creator']['picture']=$creator_photo;
+  $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo;
 }
 else{
   $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
@@ -208,7 +207,6 @@ if (isset($_SESSION['id'])){
       $contents['statut_de_participation']="";
     }
     foreach($contents['participants'] as $participant){
-      ?><pre><?php var_dump(empty($contents['statut_de_participation']));?></pre><?php
       if ($_SESSION['id']==$participant['id'] && (empty($contents['statut_de_participation']))){
         $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
       }
