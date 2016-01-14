@@ -1,13 +1,6 @@
 Questions pour le groupe :
 - On n'a pas reparlé de la notion de following. Comment / est-ce qu'on implémente ? Qui s'en charge ?
 - Mes évènements --> fil d'actualité ? ~~ dashboard
-- places max : plusieurs events *sur EE* qui correspondent à la même chose en réalité ??
-
-- idée aurélien :
-choix dans le formulaire :
-[] je suis l'orga --> nombre de places, acceptation des participations etc
-[] je ne suis pas l'orga --> lien vers le site de l'orga, contacts etc.
-
 
 -----------------------------------------------------------------------
 
@@ -16,24 +9,24 @@ choix dans le formulaire :
 
 ## Points à aborder en groupe ##
 
-- responsive serait un bonus
 - charte graphique à retravailler, notamment couleurs
 - relire le CdC et être attentif à ce qu'on a implémenté (ou pas)
-- possibilité d'ajouter une ligne à l'adresse pour spécifier étage, sale etc...
+- [x] possibilité d'ajouter une ligne à l'adresse pour spécifier étage, salle etc...=> Qu'ils utilisent la description ! Quitte à renommer le label du champ.
 
 
 ## ToDo - général ##
 
-- URL rewrite : demande client
-- plan du site --> à remplir (accueil -> sitemap)
+- [ ] plan du site --> à remplir (accueil -> sitemap) --> Aurélien
+- [ ] URL rewrite : demande client --> Aurélien
+
 
 
 ## Accueil ##
 
-- suggestions à rendre dynamique --> Tristan
-- mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
+- [ ] suggestions à rendre dynamique --> Tristan
+- [ ] mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
     j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
-- bigform : relier à la recherche réelle
+- [ ] bigform : relier à la recherche réelle --> Aurélien
 
 
 ## Profil / gestion des membres ##
@@ -48,91 +41,96 @@ front end :
 - [x] suppression du profil ?
 - [x] modification mdp
 - [] adresse mail (besoin que les token marchent).
-- désactiver lien pour l'onglet actif (PHP ou JS)
+- [x] désactiver lien pour l'onglet actif (PHP ou JS)
+- [ ] Filtre calendrier mes events --> Aurélien
+- [ ] Bug des dates 30 Nov -1 & 1 Jan 1970
 CLIENT :
-- gros onglets -> bof , rester sur style arrondi et allégé
-- que fait le bouton "inviter à un event" ? interface ? options ?
-- client : suggérer les règles pour les noms, les mdp... dans le message d'erreur.
-- client : nom aligné à gauche
+- [x] gros onglets -> bof , rester sur style arrondi et allégé
+- [ ]client : suggérer les règles pour les noms, les mdp... dans le message d'erreur. --> Tristan
+- [ ] client : nom aligné à gauche --> Aurélien
 
 ### Inscription / Connexion / Validation mail : ###
-- inscription : conditions sur le mdp
+- inscription : conditions sur le mdp --> Aurélien
 - [x] ajouter bouton d'inscription sur page de connexion
-- mot de passe oublié
+- [ ] mot de passe oublié => envoyer mail avec MDP généré. --> Tristan
 - [x] case à cocher conditions générales
 
 
 ## EVENTS ##
 
 Général :
-- client : créateur =/= orga : orga c'est une info (quasiment un texte) créateur c'est un niveau de privilège sur l'event
--
+- [x] client : créateur =/= orga : orga c'est une info (quasiment un texte) créateur c'est un niveau de privilège sur l'event
 
 Affichage et participation aux events  -- Guillaume & Aude
 - affichage :
 - [x] gérer l'event inexistant
 - [x] slideshow photos : nouvelle version à implémenter
-- Gestion des participations :
-- Commentaires, organisateurs, qui y va ? etc...
-- spécification de l'interface si je suis organisateur
+- [x] Gestion des participations :
+- [x] Commentaires,
+- [ ] organisateurs, limité à 1 --> Guillaume 
+- [ ] qui y va ? limité à 1 ? --> Guillaume
+- [ ] spécification de l'interface si je suis organisateur
 - [x] client : bouton inviter qqun
-- client : faire attention aux alignements des blocks
-- client : ouvrir le profil de la personne dans une nouvelle fenêtre
-    Aurélien : que diriez-vous d'une modale ?
-- client : contact de l'organisateur (l'orga n'est pas le créateur donc il faut pouvoir le contacter directement)
-- participation :
-- client : pouvoir y aller à plusieurs ("bring a friend" ? proposer aux gens de saisir les e-mails des copains qui viennent et inciter ces derniers à s'inscrire ?)
-- demande de connexion ou d'inscription si nécessaire
-- requêtes AJAX ?
-- Ajout d'images par défaut PAR catégorie
+- [ ] client : faire attention aux alignements des blocks
+- [ ] client : ouvrir le profil de la personne dans une nouvelle fenêtre : Modale ? 
+- [ ] client : contact de l'organisateur (l'orga n'est pas le créateur donc il faut pouvoir le contacter directement)
+- [ ] client : pouvoir y aller à plusieurs : Quand on clique sur "Participer" => modale qui propose le nombre de places demandées.
+- "bring a friend" ? proposer aux gens de saisir les e-mails des copains qui viennent et inciter ces derniers à s'inscrire ?
+Participation :
+- [x] demande de connexion ou d'inscription si nécessaire
+- [x] requêtes AJAX ?
+- [ ] Sécuriser la requête AJAX ? (id membre pourrait être récupéré dans la $_SESSION) --> Guillaume cf. Aurélien
+- [x] Ajout d'images par défaut PAR catégorie
 
 
 Création d'event :
-- insertion dans la base et vérif champs -- Tristan
-- photos !!!
-- ajout de photos supplémentaires (pas uniquement la photo principale)
-- photo par défaut dépendante du type
+- [x] insertion dans la base et vérif champs -- Tristan
+- [x] photo
+- [x] photo par défaut dépendante du type (gerée dans la page d'affichage)
+- [ ] choix dans le formulaire :
+[] je suis l'orga --> nombre de places, acceptation des participations etc
+[] je ne suis pas l'orga --> lien vers le site de l'orga, contacts etc.
+
 
 Modif event -- Tristan
-- vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
-- penser à l'action supprimer
-
+- [ ] vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
+- [ ] Ajout de créateurs supplémentaires
+- [ ] penser à l'action supprimer
+- [ ] client : informations de contact de l'organisateur
+- [ ] ajout de photos supplémentaires (pas uniquement la photo principale)
 
 ## Back-office ##
 
 
-- types d'events
+- [ ] types d'events
 --> photos par défaut correspondant aux types (et photos correspondant aux )
-- slogan et subslogan accueil
-- édition FAQ
-- catégories du forum
-- image de fond bigform accueil
-
-## BDD ##
-
-
-- types : réfléchir aux types de base, peupler
+- [ ] slogan et subslogan accueil
+- [ ] édition FAQ
+- [ ] édition CGV
+- [ ] édition Mentions Légales
+- [ ] image de fond bigform accueil
 
 Recherche :
 events :
-- liste : gérer les privilèges (admin/modo = TOUS !)
-- implémentation filtres -- Aurélien
-- question : âges ?
-- mettre en valeur le statut de participation
+- [ ] liste : gérer les privilèges (admin/modo = TOUS !)
+- [ ] implémentation filtres -- Aurélien
+- [ ] question : âges ?
+- [ ] mettre en valeur le statut de participation
 membres :
-- comment on fait ?
+- [ ] FACULATIF : Recherche de membre avec auto-complétion
 
 Header / Footer
-- header : zones actives full height
-- liens footer pas tous actifs
+- [x] header : zones actives full height
+- [ ] liens footer pas tous actifs
 
-Forum : -- Audrey
-- affichage des catégories dans un prettyform ??
-- nouveau message
-- nouveau sujet
-- privilèges : modifier, supprimer message, seulement les miens sauf si modérateur ou admin
+Forum : --> Audrey
+- [x] affichage des catégories
+- [x] nouveau message
+- [x] nouveau sujet
+- [ ] gestion privilèges sur modifier, supprimer message, seulement les miens sauf si modérateur ou admin
 
 FAQ / Aide / Doc
-- expliquer les fonctionnalités
-- documenter in-page ?
-    J'aimerais implémenter un système d'aide in-page mais je ne sais pas encore comment ~ Aurélien
+- [ ] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
+- [ ] Aide : Formulaire de Contact 
+- [ ] A propos
+- 
