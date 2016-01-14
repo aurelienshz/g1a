@@ -31,7 +31,7 @@ function getAuthorComment($id){
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
 	$req = $bdd->prepare('SELECT id_auteur FROM message WHERE id=:id');
 	$req -> execute([':id'=>$id]);
-	$id_auteur = $req->fetchAll();
+	$id_auteur = $req->fetch();
 
   	return $id_auteur;
 }
