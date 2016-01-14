@@ -83,18 +83,20 @@ id_what donne la fonction à faire :
             </div>
           <?php }?>
           
-          <div class="membre" style="margin-top:0">
-            <?php if ($contents['lien']){?>
-              <img class="photo_profil" src="user_media/photos_profil/<?php echo $contents['lien']; ?>"></br>
-              <strong><?php echo $contents['pseudo'];?></strong></br>
-              <p><?php echo $contents['COUNT(*)'];?> message(s)</p>
-              <?php } 
-            else{?>
-              <img class="photo_profil" src="user_media/photos_profil/photo_profil_defaut.jpg"></br>
-              <strong><?php echo $contents['pseudo'];?></strong></br>
-              <p><?php echo $contents['COUNT(*)'];?> message(s)</p>
-              <?php } ?>
-          </div>
+          <a href="<?php echo getLink(['membres','profil',$contents['id_auteur']])?>">
+            <div class="membre" style="margin-top:0">
+              <?php if ($contents['lien']){?>
+                <img class="photo_profil" src="user_media/photos_profil/<?php echo $contents['lien']; ?>"></br>
+                <strong><?php echo $contents['pseudo'];?></strong></br>
+                <p><?php echo $contents['COUNT(*)'];?> message(s)</p>
+                <?php } 
+              else{?>
+                <img class="photo_profil" src="user_media/photos_profil/photo_profil_defaut.jpg"></br>
+                <strong><?php echo $contents['pseudo'];?></strong></br>
+                <p><?php echo $contents['COUNT(*)'];?> message(s)</p>
+                <?php } ?>
+            </div>
+          </a>
         </div>
       </div>
       </form>
@@ -118,17 +120,19 @@ id_what donne la fonction à faire :
               
                 <?php if ($contents['id_what']==0 OR $contents['id_what']==2){
                   //l'utilisateur veut seulement regarder
-                  ?><p><small>Posté le <?php echo $comments['jour'] . "/" . $comments['mois'] . "/" . $comments['annee'] . " à " . $comments['heure'] . "h" . $comments['minute'];?></br></br></small><?php
-                  echo $comments['contenu'];?></p>
-                  <div class="membre">
-                    <?php if ($comments['lien']){?>
-                      <img class="photo_profil" src="user_media/photos_profil/<?php echo $comments['lien']; ?>"></br>
-                    <?php }
-                    else {?>
-                      <img class="photo_profil" src="user_media/photos_profil/photo_profil_defaut.jpg"></br>
-                    <?php }?>
-                    <strong><?php echo $comments['pseudo'];?></strong></br>
-                  </div>
+                  ?><a href="<?php echo getLink(['membres','profil',$comments['id_auteur']])?>">
+                    <p><small>Posté le <?php echo $comments['jour'] . "/" . $comments['mois'] . "/" . $comments['annee'] . " à " . $comments['heure'] . "h" . $comments['minute'];?></br></br></small><?php
+                    echo $comments['contenu'];?></p>
+                    <div class="membre">
+                      <?php if ($comments['lien']){?>
+                        <img class="photo_profil" src="user_media/photos_profil/<?php echo $comments['lien']; ?>"></br>
+                      <?php }
+                      else {?>
+                        <img class="photo_profil" src="user_media/photos_profil/photo_profil_defaut.jpg"></br>
+                      <?php }?>
+                      <strong><?php echo $comments['pseudo'];?></strong></br>
+                    </div>
+                  </a>
                 <?php }
                 else if ($contents['id_what']==4){
                   //l'utilisateur veut modifier son commentaire
@@ -180,10 +184,12 @@ id_what donne la fonction à faire :
                 <h3><input type="submit" value="Envoyer" style="background-color:#36B136"/></h3>
               </div>
             </form>
-            <div class="membre" style="width:9%; margin:0; margin-top:0px; float:none; margin-left:20px">
-              <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
-              <strong><?php echo $contents['pseudo1']?></strong></br>
-            </div>
+            <a href="<?php echo getLink(['membres','profil',$_SESSION['id']])?>">
+              <div class="membre" style="width:9%; margin:0; margin-top:0px; float:none; margin-left:20px">
+                <img class="photo_profil" src="user_media/photos_profil/<?php echo isset($contents['lien1'])?$contents['lien1']:'photo_profil_defaut.jpg'; ?>"></br>
+                <strong><?php echo $contents['pseudo1']?></strong></br>
+              </div>
+            </a>
             <?php }?>
           </div>
         </div>

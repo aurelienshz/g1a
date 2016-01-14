@@ -16,7 +16,6 @@ $contents['id_what']=$id_what;
 
 $contents['id_comment']=$_GET['id_comment'];
 
-
 $titre = getTitre($id);
 $contents['titre']=$titre['titre'];
 
