@@ -42,11 +42,6 @@ foreach ($contents['images'] as $key => $value) {
 }
 $contents['img_number'] = count($contents["images"]);
 
-    ?> <pre> <?php
-    var_dump($_POST);
-    var_dump($_FILES);
-    ?> </pre> <?php
-
     $validExtensions = array(".jpg", ".png", ".jpeg");
     $maxsize = 2097152;
     $max_height = 2000;
@@ -84,12 +79,6 @@ if(!empty($_FILES["photos"]["name"][0]) && $contents['img_number'] < 4){
         }
     }
 }
-    ?> <pre> <?php
-echo "COUNT : ";
-var_dump($count);
-echo "<br /> IMAGES : ";
-var_dump($contents["images"]);
-    ?> </pre> <?php
 
 $title = 'Ajouter des images à l\'évènement';
 $styles = ['form.css','accueil.css', 'search.css', 'prettyform.css', 'modify.css'];
