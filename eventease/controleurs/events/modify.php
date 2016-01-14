@@ -1,7 +1,6 @@
 <?php
 /* CONTROLEUR D'ACTION /*
 /****** Préparation des contenus ******/
-
 // ===== RECUPERE LES VALEURS DEJA PRESENTES DE L'évènement =====
 require MODELES.'functions/google.php';
 require MODELES.'functions/date.php';
@@ -29,12 +28,12 @@ if(!isset($_GET['id']) ){
     header("Location: ".getLink(["accueil","404"]));
     exit();
 }
+$_GET['id'] = htmlspecialchars($_GET['id']);
 //Si le EventID dans le GET n'est pas attribué.
 $contents['values'] = getEvents($_GET['id']);
 $contents['values']['lien_photo'] = getMainImage($_GET['id']);
 if (empty($contents["values"])){
 	alert("error","Cet évènement n'existe pas !");
-	var_dump($contents['values']);
     header("Location: ".getLink(["accueil","404"]));
     exit();
 }
