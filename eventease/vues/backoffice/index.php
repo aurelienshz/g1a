@@ -5,12 +5,17 @@ echo $header;
 
 <h1><span>EventEase</span> - Administration</h1>
 
+    <?php
+    if(!empty($message)) {
+        echo '<div id="message"><p>'.$message.'</p></div>';
+    }
+    ?>
 
     <div class="category">
         <h2>Page d'accueil</h2>
-        <form>
-            <div class="row"><label>Slogan principal</label><input /></div>
-            <div class="row"><label>Slogan secondaire</label><input /></div>
+        <form method="post" action="<?php echo getLink(['backoffice']); ?>">
+            <div class="row"><label for="catchphrase">Slogan principal</label><input name="catchphrase" id="catchphrase" value="<?php echo $catchPhrases[0]; ?>" /></div>
+            <div class="row"><label for="subcatchphrase">Slogan secondaire</label><input name="subcatchphrase" id="subcatchphrase" value="<?php echo $catchPhrases[1]; ?>" /></div>
             <div class="submit-row"><input type="submit" value="Modifier" /></div>
         </form>
         <form>

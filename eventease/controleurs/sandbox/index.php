@@ -3,11 +3,15 @@ echo '<h1>SANDBOX ~ EVENTEASE</h1>';
 
 // -------------------------------------------------- //
 
-require MODELES.'events/getEvents.php';
+require MODELES.'accueil/getCatchphrases.php';
+require MODELES.'backoffice/setCatchphrases.php';
 
-$res = getEvents(5);
+$catchPhrases = ["Oui","Peut-être"];
+
+$res = setCatchphrases($catchPhrases);
+$ress = getCatchphrases();
 
 echo '<h2>Résultats retournés :</h2>';
 echo '<pre>';
-var_dump($res);
+var_dump($ress);
 echo '</pre>';
