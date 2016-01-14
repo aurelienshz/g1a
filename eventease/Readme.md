@@ -133,4 +133,3 @@ FAQ / Aide / Doc
 - [ ] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
 - [ ] Aide : Formulaire de Contact 
 - [ ] A propos
-- 
