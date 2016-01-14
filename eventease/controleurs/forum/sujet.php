@@ -13,9 +13,9 @@ $contents['id']=$id;
 $id_what=$_GET['id_what'];
 $contents['id_what']=$id_what;
 
-if (!empty($_GET['id_comment'])){
-	$contents['id_comment']=$_GET['id_comment'];
-}
+
+$contents['id_comment']=$_GET['id_comment'];
+
 
 $titre = getTitre($id);
 $contents['titre']=$titre['titre'];
@@ -51,13 +51,12 @@ $contents['comments']=$comments;
 // FIN INFO REPONSES
 
 if (connected()){
-$id_user=$_SESSION['id'];
-$userDetails=getUserDetails($id_user)['pseudo'];
-$contents['pseudo1']=$userDetails;
+	$id_user=$_SESSION['id'];
+	$userDetails=getUserDetails($id_user)['pseudo'];
+	$contents['pseudo1']=$userDetails;
 
-
-$userImage=getImages($id_user);
-$contents['lien1']=$userImage['lien'];
+	$userImage=getImages($id_user);
+	$contents['lien1']=$userImage['lien'];
 }
 /**** Préparation de la vue ****/
 

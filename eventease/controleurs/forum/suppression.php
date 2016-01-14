@@ -4,6 +4,9 @@ $id=$_GET['id_what'];
 
 $id_topic=$_GET['id_topic'];
 
+$id_user=$_SESSION['id'];
+
+
 //id_what donne la fonction à faire :
 //0->Rien du tout
 //1->supprimer topic
@@ -12,9 +15,7 @@ $id_topic=$_GET['id_topic'];
 //4->modifier un commentaire
 
 if ($id==1){//suppression topic
-
 	supprimerTopic($id_topic);
-
 	header('Location: '.getLink(['forum']));
 	exit();
 }
@@ -40,17 +41,27 @@ if ($_GET['id_comment']){
 		exit();
 	}
 	if($id==4){
-		if ($_POST['comment']){
-			$id_comment=$_GET['id_comment'];
-			$message=$_POST['comment'];
-			modifierComment($id_comment,$message);
-			header('Location: '.getLink(['forum','sujet',$id_topic,0,0]));
-			exit();
+		$id_comment=$_GET['id_comment'];
+		$id_auteur=getAuthorComment($id_comment);
+		if ($id_auteur==$id_user){
+			if ($_POST['comment']){
+				$message=$_POST['comment'];
+				modifierComment($id_comment,$message);
+				header('Location: '.getLink(['forum','sujet',$id_topic,0,0]));
+				exit();
+			}
+			else {
+				alert('error', 'Vous n\'avez rien écrit !');
+	  			header('Location: '.getLink(['forum','sujet',$id_topic,4,0]));
+				exit();
+			}
 		}
+
 		else{
-			alert('error', 'Vous n\'avez rien écrit !');
-	  		header('Location: '.getLink(['forum','sujet',$id_topic,4,0]));
+			alert('error', 'Vous n\'êtes pas l\'auteur de ce message !');
+	  		header('Location: '.getLink(['forum','sujet',$id_topic,0,0]));
 			exit();
+			
 		}
 	}
 }
