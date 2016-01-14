@@ -9,6 +9,7 @@ function Hider() {
 
     this.hidden = [];
     this.events = document.querySelectorAll(".eventPreview");
+    this.now = new Date();
 
     this.init = function() {
         var numberEvents = this.events.length;
@@ -25,7 +26,12 @@ function Hider() {
                             }
                             // on récupère la date :
                             if(this.events[i].childNodes[j].childNodes[k].className == 'eventDate') {
-                                this.events[i].date = this.events[i].childNodes[j].childNodes[k].childNodes[1].textContent;
+                                var date = {textDate: this.events[i].childNodes[j].childNodes[k].childNodes[1].textContent};
+                                date.year = date.textDate.substring(0,4);
+                                date.month = date.textDate.substring(5,7);
+                                date.day = date.textDate.substring(8,10);
+                                // console.log(date);
+                                this.events[i].date = date;
                             }
                             // on récupère le tarif :
                             if(this.events[i].childNodes[j].childNodes[k].className == 'eventTarif') {
@@ -45,9 +51,44 @@ function Hider() {
         // pour adapter à d'autres cas : changer les valeurs de "case" et les test à effectuer
         switch(filterType) {
             case 'date':
-
-                // TO DEVELOP <3
-
+                console.log(filtered.date);
+                console.log(this.now.getFullYear());
+                switch(filterValue) {
+                    case 'Aujourd\'hui':
+                        if(filtered.date.year == this.now.getFullYear() && filtered.date.month == this.now.getMonth() && filtered.date.day == this.now.getDate()) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    break;
+                    case 'Demain':
+                        var tomorrow = new Date(this.now.getTime() + 86400000);
+                        // console.log(tomorrow);
+                        if(filtered.date.year == tomorrow.getFullYear() && filtered.date.month == tomorrow.getMonth()) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    break;
+                    case 'Mois en cours':
+                        if(filtered.date.year == this.now.getFullYear() && filtered.date.month == this.now.getMonth()) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    break;
+                    case 'Plus tard':
+                        if(filtered.date.year != this.now.getFullYear() || (filtered.date.year == this.now.getFullYear() && filtered.date.month != this.now.getMonth())) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    break;
+                }
             break;
             case 'type':
                 // pour le type, si la catégorie de l'event est celle du filtre, il faut le refouler à l'entrée :
@@ -95,7 +136,6 @@ function Hider() {
     }
 
 
-    // fonctions spécifiques aux évènements :
     this.hide = function() {
         for(var i = 0; i < this.events.length; i++) {
             // reset du display / hide :
@@ -179,8 +219,8 @@ function Filter(name, hider) {
                 }
             }
 
+            // console.log(hider.hidden);
             hider.hide();
-
         },false);   // ./event listener
     }   // ./for
 }   // ./Filter

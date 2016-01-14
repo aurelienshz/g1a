@@ -29,11 +29,12 @@
 		}
 		?>
 
-		<h5>Date & heure</h5>
+		<h5>Date</h5>
 		<div class="filter filter-date filter-date-all selected">Tous</div>
 		<div class="filter filter-date">Aujourd'hui</div>
 		<div class="filter filter-date">Demain</div>
-		<div class="filter filter-date">Ce mois-ci</div>
+		<div class="filter filter-date">Mois en cours</div>
+		<div class="filter filter-date">Plus tard</div>
 
 		<h5>Tarif</h5>
 		<div class="filter filter-price filter-price-all selected">Tous</div>

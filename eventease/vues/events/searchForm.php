@@ -5,20 +5,15 @@
 		<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 	</div>
 	<form method="post" action="<?php echo getLink(['events','search']); ?>">
-		<fieldset>
-			<legend>Rechercher</legend>
-			<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" placeholder="ex : Concert de Madonna">
-		</fieldset>
-		<fieldset id="criteres">
-		<legend>Rechercher sur</legend>
-			<div class="row">
-				<div class="champ"><input type="checkbox" checked name="criteres_all" />		<label>Tous</label>				</div>
-				<div class="champ"><input type="checkbox" name="criteres_nom" />				<label>Nom</label>				</div>
-				<div class="champ"><input type="checkbox" name="criteres_lieu" />				<label>Lieu</label>				</div>
-				<div class="champ"><input type="checkbox" name="criteres_description" />		<label>Description</label>		</div>
-				<div class="champ"><input type="checkbox" name="criteres_type" />				<label>Type</label>				</div>
+			<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" <?php echo isset($contents['previousSearch'])?'value="'.$contents['previousSearch'].'"':''; ?> placeholder="ex : Concert de Madonna">
+			<div id="criteres">
+				<h3>Chercher dans</h3>
+				<div class="champ"><label><input type="checkbox" checked name="criteres_all" />		Tous</label>				</div>
+				<div class="champ"><label><input type="checkbox" name="criteres_nom" />				Nom</label>				</div>
+				<div class="champ"><label><input type="checkbox" name="criteres_lieu" />				Lieu</label>				</div>
+				<div class="champ"><label><input type="checkbox" name="criteres_description" />		Description</label>		</div>
+				<div class="champ"><label><input type="checkbox" name="criteres_type" />				Type</label>				</div>
 			</div>
-		</fieldset>
 		<div class="buttons">
 			<input type="submit" value="Chercher" />
 			<a href="<?php echo getLink(['events','search','list']); ?>" class="button">Tous les évènements</a>

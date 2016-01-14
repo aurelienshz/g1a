@@ -26,7 +26,6 @@ Questions pour le groupe :
 - [ ] suggestions à rendre dynamique --> Tristan
 - [ ] mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
     j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
-- [ ] bigform : relier à la recherche réelle --> Aurélien
 
 
 ## Profil / gestion des membres ##
@@ -67,12 +66,12 @@ Affichage et participation aux events  -- Guillaume & Aude
 - [x] slideshow photos : nouvelle version à implémenter
 - [x] Gestion des participations :
 - [x] Commentaires,
-- [ ] organisateurs, limité à 1 --> Guillaume 
+- [ ] organisateurs, limité à 1 --> Guillaume
 - [ ] qui y va ? limité à 1 ? --> Guillaume
 - [ ] spécification de l'interface si je suis organisateur
 - [x] client : bouton inviter qqun
 - [ ] client : faire attention aux alignements des blocks
-- [ ] client : ouvrir le profil de la personne dans une nouvelle fenêtre : Modale ? 
+- [ ] client : ouvrir le profil de la personne dans une nouvelle fenêtre : Modale ?
 - [ ] client : contact de l'organisateur (l'orga n'est pas le créateur donc il faut pouvoir le contacter directement)
 - [ ] client : pouvoir y aller à plusieurs : Quand on clique sur "Participer" => modale qui propose le nombre de places demandées.
 - "bring a friend" ? proposer aux gens de saisir les e-mails des copains qui viennent et inciter ces derniers à s'inscrire ?
@@ -112,8 +111,11 @@ Modif event -- Tristan
 
 Recherche :
 events :
+- [x] formulaire : esthétique des critères (cases à cocher)
+- [ ] formulaire : cases de critères bug si on décoche tous les critères
+- [ ] recherche par date : implémenter ou enlever de la recherche bigform accueil
 - [ ] liste : gérer les privilèges (admin/modo = TOUS !)
-- [ ] implémentation filtres -- Aurélien
+- [ ] implémentation filtrage par date -- Aurélien
 - [ ] question : âges ?
 - [ ] mettre en valeur le statut de participation
 membres :
@@ -131,5 +133,5 @@ Forum : --> Audrey
 
 FAQ / Aide / Doc
 - [ ] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
-- [ ] Aide : Formulaire de Contact 
+- [ ] Aide : Formulaire de Contact
 - [ ] A propos
