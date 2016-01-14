@@ -92,8 +92,8 @@ Création d'event :
 
 
 Modif event -- Tristan
-- [ ] vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
-- [ ] Ajout de créateurs supplémentaires
+- [x] vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
+- [x] Ajout et supprimer de créateurs supplémentaires
 - [ ] penser à l'action supprimer
 - [ ] client : informations de contact de l'organisateur
 - [ ] ajout de photos supplémentaires (pas uniquement la photo principale)

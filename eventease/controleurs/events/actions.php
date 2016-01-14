@@ -4,7 +4,9 @@ $actions = [
 'create',
 'search',
 'invite',
-'modify'
+'modify',
+'addModo',
+'deleteModo'
 ];
 
 $parametres = [
@@ -13,5 +15,7 @@ $parametres = [
 'search' => ['feature'],
 'participe'=>[], //YOUR TIME WILL COME, YOU'LL BE BACK! HARDER, BETTER, FASTER, STRONGER!
 'invite'=>['id'],
-'modify' => ['id']
+'modify' => ['id'],
+'addModo' => ['id'],
+'deleteModo' => ['id']
 ];

@@ -6,9 +6,14 @@ Sortie :
 - False si user non trouvé
 */
 
-function getUserAuth($username) {
+function getUserAuth($username, $caseSensitive = True) {
     $bdd = new PDO(DSN, DBUSER, DBPASS);
-    $query = $bdd->prepare('SELECT id,mdp,date_derniere_connexion,niveau FROM membre WHERE pseudo = :username');
+    if ($caseSensitive){
+        $caseSensitive = ' = ';
+    }else{
+        $caseSensitive = ' COLLATE UTF8_GENERAL_CI LIKE ';
+    }
+    $query = $bdd->prepare('SELECT id,mdp,date_derniere_connexion,niveau FROM membre WHERE pseudo'. $caseSensitive .':username');
     $query -> execute(['username'=>$username]);
     if ($query->rowCount() === 1) {
         $userAuth = $query->fetchAll();

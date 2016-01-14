@@ -5,8 +5,9 @@
 			<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 		</div>
 		<div class="ligneBoutons">
-			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','add-media']); ?>"></i> Ajouter des images supplémentaires</a>
-			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','add-media']); ?>"></i> Ajouter des modérateurs</a>
+			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','extra-media']); ?>"></i> Gèrer les images supplémentaires</a>
+			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','addModo',$_GET['id']]); ?>"></i> Ajouter des modérateurs</a>
+			<a style="width: 25%;" class="champ button" href="<?php echo getLink(['events','deleteModo',$_GET['id']]); ?>"></i> Supprimer des modérateurs</a>
 		</div>
 		<form method="post" action="<?php echo getLink(['events','modify',$_GET['id']]); ?>" enctype="multipart/form-data">
 			<?php echo isset($contents['errors']['general'])?$contents['errors']['general']:'' ?>
