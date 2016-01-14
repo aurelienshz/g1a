@@ -141,7 +141,7 @@ id_what donne la fonction à faire :
                         --><h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
                       </div>
                     </form>
-                    <div class="membre" style="float:none">
+                    <div class="membre" style="width:9%; margin:0; margin-top:0px; float:none; margin-left:20px">
                       <?php if ($comments['lien']){?>
                       <img class="photo_profil" src="user_media/photos_profil/<?php echo $comments['lien']; ?>"></br>
                      <?php }
@@ -155,7 +155,7 @@ id_what donne la fonction à faire :
                     //le commentaire n'est pas celui a modifier
                     ?><p style="float:right;width:77%"><small>Posté le <?php echo $comments['jour'] . "/" . $comments['mois'] . "/" . $comments['annee'] . " à " . $comments['heure'] . "h" . $comments['minute'];?></br></br></small><?php
                     echo $comments['contenu'];?></p>
-                    <div class="membre" style="float:none">
+                    <div class="membre" style="width:9%; margin:0; margin-top:0px; float:none; margin-left:20px">
                       <?php if ($comments['lien']){?>
                         <img class="photo_profil" src="user_media/photos_profil/<?php echo $comments['lien']; ?>"></br>
                       <?php }
