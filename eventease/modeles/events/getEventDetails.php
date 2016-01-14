@@ -37,6 +37,14 @@ function getImages($id) {
 
   return $images;
 }
+function getImagesAndId($id) {
+  $bdd = new PDO(DSN, DBUSER, DBPASS);
+  $query = $bdd->prepare('SELECT media.id, media.lien FROM evenement, media, media_evenement WHERE evenement.id= media_evenement.id_evenement AND media_evenement.id_media = media.id AND evenement.id = :id');
+  $query-> execute(['id'=>$id]);
+  $images = $query->fetchALL();
+
+  return $images;
+}
 function getMainImage($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
   $query = $bdd->prepare('SELECT media.lien FROM evenement, media WHERE evenement.id = :id AND evenement.id_media_principal = media.id;');

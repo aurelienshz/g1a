@@ -100,3 +100,53 @@ function uploadOnePhoto($fileNameInFILES, $namePreviousPhoto, $photoFolder, $nam
 				return False;
 			}
     	}
+// IDEM que dessus mais compatible avec les upload de multiples fichers.
+function checkOnePhotos($fileNameInFILES, $positionInFILES ,$maxsize, $max_height, $max_width, $validExtensions,$prefixPhoto, $uploadPath){
+	if(is_uploaded_file($_FILES[$fileNameInFILES]['tmp_name'][$positionInFILES])){
+		$error="";
+		// Gérer si erreur d'envoi
+		if ($_FILES[$fileNameInFILES]['error'][$positionInFILES] > 0 AND $_FILES[$fileNameInFILES]['error'][$positionInFILES] != 4) $error.="Le fichier a été mal transferé. ";
+		// Poids Maxi
+		if ($_FILES[$fileNameInFILES]['size'][$positionInFILES] > $maxsize) $error.="Le fichier est trop gros. ";
+		// Dimensions Maxi - plus tard.
+		$size = getimagesize($_FILES[$fileNameInFILES]['tmp_name'][$positionInFILES]);
+		if ($size[0] > $max_width OR $size[1] > $max_height) $error.="Le fichier dépasse les dimensions autorisées. ";
+		// extensions Valides
+		$uploadedExtension = strtolower( substr( strrchr($_FILES[$fileNameInFILES]['name'][$positionInFILES], '.') ,1) );
+		if (in_array($uploadedExtension, $validExtensions) ) $error.="L'extension est invalide. ";
+
+		//Variable pour la BDD
+		if (!empty($prefixPhoto) ){
+			$photo  = $prefixPhoto;
+			$photo .= "-";
+			$photo .= md5(uniqid(rand(), true));
+			$photo .= ".";
+			$photo .= $uploadedExtension;
+		}else{
+			$photo  = md5(uniqid(rand(), true));
+			$photo .= ".";
+			$photo .= $uploadedExtension;
+		}
+
+		//Permissions Déplacement 
+		if (!is_dir($uploadPath) OR !is_writable($uploadPath)) {
+			$error .= "[Erreur Serveur - Contactez l'administrateur] Les permissions sont insuffisantes pour déplacer la photo de profil. ";
+		}
+
+		if($error == ""){
+			return array(True,$photo);
+		}else{
+			return array(False,$error);
+		}
+	}
+}
+// IDEM que dessus mais compatible avec les upload de multiples fichers.
+function uploadOnePhotos($fileNameInFILES, $positionInFILES, $namePreviousPhoto, $photoFolder, $nameNewPhoto){
+    		if(!empty($_FILES) AND $_FILES[$fileNameInFILES]['error'][$positionInFILES] != 4) {
+				if (!empty($namePreviousPhoto)) unlink($photoFolder.$namePreviousPhoto);
+				move_uploaded_file($_FILES[$fileNameInFILES]['tmp_name'][$positionInFILES],$photoFolder.$nameNewPhoto);
+				return True;
+			}else{
+				return False;
+			}
+    	}
