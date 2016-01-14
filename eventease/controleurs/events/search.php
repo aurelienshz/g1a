@@ -8,7 +8,7 @@
 require MODELES.'events/getTypes.php';
 
 function detailsToStrings($events) {
-    // transforme les détails en chaînes faciles à afficher type "de 8 à 30 ans"
+    // fonction transforme les détails en chaînes faciles à afficher type "de 8 à 30 ans"
     if($events) {
         // Traitement des contenus :
         foreach($events as $key=>$event) {
@@ -48,16 +48,10 @@ function searchController() {
         if(isset($_POST['searchType']) && (isset($_POST['searchKeywords']) || isset($_POST['searchPlace']) || isset($_POST['searchDate']))) {   // On est arrivé en postant le form de la page d'accueil
             //NB : searchType = menu déroulant sur la gauche de la recherche condensée de l'accueil
 
-            // echo '<pre>';
-            // var_dump($_POST);
-            // echo '</pre>';
-
             switch($_POST['searchType']) {
                 case "place":
                     $results = searchEvents($_POST['searchPlace'], ['adresse']);
-                    echo '<pre>';
-                    var_dump($results);
-                    echo '</pre>';
+                    $contents['previousSearch'] = $_POST['searchPlace'];
                 break;
                 case "date":
                     $results = [];
@@ -65,6 +59,7 @@ function searchController() {
                 case "keywords":
                 default:
                     $results = searchEvents($_POST['searchKeywords']);
+                    $contents['previousSearch'] = $_POST['searchKeywords'];
                 break;
             }
             // Charger le bon champ avec la bonne valeur
@@ -91,6 +86,7 @@ function searchController() {
                 }
             }
             $results = searchEvents($_POST['keywords'], $criteres);
+            $contents['previousSearch'] = $_POST['keywords'];
         }
 
         // echo '<pre>';

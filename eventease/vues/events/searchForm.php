@@ -5,7 +5,7 @@
 		<img class="calendarPin calendarPin2" src="<?php echo IMAGES.'calendar_pin_blue.png'; ?>">
 	</div>
 	<form method="post" action="<?php echo getLink(['events','search']); ?>">
-			<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" placeholder="ex : Concert de Madonna">
+			<label for="keywords">Mots-clés : </label><input type="search" name="keywords" id="keywords" <?php echo isset($contents['previousSearch'])?'value="'.$contents['previousSearch'].'"':''; ?> placeholder="ex : Concert de Madonna">
 			<div id="criteres">
 				<h3>Chercher dans</h3>
 				<div class="champ"><label><input type="checkbox" checked name="criteres_all" />		Tous</label>				</div>

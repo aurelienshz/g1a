@@ -26,7 +26,6 @@ Questions pour le groupe :
 - [ ] suggestions à rendre dynamique --> Tristan
 - [ ] mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
     j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
-- [ ] bigform : relier à la recherche réelle --> Aurélien
 
 
 ## Profil / gestion des membres ##
@@ -112,9 +111,11 @@ Modif event -- Tristan
 
 Recherche :
 events :
-- [ ] cases de critères bug si on décoche tous les critères
+- [x] formulaire : esthétique des critères (cases à cocher)
+- [ ] formulaire : cases de critères bug si on décoche tous les critères
+- [ ] recherche par date : implémenter ou enlever de la recherche bigform accueil
 - [ ] liste : gérer les privilèges (admin/modo = TOUS !)
-- [ ] implémentation filtres -- Aurélien
+- [ ] implémentation filtrage par date -- Aurélien
 - [ ] question : âges ?
 - [ ] mettre en valeur le statut de participation
 membres :
