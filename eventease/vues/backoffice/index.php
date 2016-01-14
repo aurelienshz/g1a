@@ -26,7 +26,7 @@ echo $header;
     <div class="category">
         <h2>CGV & Mentions légales</h2>
         <ul>
-            <li><a href="<?php echo getLink(['backoffice','editBoringTexts','CGV']); ?>">Modifier les CGV</a></li>
+            <li><a href="<?php echo getLink(['backoffice','editBoringTexts','cgv']); ?>">Modifier les CGV</a></li>
             <li><a href="<?php echo getLink(['backoffice','editBoringTexts','legal']); ?>">Modifier les mentions légales</a></li>
         </ul>
     </div>
@@ -34,8 +34,11 @@ echo $header;
 
         <h2>FAQ</h2>
         <ul id="faq-list">
-            <li>Comment faire pour x ? <span class="faq-action"><a href="#">Modifier</a> - <a href="#">Supprimer</a></span></li>
-            <li>Comment faire pour xxxx ? <span class="faq-action"><a href="#">Modifier</a> - <a href="#">Supprimer</a></span></li>
+            <?php
+                foreach ($faqPosts as $post) {
+                    echo '<li>'.$post["question"].'<span class="faq-action"><a href="#">Modifier</a> - <a href="#">Supprimer</a></span></li>';
+                }
+            ?>
         </ul>
     </div>
 

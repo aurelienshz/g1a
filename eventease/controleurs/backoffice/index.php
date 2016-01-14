@@ -37,8 +37,11 @@ if(!empty($_POST) || !empty($_FILES)) {
         }
     }
 }
+
 require MODELES.'/accueil/getCatchphrases.php';
+require MODELES.'/faq/getPosts.php';
 
 $catchPhrases = getCatchphrases();
+$faqPosts = getPosts();
 
 require VUES.'backoffice/index.php';
