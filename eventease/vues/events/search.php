@@ -46,11 +46,12 @@
 	<div class="results">
 
 <?php
-if(isset($contents['searchResults'])) {
+if(isset($contents['searchResults'])&&$contents['searchResults']) {
 	foreach($contents['searchResults'] as $event) { ?>
 
 		<div class="eventPreview shadow">
-			<h4><a href="<?php echo getLink(['events','display',$event['id']]); ?>">
+			<h4>
+				<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
 				<?php echo $event['titre']; ?>
 			</a></h4>
 			<a href="<?php echo getLink(['events','display',$event['id']]); ?>">

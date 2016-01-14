@@ -6,7 +6,7 @@
 // On pourra ajouter des params tq des limites de nb d'events à retourner (3 prochains mois...)
 // On pourra aussi avoir un mode qui sort tous les évènements publics (pas forcément la même fonction)
 
-function getUserEvents($id) {
+function getMemberEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
       $query = $bdd->prepare('SELECT'
               . 'membre.id,'
@@ -26,8 +26,8 @@ function getUserEvents($id) {
               . 'LEFT JOIN media ON evenement.id_media_principal = media.id'
               . 'WHERE membre.id = :id'
               . 'ORDER BY evenement.debut');
-      
-      $query->execute(['id'=>$id]);
+
+    $query -> execute();
 
     if($query->rowCount()==1) {
         $result = $query->fetchAll(PDO::FETCH_ASSOC);

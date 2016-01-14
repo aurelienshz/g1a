@@ -33,6 +33,30 @@ function detailsToStrings($events) {
 
             $events[$key]['debut'] = substr($events[$key]['debut'], 0, 16);
             $events[$key]['debut'] = preg_replace('/-/','/', $events[$key]['debut']);
+
+            // Préparation de la chaîne représentant la participation
+            if(isset($event['invitation'])) {
+                switch($event['invitation']) {
+                    case 0:
+                        $events[$key]['participation'] = "Vous êtes invité";
+                    break;
+                    case 1:
+                        $events[$key]['participation'] = "Vous participez";
+                    break;
+                    case 2:
+                        $events[$key]['participation'] = "Vous participez peut-être";
+                    break;
+                    case 3:
+                    default:
+                        $events[$key]['participation'] = "Vous ne participez pas";
+                    break;
+                }
+            }
+            else {
+                $events[$key]['participation'] = "Vous ne participez pas";
+            }
+
+            // Préparation de la chaîne représentant la privacy de l'event
         }
         return $events;
     }
@@ -126,9 +150,9 @@ function listController() {
 
     $events = detailsToStrings($events);
 
-    // echo '<pre>';
-    // var_dump($events);
-    // echo '</pre>';
+    echo '<pre>';
+    var_dump($events);
+    echo '</pre>';
 
     $contents['searchResults'] = $events;
 

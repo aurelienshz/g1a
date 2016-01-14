@@ -1,6 +1,6 @@
 <?php /* BARRE DE DEBUG : */  ?>
 
-<div id="palette" style="">
+<div id="palette" style="display:none;">
     <div id="color1">#303030</div>
     <div id="color2">#FAFAFA</div>
     <div id="color3">#F94339</div>
