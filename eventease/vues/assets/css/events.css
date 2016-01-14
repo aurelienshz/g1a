@@ -184,7 +184,7 @@
 	table-layout: fixed;
 	width: 100%;
 }
-#photos .slideshow-nav {
+#photos .simple-slideshow .slideshow-contents{
 		height:auto;
     text-align: center;
     margin: 1em 0;
@@ -195,15 +195,16 @@
 #photos .slideshow-nav span {
     margin: 0 .5em;
 }
-#photos .previous, #photos .next {
-	display: table-cell;
-	width: 5%;
+/*#photos .previous, #photos .next {
+	display: inline-block;
+	width: 10%;
 	font-size: 2em;
 	font-weight:bold;
 	text-decoration: none;
 	text-align: center;
 	vertical-align: middle;
 }
+*/
 #photos .previous:hover, .next:hover {
     cursor: pointer;
     background: #FAFAFA;
