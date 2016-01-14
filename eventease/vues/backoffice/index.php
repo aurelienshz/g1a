@@ -18,8 +18,8 @@ echo $header;
             <div class="row"><label for="subcatchphrase">Slogan secondaire</label><input name="subcatchphrase" id="subcatchphrase" value="<?php echo $catchPhrases[1]; ?>" /></div>
             <div class="submit-row"><input type="submit" value="Modifier" /></div>
         </form>
-        <form>
-            <div class="row"><label>Image d'arrière-plan</label><input type="file"/></div>
+        <form method="post" action="<?php echo getLink(['backoffice']); ?>" enctype="multipart/form-data">
+            <div class="row"><label for="background">Image d'arrière-plan</label><input name="background" id="background" type="file"/></div>
             <div class="submit-row"><input type="submit" value="Modifier" /></div>
         </form>
     </div>
