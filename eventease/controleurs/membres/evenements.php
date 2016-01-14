@@ -4,7 +4,7 @@
 /**** Préparation des contenus ****/
 
 require MODELES.'membres/getUserDetails.php';
-require MODELES.'events/getUserEvents.php';
+require MODELES.'events/getMemberEvents.php';
         
 //if(isset($_GET['id'])) {
     $contents['pseudo'] = getUserDetails($_SESSION['id'])['pseudo'];
