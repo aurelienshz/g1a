@@ -32,7 +32,7 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
     	exit();
 	}else{
 		alert("error","Vous n'avez pas le droit de modifier cet évènement!");
-    	header("Location: ".getLink(["membres","connexion"]));
+    	header("Location: ".getLink(["accueil"]));
     	exit();
 	}
 }
