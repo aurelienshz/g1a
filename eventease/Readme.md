@@ -59,6 +59,7 @@ CLIENT :
 
 Général :
 - [x] client : créateur =/= orga : orga c'est une info (quasiment un texte) créateur c'est un niveau de privilège sur l'event
+- [ ] afficher mentions légales et CGV dynamiquement --> Aurélien
 
 Affichage et participation aux events  -- Guillaume & Aude
 - affichage :
@@ -102,11 +103,11 @@ Modif event -- Tristan
 
 
 - [ ] types d'events --> photos par défaut pour chaque types
-- [ ] slogan et subslogan accueil
+- [x] slogan et subslogan accueil
 - [ ] édition FAQ
-- [ ] édition CGV
-- [ ] édition Mentions Légales
-- [ ] image de fond bigform accueil
+- [x] édition CGV
+- [x] édition Mentions Légales
+- [x] image de fond bigform accueil
 
 Recherche :
 events :
