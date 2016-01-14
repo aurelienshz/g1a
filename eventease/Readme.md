@@ -98,7 +98,7 @@ Modif event -- Tristan
 - [x] Ajout et supprimer de créateurs supplémentaires
 - [ ] penser à l'action supprimer
 - [ ] client : informations de contact de l'organisateur
-- [ ] ajout de photos supplémentaires (pas uniquement la photo principale)
+- [x] ajout de photos supplémentaires (pas uniquement la photo principale)
 
 ## Back-office ##
 

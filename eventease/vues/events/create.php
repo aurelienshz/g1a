@@ -98,7 +98,7 @@
 						<label for="invitation">Qui peut inviter <i class="fa fa-asterisk"></i> :</label>
 						<select id="invitation" name="invitation">
 							<option value="0">Tout le monde</option>
-							<option value="1">Seulement les organisateurs</option>
+							<option value="1">Seulement les modérateurs</option>
 						</select>
 						<?php echo isset($contents['errors']['invitation'])?$contents['errors']['invitation']:''; ?>
 					</div>
@@ -113,9 +113,10 @@
 				</div>
 				<div class="ligne">
 					<div class="champ">
-						<label for="hosts">Organisateur(s) :</label>
-						<input type="text" placeholder="Nom(s)" id="hosts" name="hosts" value="<?php echo isset($contents['values']['hosts'])?$contents['values']['hosts']:''; ?>"/>
-						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:''; ?>
+						<label for="autohosted">Organisez-vous cet évènement ? </label>
+						<span style="margin-left : 25%;"><input type="radio" id="autohosted_Yes" name="autohosted" value="True" checked="checked" /> Oui </span>
+						<span style="margin-left : 5%;"><input type="radio" id="autohosted_No" name="autohosted" value="False"/> Non</span>
+						<?php echo isset($contents['errors']['autohosted'])?$contents['errors']['autohosted']:''; ?>
 					</div>
 					<div class="champ">
 						<label for="sponsors">Sponsors :</label>
@@ -128,8 +129,17 @@
 						<?php echo isset($contents['errors']['website'])?$contents['errors']['website']:'' ?>
 					</div>
 				</div>
-				<div class="ligne">
-
+				<div class="ligne" id="nonautohostedLine">
+					<div class="champ" style="width:45%;">
+						<label for="hosts">Nom Organisateurs :</label>
+						<input type="text" placeholder="Organisateur" id="hosts" name="hosts" value="<?php echo isset($contents['values']['organisateur'])?$contents['values']['organisateur']:''; ?>"/>
+						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:'' ?>
+					</div>							
+					<div class="champ" style="width:45%;">
+						<label for="hosts">Informations Contact Organisateur :</label>
+						<input type="text" placeholder="Informations de contact" id="hosts_contact" name="hosts_contact" value="<?php echo isset($contents['values']['organisateur_contact'])?$contents['values']['organisateur_contact']:''; ?>"/>
+						<?php echo isset($contents['errors']['hosts_contact'])?$contents['errors']['hosts_contact']:'' ?>
+					</div>										
 				</div>
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
 					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','evenements']); ?>"><i class="fa fa-ban"></i> Annuler</a>

@@ -79,6 +79,11 @@ if(!empty($_FILES["photos"]["name"][0]) && $contents['img_number'] < 4){
         }
     }
 }
+if (empty($contents['errorMessage']) && (!empty($_POST) OR !empty($_FILES))){
+    alert("ok","Les images on bien été modifiées");
+    header("Location: ".getLink(["events","modify",$_GET['id']]));
+    exit();
+}
 
 $title = 'Ajouter des images à l\'évènement';
 $styles = ['form.css','accueil.css', 'search.css', 'prettyform.css', 'modify.css'];

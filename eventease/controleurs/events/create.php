@@ -12,7 +12,7 @@ $contents['types'] = getTypes();
 $title = 'Créer event';
 $styles = ['create.css','form.css','search.css', 'prettyform.css'];
 $blocks = ['create'];
-$scripts = ['googleAutocompleteAddress.js'];
+$scripts = ['googleAutocompleteAddress.js','autohosted.js'];
 
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
 
