@@ -100,8 +100,7 @@ Modif event -- Tristan
 ## Back-office ##
 
 
-- [ ] types d'events
---> photos par défaut correspondant aux types (et photos correspondant aux )
+- [ ] types d'events --> photos par défaut pour chaque types
 - [ ] slogan et subslogan accueil
 - [ ] édition FAQ
 - [ ] édition CGV

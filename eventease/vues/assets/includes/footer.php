@@ -19,7 +19,7 @@
                     <a href="#">A propos</a><br />
                     <a href="<?php echo getLink(['accueil', 'legal']); ?>">Mentions légales</a><br />
                     <a href="#">CGU</a><br /><br />
-                    <a href='#' style='color:#303030;'>Administration</a>
+                    <a href='<?php echo getLink(['backoffice']); ?>' style='color:#303030;'>Administration</a>
                 </div>
                 </div>
             </div>
