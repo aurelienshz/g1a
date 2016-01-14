@@ -24,12 +24,10 @@ function updateEvent($push) {
 
 
 	$adresse_id = insertAddress($push['adresse']);
-	var_dump($push);
 	$media_id = NULL;
 	if (!empty($push['id_media_principal'])){
 		if (!empty($push['lien_photo'])){
 			if ($push['lien_photo'] == -1){
-				echo PHOTO_EVENT.$push['old_lien_photo'];
 				unlink(PHOTO_EVENT.$push['old_lien_photo']);
 				removeMedia($push['id_media_principal']);
 				$media_id = NULL;

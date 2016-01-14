@@ -198,7 +198,7 @@ if(!empty($_POST)){
 				if ($check[1] != NULL) $errors["photo"] = $check[1];
 			}	
 			// Si il veut supprimer la photo
-			if (isset($_POST['photo']) ) {
+			if (isset($_POST['photo']) && empty($errors) ) {
 				if ($_POST['photo'] == -1){
 					$photo = -1;
 					$push["lien_photo"] = -1;
@@ -239,8 +239,8 @@ if(!empty($_POST)){
     	$push['id'] = $_GET['id'];
     	if (updateEvent($push)){
 	    	alert("info","Votre évènement a bien été modifié.");
-			// header('Location: '.getLink(['events','display',$_GET['id']]));
-			// exit();
+			header('Location: '.getLink(['events','display',$_GET['id']]));
+			exit();
     	}
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
