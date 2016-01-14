@@ -12,7 +12,7 @@
 
 
 
-$maquettes = [['events','display',666],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil'], ['events','modify',2]];
+$maquettes = [['events','display',4],['membres','profil',1],['membres','messages'],['events','search'], ['membres','modification_profil'], ['events','modify',2]];
 
 
 

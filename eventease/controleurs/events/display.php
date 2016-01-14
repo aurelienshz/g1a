@@ -17,11 +17,12 @@ if (!empty($_POST) && !empty($_POST['comment'])) {
 }
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
+/*?><pre><?php var_dump($event); ?></pre><?php*/
 $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
-$styles = ['events.css','form.css'];
-$scripts = ['alert.js','slideshow.js','slideshow_event.js', 'participate.js'];
+$styles = ['events.css','form.css','simple-slideshow.css'];
+$scripts = ['alert.js','simple-slideshow.js', 'participate.js'];
 $blocks = ['display'];
 
 // Affectation des valeurs spécifiques à l'event :
@@ -36,7 +37,7 @@ if($photo_principale){
 else{
   switch($event['id_type']){
     case 1:
-      $contents['photo_principale']="vues/assets/images/picni1.jpg";
+      $contents['photo_principale']="vues/assets/images/picnic1.jpg";
       break;
     case 2:
       $contents['photo_principale']="vues/assets/images/concertType.jpg";
@@ -155,6 +156,10 @@ switch ($event['visibilite']){
     break;
 }
 if (isset($_SESSION['id'])){
+  if(!checkParticipation($_GET['id'],$_SESSION['id']) && $event['visibilite']==1){
+    header('Location: '.getLink(['accueil','404']));
+    exit();
+  }
   $participe = checkParticipation($_GET['id'],$_SESSION['id']);
   if($participe){
     $contents['participe']='Ne participe plus';
@@ -164,6 +169,10 @@ if (isset($_SESSION['id'])){
   }
 }
 else{
+  if($event['visibilite']==1){
+    header('Location: '.getLink(['accueil','404']));
+    exit();
+  }
   $contents['participe']='Participe';
 }
 $contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));

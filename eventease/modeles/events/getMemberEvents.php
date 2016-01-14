@@ -1,40 +1,90 @@
 <?php
 
-// entrée : id du membre dont on veut les prochains évènements
-// sortie : détails des évènements à venir du membre, sous forme d'un tableau
-// La sortie **doit** être **ordonnée chronologiquement** (sinon tu casses tout)
-// On pourra ajouter des params tq des limites de nb d'events à retourner (3 prochains mois...)
-// On pourra aussi avoir un mode qui sort tous les évènements publics (pas forcément la même fonction)
-
+/*
+entrée : id du membre dont on veut les évènements passés et futurs --> auxquels il participe, auxquels il est invité, qu'il a créé
+sortie : détails des évènements à venir du membre, sous forme d'un tableau
+- date : format jj/mm/aaaa      sic : nom
+- titre                         sic : nom
+- type                          sic : nom
+- ville                         sic : nom note: explode et envoi dernière valeur
+- tarif                         sic : nom note: en chaînes faciles à afficher type "de 8 à 30 ans"
+- age                           sic : nom
+- description                   sic : nom
+- image --> à détermine
+- etat_participation
+*/
 function getMemberEvents($id) {
-      $bdd = new PDO(DSN, DBUSER, DBPASS);
-      $query = $bdd->prepare('SELECT'
-              . 'membre.id,'
-              . 'membre.pseudo,'
-              . 'membre.ddn,'
-              . 'membre.niveau,'
-              . 'invitation.*,'
-              . 'evenement.*,'
-              . 'type.nom AS type,'
-              . 'adresse.adresse_condensee AS adresse,'
-              . 'media.lien'
-              . 'FROM membre'
-              . 'LEFT JOIN invitation ON membre.id=invitation.id_destinataire'
-              . 'LEFT JOIN evenement ON evenement.id=invitation.id_evenement'
-              . 'LEFT JOIN type ON evenement.id_type = type.id'
-              . 'LEFT JOIN adresse ON evenement.id_adresse = adresse.id'
-              . 'LEFT JOIN media ON evenement.id_media_principal = media.id'
-              . 'WHERE membre.id = :id'
-              . 'ORDER BY evenement.debut');
+    // requete sql pour prendre les infos nécessaires
+    $bdd = new PDO(DSN, DBUSER, DBPASS);
+    $query = 'SELECT evenement.debut, evenement.titre, type.nom AS type, adresse.adresse_condensee, evenement.tarif, evenement.age_min, evenement.age_max, evenement.description, media.lien AS image, invitation.etat AS invitation
+                FROM membre
+                LEFT JOIN invitation ON membre.id=invitation.id_destinataire
+                LEFT JOIN evenement ON evenement.id=invitation.id_evenement
+                LEFT JOIN type ON evenement.id_type = type.id
+                LEFT JOIN adresse ON evenement.id_adresse = adresse.id
+                LEFT JOIN media ON evenement.id_media_principal = media.id
+                WHERE membre.id = :id
+                ORDER BY evenement.debut';
+    $query = $bdd->prepare($query);
 
-    $query -> execute();
+    $query -> execute(['id'=>$id]);
 
-    if($query->rowCount()==1) {
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $result[0];
+    $events = $query->fetchAll(PDO::FETCH_ASSOC);
+    
+    // transformation des détails en chaînes faciles à afficher type "de 8 à 30 ans"
+    if($events) {
+        // Traitement des contenus :
+        foreach($events as $key=>$event) {
+
+            // Préparation de la chaîne représentant la tranche d'âge :
+            if(isset($event['age_min'], $event['age_max'])) {
+                $events[$key]['tranche_age'] = 'De '.$event['age_min'].' à '.$event['age_max'].' ans';
+            }
+            elseif(isset($event['age_min'])) {
+                $events[$key]['tranche_age'] = 'À partir de '.$event['age_min'].' ans';
+            }
+            elseif(isset($event['age_max'])) {
+                $events[$key]['tranche_age'] = 'Jusqu\'à '.$event['age_max'].' ans';
+            }
+            else {
+                $events[$key]['tranche_age'] = '';
+            }
+
+            // Préparation de la chaîne représentant le lieu :
+            $addressLines = explode(',',$event['adresse_condensee']);
+            $events[$key]['ville'] = end($addressLines);
+
+            $events[$key]['debut'] = substr($events[$key]['debut'], 0, 16);
+            $events[$key]['debut'] = preg_replace('/-/','/', $events[$key]['debut']);
+
+            // Préparation de la chaîne représentant la participation
+            if(isset($event['invitation'])) {
+                switch($event['invitation']) {
+                    case 0:
+                        $events[$key]['participation'] = "Vous êtes invité";
+                    break;
+                    case 1:
+                        $events[$key]['participation'] = "Vous participez";
+                    break;
+                    case 2:
+                        $events[$key]['participation'] = "Vous participez peut-être";
+                    break;
+                    case 3:
+                    default:
+                        $events[$key]['participation'] = "Vous ne participez pas";
+                    break;
+                }
+            }
+            else {
+                $events[$key]['participation'] = "Vous ne participez pas";
+            }
+
+            // Préparation de la chaîne représentant la privacy de l'event
+        }
+        var_dump($events);
+        return $events;
     }
     else {
-        echo 'Erreur requête \"mes events\" <br />';
         return False;
     }
 }

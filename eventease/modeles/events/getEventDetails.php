@@ -63,7 +63,7 @@ function getCreator($id) {
 }
 function getCreators($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM evenement, membre, organise WHERE  evenement.id= organise.id_evenement AND organise.id_organisateur = membre.id AND evenement.id = :id');
+  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM evenement, membre, modere WHERE  evenement.id= modere.id_evenement AND modere.id_organisateur = membre.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
   $creators = $query->fetchALL();
 
