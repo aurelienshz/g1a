@@ -9,25 +9,28 @@ function getEvents($id = False) {
         - modérateur, administrateur : tous
     */
     if($id) {
-        $userSpecific = ['LEFT JOIN invitation ON evenement.id = invitation.id_evenement ', ' OR invitation.id_destinataire = :id'];
+        $userSpecific = ' WHERE evenement.visibilite=0 OR invitation.id_destinataire = :id';
+        if($_SESSION['niveau']==2 || $_SESSION['niveau']==3) {
+            $userSpecific = '';
+        }
     }
     else {
-        $userSpecific = ['',''];
+        $userSpecific = 'WHERE evenement.visibilite=0';
     }
 
-    $query = "SELECT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, type.nom AS type, adresse.adresse_condensee AS adresse, media.lien
+    $query = "SELECT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, evenement.visibilite, type.nom AS type, adresse.adresse_condensee AS adresse, media.lien
                     FROM evenement
                     LEFT JOIN type on evenement.id_type = type.id
                     LEFT JOIN adresse on evenement.id_adresse = adresse.id
-                    LEFT JOIN media ON evenement.id_media_principal = media.id "
-                    .$userSpecific[0].
-                    "WHERE evenement.visibilite = 0".$userSpecific[1];
+                    LEFT JOIN media ON evenement.id_media_principal = media.id
+                    LEFT JOIN invitation ON evenement.id = invitation.id_evenement"
+                    .$userSpecific;
 
-    // var_dump($query);
+    var_dump($query);
 
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $reqEvents = $bdd -> prepare($query);
-    if(implode('',$userSpecific)) {
+    if(!$userSpecific) {
         $reqEvents -> execute(['id' => $id]);
     }
     else {

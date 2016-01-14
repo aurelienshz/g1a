@@ -112,7 +112,7 @@ Modif event -- Tristan
 Recherche :
 events :
 - [x] formulaire : esthétique des critères (cases à cocher)
-- [ ] formulaire : cases de critères bug si on décoche tous les critères
+- [x] formulaire : cases de critères bug si on décoche tous les critères
 - [ ] recherche par date : implémenter ou enlever de la recherche bigform accueil
 - [ ] liste : gérer les privilèges (admin/modo = TOUS !)
 - [ ] implémentation filtrage par date -- Aurélien
