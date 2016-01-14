@@ -1,10 +1,11 @@
-<pre><?php /*var_dump($contents['images']);*/ ?></pre>
+<pre><?php /*var_dump($contents['participants']); */?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
 echo '</script>';
 ?>
 <div class="wrapper">
+      <?php echo $contents['statut_de_participation']; ?>
     <div class ="intro_evenement">
         <div class = "photo_evenement">
             <img src="<?php echo $contents['photo_principale'];?>"/>
@@ -56,6 +57,8 @@ echo '</script>';
             <li> <?php if (is_null($contents['tarif'])) {echo 'Non renseigné';} else {echo $contents['tarif'] . ' €';} ?> </li>
             <li class="fixed_details">Visibilité</li>
             <li><?php echo $contents['visibilite']; ?></li>
+            <li class="fixed_details">Nombre maximum de participants</li>
+            <li><?php echo $contents['max_participants'];?></li>
             <li class="fixed_details">Type de public</li>
             <li><?php if (is_null($contents['age_min']) && is_null($contents['age_max'])) {echo 'Tout public'; }
                       elseif ((is_null($contents['age_min'])) && $contents['age_max']==1) {echo 'Jusqu\'à ' . $contents['age_max'] . ' an'; }
@@ -65,10 +68,10 @@ echo '</script>';
                       else{echo 'De ' . $contents['age_min'] . ' à ' . $contents['age_max'] . ' ans'; } ?></li>
             <li class="fixed_details">Langue</li>
             <li><?php echo $contents['langue']; ?></li>
-            <li class="fixed_details">Sponsor(s)</li>
-            <li><?php echo $contents['sponsor']; ?></li>
+            <li class="fixed_details">Organisateur</li>
+            <li><?php echo $contents['info_organisateur']; ?></li>
             <li class="fixed_details">Site web</li>
-            <li><a href="<?php echo $contents['site']; ?>"><?php echo $contents['site']; ?></a></li>
+            <?php echo $contents['site']; ?>
           </ul>
 				</div>
     </div>

@@ -120,12 +120,39 @@ $contents['adresse']=$adresse;
 
 $contents['tarif'] = $event['tarif'];
 
+if($event['max_participants']){
+  $contents['max_participants']=$event['max_participants'];
+}
+else{
+  $contents['max_participants']="Non renseigné";
+}
+
 $contents['age_min']=$event['age_min'];
 $contents['age_max']=$event['age_max'];
 
 $contents['description']=$event['description'];
 
-$contents['site']=$event['site'];
+if($event['site']){
+  $contents['site']=$event['site'];
+}
+else{
+  $contents['site']="Non renseigné";
+}
+
+if($event['organisateur']){
+  $contents['info_organisateur']=$event['organisateur'];
+}
+else{
+  $contents['info_organisateur']="Non renseigné";
+}
+
+var_dump($event['site']);
+if($event['site']){
+  $contents['site']="<li><a href=\"" . $contents['site'] . "\">" . $contents['site'] ." </a></li>";
+}
+else{
+  $contents['site']="<li>Non renseigné</li>";
+}
 
 $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
@@ -136,6 +163,7 @@ if ($creator_photo){
 else{
   $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
 }
+
 
 $contents['id_evenement']=$_GET['id'];
 
@@ -155,8 +183,10 @@ switch ($event['visibilite']){
     $contents['visibilite']='Privé';
     break;
 }
+
+
 if (isset($_SESSION['id'])){
-  if(!checkParticipation($_GET['id'],$_SESSION['id']) && $event['visibilite']==1){
+  if((!checkParticipation($_GET['id'],$_SESSION['id']) ||$_SESSION['id']==$contents['creator'][0]['id']) && $event['visibilite']==1){
     header('Location: '.getLink(['accueil','404']));
     exit();
   }
@@ -167,14 +197,36 @@ if (isset($_SESSION['id'])){
   else{
     $contents['participe']='Participe';
   }
-}
+  if ($_SESSION['id']==$contents['creator'][0]['id']){
+    $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
+  }
+  foreach($contents['creators'] as $moderateur)
+    if ($_SESSION['id']==$moderateur['id'] && (!empty(['statut_de_participation']))){
+      $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
+    }
+    else{
+      $contents['statut_de_participation']="";
+    }
+    foreach($contents['participants'] as $participant){
+      ?><pre><?php var_dump(empty($contents['statut_de_participation']));?></pre><?php
+      if ($_SESSION['id']==$participant['id'] && (empty($contents['statut_de_participation']))){
+        $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
+      }
+      else{
+        $contents['statut_de_participation']="";
+      }
+    }
+  }
 else{
+  $contents['statut_de_participation']="";
   if($event['visibilite']==1){
     header('Location: '.getLink(['accueil','404']));
     exit();
   }
   $contents['participe']='Participe';
 }
+
+
 $contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));
 $contents['date_fin'] = date('Y-m-d',strtotime($event['fin']));
 list($contents['year_begin'], $contents['month_begin'], $contents['day_begin'])=explode ('-', $contents['date_debut']);
