@@ -186,12 +186,9 @@ textarea{
   margin:10px;
   margin-left: 0px;
 }
-#lien {
+#modif {
   display:block;
   background-color:#36B136;
   color:white;
-  width:initial;
-}
-#lien a {
-
+  float:right;
 }
