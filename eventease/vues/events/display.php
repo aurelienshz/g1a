@@ -1,4 +1,4 @@
-<pre><?php   var_dump($contents['creator']['picture']);?></pre>
+<pre><?php  /*var_dump($contents['creator']['picture']);*/?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
