@@ -1,4 +1,4 @@
-<pre><?php /*var_dump($contents['participants']);*/ ?></pre>
+<pre><?php /*var_dump($contents['images']);*/ ?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
@@ -73,24 +73,17 @@ echo '</script>';
 				</div>
     </div>
     <section id="photos" <?php if (!array_key_exists(1, $contents['images']) && !array_key_exists(2, $contents['images'])) {echo 'style=display:none';} ?>>
-			<div>
-                <div class="slideshow-container">
-                    <div class="previous"><td>&lt;</td></div>
-                    <div class="image"><img src="<?php if (!array_key_exists(1,$contents['images'])) {echo '' ;} else {echo PHOTO_EVENT.$contents['images'][1][0];}?>"/></div>
-                    <div class="next">&gt;</div>
-                </div>
-          </div>
-		  <div>
-            <div class="slideshow-container">
-                <div class="previous">&lt;</div>
-                <div class="image"><img src="<?php if (!array_key_exists(2,$contents['images'])) {echo '' ;} else {echo PHOTO_EVENT.$contents['images'][2][0];}?>"/></div>
-                <div class="next">&gt;</div>
-            </div>
-		</div>
+			<div class="simple-slideshow">
+        <?php foreach($contents['images'] as $image){
+            ?><div class="image"><img src="<?php echo PHOTO_EVENT.$image['lien']; ?>"/></div>
+        <?php
+          }
+          ?>
+      </div>
     </section>
     <div class = "organisation">
 		<div class = "hosts">
-    		<h2>Organisateurs</h2>
+    		<h2>Modérateurs</h2>
       			<ul>
               <li><img src="<?php echo $contents['creator']['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
                       <?php
