@@ -42,6 +42,7 @@ front end :
 - [x] désactiver lien pour l'onglet actif (PHP ou JS)
 - [ ] Filtre calendrier mes events --> Aurélien
 - [ ] Bug des dates 30 Nov -1 & 1 Jan 1970
+- [ ] Modifier la suppression de membre pour pas que ça le supprime totalement
 CLIENT :
 - [x] gros onglets -> bof , rester sur style arrondi et allégé
 - [ ]client : suggérer les règles pour les noms, les mdp... dans le message d'erreur. --> Tristan
