@@ -11,6 +11,15 @@ require MODELES.'events/checkOrganiser.php';
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/updateEvent.php';
 
+	$nameTranslation = [ 
+	'price' => 'tarif',
+	'max_attendees' => 'max_participants',
+	'visibility' => 'visibilite',
+	'hosts' => 'organisateurs',
+	'sponsors' => 'sponsor',
+	'website' => 'site'
+	];
+
 $contents['types'] = getTypes();
 $contents['values'] = ['type' => -1];	// Initialisation pour affiher "choisissez un type" mais quand même garder en mémoire le type choisi
 
@@ -26,8 +35,8 @@ $contents['values']['lien_photo'] = getMainImage($_GET['id']);
 if (empty($contents["values"])){
 	alert("error","Cet évènement n'existe pas !");
 	var_dump($contents['values']);
-    // header("Location: ".getLink(["accueil","404"]));
-    // exit();
+    header("Location: ".getLink(["accueil","404"]));
+    exit();
 }
 
 // Fonction qui check s'il a le droit de modifier.
@@ -36,12 +45,12 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
 }else{
 	if (!connected()){
 		alert("error","Vous devez être connecté !");
-    	// header("Location: ".getLink(["membres","connexion"]));
-    	// exit();
+    	header("Location: ".getLink(["membres","connexion"]));
+    	exit();
 	}else{
 		alert("error","Vous n'avez pas le droit de modifier cet évènement!");
-    	// header("Location: ".getLink(["membres","connexion"]));
-    	// exit();
+    	header("Location: ".getLink(["membres","connexion"]));
+    	exit();
 	}
 	    
 }
@@ -58,6 +67,7 @@ $contents["values"]["adresse"] = getAdress($_GET['id'])[0];
 
 //Formulaire soumis
 if(!empty($_POST)){
+
 	//Sécuriser POST
 	foreach($_POST as $cle => $valeur){
 			$_POST[$cle]=htmlspecialchars($valeur);
@@ -70,11 +80,10 @@ if(!empty($_POST)){
 				$errors[$field] = 'Ce champ est requis';
 			}
 		}
-
+	$push = $_POST;
 	//Commencer les vérifications
 	if (empty($errors)){
 		//titre, debut, fin, journee_entiere, age_min, age_max, confidentiel, sur_invitation, tarif, description, site, langue, id_type, adresse
-		$push = $_POST;
 
 		// Nom conforme :
 		if(!checkTextInput($_POST['titre'],"/^[-a-zâäàéèùêëîïôöçñ' 0-9@#]+$/i")) {
@@ -114,7 +123,7 @@ if(!empty($_POST)){
 		}else{
 			$endTimeTest = !validateDateFormat($endTime, 'Y-m-d H:i');
 		}
-		if( $endTimeTest AND strtotime($startTime) >= strtotime($endTime)) {
+		if( $endTimeTest OR strtotime($startTime) >= strtotime($endTime)) {
 			$errors['date_fin'] = 'La date et l\'heure de fin doivent être après la date et l\'heure de début';
 		}
 		else {
@@ -192,7 +201,9 @@ if(!empty($_POST)){
 			if (isset($_POST['photo']) ) {
 				if ($_POST['photo'] == -1){
 					$photo = -1;
-					$contents['values']["old_lien_photo"] = $contents['values']["lien_photo"];
+					$push["lien_photo"] = -1;
+					var_dump($contents['values']["lien_photo"]);
+					$push["old_lien_photo"] = $contents['values']["lien_photo"];
 					$contents['values']["lien_photo"] = -1;
 				}
 			}
@@ -211,19 +222,24 @@ if(!empty($_POST)){
     	}
 	}
 
-	if(!empty($push)){
+	if(!empty($_POST) && !empty($push)){
 		// Affiche les champs à jour avec ce qui a été saisi dans le formulaire.
-	    foreach($push as $cle => $valeur){
-				$contents['values'][$cle]=$valeur;
+		foreach($push as $cle => $valeur){
+			$contents['values'][$cle]=$push[$cle];
+		}
+		foreach ($nameTranslation as $cle => $value) {
+			$contents['values'][$value]=$push[$cle];
 		}
 	}
+
+
     if (empty($errors)){
     	$push['id_media_principal'] = $contents['values']['id_media_principal'];
     	$push['max_type'] = count($contents['types']);
     	$push['id'] = $_GET['id'];
     	if (updateEvent($push)){
 	    	alert("info","Votre évènement a bien été modifié.");
-			// header('Location: '.getLink(['event','display',$_GET['id']]));
+			// header('Location: '.getLink(['events','display',$_GET['id']]));
 			// exit();
     	}
     }else{
@@ -232,6 +248,7 @@ if(!empty($_POST)){
 				$contents['errors'][$key] = '<p class="formError">'.$value.'</p>';
 			}
     }
+
 }
 
 
