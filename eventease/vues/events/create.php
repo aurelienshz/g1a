@@ -131,8 +131,8 @@
 				</div>
 				<div class="ligne" id="nonautohostedLine">
 					<div class="champ" style="width:45%;">
-						<label for="hosts">Nom Modérateurs :</label>
-						<input type="text" placeholder="Modérateur" id="hosts" name="hosts" value="<?php echo isset($contents['values']['organisateur'])?$contents['values']['organisateur']:''; ?>"/>
+						<label for="hosts">Nom Organisateurs :</label>
+						<input type="text" placeholder="Organisateur" id="hosts" name="hosts" value="<?php echo isset($contents['values']['organisateur'])?$contents['values']['organisateur']:''; ?>"/>
 						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:'' ?>
 					</div>							
 					<div class="champ" style="width:45%;">
