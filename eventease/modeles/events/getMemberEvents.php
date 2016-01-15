@@ -55,6 +55,7 @@ function getMemberEvents($id) {
             $events[$key]['ville'] = end($addressLines);
 
             // chaîne représentant la date :
+            $events[$key]['day'] = getdate(strtotime($events[$key]['date']))['mday'];
             $events[$key]['month'] = getdate(strtotime($events[$key]['date']))['mon'];
             $events[$key]['year'] = getdate(strtotime($events[$key]['date']))['year'];
             $events[$key]['date'] = date('j/m/o',strtotime($events[$key]['date']));

@@ -15,7 +15,7 @@ require CONTROLEURS.'shared/vue.php';
 
 require_once MODELES.'membres/connected.php';
 
-define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
+define('DEBUG', False); // Activation du mode debug. Passer à False pour désactiver.
 
 // Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
 if(!connected()) {
@@ -31,7 +31,8 @@ $route = route($module,$action);
 $params = array_slice($_GET, 2);
 
 // Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
-if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on vient d'atterrir)
+// Si on a rien positionné (on vient d'atterrir)
+if(!isset($_SESSION['previousPage'])) {
     $_SESSION['previousPage'] = $landingPage;   // Page d'atterrissage : paramétrée dans config.php
     $_SESSION['currentPage'] = $landingPage;
 }
