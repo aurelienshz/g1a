@@ -370,7 +370,7 @@
 	font-size:0.7em;
 }
 .comment img{
-	width:9%;
+	width:12%;
 	height:auto;
 	vertical-align:middle;
 }
@@ -427,4 +427,16 @@
 	padding:auto;
 	width:100%;
 	height:auto;
+}
+#Modifier {
+	float:left;
+	font-size:30%;
+	width:5%;
+	margin-right:1%;
+}
+#Supprimer {
+	float:left;
+	font-size:30%;
+	width:5%;
+	margin-left:1%;
 }

@@ -147,9 +147,9 @@ echo '</script>';
                 <?php
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2];?><br/></p>
+                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2];?></br><input name="Modifier" type="submit" id="Modifier"/><input value="Supprimer" type="submit" id="Supprimer"/></p>
 
-                    <p><?php echo $commentaire[1];?><br/></p>
+                    <p><?php echo $commentaire[1];?></p>
 
                 <?php
                     }
