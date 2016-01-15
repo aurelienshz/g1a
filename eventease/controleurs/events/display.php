@@ -201,13 +201,12 @@ if (isset($_SESSION['id'])){
   }
   else{
       foreach($contents['creators'] as $moderateur){
-        ?><pre><?php  var_dump($moderateur['id']); ?></pre><?php
         if ($_SESSION['id']==$moderateur['id']){
           $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
         }
       }
       foreach($contents['participants'] as $participant){
-            if ($_SESSION['id']==$participant['id']  && (!$contents['statut_de_participation'])){
+            if ($_SESSION['id']==$participant['id']  && !(isset($contents['statut_de_participation']))){
               $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
             }
           }
