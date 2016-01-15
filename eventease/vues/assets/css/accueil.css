@@ -116,7 +116,10 @@
 }
 #suggestions div.eventPreview {
 }
-
+.slideshow-slides{
+    background-color: #F3F3F3;
+    justify-content: flex-end;
+}
 /**** CALENDRIER ****/
 
 .monthDetails {

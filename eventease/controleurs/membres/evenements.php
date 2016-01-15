@@ -27,10 +27,10 @@ else {
                     $eventsThisMonth[] = $event;
                 }
             }
-            echo '<pre>';
-            echo '<h3>'.$m.'/'.$y.'</h3>';
-            var_dump($eventsThisMonth);
-            echo '</pre>';
+            // echo '<pre>';
+            // echo '<h3>'.$m.'/'.$y.'</h3>';
+            // var_dump($eventsThisMonth);
+            // echo '</pre>';
             $contents['calendar'][] = buildCalendar($m,$y,$eventsThisMonth);
         }
         $y++;
@@ -39,7 +39,8 @@ else {
 /**** Affichage de la page ****/
 $contents['ongletActif'] = 'evenements';
 $title = 'Mes évènements';
-$styles = ['onglets_compte.css','calendar.css','accueil.css'];
+$styles = ['onglets_compte.css','calendar.css','accueil.css','eventPreview.css'];
 $blocks = ['onglets_compte', 'evenements'];
+$scripts = ['dynamicCalendar.js'];
 //Appels des vues :
-vue($blocks,$styles,$title,$contents);
+vue($blocks,$styles,$title,$contents,$scripts);

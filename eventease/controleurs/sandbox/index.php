@@ -3,10 +3,10 @@ echo '<h1>SANDBOX ~ EVENTEASE</h1>';
 
 // -------------------------------------------------- //
 
-require MODELES.'events/getMemberEvents.php';
+require MODELES.'functions/dateToFrench.php';
 
-$res = getMemberEvents(1);
+$res = dateToFrench('2016-01-15');
 
 
 
-echo build_calendar(12,2015,[]);
+echo $res   ;

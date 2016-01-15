@@ -1,8 +1,11 @@
 <?php
-function buildCalendar($month,$year,$eventsThisMonth = False) {
+
+require MODELES."/functions/dateToFrench.php";
+
+function buildCalendar($month,$year,$events = False) {
 	// construction de la liste des jours à mettre en surbrillance :
 	$filledDays = [];
-	foreach ($eventsThisMonth as $event) {
+	foreach ($events as $event) {
 		$filledDays[] = $event['day'];
 	}
 
@@ -61,7 +64,7 @@ function buildCalendar($month,$year,$eventsThisMonth = False) {
 		$currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
 		$date = "$year-$month-$currentDayRel";
 		$filled = in_array($currentDay,$filledDays);
-		$calendar .= "\t<td class='".($filled?'filled-':'')."day'><a href='#$date'>$currentDay</a></td>\n";
+		$calendar .= "\t<td class='day'><a class=".($filled?'filled-day':'')." href='#$date'>$currentDay</a></td>\n";
 		// Increment counters
 		$currentDay++;
 		$dayOfWeek++;
@@ -78,31 +81,59 @@ function buildCalendar($month,$year,$eventsThisMonth = False) {
 	/***
 	/* Génération des détails du mois en cours :	*/
 
-	if($eventsThisMonth) {
+	if($events) {
 		$monthDetails = "<div class=\"monthDetails\">";
-		$day = $event['day']."-".$event['month']."-".$event['year'];
-		foreach($eventsThisMonth as $event) {
-			$monthDetails .= "<div id=\"".$day."\">\n
-                <h4></h4>\n
-                <div class=\"eventDetails\">
-                    <h5>".$event['titre']."<span class=\"participation\">Vous participez</span></h5>
-                    <div id=\"infosPratiques\">
-                        <p></p>
-                        <span class=\"fa fa-calendar\"></span><p>2015-12-17</p>
-                        <span class=\"fa fa-tag\"></span><p>Pique-Nique</p>
-                        <span class=\"fa fa-map-marker\"></span><p>Mexico</p>
-                    </div>
-                    <p id=\"eventDescription\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-            </div>";
+		foreach($events as $event) {
+			$m = str_pad($event['month'], 2, "0", STR_PAD_LEFT);
+			$day = $event['year']."-".$m."-".$event['day'];
+			$eventsDays[$day][] = $event;
+
 		}
+		foreach ($eventsDays as $day => $events) {
+			$monthDetails = '<div class="monthDetails">';
+			$monthDetails .= "<div id=\"".$day."\">\n<h4>".dateToFrench($day)."</h4>";
+			foreach ($events as $event) {
+				ob_start();
+				?>
+					<div class="eventPreview shadow">
+						<h4>
+							<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
+							<?php echo $event['titre']; ?>
+							<span class="participation"><?php echo $event['participation']; ?></span>
+						</a></h4>
+						<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
+							<img src="<?php echo PHOTO_EVENT.$event['image'];?>" />
+						</a>
+						<div class="infosPratiques">
+							<p class="eventCategorie"><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
+							<p class="eventDate"><span class="fa fa-calendar"></span><?php echo $event['date']; ?></p>
+							<p><span class="fa fa-map-marker"></span><?php echo $event['ville']; ?></p>
+							<?php
+							if($event['tarif']) {
+								echo '<p class="eventTarif"><span class="fa fa-eur"></span>'.$event['tarif'].' €</p>';
+							}
+							if($event['tranche_age']) {
+								echo '<p><span class="fa fa-child"></span> '.$event['tranche_age'].'</p>';
+							} ?>
+						</div>
+						<?php if(isset($event['description'])) {
+							echo '<p class="description">'.$event['description'].'</p>';
+						} ?>
+						<a class="button" href="<?php echo getLink(['events','display',$event['id']]); ?>">Voir l'évènement</a>
+					</div>
 
-		$monthDetails .= "</div>";
-
-		$calendar .= $monthDetails;
+				<?php
+				$monthDetails .= ob_get_clean();
+			}
+			$monthDetails .= '</div>';
+		}
+		$monthDetails .= '</div>';
+	}
+	else {
+		$monthDetails = '<div class="monthDetails"><p>Pas d\'évènements ce mois-ci</p></div>';
 	}
 
+	$calendar .= $monthDetails;
 	$calendar .= '</section>';
-
 	return $calendar;
 }

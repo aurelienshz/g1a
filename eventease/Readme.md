@@ -103,12 +103,13 @@ Modif event -- Tristan
 ## Back-office ##
 
 
-- [ ] types d'events --> photos par défaut pour chaque types
+- [ ] types d'events --> photos par défaut pour chaque type
 - [x] slogan et subslogan accueil
 - [ ] édition FAQ
 - [x] édition CGV
 - [x] édition Mentions Légales
 - [x] image de fond bigform accueil
+- [ ] bouton retour au site
 
 Recherche :
 events :

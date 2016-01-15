@@ -256,7 +256,7 @@ if(!empty($_POST)){
 $title = 'Modifier mon évènement';
 $styles = ['form.css','accueil.css', 'search.css', 'prettyform.css'];
 $blocks = ['modify'];
-$scripts = ['googleAutocompleteAddress.js'];
+$scripts = ['googleAutocompleteAddress.js','autohosted.js'];
 
 // /****Affichage de la page *****/
 // //Appel de la vue :

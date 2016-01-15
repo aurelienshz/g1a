@@ -8,7 +8,7 @@
 			<?php
 				foreach ($contents['images'] as $key => $value) {
 					echo "<div class='imageBlock'>";
-					echo '<img alt="Photo Event '.$key.'" src ="'.PHOTO_EVENT.$value[1].'" title="Photo Event '.$key.'" max-height="300px" width="100%"  class="uploaded"> <br />';
+					echo '<img style="max-height:300px;" alt="Photo Event '.$key.'" src ="'.PHOTO_EVENT.$value[1].'" title="Photo Event '.$key.'" width="100%"  class="uploaded"> <br />';
 					echo '<p><input type="checkbox" name="'.$key.'" value="1">Supprimer cette image ?</p>';
 					echo '</div>';
 				}
