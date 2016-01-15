@@ -5,7 +5,6 @@ id_what donne la fonction à faire :
 2->modifier topic
 3->supprimer un commentaire
 4->modifier un commentaire -->
-0 : inscrit non validé, 1 : inscrit validé, 2 : modérateur, 3 : admin
 <div class="wrapper prettyform">
   <div class="shadow">
     <div class="titleWrapper1">
