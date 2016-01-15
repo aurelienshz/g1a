@@ -3,7 +3,8 @@
 
 /**** Préparation des contenus ****/
 
-require MODELES.'messagerie/getMessages.php';
+require MODELES.'membres/getPrivateMessages.php';
+require MODELES.'membres/getUserName.php';
 
 if(!connected()) {
     alert('error', 'Vous devez vous connecter pour voir cette page');
@@ -11,7 +12,7 @@ if(!connected()) {
     exit();
 }
 else {
-    $contents['messages'] = getMessages("j'aime les chats");
+    $contents['messages'] = getPrivateMessages($_SESSION['id']);
 }
 
 $contents['ongletActif'] = 'messages';
