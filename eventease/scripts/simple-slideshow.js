@@ -22,7 +22,7 @@ function Slideshow(container) {
     /**********************************************/
     // Récupérer les slides et les pousser dans :
     this.getSlides = function() {
-        for(var i in this.container.childNodes) {
+        for(var i = 0; i < this.container.childNodes.length; i++) {
             if(this.container.childNodes[i].tagName == 'DIV') {
                 var slide = this.container.childNodes[i];
                 this.slides.push(slide);

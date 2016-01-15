@@ -10,7 +10,7 @@ require MODELES.'events/checkOrganiser.php';
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/updateEvent.php';
 
-	$nameTranslation = [ 
+	$nameTranslation = [
 	'price' => 'tarif',
 	'max_attendees' => 'max_participants',
 	'visibility' => 'visibilite',
@@ -39,8 +39,8 @@ if (empty($contents["values"])){
 }
 
 // Fonction qui check s'il a le droit de modifier.
-if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
-    
+if( connected() && (checkOrganiser($_SESSION['id'],$_GET['id']) || $_SESSION['id']==getCreator($_GET['id'])[0]['id'] )) {
+
 }else{
 	if (!connected()){
 		alert("error","Vous devez être connecté !");
@@ -51,7 +51,7 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
     	header("Location: ".getLink(["accueil"]));
     	exit();
 	}
-	    
+
 }
 //Traitement Dates
 $contents["values"]["date_debut"] = date('Y-m-d',strtotime($contents['values']['debut']));
@@ -195,7 +195,7 @@ if(!empty($_POST)){
 				$photo = $check[1];
 			}else{
 				if ($check[1] != NULL) $errors["photo"] = $check[1];
-			}	
+			}
 			// Si il veut supprimer la photo
 			if (isset($_POST['photo']) && empty($errors) ) {
 				if ($_POST['photo'] == -1){
@@ -256,7 +256,7 @@ if(!empty($_POST)){
 $title = 'Modifier mon évènement';
 $styles = ['form.css','accueil.css', 'search.css', 'prettyform.css'];
 $blocks = ['modify'];
-$scripts = ['googleAutocompleteAddress.js'];
+$scripts = ['googleAutocompleteAddress.js','autohosted.js'];
 
 // /****Affichage de la page *****/
 // //Appel de la vue :
