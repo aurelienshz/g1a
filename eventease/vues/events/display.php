@@ -1,4 +1,4 @@
-<pre><?php   var_dump($contents['creator']['picture']);?></pre>
+<pre><?php  /*var_dump($contents['creator']['picture']);*/?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
@@ -24,7 +24,7 @@ echo '</script>';
 		  <div class="buttons">
 			<ul>
                 <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe']?></a></li>
-  	            <li><a class="button" href="#">Participe peut-être</a></li>
+  	            <?php echo $contents['bouton_special'];?>
                 <li><a class="button" href="<?php echo getLink(['events','invite',$_GET['id']]); ?>" ><i class="fa fa-plus"></i> Inviter un ami </a></li>
 			</ul>
 		  </div>

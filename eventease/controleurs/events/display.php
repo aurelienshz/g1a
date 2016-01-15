@@ -156,8 +156,8 @@ else{
 $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
 $creator_photo = getMembersPicture($creator[0][1]);
-if ($creator_photo){
-  $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo;
+if ($creator_photo['lien']){
+  $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo['lien'];
 }
 else{
   $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
@@ -198,23 +198,30 @@ if (isset($_SESSION['id'])){
   }
   if ($_SESSION['id']==$contents['creator'][0]['id']){
     $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
+    $lien=getLink(['events','modify',$_GET['id']]);
+    $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
   }
-  foreach($contents['creators'] as $moderateur)
-    if ($_SESSION['id']==$moderateur['id'] && (!empty(['statut_de_participation']))){
-      $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
-    }
-    else{
-      $contents['statut_de_participation']="";
-    }
-    foreach($contents['participants'] as $participant){
-      if ($_SESSION['id']==$participant['id'] && (empty($contents['statut_de_participation']))){
-        $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
+  else{
+      foreach($contents['creators'] as $moderateur){
+        if ($_SESSION['id']==$moderateur['id']){
+          $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
+          $lien=getLink(['events','modify',$_GET['id']]);
+          $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
+        }
       }
-      else{
-        $contents['statut_de_participation']="";
+      foreach($contents['participants'] as $participant){
+            if ($_SESSION['id']==$participant['id']  && !(isset($contents['statut_de_participation']))){
+              $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
+              $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
+
+            }
+          }
+      if(!$contents['statut_de_participation']){
+              $contents['statut_de_participation']="";
+              $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
+            }
       }
     }
-  }
 else{
   $contents['statut_de_participation']="";
   if($event['visibilite']==1){
@@ -222,9 +229,11 @@ else{
     exit();
   }
   $contents['participe']='Participe';
+  $contents['statut_de_participation']="";
+  $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
 }
 
-
+var_dump(getCreator($_GET['id'])[0]['id']);
 $contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));
 $contents['date_fin'] = date('Y-m-d',strtotime($event['fin']));
 list($contents['year_begin'], $contents['month_begin'], $contents['day_begin'])=explode ('-', $contents['date_debut']);
