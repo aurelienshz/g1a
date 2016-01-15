@@ -32,8 +32,8 @@ function insertEvent($push) {
 // insérer dans organise ou organise = coming soon
 
 	$insertQuery = $bdd->prepare('INSERT INTO
-		evenement (titre, debut, fin, age_min, age_max, visibilite, invitation, tarif, description, site, langue, id_type, id_adresse, id_createur, id_media_principal, sponsor, organisateur, max_participants)
-    	VALUES (:titre, :debut, :fin, :age_min, :age_max, :visibilite, :invitation, :tarif, :description, :site, :langue, :id_type, :id_adresse, :id_createur, :id_media_principal, :sponsor, :organisateur, :max_participants)');
+		evenement (titre, debut, fin, age_min, age_max, visibilite, invitation, tarif, description, site, langue, id_type, id_adresse, id_createur, id_media_principal, sponsor, organisateur, organisateur_contact, max_participants)
+    	VALUES (:titre, :debut, :fin, :age_min, :age_max, :visibilite, :invitation, :tarif, :description, :site, :langue, :id_type, :id_adresse, :id_createur, :id_media_principal, :sponsor, :organisateur, :organisateur_contact, :max_participants)');
     if($insertQuery -> execute([
 				':titre' => $push['titre'],
 				':debut' => $push['debut'],
@@ -49,9 +49,10 @@ function insertEvent($push) {
 				':id_type' => $id_type,
 				':id_adresse' => $adresse_id,
 				':id_media_principal' => $media_id,
-				':sponsor' => $push['hosts'],
+				':sponsor' => $push['sponsors'],
 				':max_participants' => $push['max_attendees'],
-				':organisateur' => $push['sponsors'],
+				':organisateur' => $push['hosts'],
+				':organisateur_contact' => $push['hosts_contact'],
 				':id_createur'=> $push['id_createur']])) {
 			$eventId = $bdd -> lastInsertId();
 			return $eventId;

@@ -189,11 +189,11 @@
 	color:#3399FF;
 }
 #photos {
-	clear:both;
 	margin-top:2em;
 	display:block;
-	width: 100%;
+	width: 49%;
 	height:auto;
+	margin:0; 
 }
 #photos > div {
 	height: auto;
@@ -239,6 +239,11 @@
 	height: 300px;
 	width:auto;
 	margin:auto;
+}
+#carte{
+	float: right;
+	width: 49%;
+	height: 388px;
 }
 .organisation {
 	margin-top: 50px;
@@ -365,7 +370,7 @@
 	font-size:0.7em;
 }
 .comment img{
-	width:9%;
+	width:12%;
 	height:auto;
 	vertical-align:middle;
 }
@@ -422,4 +427,16 @@
 	padding:auto;
 	width:100%;
 	height:auto;
+}
+#Modifier {
+	float:left;
+	font-size:30%;
+	width:5%;
+	margin-right:1%;
+}
+#Supprimer {
+	float:left;
+	font-size:30%;
+	width:5%;
+	margin-left:1%;
 }
