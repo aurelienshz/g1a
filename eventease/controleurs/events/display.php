@@ -181,13 +181,19 @@ switch ($event['visibilite']){
   case 1:
     $contents['visibilite']='Privé';
     break;
+  case 2:
+    $contents['visibilite']='Secret';
+    break;
+  default:
+    break;
 }
 
-
 if (isset($_SESSION['id'])){
-  if((!checkParticipation($_GET['id'],$_SESSION['id']) ||$_SESSION['id']==$contents['creator'][0]['id']) && $event['visibilite']==1){
-    header('Location: '.getLink(['accueil','404']));
-    exit();
+  if(!checkParticipation($_GET['id'],$_SESSION['id'])  && $event['visibilite']==1){
+      if (!$_SESSION['id']==$event['id_createur']){
+      header('Location: '.getLink(['accueil','404']));
+      exit();
+    }
   }
   $participe = checkParticipation($_GET['id'],$_SESSION['id']);
   if($participe){
@@ -233,7 +239,6 @@ else{
   $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
 }
 
-var_dump(getCreator($_GET['id'])[0]['id']);
 $contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));
 $contents['date_fin'] = date('Y-m-d',strtotime($event['fin']));
 list($contents['year_begin'], $contents['month_begin'], $contents['day_begin'])=explode ('-', $contents['date_debut']);
