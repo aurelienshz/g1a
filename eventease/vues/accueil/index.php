@@ -26,51 +26,63 @@
 <div class="wrapper">
 <h4>Suggestions</h4>
     <section id="suggestions" class="simple-slideshow">
-        <div class="eventPreview shadow">
-			<h4><a href=#>Réglage de la hauteur des boutons du slideshow</a></h4>
-			<a href="<?php echo getLink(['events','display']); ?>">
-				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
-			</a>
-			<div class="infosPratiques">
-				<p><span class="fa fa-calendar"></span>Jamais</p>
-				<p><span class="fa fa-tag"></span>Catégoriz cantonnais</p>
-				<p><span class="fa fa-map-marker"></span>Où ?</p>
-				<p><span class="fa fa-eur"></span>666 €</p>
-				<p><span class="fa fa-child"></span>> 18ans</p>
-			</div>
-			<p class="description">Aurélien a bien travaillé sur la gestion de la hauteur des boutons de défilement.</p>
-			<a class="button" href="#">Voir l'évènement</a>
-			<div class="clearfix"></div>
-		</div>
-        <div class="eventPreview shadow">
+        <div class="eventPreview">
 			<h4><a href=#>Pique-nique -  Devant le palais du Luxembourg</a></h4>
 			<a href="<?php echo getLink(['events','display']); ?>">
 				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-calendar"></span>Demain</p>
-				<p><span class="fa fa-tag"></span>Pique-Nique</p>
-				<p><span class="fa fa-map-marker"></span>Paris</p>
-				<p><span class="fa fa-eur"></span>10€ - 50€</p>
-				<p><span class="fa fa-child"></span>> 18ans</p>
+				<p><span class="fa fa-calendar"></span>11/06/21016</p>
+				<p><span class="fa fa-tag"></span>Pique-nique</p>
+				<p><span class="fa fa-map-marker"></span>Jardin du Luxembourg, Paris</p>
+				<p><span class="fa fa-eur"></span>Gratuit</p>
+				<p><span class="fa fa-child"></span>> Tous ages</p>
 			</div>
-			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p class="description" style="min-height: 130px;">
+			C'est la belle saison et il est temps d'en profiter ! Je vous propose un pique-nique devant le palais du Luxembourg, venez nombreux, et c'est pas grave si vous venez seul, ce sera l'occasion de faire de nouvelles rencontres.
+			La seule règle : Amener de quoi manger ou boire.
+			Pour savoir si c'est bien notre groupe, j'aurais un panneau "Le pique-nique c'est ici !". 
+			</p>
 			<a class="button" href="#">Voir l'évènement</a>
 			<div class="clearfix"></div>
 		</div>
-        <div class="eventPreview shadow">
-			<h4><a href=#>Pique-nique -  Devant le palais du Luxembourg</a></h4>
+		<div class="eventPreview">
+			<h4><a href=#>Pique-nique (2) -  Devant le palais du Luxembourg</a></h4>
 			<a href="<?php echo getLink(['events','display']); ?>">
 				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-calendar"></span>Demain</p>
-				<p><span class="fa fa-tag"></span>Pique-Nique</p>
-				<p><span class="fa fa-map-marker"></span>Paris</p>
-				<p><span class="fa fa-eur"></span>10€ - 50€</p>
-				<p><span class="fa fa-child"></span>> 18ans</p>
+				<p><span class="fa fa-calendar"></span>11/06/21016</p>
+				<p><span class="fa fa-tag"></span>Pique-nique</p>
+				<p><span class="fa fa-map-marker"></span>15, bis Rue de Vaugirard, 75006 Paris</p>
+				<p><span class="fa fa-eur"></span>Gratuit</p>
+				<p><span class="fa fa-child"></span>> Tous ages</p>
 			</div>
-			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<p class="description" style="min-height: 130px;">
+			C'est la belle saison et il est temps d'en profiter ! Je vous propose un pique-nique devant le palais du Luxembourg, venez nombreux, et c'est pas grave si vous venez seul, ce sera l'occasion de faire de nouvelles rencontres.
+			La seule règle : Amener de quoi manger ou boire.
+			Pour savoir si c'est bien notre groupe, j'aurais un panneau "Le pique-nique c'est ici !". 
+			</p>
+			<a class="button" href="#">Voir l'évènement</a>
+			<div class="clearfix"></div>
+		</div>
+		<div class="eventPreview">
+			<h4><a href=#>Pique-nique (3) -  Devant le palais du Luxembourg</a></h4>
+			<a href="<?php echo getLink(['events','display']); ?>">
+				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
+			</a>
+			<div class="infosPratiques">
+				<p><span class="fa fa-calendar"></span>11/06/21016</p>
+				<p><span class="fa fa-tag"></span>Pique-nique</p>
+				<p><span class="fa fa-map-marker"></span>15, bis Rue de Vaugirard, 75006 Paris</p>
+				<p><span class="fa fa-eur"></span>Gratuit</p>
+				<p><span class="fa fa-child"></span>> Tous ages</p>
+			</div>
+			<p class="description" style="min-height: 130px;">
+			C'est la belle saison et il est temps d'en profiter ! Je vous propose un pique-nique devant le palais du Luxembourg, venez nombreux, et c'est pas grave si vous venez seul, ce sera l'occasion de faire de nouvelles rencontres.
+			La seule règle : Amener de quoi manger ou boire.
+			Pour savoir si c'est bien notre groupe, j'aurais un panneau "Le pique-nique c'est ici !". 
+			</p>
 			<a class="button" href="#">Voir l'évènement</a>
 			<div class="clearfix"></div>
 		</div>
