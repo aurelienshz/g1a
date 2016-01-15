@@ -10,8 +10,9 @@
                 </div>
                 <div class="col-3">
                     <h3>Aide</h3>
+
                     <a href="<?php echo getLink(['aide','faq']); ?>"> Questions fréquentes</a><br />
-                    <a href="#">Nous contacter</a><br />
+                    <a href="<?php echo getLink(['aide','formulaire_contact']);?>">Nous contacter</a><br />
                     <a href="<?php echo getLink(['accueil','sitemap']); ?>">Plan du site</a><br />
                 </div>
                 <div class="col-3">

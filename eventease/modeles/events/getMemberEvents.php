@@ -30,7 +30,7 @@ function getMemberEvents($id) {
     $query -> execute(['id'=>$id]);
 
     $events = $query->fetchAll(PDO::FETCH_ASSOC);
-    
+
     // transformation des détails en chaînes faciles à afficher type "de 8 à 30 ans"
     if($events) {
         // Traitement des contenus :
@@ -54,6 +54,9 @@ function getMemberEvents($id) {
             $addressLines = explode(',',$event['adresse_condensee']);
             $events[$key]['ville'] = end($addressLines);
 
+            // chaîne représentant la date :
+            $events[$key]['month'] = getdate(strtotime($events[$key]['date']))['mon'];
+            $events[$key]['year'] = getdate(strtotime($events[$key]['date']))['year'];
             $events[$key]['date'] = date('j/m/o',strtotime($events[$key]['date']));
 
             // Préparation de la chaîne représentant la participation
@@ -80,7 +83,9 @@ function getMemberEvents($id) {
 
             // Préparation de la chaîne représentant la privacy de l'event
         }
+        echo '<pre>';
         var_dump($events);
+        echo '</pre>';
         return $events;
     }
     else {

@@ -98,7 +98,7 @@
 						<label for="invitation">Qui peut inviter <i class="fa fa-asterisk"></i> :</label>
 						<select id="invitation" name="invitation">
 							<option value="0">Tout le monde</option>
-							<option value="1">Seulement les organisateurs</option>
+							<option value="1">Seulement les modérateurs</option>
 						</select>
 						<?php echo isset($contents['errors']['invitation'])?$contents['errors']['invitation']:''; ?>
 					</div>
@@ -131,7 +131,7 @@
 				</div>
 				<div class="ligne" id="nonautohostedLine">
 					<div class="champ" style="width:45%;">
-						<label for="hosts">Nom Organisateur :</label>
+						<label for="hosts">Nom Organisateurs :</label>
 						<input type="text" placeholder="Organisateur" id="hosts" name="hosts" value="<?php echo isset($contents['values']['organisateur'])?$contents['values']['organisateur']:''; ?>"/>
 						<?php echo isset($contents['errors']['hosts'])?$contents['errors']['hosts']:'' ?>
 					</div>							

@@ -1,5 +1,8 @@
 <?php
-$actions = [
-'faq'
+
+$actions=[
+	'formulaire_contact',
+	'faq',
+
 ];
 ?>
