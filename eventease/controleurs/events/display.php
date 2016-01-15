@@ -198,20 +198,27 @@ if (isset($_SESSION['id'])){
   }
   if ($_SESSION['id']==$contents['creator'][0]['id']){
     $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
+    $lien=getLink(['events','modify',$_GET['id']]);
+    $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
   }
   else{
       foreach($contents['creators'] as $moderateur){
         if ($_SESSION['id']==$moderateur['id']){
           $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
+          $lien=getLink(['events','modify',$_GET['id']]);
+          $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
         }
       }
       foreach($contents['participants'] as $participant){
             if ($_SESSION['id']==$participant['id']  && !(isset($contents['statut_de_participation']))){
               $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
+              $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
+
             }
           }
       if(!$contents['statut_de_participation']){
               $contents['statut_de_participation']="";
+              $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
             }
       }
     }
