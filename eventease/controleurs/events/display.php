@@ -229,9 +229,11 @@ else{
     exit();
   }
   $contents['participe']='Participe';
+  $contents['statut_de_participation']="";
+  $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
 }
 
-
+var_dump(getCreator($_GET['id'])[0]['id']);
 $contents['date_debut'] = date('Y-m-d',strtotime($event['debut']));
 $contents['date_fin'] = date('Y-m-d',strtotime($event['fin']));
 list($contents['year_begin'], $contents['month_begin'], $contents['day_begin'])=explode ('-', $contents['date_debut']);
