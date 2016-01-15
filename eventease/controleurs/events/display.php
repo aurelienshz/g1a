@@ -156,8 +156,8 @@ else{
 $creator=getCreator($_GET['id']);
 $contents['creator']=$creator;
 $creator_photo = getMembersPicture($creator[0][1]);
-if ($creator_photo){
-  $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo;
+if ($creator_photo['lien']){
+  $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo['lien'];
 }
 else{
   $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
