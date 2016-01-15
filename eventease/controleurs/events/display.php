@@ -199,22 +199,23 @@ if (isset($_SESSION['id'])){
   if ($_SESSION['id']==$contents['creator'][0]['id']){
     $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
   }
-  foreach($contents['creators'] as $moderateur)
-    if ($_SESSION['id']==$moderateur['id'] && (!empty(['statut_de_participation']))){
-      $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
-    }
-    else{
-      $contents['statut_de_participation']="";
-    }
-    foreach($contents['participants'] as $participant){
-      if ($_SESSION['id']==$participant['id'] && (empty($contents['statut_de_participation']))){
-        $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
+  else{
+      foreach($contents['creators'] as $moderateur){
+        ?><pre><?php  var_dump($moderateur['id']); ?></pre><?php
+        if ($_SESSION['id']==$moderateur['id']){
+          $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
+        }
       }
-      else{
-        $contents['statut_de_participation']="";
+      foreach($contents['participants'] as $participant){
+            if ($_SESSION['id']==$participant['id']  && (!$contents['statut_de_participation'])){
+              $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
+            }
+          }
+      if(!$contents['statut_de_participation']){
+              $contents['statut_de_participation']="";
+            }
       }
     }
-  }
 else{
   $contents['statut_de_participation']="";
   if($event['visibilite']==1){
