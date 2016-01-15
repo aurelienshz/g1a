@@ -32,11 +32,11 @@
 				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-calendar"></span>11/06/21016</p>
+				<p><span class="fa fa-calendar"></span>11/06/2016</p>
 				<p><span class="fa fa-tag"></span>Pique-nique</p>
-				<p><span class="fa fa-map-marker"></span>Jardin du Luxembourg, Paris</p>
+				<p><span class="fa fa-map-marker"></span>Jardin du Luxembourg Paris</p>
 				<p><span class="fa fa-eur"></span>Gratuit</p>
-				<p><span class="fa fa-child"></span>> Tous ages</p>
+				<p><span class="fa fa-child"></span>Tout âge</p>
 			</div>
 			<p class="description" style="min-height: 130px;">
 			C'est la belle saison et il est temps d'en profiter ! Je vous propose un pique-nique devant le palais du Luxembourg, venez nombreux, et c'est pas grave si vous venez seul, ce sera l'occasion de faire de nouvelles rencontres.
@@ -52,11 +52,11 @@
 				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-calendar"></span>11/06/21016</p>
+				<p><span class="fa fa-calendar"></span>11/06/2016</p>
 				<p><span class="fa fa-tag"></span>Pique-nique</p>
-				<p><span class="fa fa-map-marker"></span>15, bis Rue de Vaugirard, 75006 Paris</p>
+				<p><span class="fa fa-map-marker"></span>15, bis Rue de Vaugirard Paris</p>
 				<p><span class="fa fa-eur"></span>Gratuit</p>
-				<p><span class="fa fa-child"></span>> Tous ages</p>
+				<p><span class="fa fa-child"></span>Tout âge</p>
 			</div>
 			<p class="description" style="min-height: 130px;">
 			C'est la belle saison et il est temps d'en profiter ! Je vous propose un pique-nique devant le palais du Luxembourg, venez nombreux, et c'est pas grave si vous venez seul, ce sera l'occasion de faire de nouvelles rencontres.
@@ -72,11 +72,11 @@
 				<img src="<?php echo IMAGES.'picnic1.jpg'?>" />
 			</a>
 			<div class="infosPratiques">
-				<p><span class="fa fa-calendar"></span>11/06/21016</p>
+				<p><span class="fa fa-calendar"></span>11/06/2016</p>
 				<p><span class="fa fa-tag"></span>Pique-nique</p>
-				<p><span class="fa fa-map-marker"></span>15, bis Rue de Vaugirard, 75006 Paris</p>
+				<p><span class="fa fa-map-marker"></span>15, bis Rue de Vaugirard Paris</p>
 				<p><span class="fa fa-eur"></span>Gratuit</p>
-				<p><span class="fa fa-child"></span>> Tous ages</p>
+				<p><span class="fa fa-child"></span> Tout âge</p>
 			</div>
 			<p class="description" style="min-height: 130px;">
 			C'est la belle saison et il est temps d'en profiter ! Je vous propose un pique-nique devant le palais du Luxembourg, venez nombreux, et c'est pas grave si vous venez seul, ce sera l'occasion de faire de nouvelles rencontres.
