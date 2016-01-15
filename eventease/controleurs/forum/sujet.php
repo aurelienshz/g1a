@@ -6,6 +6,7 @@ require MODELES.'forum/getUserDetails.php';
 /* Chargement des paramètres de la page*/
 
 // INFO TOPIC
+var_dump($_SESSION);
 $id=$_GET['id'];
 $contents['id']=$id;
 
