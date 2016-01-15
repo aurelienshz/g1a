@@ -68,6 +68,7 @@ function updateEvent($push) {
 		id_media_principal = :id_media_principal, 
 		sponsor = :sponsor, 
 		organisateur = :organisateur, 
+		organisateur_contact = :organisateur_contact, 
 		max_participants = :max_participants
 		WHERE id = :id;');
     if($updateQuery -> execute([
@@ -85,9 +86,10 @@ function updateEvent($push) {
 				':id_type' => $id_type,
 				':id_adresse' => $adresse_id,
 				':id_media_principal' => $media_id,
-				':sponsor' => $push['hosts'],
+				':sponsor' => $push['sponsors'],
 				':max_participants' => $push['max_attendees'],
-				':organisateur' => $push['sponsors'],
+				':organisateur' => $push['hosts'],
+				':organisateur_contact' => $push['hosts_contact'],
 				':id' => $push['id']
 				])) {
 			return True;

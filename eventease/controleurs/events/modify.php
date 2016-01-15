@@ -10,11 +10,17 @@ require MODELES.'events/checkOrganiser.php';
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/updateEvent.php';
 
+	?> <pre> <?php
+	var_dump($contents);
+	var_dump($_POST);
+	?> </pre> <?php
+
 	$nameTranslation = [
 	'price' => 'tarif',
 	'max_attendees' => 'max_participants',
 	'visibility' => 'visibilite',
-	'hosts' => 'organisateurs',
+	'hosts' => 'organisateur',
+	'hosts_contact' => 'organisateur_contact',
 	'sponsors' => 'sponsor',
 	'website' => 'site'
 	];
@@ -31,6 +37,9 @@ if(!isset($_GET['id']) ){
 $_GET['id'] = htmlspecialchars($_GET['id']);
 //Si le EventID dans le GET n'est pas attribué.
 $contents['values'] = getEvents($_GET['id']);
+$contents['values']['hosts'] = $contents['values']['organisateur'];
+$contents['values']['hosts_contact'] = $contents['values']['organisateur_contact'];
+
 $contents['values']['lien_photo'] = getMainImage($_GET['id']);
 if (empty($contents["values"])){
 	alert("error","Cet évènement n'existe pas !");
@@ -176,15 +185,25 @@ if(!empty($_POST)){
 		if(!empty($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
 			$errors['website'] = 'URL invalide';
 		}
-		// Organisateurs : regex Tristan
-		if(!empty($_POST['hosts'])) {
-			if(False) {
+		//Autohosted ?
+		if (!empty($_POST['autohosted']) && $_POST['autohosted'] != "False"){
+			// Si l'évènement est Autohosté, on nullifie les champs pour l'autre cas.
+			$push['hosts'] = NULL;
+			$push['hosts_contact'] = NULL;
+		}elseif (empty($_POST['hosts']) AND !empty($_POST['hosts_contact'])) {
+			$errors['hosts'] = 'Vous n\'avez pas précisé d\'Organisateur';
+		}else{
+			//Vérification des champs hosts, hosts_contact.
+			if(!checkTextInput($_POST['hosts'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
 				$errors['hosts'] = 'Hôte invalide';
+			}
+			if(!checkTextInput($_POST['hosts_contact'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
+				$errors['hosts_contact'] = 'Information de contact de l\'Hôte invalide';
 			}
 		}
 		// Sponsors : regex Tristan
 		if(!empty($_POST['sponsors'])) {
-			if(False) {
+			if(!checkTextInput($_POST['sponsors'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
 				$errors['sponsors'] = 'Nom invalide';
 			}
 		}
@@ -237,9 +256,9 @@ if(!empty($_POST)){
     	$push['max_type'] = count($contents['types']);
     	$push['id'] = $_GET['id'];
     	if (updateEvent($push)){
-	    	alert("info","Votre évènement a bien été modifié.");
-			header('Location: '.getLink(['events','display',$_GET['id']]));
-			exit();
+	  //   	alert("info","Votre évènement a bien été modifié.");
+			// header('Location: '.getLink(['events','display',$_GET['id']]));
+			// exit();
     	}
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';
@@ -249,7 +268,6 @@ if(!empty($_POST)){
     }
 
 }
-
 
 // /**** préparation de la vue ****/
 
