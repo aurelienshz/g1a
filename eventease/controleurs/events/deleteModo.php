@@ -23,7 +23,7 @@ if (empty($contents["values"])){
     exit();
 }
 // Fonction qui check s'il a le droit de modifier.
-if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
+if( connected() && checkOrganiser($_SESSION['id'],$_GET['id'])  ) {
     
 }else{
 	if (!connected()){

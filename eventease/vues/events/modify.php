@@ -155,7 +155,7 @@
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
 					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','evenements']); ?>"><i class="fa fa-ban"></i> Annuler</a>
 					<input style="width: 50%;" type="submit" value="Modifier" />
-					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['events','delete']); ?>">Supprimer l'évènement</a>
+					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['events','delete', $_GET['id']]); ?>">Supprimer l'évènement</a>
 				</div>
 				<p class="importantRed"> <i class="fa fa-asterisk"></i> Champs obligatoires</p>
 		</form>
