@@ -1,8 +1,7 @@
 <?php
 /*** CONTROLEUR EVENEMENTS PROFIL ***/
 
-require MODELES.'events/getMemberEvents.php';
-require MODELES.'membres/buildCalendar.php';
+require MODELES.'membres/generateCalendar.php';
 
 // La page n'est accessible qu'à un membre connecté :
 if(!connected()) {
@@ -11,18 +10,13 @@ if(!connected()) {
     exit();
 }
 else {
-    $events = getMemberEvents($_SESSION['id']);
-
-    foreach ($events as $key => $event) {
-        $yearsToBuild[] = [$event['year']];
-    }
-    var_dump($monthsToBuild);
-    $contents['calendar'] = buildCalendar(11,2015);
+    $contents['calendar'] = generateCalendar();
 }
 /**** Affichage de la page ****/
 $contents['ongletActif'] = 'evenements';
 $title = 'Mes évènements';
-$styles = ['onglets_compte.css','mes_events.css','accueil.css'];
+$styles = ['onglets_compte.css','calendar.css','accueil.css','eventPreview.css'];
 $blocks = ['onglets_compte', 'evenements'];
+$scripts = ['dynamicCalendar.js'];
 //Appels des vues :
-vue($blocks,$styles,$title,$contents);
+vue($blocks,$styles,$title,$contents,$scripts);

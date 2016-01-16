@@ -3,6 +3,7 @@
 --- CONTROLEUR FRONTAL ---
 FONCTION : Déterminer quel contrôleur on doit appeler pour que le client accède à la page qu'il a demandée.
 UTILISATION : Le paramètre correspondant à la page demandée est passé dans l'URL ($_GET['page']). On le teste par une structure switch qui defaulte sur la page d'accueil (prévention XSS). On ne code pas dans ce script : le code de contrôle d'un module est écrit dans le contrôleur de ce module.
+test HTTPS
 */
 session_start(); //On initialise la session.
 
@@ -31,7 +32,8 @@ $route = route($module,$action);
 $params = array_slice($_GET, 2);
 
 // Chargement des superglobales pour se souvenir de la page actuelle et de la page précédente :
-if(!isset($_SESSION['previousPage'])) {	        // Si on a rien positionné (on vient d'atterrir)
+// Si on a rien positionné (on vient d'atterrir)
+if(!isset($_SESSION['previousPage'])) {
     $_SESSION['previousPage'] = $landingPage;   // Page d'atterrissage : paramétrée dans config.php
     $_SESSION['currentPage'] = $landingPage;
 }

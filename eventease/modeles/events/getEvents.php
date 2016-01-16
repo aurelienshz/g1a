@@ -9,7 +9,8 @@ function getEvents($id = False) {
         - modérateur, administrateur : tous
     */
     if($id) {
-        $userSpecific = ' WHERE evenement.visibilite=0 OR invitation.id_destinataire = :id';
+        $userSpecific = True;
+        $userQuery = ' WHERE evenement.visibilite=0 OR invitation.id_destinataire = :id';
         if($_SESSION['niveau']==2 || $_SESSION['niveau']==3) {
             $userSpecific = '';
         }
@@ -24,7 +25,7 @@ function getEvents($id = False) {
                     LEFT JOIN adresse on evenement.id_adresse = adresse.id
                     LEFT JOIN media ON evenement.id_media_principal = media.id
                     LEFT JOIN invitation ON evenement.id = invitation.id_evenement "
-                    .$userSpecific;
+                    .$userQuery;
 
     var_dump($query);
 

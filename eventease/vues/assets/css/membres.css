@@ -36,10 +36,15 @@
 h2 {
     border: 0;
 }
+
+h3 {
+    margin-top: 80px;
+}
+
 #pseudo_profil {
-	font-size: 1.2cm;
-	line-height: 1.43;
-	color: black;
+    font-size: 1.2cm;
+    line-height: 1.43;
+    color: black;
     text-align: left;
     margin: 10px 0 25px 0;
 }
@@ -51,7 +56,7 @@ h2 {
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
     border-radius: 1em;
     padding: 2px 1em;
-    margin: 10px auto;
+    margin: 25px auto;
     font-size: 15px;
     text-align: center;
     width: 2cm;
@@ -137,4 +142,60 @@ h2 {
 }
 #listeMessages tr a:hover {
     text-decoration: underline;
+}
+#listeMessages h1 {
+    text-align: center;
+    margin: 2cm 0;
+}
+#listeMessages h2 {
+    margin: 30px 0 40px 0;
+}
+
+#zone-envoi {
+    border: #36B136;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25px;
+}
+
+#zone-texte {
+    height: 150px;
+    border: grey;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    margin: 20px 15px 0 15px;
+}
+
+#champ1  {
+    margin: 55px 5px 15px 10px;
+    width:25%;
+    float: left;
+}
+
+#champ2  {
+    margin: 15px 25px 15px 10px;
+    width:70%;
+    float: right;
+}
+
+#text-area {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+}
+
+#submit-row {
+    margin-top: 25px;
+    clear: both;
+}
+
+#submit-row .button {
+    width: 10%;
+    background-color: #36B136;
+}
+
+#submit-row .button:hover {
+    background-color: #36B136;
+    cursor: pointer;
 }

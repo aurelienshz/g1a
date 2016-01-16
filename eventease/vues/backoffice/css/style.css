@@ -17,13 +17,16 @@ h1,h2 {
 h1 {
     padding: 20px 0;
     text-align: center;
-    border-bottom: 1px solid gray;
+    margin: 0 auto;
+}
+h1+a {
+    float: left;
 }
 h1 span {
     color: #F94339;
 }
 
-.category {
+section {
     border-bottom: 1px solid gray;
 }
 a {
@@ -48,6 +51,12 @@ a:hover {
 form {
     width: 800px;
 }
+form input[type="text"] {
+    width: 100%;
+    margin: .5em 0 1em 0;
+    font-size: 1em;
+    line-height: 1.2em;
+}
 
 form .row label, form .row input {
     display: inline-block;
@@ -60,8 +69,11 @@ form .row label {
     padding: 0 20px 0 0;
     width: 280px;
 }
+form .row {
+    text-align: right;
+}
 form .row input {
-    width: 500px;
+    width: 480px;
 }
 form input[type="submit"] {
     background-color: #F94339;
@@ -72,6 +84,9 @@ form input[type="submit"] {
     padding: .4em;
     border-radius: .4em;
 }
+form input[type="submit"]:hover {
+    background-color: #c61006;
+}
 form .submit-row {
     width: 100%;
     text-align: right;
@@ -79,7 +94,7 @@ form .submit-row {
 }
 form textarea {
     width: 100%;
-    min-height: 400px;
+    min-height: 800px;
     margin: 1em 0;
     overflow: auto;
     resize: vertical;

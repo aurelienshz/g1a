@@ -2,12 +2,13 @@
 // controleurs/accueil/actions.php
 $actions = [
 'index',
-'editCatchphrases',
-'editBackground',
 'editBoringTexts',
-'editFaq'
+'editfaq',
+'deletefaq'
 ];
 
 $parametres = [
-'editBoringTexts' => ['text']
+'editBoringTexts' => ['text'],
+'editfaq' => ['id'],
+'deletefaq' => ['id']
 ];

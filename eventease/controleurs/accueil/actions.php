@@ -4,5 +4,7 @@ $actions = [
 'index',
 '404',
 'legal',
-'sitemap'
+'sitemap',
+'cgu',
+'about'
 ];

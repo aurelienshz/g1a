@@ -9,7 +9,7 @@
 	foreach($contents as $question) {
 	?>
 		<dt><?php echo $question['question']; ?></dt>
-		<dd><?php echo $question['réponse']; ?></dd></br></br>
+		<dd><?php echo nl2br($question['reponse']); ?></dd></br></br>
 	<?php
 	}
 	?>

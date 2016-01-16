@@ -50,14 +50,14 @@ id_what donne la fonction à faire :
           <?php }
           else if ($contents['id_what']==2) {?>
           <!--L'utilisateur veut modifier son topic-->
-            <input type="text" name="titre" id="titre" placeholder="Votre titre" style="width:40%; height:50%; margin-top:15px" ></input>
+            <input type="text" name="titre" id="titre" value="<?php echo $contents['titre']?>" style="width:40%; height:50%; margin-top:15px" ></input>
           <?php } ?>
         </div>
         <div class="content_sujet">
           <div class="supprimer">
           <?php 
             if (connected()){
-              if ($contents['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']==2 OR $_SESSION['niveau']==3){ ?>
+              if ($contents['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']>=2){ ?>
                 <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>">
                   <a href="<?php echo getLink(['forum','sujet',$contents['id'],'2'])?>"><i class="fa fa-pencil"></i></a>
                 </form>
@@ -76,7 +76,7 @@ id_what donne la fonction à faire :
           else if ($contents['id_what']==2){?>
           <!--l'utilisateur veut modifier le topic-->
             <div class="champ1" id="champ1" style="width:75%">
-              <textarea name="message" id="message" placeholder="Votre message" ></textarea>
+              <input type="text" name="message" id="message" value="<?php echo $contents['message']?>" style="width:100%; height:60px; margin-top:15px"></input>
               <!--<p id="lien"><a href="<?php echo getLink(['forum','sujet', $contents['id'],0]); ?>" style="float:right">Annuler</a></p>
               --><h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
             </div>
@@ -106,7 +106,7 @@ id_what donne la fonction à faire :
               <div class="supprimer">
               <?php 
                 if (connected()){
-                  if ($comments['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']==2 OR $_SESSION['niveau']==3){?>
+                  if ($comments['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']>=2){?>
                     <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],4,$comments['id_comment']])?>">
                       <a href="<?php echo getLink(['forum','sujet',$contents['id'],4,$comments['id']])?>"><i class="fa fa-pencil"></i></a>
                     </form>
@@ -139,7 +139,7 @@ id_what donne la fonction à faire :
                   <!--le commentaire est celui à modifier-->
                    <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],4,$comments['id']])?>?>">
                       <div class="champ1" id="champ1" style="width:77%">
-                        <textarea name="comment" id="comment" placeholder="Votre message" ></textarea>
+                        <input type="text" name="comment" id="comment" value="<?php echo $comments['contenu']?>" style="width:100%; height:60px; margin-top:15px"></textarea>
                         <!--<p id="lien"><a href="<?php echo getLink(['forum','sujet', $contents['id'],0]); ?>" style="float:right">Annuler</a></p>
                         --><h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
                       </div>
