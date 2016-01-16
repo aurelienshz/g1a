@@ -51,6 +51,12 @@ a:hover {
 form {
     width: 800px;
 }
+form input[type="text"] {
+    width: 100%;
+    margin: .5em 0 1em 0;
+    font-size: 1em;
+    line-height: 1.2em;
+}
 
 form .row label, form .row input {
     display: inline-block;

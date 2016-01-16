@@ -16,8 +16,8 @@ function getPosts($id = False) {
     $req -> execute($param);
     $res = $req -> fetchAll(PDO::FETCH_ASSOC);
 
-    if($id) {
-        var_dump($res);
+    if($id && !empty($res)) {
+        // var_dump($res);
         return $res[0];
     }
     else {
