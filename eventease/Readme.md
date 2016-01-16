@@ -25,7 +25,7 @@ Questions pour le groupe :
 
 - [ ] suggestions à rendre dynamique --> Tristan
 - [ ] bug childNodes Firefox
-- [ ] mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
+- [x] mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
     j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
 
 
@@ -39,7 +39,7 @@ front end :
 - [x] quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
 - [x] suppression du profil ?
 - [x] modification mdp
-- [] adresse mail (besoin que les token marchent).
+- [ ] adresse mail (besoin que les token marchent).
 - [x] désactiver lien pour l'onglet actif (PHP ou JS)
 - [ ] Filtre calendrier mes events --> Aurélien
 - [ ] Bug des dates 30 Nov -1 & 1 Jan 1970
@@ -110,6 +110,7 @@ Modif event -- Tristan
 - [x] édition Mentions Légales
 - [x] image de fond bigform accueil
 - [ ] bouton retour au site
+- [ ] fac : choix couleur splash
 
 Recherche :
 events :
@@ -120,6 +121,7 @@ events :
 - [ ] implémentation filtrage par date -- Aurélien
 - [ ] question : âges ?
 - [ ] mettre en valeur le statut de participation
+- [ ] ne pas afficher résultats si pas de Recherche faite
 membres :
 - [ ] FACULATIF : Recherche de membre avec auto-complétion
 
