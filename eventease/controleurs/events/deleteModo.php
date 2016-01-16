@@ -56,7 +56,7 @@ if(!empty($_POST)){
 	}
 	if(empty($contents['errorMessage']) ){
 		if(deleteModo($_GET['id'], $orga_id)){
-				alert("ok","Le modérateur a bien été supprimé !");
+			alert("ok","Le modérateur a bien été supprimé !");
 		}
 	}
 }

@@ -46,7 +46,7 @@
 	<div class="results">
 
 <?php
-if(isset($contents['searchResults'])&&$contents['searchResults']) {
+if(isset($contents['searchResults']) && $contents['searchResults']) {
 	foreach($contents['searchResults'] as $event) { ?>
 
 		<div class="eventPreview shadow">

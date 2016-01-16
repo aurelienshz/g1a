@@ -5,6 +5,7 @@ require MODELES.'membres/checkUsed.php';
 require MODELES.'membres/getUserDetails.php';
 require MODELES.'membres/getUserAuth.php';
 require MODELES.'events/insertModo.php';
+require MODELES.'events/insertInvite.php';
 
 
 //Si il n'y a pas d'eventID dans le GET
@@ -53,6 +54,7 @@ if(!empty($_POST)){
 
 	if(empty($contents['errorMessage']) ){
 		if(insertModo($_GET['id'], $orga_id)){
+			insertInvite($_SESSION['id'],$_GET['id'],$orga_id);
 			alert("ok","Le modérateur a bien été ajouté !");
 		}
 	}

@@ -74,6 +74,9 @@ function fetchParams($page) {
 		return $parametres[$page[1]];
 		// Que fait-on si ce n'est pas défini !?
 	}
+	else {
+		return False;
+	}
 }
 
 // $parametres = ['display'=>['id'],'edit'=>['id','do']];
