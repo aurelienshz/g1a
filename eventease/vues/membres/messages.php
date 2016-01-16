@@ -22,12 +22,12 @@
         }
         ?>
     </table>
-    <h2>Envover un message privé</h2>
+    <h2>Envoyer un message privé</h2>
     <div id='zone-envoi'>
-        <form method="post" action="<?php ?>">
+        <form method="post" action="<?php echo getLink(['membres','messages']).'#zone-envoi'; ?>">
             <div id='zone-texte'>
                 <div id='champ1'>
-                    <div id='prenom'>Destinataire : <input type='text' id='pseudo_destinataire' placeholder='Pseudo' name="destinataire"></div>
+                    <div id='prenom'><b>Destinataire : </b><input type='text' id='pseudo_destinataire' placeholder='Pseudo' name="destinataire" value='<?php if(isset($contents['pseudo_destinataire'])){echo $contents['pseudo_destinataire'];}?>'></div>
                 </div>
                 <div id='champ2'>
                     <textarea id='text-area' placeholder='Votre message privé' name="message_prive"></textarea>

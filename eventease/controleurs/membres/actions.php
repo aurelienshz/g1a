@@ -17,5 +17,6 @@ $actions = [
 
 $parametres = [
     'profil' => ['id'],
-    'confirm' => ['token']
+    'confirm' => ['token'],
+    'messages' => ['pseudo_destinataire']
 ];
