@@ -24,7 +24,7 @@ Questions pour le groupe :
 ## Accueil ##
 
 - [ ] suggestions à rendre dynamique --> Tristan
-- [ ] bug childNodes Firefox
+- [x] bug childNodes Firefox
 - [x] mes évènements : calendrier à faire au poil avec les events qu'un membre a le droit de voir -> Aurélien
     j'aimerais proposer l'option mes évènements / évènements publics, ajouter le bouton créer un event à cette date, et faire travailler tout ça en ajax pour alléger la page. ça serait top moumoute.
 

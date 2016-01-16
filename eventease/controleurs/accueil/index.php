@@ -24,6 +24,10 @@ $contents['catchPhrases'] = getCatchphrases();
 
 // Chargement de la bonne version du triptyque
 if(connected()) {
+    require MODELES.'membres/generateCalendar.php';
+    $contents['calendar'] = generateCalendar();
+    $styles[] = 'calendar.css';
+
     $blocs[] = 'myEvents';
     $scripts[] = 'dynamicCalendar.js';
 }

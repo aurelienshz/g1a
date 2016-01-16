@@ -85,7 +85,8 @@ function buildCalendar($month,$year,$events = False) {
 		$monthDetails = "<div class=\"monthDetails\">";
 		foreach($events as $event) {
 			$m = str_pad($event['month'], 2, "0", STR_PAD_LEFT);
-			$day = $event['year']."-".$m."-".$event['day'];
+			$d = str_pad($event['day'], 2, "0", STR_PAD_LEFT);
+			$day = $event['year']."-".$m."-".$d;
 			$eventsDays[$day][] = $event;
 
 		}
