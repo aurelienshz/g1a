@@ -35,6 +35,7 @@ if(!empty($message)) {
 <section>
 
     <h2>FAQ</h2>
+    <a href="<?php echo getLink(['backoffice','editfaq','new']); ?>">Nouvelle entrée</a>
     <ul id="faq-list">
         <?php
             foreach ($faqPosts as $post) {
