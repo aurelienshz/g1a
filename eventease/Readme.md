@@ -109,7 +109,7 @@ Modif event -- Tristan
 - [ ] édition CGV
 - [ ] édition Mentions Légales
 - [x] image de fond bigform accueil
-- [ ] bouton retour au site
+- [x] bouton retour au site
 - [ ] fac : choix couleur splash
 - [x] sécurité : auth admin
 

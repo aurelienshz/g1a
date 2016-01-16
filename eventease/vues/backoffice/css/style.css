@@ -17,13 +17,16 @@ h1,h2 {
 h1 {
     padding: 20px 0;
     text-align: center;
-    border-bottom: 1px solid gray;
+    margin: 0 auto;
+}
+h1+a {
+    float: left;
 }
 h1 span {
     color: #F94339;
 }
 
-.category {
+section {
     border-bottom: 1px solid gray;
 }
 a {
@@ -79,7 +82,7 @@ form .submit-row {
 }
 form textarea {
     width: 100%;
-    min-height: 400px;
+    min-height: 800px;
     margin: 1em 0;
     overflow: auto;
     resize: vertical;

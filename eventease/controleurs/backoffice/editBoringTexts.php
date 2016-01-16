@@ -3,10 +3,11 @@ require MODELES.'/membres/checkAdmin.php';
 
 if(checkAdmin()) {
     require MODELES.'/backoffice/getBoringText.php';
+    // require MODELES.'/backoffice/getBoringText.php';
 
     $text = [];
 
-    if(isset($_GET['text']) && ($_GET['text'] == 'legal' || $_GET['text'] == 'cgv')) {
+    if(isset($_GET['text']) && ($_GET['text'] == 'legal' || $_GET['text'] == 'cgv' || $_GET['text'] == 'about')) {
         if(!empty($_POST)) {
             require MODELES.'/backoffice/setBoringText.php';
             if(setBoringText($_GET['text'],$_POST['value'])) {
@@ -19,7 +20,7 @@ if(checkAdmin()) {
 
         $text['name'] = $_GET['text'];
         $text['fullname'] = $_GET['text']=='cgv'?'conditions générales d\'utilisation':'mentions légales';
-        $text['value'] = getBoringText($text['name']);
+        $text['value'] = htmlspecialchars(getBoringText($text['name']));
 
     }
     else {

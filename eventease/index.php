@@ -16,7 +16,7 @@ require CONTROLEURS.'shared/vue.php';
 
 require_once MODELES.'membres/connected.php';
 
-define('DEBUG', False); // Activation du mode debug. Passer à False pour désactiver.
+define('DEBUG', True); // Activation du mode debug. Passer à False pour désactiver.
 
 // Initialisation de $_SESSION['connected'] (si on vient d'atterrir, la variable n'est pas positionnée)
 if(!connected()) {
