@@ -106,11 +106,12 @@ Modif event -- Tristan
 - [ ] types d'events --> photos par défaut pour chaque type
 - [x] slogan et subslogan accueil
 - [ ] édition FAQ
-- [x] édition CGV
-- [x] édition Mentions Légales
+- [ ] édition CGV
+- [ ] édition Mentions Légales
 - [x] image de fond bigform accueil
 - [ ] bouton retour au site
 - [ ] fac : choix couleur splash
+- [x] sécurité : auth admin
 
 Recherche :
 events :

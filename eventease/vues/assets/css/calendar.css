@@ -54,13 +54,15 @@
     border: 1px solid black;
 }
 .calendar table .days a {
+    cursor: default;
     text-decoration: none;
     color: #303030;
 }
 .calendar table .days .filled-day {
     font-weight: bold;
+    cursor: pointer;
 }
-.calendar table .days a:hover {
+.calendar table .days a.filled-day:hover {
     text-decoration: underline;
 }
 
