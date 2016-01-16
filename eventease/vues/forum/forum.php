@@ -1,4 +1,4 @@
-<?php var_dump($_SESSION)?>
+
 <div class="wrapper prettyform">
   <div class="shadow">
     <div class="titleWrapper1">
