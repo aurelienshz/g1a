@@ -13,10 +13,6 @@ if(!connected()) {
 }
 else {
     $contents['messages'] = getPrivateMessages($_SESSION['id']);
-    getUserName(11);
-    /* foreach($contents['messages'] as $key=>$message) {
-    $contents['messages'][$key]['id_auteur'] = implode("",getUserName($contents['messages'][$key]['id_auteur']));
-    } */
 }
 
 $contents['ongletActif'] = 'messages';
