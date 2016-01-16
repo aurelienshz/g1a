@@ -5,6 +5,7 @@ id_what donne la fonction à faire :
 2->modifier topic
 3->supprimer un commentaire
 4->modifier un commentaire -->
+<?php var_dump($_SESSION['niveau'])?>
 <div class="wrapper prettyform">
   <div class="shadow">
     <div class="titleWrapper1">
