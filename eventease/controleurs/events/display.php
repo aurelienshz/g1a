@@ -22,7 +22,7 @@ $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
 $styles = ['events.css','form.css','simple-slideshow.css'];
-$scripts = ['alert.js','simple-slideshow.js', 'participate.js'];
+$scripts = ['alert.js','simple-slideshow.js', 'participate.js','centermap.js'];
 $blocks = ['display'];
 
 // Affectation des valeurs spécifiques à l'event :
@@ -61,6 +61,7 @@ else{
       $contents['photo_principale']="vues/assets/images/logo.jpg";
       break;
     default:
+      $contents['photo_principale']="vues/assets/images/picnic1.jpg";
       break;
   }
 }

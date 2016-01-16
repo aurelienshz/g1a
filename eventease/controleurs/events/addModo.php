@@ -39,7 +39,7 @@ if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
 }
 $contents['modos'] = array_merge(getCreator($_GET["id"]),getCreators($_GET['id']));
 $contents['errorMessage'] = '';
-if(!empty($_POST)){
+if(!empty($_POST['pseudo'])){
 	if(!checkUsed($_POST['pseudo'], NULL, False) ){ ///si le pseudo n'existe pas///
 		$contents['errorMessage'] .= 'Le pseudo renseigné n\'existe pas ! ';
 	}
@@ -56,6 +56,8 @@ if(!empty($_POST)){
 		if(insertModo($_GET['id'], $orga_id)){
 			insertInvite($_SESSION['id'],$_GET['id'],$orga_id);
 			alert("ok","Le modérateur a bien été ajouté !");
+			header("Location: ".getLink(["events" ,"modify", $_GET["id"]]));
+			exit();
 		}
 	}
 }

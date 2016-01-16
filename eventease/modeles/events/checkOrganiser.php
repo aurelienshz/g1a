@@ -3,7 +3,7 @@
 function checkOrganiser($userId, $eventId){
 
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
-    $queryCreator = $bdd->prepare("SELECT membre.id FROM membre, evenement WHERE membre.id = evenement.id_createur;");
+    $queryCreator = $bdd->prepare("SELECT evenement.id_createur FROM evenement WHERE evenement.id = $eventId;");
     $queryMod = $bdd->prepare("SELECT membre.id FROM membre, modere WHERE membre.id = modere.id_organisateur AND modere.id_evenement = $eventId;");
 	
 	$queryCreator -> execute();

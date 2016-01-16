@@ -10,11 +10,6 @@ require MODELES.'events/checkOrganiser.php';
 require MODELES.'events/getEventDetails.php';
 require MODELES.'events/updateEvent.php';
 
-	?> <pre> <?php
-	var_dump($contents);
-	var_dump($_POST);
-	?> </pre> <?php
-
 	$nameTranslation = [
 	'price' => 'tarif',
 	'max_attendees' => 'max_participants',
@@ -48,7 +43,7 @@ if (empty($contents["values"])){
 }
 
 // Fonction qui check s'il a le droit de modifier.
-if( connected() && (checkOrganiser($_SESSION['id'],$_GET['id']) || $_SESSION['id']==getCreator($_GET['id'])[0]['id'] )) {
+if( connected() && (checkOrganiser($_SESSION['id'],$_GET['id']))) {
 
 }else{
 	if (!connected()){
@@ -122,8 +117,7 @@ if(!empty($_POST)){
 			if (strtotime($startTime) < strtotime($contents['values']['date_debut']." ".$contents['values']['beginning'])){
 				$errors['date_debut'] = 'Vous ne pouvez pas reculer la date d\'un évènement en cours ('.$contents['values']['date_debut'].')';
 			}
-		}
-		else {
+		}else {
 			$push['debut'] = $startTime;
 		}
 		if(empty($_POST['end'])){
@@ -186,7 +180,7 @@ if(!empty($_POST)){
 			$errors['website'] = 'URL invalide';
 		}
 		//Autohosted ?
-		if (!empty($_POST['autohosted']) && $_POST['autohosted'] != "False"){
+		if (!empty($_POST['autohosted']) && !boolval($_POST['autohosted'])){
 			// Si l'évènement est Autohosté, on nullifie les champs pour l'autre cas.
 			$push['hosts'] = NULL;
 			$push['hosts_contact'] = NULL;
@@ -256,9 +250,9 @@ if(!empty($_POST)){
     	$push['max_type'] = count($contents['types']);
     	$push['id'] = $_GET['id'];
     	if (updateEvent($push)){
-	  //   	alert("info","Votre évènement a bien été modifié.");
-			// header('Location: '.getLink(['events','display',$_GET['id']]));
-			// exit();
+	    	alert("info","Votre évènement a bien été modifié.");
+			header('Location: '.getLink(['events','display',$_GET['id']]));
+			exit();
     	}
     }else{
     	 $contents['errors']['general'] = '<p id="mainError">Nous n\'avons pas validé vos changements, il y a au moins une entrée invalide.</p>';

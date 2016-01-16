@@ -123,7 +123,7 @@
 						<label for="autohosted">Organisez-vous cet évènement ? </label>
 						<span style="margin-left : 25%;"><input type="radio" id="autohosted_Yes" name="autohosted" value="True" 
 						<?php if(isset($contents['values']['autohosted'])){ 
-								}elseif{ ($contents['values']['autohosted']=="True"){ echo 'checked="checked"';
+								if ($contents['values']['autohosted']=="True") echo 'checked="checked"';
 								}else{ echo 'checked="checked"';} ?> 
 							/> Oui </span>
 						<span style="margin-left : 5%;"><input type="radio" id="autohosted_No" name="autohosted" value="False" <?php echo (isset($contents['values']['autohosted']) AND $contents['values']['autohosted']=="False")?'checked="checked"':''; ?>/> Non</span>
