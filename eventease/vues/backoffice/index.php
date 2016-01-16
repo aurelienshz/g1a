@@ -38,7 +38,7 @@ if(!empty($message)) {
     <ul id="faq-list">
         <?php
             foreach ($faqPosts as $post) {
-                echo '<li>'.$post["question"].'<span class="faq-action"><a href="#">Modifier</a> - <a href="#">Supprimer</a></span></li>';
+                echo '<li>'.$post["question"].'<span class="faq-action"><a href="'.getLink(['backoffice','editfaq',$post['id']]).'">Modifier</a> - <a href="'.getLink(['backoffice','deletefaq',$post['id']]).'">Supprimer</a></span></li>';
             }
         ?>
     </ul>

@@ -63,8 +63,11 @@ form .row label {
     padding: 0 20px 0 0;
     width: 280px;
 }
+form .row {
+    text-align: right;
+}
 form .row input {
-    width: 500px;
+    width: 480px;
 }
 form input[type="submit"] {
     background-color: #F94339;
@@ -74,6 +77,9 @@ form input[type="submit"] {
     font-weight: bold;
     padding: .4em;
     border-radius: .4em;
+}
+form input[type="submit"]:hover {
+    background-color: #c61006;
 }
 form .submit-row {
     width: 100%;
