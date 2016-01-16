@@ -4,12 +4,12 @@
         <tr>
             <th class="from">Emetteur</th>
             <th class="subject">Message</th>
-            <th class="date">Reçu le</th>
+            <th class="date">Envoyé le</th>
         </tr>
         <?php
         foreach($contents['messages'] as $i => $message) {
             echo '<tr'.($i%2==0?' class="bg"':'').'>'."\n";
-            echo '    <td><a href="#">'.getUserName($message['id_auteur']).'</a></td>'."\n";
+            echo '    <td><a href="#">'.$message['id_auteur'].'</a></td>'."\n";
             echo '    <td><a href="#">'.$message['contenu'].'</a></td>'."\n";
             echo '    <td>'.$message['date_publication'].'</td>'."\n";
             echo '</tr>'."\n";
