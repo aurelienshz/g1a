@@ -138,3 +138,7 @@ h2 {
 #listeMessages tr a:hover {
     text-decoration: underline;
 }
+#listeMessages h1 {
+    text-align: center;
+    margin: 2cm 0;
+}
