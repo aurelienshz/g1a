@@ -189,11 +189,11 @@
 	color:#3399FF;
 }
 #photos {
-	clear:both;
 	margin-top:2em;
 	display:block;
-	width: 100%;
+	width: 49%;
 	height:auto;
+	margin:0; 
 }
 #photos > div {
 	height: auto;
@@ -239,6 +239,11 @@
 	height: 300px;
 	width:auto;
 	margin:auto;
+}
+#carte{
+	float: right;
+	width: 49%;
+	height: 388px;
 }
 .organisation {
 	margin-top: 50px;

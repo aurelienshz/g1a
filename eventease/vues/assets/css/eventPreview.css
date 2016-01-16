@@ -5,11 +5,23 @@
 }
 .eventPreview h4 {
 	border-bottom: 0;
-	padding: 10px 0;
+	padding: 10px 1em;
 	margin: 0;
-	width: 100%;
-	text-align: center;
+	/*width: 100%;*/
+	text-align: left;
 	background-color: #287DFF;
+}
+.eventPreview h4 span.participation {
+    float: right;
+    font-size: .6em;
+    line-height: 2em;
+    height: 2em;
+    background-color: white;
+    border-radius: 1em;
+    color: #FAFAFA;
+    background-color: #303030;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .eventPreview h4 a {
     text-decoration: none;

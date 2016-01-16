@@ -1,5 +1,14 @@
 <?php
-function buildCalendar($month,$year) {
+
+require MODELES."/functions/dateToFrench.php";
+
+function buildCalendar($month,$year,$events = False) {
+	// construction de la liste des jours à mettre en surbrillance :
+	$filledDays = [];
+	foreach ($events as $event) {
+		$filledDays[] = $event['day'];
+	}
+
     // Nom des mois en Français :
 	$months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 	// abbréviations des jours de la semaine :
@@ -22,8 +31,8 @@ function buildCalendar($month,$year) {
 	}
 
 	// créer l'en-tête du tableau qui constitue le calendrier :
-
-    $calendar = "\n<table class=\"calendar\">";
+	$calendar = "\n<section class='row'>\n";
+    $calendar .= "<div class=\"calendar\"><table>";
 	$calendar .= "<caption><a href='#' class='previous-month'>&lt;</a> $monthName $year <a href='#' class='next-month'>&gt;</a></caption>\n";
 	$calendar .= "<tr>\n";
 	// créer les en-têtes des jours :
@@ -54,18 +63,77 @@ function buildCalendar($month,$year) {
 		// ajouter des 0 devant les dates si elles ne font qu'un caractère :
 		$currentDayRel = str_pad($currentDay, 2, "0", STR_PAD_LEFT);
 		$date = "$year-$month-$currentDayRel";
-		$calendar .= "\t<td class='day'><a href='#$date'>$currentDay</a></td>\n";
+		$filled = in_array($currentDay,$filledDays);
+		$calendar .= "\t<td class='day'><a class=".($filled?'filled-day':'')." href='#$date'>$currentDay</a></td>\n";
 		// Increment counters
 		$currentDay++;
 		$dayOfWeek++;
 	}
 
-	// Complete the row of the last week in month, if necessary
+	// Compléter la dernière semaine du mois si nécessaire
 	if ($dayOfWeek != 7) {
 		$remainingDays = 7 - $dayOfWeek;
 		$calendar .= "\t<td colspan='$remainingDays'>&nbsp;</td>";
 	}
 	$calendar .= "\n</tr>";
-	$calendar .= "\n</table>";
+	$calendar .= "\n</table></div>";
+
+	/***
+	/* Génération des détails du mois en cours :	*/
+
+	if($events) {
+		$monthDetails = "<div class=\"monthDetails\">";
+		foreach($events as $event) {
+			$m = str_pad($event['month'], 2, "0", STR_PAD_LEFT);
+			$day = $event['year']."-".$m."-".$event['day'];
+			$eventsDays[$day][] = $event;
+
+		}
+		foreach ($eventsDays as $day => $events) {
+			$monthDetails = '<div class="monthDetails">';
+			$monthDetails .= "<div id=\"".$day."\">\n<h4>".dateToFrench($day)."</h4>";
+			foreach ($events as $event) {
+				ob_start();
+				?>
+					<div class="eventPreview shadow">
+						<h4>
+							<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
+							<?php echo $event['titre']; ?>
+							<span class="participation"><?php echo $event['participation']; ?></span>
+						</a></h4>
+						<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
+							<img src="<?php echo PHOTO_EVENT.$event['image'];?>" />
+						</a>
+						<div class="infosPratiques">
+							<p class="eventCategorie"><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>
+							<p class="eventDate"><span class="fa fa-calendar"></span><?php echo $event['date']; ?></p>
+							<p><span class="fa fa-map-marker"></span><?php echo $event['ville']; ?></p>
+							<?php
+							if($event['tarif']) {
+								echo '<p class="eventTarif"><span class="fa fa-eur"></span>'.$event['tarif'].' €</p>';
+							}
+							if($event['tranche_age']) {
+								echo '<p><span class="fa fa-child"></span> '.$event['tranche_age'].'</p>';
+							} ?>
+						</div>
+						<?php if(isset($event['description'])) {
+							echo '<p class="description">'.$event['description'].'</p>';
+						} ?>
+						<a class="button" href="<?php echo getLink(['events','display',$event['id']]); ?>">Voir l'évènement</a>
+					</div>
+
+				<?php
+				$monthDetails .= ob_get_clean();
+			}
+			$monthDetails .= '</div>';
+		}
+		$monthDetails .= '</div>';
+	}
+	else {
+		$monthDetails = '<div class="monthDetails"><p>Pas d\'évènements ce mois-ci</p></div>';
+	}
+
+	$calendar .= $monthDetails;
+	$calendar .= '</section>';
 	return $calendar;
 }

@@ -7,7 +7,6 @@ require MODELES.'functions/form.php';
 require_once MODELES.'events/getTypes.php';
 
 $contents['types'] = getTypes();
-
 /**** Préparation de la vue ****/
 $title = 'Créer event';
 $styles = ['create.css','form.css','search.css', 'prettyform.css'];
@@ -135,15 +134,26 @@ if(connected()) {
 			if(!empty($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
 				$errors['website'] = 'URL invalide';
 			}
-			// Organisateurs : regex Tristan
-			if(!empty($_POST['hosts'])) {
-				if(False) {
+			//Autohosted ?
+			if ($_POST['autohosted'] != "False"){
+				// Si l'évènement est Autohosté, on nullifie les champs pour l'autre cas.
+				$push['hosts'] = NULL;
+				$push['hosts_contact'] = NULL;
+			}elseif (empty($_POST['hosts']) AND !empty($_POST['hosts_contact'])) {
+				$errors['hosts'] = 'Vous n\'avez pas précisé d\'Organisateur';
+			}else{
+				//Vérification des champs hosts, hosts_contact.
+				if(!checkTextInput($_POST['hosts'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
 					$errors['hosts'] = 'Hôte invalide';
 				}
+				if(!checkTextInput($_POST['hosts_contact'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
+					$errors['hosts_contact'] = 'Information de contact de l\'Hôte invalide';
+				}
 			}
+
 			// Sponsors : regex Tristan
 			if(!empty($_POST['sponsors'])) {
-				if(False) {
+				if(!checkTextInput($_POST['sponsors'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
 					$errors['sponsors'] = 'Nom invalide';
 				}
 			}
@@ -168,10 +178,10 @@ if(connected()) {
 	   			}
 	    	}
 		}
-
 		// Insertion de l'event ou affichage de la vue avec les erreurs :
 		if(empty($errors)) {
 			/// INSERTION EN BDD : ///
+
 			if($id = insertEvent($push)) {
 				alert('ok','Succès ! L\'évènement a bien été créé.');
 				header('Location: '.getLink(['events','display',$id]));
