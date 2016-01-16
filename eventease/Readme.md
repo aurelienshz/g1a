@@ -103,14 +103,15 @@ Modif event -- Tristan
 ## Back-office ##
 
 
-- [ ] types d'events --> photos par défaut pour chaque type
+- [x] sécurité : auth admin
 - [x] slogan et subslogan accueil
-- [ ] édition FAQ
+- [x] édition FAQ
 - [x] édition CGV
 - [x] édition Mentions Légales
 - [x] image de fond bigform accueil
-- [ ] bouton retour au site
+- [x] bouton retour au site
 - [ ] fac : choix couleur splash
+- [ ] types d'events --> photos par défaut pour chaque type
 
 Recherche :
 events :

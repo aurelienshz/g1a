@@ -3,7 +3,7 @@
 function getUserName($id) {
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $query = $bdd->prepare('SELECT
-                            membre.pseudo,
+                            pseudo,
                             FROM membre
                             WHERE id = :id'
                             );

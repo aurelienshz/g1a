@@ -17,10 +17,12 @@
                 </div>
                 <div class="col-3">
                     <h3>EventEase</h3>
-                    <a href="#">A propos</a><br />
+                    <a href="<?php echo getLink(['accueil', 'about']); ?>">A propos</a><br />
                     <a href="<?php echo getLink(['accueil', 'legal']); ?>">Mentions légales</a><br />
-                    <a href="#">CGU</a><br /><br />
-                    <a href='<?php echo getLink(['backoffice']); ?>' style='color:#303030;'>Administration</a>
+                    <a href="<?php echo getLink(['accueil', 'cgu']); ?>">CGU</a><br /><br />
+                    <?php if(connected() && $_SESSION['niveau']==4) {
+                        echo "<a href='".getLink(['backoffice'])."'>Administration</a>";
+                    } ?>
                 </div>
                 </div>
             </div>

@@ -31,6 +31,5 @@ function getPrivateMessages($id) {
             $messages_prives[$key]['date_publication'] = date('d/m/o à H:i:s',strtotime($messages_prives[$key]['date_publication']));
         }
     }
-    var_dump($messages_prives);
     return $messages_prives;
 }
