@@ -145,7 +145,7 @@
 	clear:both;
 	display:block;
 	width:100%;
-	height:500px;
+	height:600px;
 }
 .description p {
 	display:block;
@@ -160,7 +160,7 @@
 	width:25%;
 	height:auto;
 	margin-right:2em;
-	margin-left:2em;
+	margin-left:15em;
 	float: left;
 	border:3px solid #78C0F0;
 }
@@ -191,7 +191,7 @@
 #photos {
 	margin-top:2em;
 	display:block;
-	width: 49%;
+	width: 98%;
 	height:auto;
 	margin:0; 
 }
@@ -241,9 +241,10 @@
 	margin:auto;
 }
 #carte{
-	float: right;
+	float: left;
 	width: 49%;
 	height: 388px;
+	margin-left: 2em;
 }
 .organisation {
 	margin-top: 50px;

@@ -49,6 +49,9 @@ echo '</script>';
         <p>
 		        <?php echo $contents['description']; ?>
         </p>
+        <section id="carte">
+      <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA&q=<?php echo str_replace(' ', '+', $contents['adresse'][0]); ?>" allowfullscreen></iframe>
+    </section>
 				<div class="details">
 		<ul>
             <li class="fixed_details">Type</li>
@@ -73,11 +76,10 @@ echo '</script>';
             <li class="fixed_details">Site web</li>
             <?php echo $contents['site']; ?>
           </ul>
+
 				</div>
     </div>
-    <section id="carte">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC02_hTBcl3SqHYTvraoftcwhPxkRSeCWA&q=<?php echo str_replace(' ', '+', $contents['adresse'][0]); ?>" allowfullscreen></iframe>
-    </section>
+    
     <section id="photos" <?php if (!array_key_exists(1, $contents['images']) && !array_key_exists(2, $contents['images'])) {echo 'style=display:none';} ?>>
 			<div class="simple-slideshow">
         <?php foreach($contents['images'] as $image){
