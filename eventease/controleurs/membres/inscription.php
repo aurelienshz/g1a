@@ -1,7 +1,6 @@
 <?php
 require MODELES.'membres/checkUsed.php';
 require MODELES.'membres/insertUser.php';
-require MODELES.'membres/token.php';
 
 $title = 'Inscription';
 $style = ['form.css'];
@@ -61,25 +60,16 @@ if(!connected()) {
             }
             // Si tout s'est bien passé, tous les champs de $errors sont vides
             if(implode('',$errors)=='') {
+                require MODELES.'membres/sendToken.php';
                 // On envoie un mail pour confirmer l'adresse mail
-                $tokenlink = 'http://'.$_SERVER['HTTP_HOST'].getLink(['membres','confirm',generateToken($_POST['email'],$_POST['password'])]);
-                if(mail($_POST['email'],
-                        'Inscription sur EventEase',
-                        "Bienvenue !\n"
-                        ."Votre inscription a bien été enregistrée. Merci de cliquer sur le lien ci-dessous pour confirmer votre adresse e-mail :\n"
-                        .$tokenlink
-                        ."\n"
-                        ."Si le lien ne fonctionne pas, copiez-collez l'adresse dans votre navigateur.\n\n"
-                        ."Merci de votre inscription, et à bientôt !\n"
-                        ."-- L'équipe EventEase",
-                        'From: no-reply@eventease.com')) {
+                if(sendToken($_POST['email'],$_POST['pseudo'])) {
                             insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password']),PASSWORD_DEFAULT);
                             vue(['validationInscription'],$style,$title);
                 }
                 else {
                     alert('error', 'Une erreur fatale s\'est produite. L\'équipe d\'EventEase a été prévenue de ce problème.');
-                    header('Location:'.getLink(['accueil']));
-                    exit();
+                    // header('Location:'.getLink(['accueil']));
+                    // exit();
                 }
             }
             else {
