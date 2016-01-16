@@ -12,7 +12,7 @@
             <ul id="interaction_profil">
                 <li><a class="button" href="#">Inviter à un évènement</a></li>
                 <li><a class="button" href="#">Suivre</a></li>
-                <li><a class="button" href="#">Envoyer un<br /> message privé</a></li>
+                <li><a class="button" href="<?php echo getLink(['membres','messages',''.$contents['pseudo'].''])?>#text-area">Envoyer un<br /> message privé</a></li>
             </ul>
 <?php }
     else {  // c'est mon profil
