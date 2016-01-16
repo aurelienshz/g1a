@@ -57,7 +57,7 @@ id_what donne la fonction à faire :
           <div class="supprimer">
           <?php 
             if (connected()){
-              if ($contents['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']==2 OR $_SESSION['niveau']==3){ ?>
+              if ($contents['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']>=2){ ?>
                 <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],'2'])?>">
                   <a href="<?php echo getLink(['forum','sujet',$contents['id'],'2'])?>"><i class="fa fa-pencil"></i></a>
                 </form>
@@ -106,7 +106,7 @@ id_what donne la fonction à faire :
               <div class="supprimer">
               <?php 
                 if (connected()){
-                  if ($comments['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']==2 OR $_SESSION['niveau']==3){?>
+                  if ($comments['id_auteur']==$_SESSION['id'] OR $_SESSION['niveau']>=2){?>
                     <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],4,$comments['id_comment']])?>">
                       <a href="<?php echo getLink(['forum','sujet',$contents['id'],4,$comments['id']])?>"><i class="fa fa-pencil"></i></a>
                     </form>
