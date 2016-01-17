@@ -8,9 +8,6 @@ function sendToken($email, $username) {
     else {
         return False;
     }
-
-    var_dump($tokenlink);
-
     if(mail($email,
             'Confirmer votre adresse e-mail',
             "Bienvenue !\n"

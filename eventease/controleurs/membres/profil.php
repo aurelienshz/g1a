@@ -136,6 +136,6 @@ if ($contents['ddn']!='<i>Non renseignée</i>') {
     $contents['ddn']=implode(' ',$contents['ddn']) ;
 }
 
-var_dump($contents['langue']);
+
 /**** Affichage de la page ****/
 vue($blocks,$styles,$title,$contents);
