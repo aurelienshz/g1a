@@ -23,7 +23,7 @@ echo '</script>';
             </div>
 		  <div class="buttons">
 			<ul>
-                <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe']?></a></li>
+                <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe'];?></a></li>
   	            <?php echo $contents['bouton_special'];?>
                 <li><a class="button" href="<?php echo getLink(['events','invite',$_GET['id']]); ?>" ><i class="fa fa-plus"></i> Inviter un ami </a></li>
 			</ul>
