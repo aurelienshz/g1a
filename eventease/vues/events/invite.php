@@ -1,5 +1,5 @@
 <div class="wrapper-narrow">
-	<h2>Inviter un amis à l'événement : <?php echo $contents['titreEvenement']; ?> </h2>
+	<h2>Inviter un ami à l'événement : <?php echo $contents['titreEvenement']; ?> </h2>
 	<form method="post" action="<?php getLink(['events','display',$_GET['id']]); ?>">
 		<label><p>Rentrer le pseudo de l'utilisateur à inviter:</label>
 		<input type="text" name="destinataire"></input>

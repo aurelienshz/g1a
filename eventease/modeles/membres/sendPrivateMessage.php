@@ -10,7 +10,6 @@ function sendPrivateMessage($message_prive, $id_destinataire, $id_auteur) {
       return True;
     }
 	else{
-      var_dump($query -> errorInfo());
       return False;
     }
 }
