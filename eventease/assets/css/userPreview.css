@@ -1,0 +1,67 @@
+.results {
+    margin-left: 0;
+}
+.userPreview {
+    width: 50%;
+    /*border: 1px solid black;*/
+}
+.userPreview img {
+    width: 25%;
+    display: inline-block;
+}
+.userPreview p:hover {
+    text-decoration: underline;
+}
+.userPreview p {
+    color: #303030;
+    float: right;
+    margin: 0 0 0 3%;
+    /*display: inline-block;*/
+    width: 70%;
+    line-height: 100%;
+    font-size: 1.3em;
+    padding: 2em 0 2em 0;
+}
+#tab-events {
+    text-align: center;
+}
+
+.prettyform .tabs {
+	display: table;
+	width: 100%;
+}
+.prettyform .tabs .tab {
+	display: table-cell;
+	height: 100px;
+	width: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #FAFAFA;
+	vertical-align: middle;
+}
+.prettyform .tabs .tab a {
+	text-decoration: none;
+}
+.prettyform .tabs #tab-events {
+	background-color: #4D93FF;
+
+}
+.prettyform .tabs #tab-users {
+	border-left: 2px solid #CDCDCD;
+    color: #303030;
+}
+/* Le trick du siècle : on ajoute un bloc <p> interne pour éviter que les bordures ne se bizeautent */
+.prettyform .tabs #tab-events p {
+	height: 100%;
+	text-align: center;
+	line-height: 100px;
+	padding: 0;
+	margin: 0;
+    background-color: #287DFF;
+	border-radius: 0 0 0 5px;
+	color: white;
+}
+.prettyform .tabs #tab-events p:hover {
+	background-color: #015791;
+}

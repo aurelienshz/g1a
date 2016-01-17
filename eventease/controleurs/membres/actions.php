@@ -14,7 +14,8 @@ $actions = [
 'modification_mail',
 'confirm',
 'delete',
-'promote'
+'promote',
+'search'
 ];
 
 $parametres = [
@@ -22,4 +23,4 @@ $parametres = [
     'confirm' => ['token'],
     'messages' => ['pseudo_destinataire'],
     'promote' => ['id']
-];
+    ];
