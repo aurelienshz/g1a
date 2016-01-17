@@ -1,3 +1,6 @@
+body{
+	min-width: 1330px;
+}
 @CHARSET "UTF-8";
 #statut_de_participation{
 	float:right;

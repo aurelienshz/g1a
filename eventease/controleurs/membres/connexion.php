@@ -19,16 +19,9 @@ if(!empty($_POST)) {        // Formulaire envoyé
 
         if(is_array($auth) && password_verify($_POST['password'], $auth['mdp'])) {
 
-            if(!isset($auth['date_derniere_connexion'])) {
-                if($auth['niveau'] == 0) {
-                    $errorMessage = "Votre compte n'est pas validé. Merci de cliquer sur le lien contenu dans l'e-mail que vous avez reçu après votre inscription.<br />
-                    Si vous n'avez pas reçu ce mail, vérifiez dans votre dossier spams";
-                }
-                else {
-                    alert('info', 'C\'est la première fois que vous vous connectez ! Prenez quelques minutes pour compléter votre profil !');
-                    header('Location: '.getLink(['membres','modification_profil']));
-                    exit();
-                }
+            if($auth['niveau'] == 0) {
+                $errorMessage = "Votre compte n'est pas validé. Merci de cliquer sur le lien contenu dans l'e-mail que vous avez reçu après votre inscription.<br />
+                Si vous n'avez pas reçu ce mail, vérifiez dans votre dossier spams";
             }
 
             // Si le message d'erreur est resté vide
@@ -40,11 +33,16 @@ if(!empty($_POST)) {        // Formulaire envoyé
                 $_SESSION['id'] = $auth['id'];
                 // Mise à jour de la date de dernière connexion :
                 setUserLastLogin($auth['id']);
-
+                }
                 // Sortie du script et redirection vers la page précédant la connexion :
-                header('Location: '.getLink($_SESSION['previousPage']));
-                exit();
-            }
+                if(!isset($auth['date_derniere_connexion'])){
+                    alert('info', 'C\'est la première fois que vous vous connectez ! Prenez quelques minutes pour compléter votre profil !');
+                    header('Location: '.getLink(['membres','modification_profil']));
+                    exit();
+                }else{
+                    header('Location: '.getLink($_SESSION['previousPage']));
+                    exit();
+                }
 
         }
         else {

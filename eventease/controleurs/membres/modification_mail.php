@@ -1,8 +1,10 @@
 <?php
-require MODELES.'membres/getUserDetails.php';
-require MODELES.'membres/getUserAuth.php';
-require MODELES.'membres/checkUsed.php';
-require MODELES.'membres/updateMail.php';
+require_once MODELES.'membres/getUserDetails.php';
+require_once MODELES.'membres/getUserAuth.php';
+require_once MODELES.'membres/checkUsed.php';
+require_once MODELES.'membres/updateMail.php';
+require_once MODELES.'membres/sendToken.php';
+require_once MODELES.'membres/token.php';
 
 if(!connected()) {
     alert("error","Vous devez être connecté !");
@@ -41,9 +43,10 @@ if(!empty($_POST)) {        // Formulaire envoyé
 		        	// Les mails correspondent.
 
 			            // Changement du mail.
-	        			if(updateMail($_SESSION['id'], $_POST['mail'], $auth['mdp'])) {
+                        $userD = getUserDetails($_SESSION['id']);
+	        			if(sendTokenChange($_POST['mail'], $userD['pseudo'], $userD['mail'])) {
 		        			// Sortie du script et redirection vers la page de profil :
-		                	alert('info', 'Vous avez bien changé votre adresse mail. Veuillez l\'activer.');
+		                	alert('info', 'Vous avez bien changé votre adresse mail. Veuillez l\'activer pour valider le changement.');
 		                	header('Location: '.getLink(['membres','profil']));
 		                	exit();
 		        		}else{
@@ -66,9 +69,7 @@ if(!empty($_POST)) {        // Formulaire envoyé
     }
 }
 
-
 $contents['errorMessage'] = $errorMessage;
-
 $title = 'Changer son adresse mail';
 $styles = ['form.css'];
 $blocks = ['modification_mail'];

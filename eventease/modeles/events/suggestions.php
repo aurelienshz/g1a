@@ -74,7 +74,9 @@ function suggestions() {
 		$user_info = getUserDetails($_SESSION['id']);
 		$user_events = getMemberEvents($_SESSION['id']);
 		$events = getEvents($_SESSION['id']);
-
+		if (empty($events) || empty($user_events)|| empty($user_info)) {
+			exit();
+		}
 		//Enlève les évents auquel il participe.
 		foreach ($events as $key => $value) {
 			foreach ($user_events as $cle => $valeur) {
@@ -87,9 +89,17 @@ function suggestions() {
 			$events[$key]['coordonnee_lat'] = $event_adress['coordonnee_lat'];
 			$events[$key]['lien_photo'] = generateMediaLink($value['id'], $value['type']);
 		}
-		// if empty($events[0]){
-		// 	//Il participe à tous les évènements.
-		// }
+		if (count($events) == 1){
+			//Il participe à tous les évènements -2.
+			return [$events[0]];
+		}elseif(count($events) == 2){
+			//Il participe à tous les évènements -1.
+			return [$events[0],$events[1]];
+		}elseif(count($events) == 3){
+			return [$events[0],$events[1],$events[2]];
+		}elseif (count($events) == 0){
+			return NULL;
+		}
 		// ======= BIENTOT ========
 
 		//Tri par date des evenements
