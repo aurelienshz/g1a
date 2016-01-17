@@ -17,8 +17,8 @@ if(isset($contents['searchResults']) && $contents['searchResults']) {
         // echo '</pre>';
         ?>
         <div class="userPreview">
-            <a href = "<?php echo getLink(['membre','profil',$user['id']]) ?>">
-                <img src ="<?php echo PHOTO_PROFIL.$user['lien']; ?>" />
+            <a href = "<?php echo getLink(['membres','profil',$user['id']]) ?>">
+                <img src ="<?php echo empty($user['lien'])?IMAGES.'photo_profil_defaut.jpg':PHOTO_PROFIL.$user['lien']; ?>" />
                 <p><?php echo $user['pseudo']; ?></p>
             </a>
         </div>

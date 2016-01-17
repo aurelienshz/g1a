@@ -21,7 +21,7 @@ function getEvents($id = False) {
         $userQuery = ' WHERE evenement.visibilite = 0';
     }
 
-    $query = "SELECT DISTINCT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, evenement.visibilite, type.nom AS type, adresse.adresse_condensee AS adresse, media.lien
+    $query = "SELECT DISTINCT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, evenement.visibilite, type.nom AS type, adresse.adresse_condensee AS adresse
                     FROM evenement
                     LEFT JOIN type on evenement.id_type = type.id
                     LEFT JOIN adresse on evenement.id_adresse = adresse.id

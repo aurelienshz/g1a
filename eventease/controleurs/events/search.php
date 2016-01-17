@@ -6,6 +6,7 @@
 // $contents = [];
 
 require MODELES.'events/getTypes.php';
+require MODELES.'events/suggestions.php';
 
 
 function detailsToStrings($events) {
@@ -13,7 +14,9 @@ function detailsToStrings($events) {
     if($events) {
         // Traitement des contenus :
         foreach($events as $key=>$event) {
-
+            // echo $event['id'], $event['type'].'<br />';
+            $events[$key]['lien'] = generateMediaLink($event['id'], $event['type']);
+            // echo $event[$key]['lien'].'<br />';
             // Préparation de la chaîne représentant la tranche d'âge :
             if(isset($event['age_min'], $event['age_max'])) {
                 $events[$key]['tranche_age'] = 'De '.$event['age_min'].' à '.$event['age_max'].' ans';
@@ -59,6 +62,7 @@ function detailsToStrings($events) {
 
             // Préparation de la chaîne représentant la privacy de l'event
         }
+        // var_dump($events);
         return $events;
     }
     else {
@@ -139,7 +143,7 @@ function searchController() {
 }
 
 function listController() {
-    require MODELES.'events/getEvents.php';
+    require_once MODELES.'events/getEvents.php';
     $contents['types'] = getTypes();
 
     if(connected()) {

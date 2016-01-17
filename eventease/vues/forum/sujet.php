@@ -17,7 +17,7 @@ id_what donne la fonction à faire :
       <?php if (connected()){?>
       <!-- L'utilisateur est connecté -->
       <div class="repondre">
-          <a class="button" href="#champ1">
+          <a class="button" href="<?php echo $_SERVER["REQUEST_URI"]; ?>#champ1">
               Répondre à ce sujet
           </a>
       </div>
