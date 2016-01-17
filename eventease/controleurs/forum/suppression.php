@@ -45,7 +45,7 @@ if ($_GET['id_comment']){
 	if($id==4){
 		$id_comment=$_GET['id_comment'];
 		$id_auteur=getAuthorComment($id_comment);
-		if ($id_auteur['id_auteur']==$id_user OR $niveau_user>=2){
+		if ($id_auteur['id_auteur']==$id_user OR $niveau_user==2 OR $niveau_user==3){
 			if ($_POST['comment']){
 				$message=$_POST['comment'];
 				modifierComment($id_comment,$message);
