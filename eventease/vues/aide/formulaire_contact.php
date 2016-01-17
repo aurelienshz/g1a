@@ -8,12 +8,12 @@
     <div class="form">
       <form action="<?php echo getLink(['aide','formulaire_contact']); ?>" method="post">
         <label for="nom" style="display:inline-block">Nom :</label>
-        <input type="text" name="nom" value="<?php echo $contents['prenom'] . " " . $contents['nom']?>" id="nom" style="width:60%; float:left; margin-bottom:0" >
+        <input type="text" name="nom" value="<?php if (connected()){echo $contents['prenom'] . " " . $contents['nom'];}?>" id="nom" style="width:60%; float:left; margin-bottom:0" >
         <?php echo isset($contents['errors']['titre'])?$contents['errors']['nom']:'' ?>
         </br></br>
 
         <label for="email" style="display:inline-block">Email :</label>
-        <input type="text" name="email" value="<?php echo $contents['mail']?>" id="email" style="width:60%; float:left; margin-bottom:0" >
+        <input type="text" name="email" value="<?php if (connected()){echo $contents['mail'];}?>" id="email" style="width:60%; float:left; margin-bottom:0" >
         <?php echo isset($contents['errors']['email'])?$contents['errors']['email']:'' ?>
         </br></br>
 

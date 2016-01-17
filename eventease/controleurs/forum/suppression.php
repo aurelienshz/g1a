@@ -6,6 +6,8 @@ $id_topic=$_GET['id_topic'];
 
 $id_user=$_SESSION['id'];
 
+$niveau_user=$_SESSION['niveau'];
+
 
 //id_what donne la fonction à faire :
 //0->Rien du tout
@@ -43,7 +45,7 @@ if ($_GET['id_comment']){
 	if($id==4){
 		$id_comment=$_GET['id_comment'];
 		$id_auteur=getAuthorComment($id_comment);
-		if ($id_auteur['id_auteur']==$id_user){
+		if ($id_auteur['id_auteur']==$id_user OR $niveau_user>=2){
 			if ($_POST['comment']){
 				$message=$_POST['comment'];
 				modifierComment($id_comment,$message);
