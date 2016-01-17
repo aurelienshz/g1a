@@ -4,6 +4,8 @@ Constantes de fonctionnement dde l'appli.
 Ces constantes sont accessibles depuis tous les scripts.
 */
 
+define('APP_ROOT',str_replace('index.php','',$_SERVER['PHP_SELF']));
+
 define('CONTROLEURS', "controleurs/");
 define('VUES', "vues/");
 define('MODELES', "modeles/");

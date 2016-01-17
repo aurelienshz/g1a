@@ -84,15 +84,15 @@ function fetchParams($page) {
 
 // $parametres = ['display'=>['id'],'edit'=>['id','do']];
 function getLink($page = []) {	// $page = [$module, $action, $param1, $param2]
-	$rewrite = False;
+	$rewrite = True;
 	if($rewrite) {
-		$link = '';
+		$link = APP_ROOT;
 		if(count($page) > 2) {
 			fetchParams($page);
 		}
-		foreach($page as $key => $valeurParametre) {
-			$link .= "/".$valeurParametre;
-		}
+		$link .= implode('/',$page);
+		// foreach($page as $key => $valeurParametre) {
+		// }
 		return $link;
 	}
 	else {
