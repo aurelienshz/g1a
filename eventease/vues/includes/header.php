@@ -5,6 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <base href="/" />
     <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
 	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo IMAGES.'favicon-96x96.png'; ?>">
 

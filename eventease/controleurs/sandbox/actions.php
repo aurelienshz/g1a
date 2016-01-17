@@ -1,0 +1,5 @@
+<?php
+$actions = [
+    'index',
+    'rewritegenerator'
+];
