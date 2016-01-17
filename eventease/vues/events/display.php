@@ -1,8 +1,8 @@
 <?php echo '<script>';
-echo 'var event_id = ' . json_encode($_GET['id']) . ';';
-echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
+echo 'var id_event = ' . json_encode($_GET['id']) . ';';
 echo '</script>';
 ?>
+
 <div class="wrapper">
       <?php echo isset($contents['statut_de_participation'])?$contents['statut_de_participation']:''; ?>
     <div class ="intro_evenement">
@@ -22,8 +22,14 @@ echo '</script>';
             </div>
 		  <div class="buttons">
 			<ul>
-                <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe'];?></a></li>
-  	            <?php echo isset($contents['bouton_special'])?$contents['bouton_special']:'';?>
+                <?php if(connected()) { ?>
+                    <li><a class="button" id='participe' onclick="participate(id_event);"><?php echo $contents['participe'];?></a></li>
+                <?php }
+                else { ?>
+                    <li><a class="button" id='participe' href="<?php echo getLink(['membres','connexion']); ?>"><?php echo $contents['participe'];?></a></li>
+                <?php } ?>
+
+                <?php echo isset($contents['bouton_special'])?$contents['bouton_special']:'';?>
                 <li><a class="button" href="<?php echo getLink(['events','invite',$_GET['id']]); ?>" ><i class="fa fa-plus"></i> Inviter un ami </a></li>
 			</ul>
 		  </div>
