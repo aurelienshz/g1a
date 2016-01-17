@@ -150,7 +150,8 @@ echo '</script>';
                     $i=0;
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
+                      var_dump($commentaire);
+                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[3]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
 
                     <p><?php echo $commentaire[1];?></p>
 

@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])){
           $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
           $i=0;
           foreach($contents['comment'] as $comment){
-              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\" method=\"post\" action=\"<?php getLink(['events','modification_commentaire'])?>\" ><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
               $i++;
             }
           }
