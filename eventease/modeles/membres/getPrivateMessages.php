@@ -17,7 +17,6 @@ function getPrivateMessages($id) {
                             message_prive.id_auteur,
                             message_prive.contenu,
                             message_prive.date_publication,
-                            membre.pseudo
                             FROM message_prive
                             JOIN membre
                             ON message_prive.id_destinataire = membre.id
