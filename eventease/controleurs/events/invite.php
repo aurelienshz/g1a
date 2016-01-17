@@ -4,7 +4,7 @@ require MODELES.'events/getEventDetails.php';
 require MODELES.'membres/checkUsed.php';
 require MODELES.'events/insertInvite.php';
 require MODELES.'membres/getUserAuth.php';
-
+require MODELES.'events/checkParticipation.php';
 
 $event=getEvents($_GET['id']);
 $expediteur=$_SESSION['id'];
@@ -31,11 +31,21 @@ if(connected()){
 		}
                 
 		else{    ///On récupère l'ID du pseudo rentré et on fait l'insertion en BDD///
+                    if (checkParticipation()) {
+                        alert('error','Cet utilisateur participe déjà à cet évènement.');
+                        vue($blocks,$styles,$title,$contents);
+                    }
+                    else if (checkParticipation()) {
+                        alert('error','Cet utilisateur à déjà reçu une invitation à cet évènement.');
+                        vue($blocks,$styles,$title,$contents);
+                    }
+                    else {
                         insertInvite($expediteur,$_GET['id'],$destinataire['id']);
                         alert('info','Votre message a bien été envoyé !');
                         vue($blocks,$styles,$title,$contents);
-		}
-	}
+                    }
+                }
+}
 }
 else{
 	alert('info','Merci de vous connecter pour inviter quelqu\'un à l\'évènement !');

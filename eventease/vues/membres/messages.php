@@ -20,7 +20,7 @@
             echo '</tr>'."\n";
         }
         }
-        
+        echo '</table>';
         if(!$contents['invitations']) {
             echo "<h1> Pas de nouvelle invitation à des évènements reçue</h1>";
         }
@@ -41,7 +41,6 @@
         }
         }
         ?>
-    </table>
     <h2>Envoyer un message privé</h2>
     <div id='zone-envoi'>
         <form method="post" action="<?php echo getLink(['membres','messages']).'#zone-envoi'; ?>">
