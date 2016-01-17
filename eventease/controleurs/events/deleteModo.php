@@ -23,7 +23,7 @@ if (empty($contents["values"])){
     exit();
 }
 // Fonction qui check s'il a le droit de modifier.
-if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
+if( connected() && (checkOrganiser($_SESSION['id'],$_GET['id']) OR $_SESSION['niveau'] == 2 OR $_SESSION['niveau'] == 3 ) ) {
     
 }else{
 	if (!connected()){
@@ -57,6 +57,8 @@ if(!empty($_POST)){
 	if(empty($contents['errorMessage']) ){
 		if(deleteModo($_GET['id'], $orga_id)){
 			alert("ok","Le modérateur a bien été supprimé !");
+			header("Location: ".getLink(["events" ,"modify", $_GET["id"]]));
+			exit();
 		}
 	}
 }

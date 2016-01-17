@@ -33,3 +33,12 @@ function insertAddress($adresse) {
         return False;
     }
 }
+
+function getAdressCoord($id) {
+  $bdd = new PDO(DSN, DBUSER, DBPASS);
+  $query = $bdd->prepare('SELECT adresse.coordonnee_long, adresse.coordonnee_lat FROM evenement, adresse WHERE evenement.id_adresse = adresse.id AND evenement.id =:id');
+  $query-> execute(['id'=>$id]);
+  $adresse = $query->fetch();
+
+  return $adresse;
+}

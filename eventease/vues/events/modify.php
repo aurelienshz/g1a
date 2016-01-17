@@ -123,7 +123,7 @@
 						<label for="autohosted">Organisez-vous cet évènement ? </label>
 						<span style="margin-left : 25%;"><input type="radio" id="autohosted_Yes" name="autohosted" value="True" 
 						<?php if(isset($contents['values']['autohosted'])){ 
-								}elseif{ ($contents['values']['autohosted']=="True"){ echo 'checked="checked"';
+								if ($contents['values']['autohosted']=="True") echo 'checked="checked"';
 								}else{ echo 'checked="checked"';} ?> 
 							/> Oui </span>
 						<span style="margin-left : 5%;"><input type="radio" id="autohosted_No" name="autohosted" value="False" <?php echo (isset($contents['values']['autohosted']) AND $contents['values']['autohosted']=="False")?'checked="checked"':''; ?>/> Non</span>
@@ -155,7 +155,7 @@
 		        <div class="ligneBoutons" style="padding-bottom: 1em;">
 					<a style="width: 20%; margin:0;" class="champ button" href="<?php echo getLink(['membres','evenements']); ?>"><i class="fa fa-ban"></i> Annuler</a>
 					<input style="width: 50%;" type="submit" value="Modifier" />
-					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['events','delete']); ?>">Supprimer l'évènement</a>
+					<a style="background-color: #F94339; width: 20%; align-self: flex-end; margin:0;" class="champ button" href="<?php echo getLink(['events','delete', $_GET['id']]); ?>">Supprimer l'évènement</a>
 				</div>
 				<p class="importantRed"> <i class="fa fa-asterisk"></i> Champs obligatoires</p>
 		</form>

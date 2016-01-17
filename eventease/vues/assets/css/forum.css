@@ -170,6 +170,7 @@ h2{
 textarea{
   width:100%;
   min-height: 70px;
+  resize: none;
 }
 .content_sujet1 input{
   float:right;

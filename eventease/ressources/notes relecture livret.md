@@ -6,8 +6,9 @@
 - recherche simple et avancée
 - ajout d'un nouvel évènement
 - inscription / désinscription à un event
-- créer, modifier events (/!\ **need suppression** /!\)
-
+- créer, modifier events
+- back-office
+- forum de discussion
 
 ### Élaboré, mais pas ultra-proche du CdC : ###
 
@@ -18,9 +19,9 @@
 
 - partage d'event sur réseaux sociaux
 - sponsors d'un évènement
-- back-office
-- forum de discussion
-- aide en ligne
+
+
+- aide en ligne => Incorporér au back-office ? là ça envoie un mail ?
 
 
 ### Ce que nous n'avons pas touché : ###

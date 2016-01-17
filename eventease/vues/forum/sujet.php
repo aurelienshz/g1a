@@ -27,7 +27,7 @@ id_what donne la fonction à faire :
       else { ?>
       <!--L'utilisateur n'est pas connecté-->
         <div class="repondre">
-          <a class="button" href="<?php echo getLink(['membres','connexion'])?>")>
+          <a class="button" href="<?php echo getLink(['membres','connexion'])?>">
               Répondre à ce sujet
           </a>
       </div>
@@ -50,7 +50,7 @@ id_what donne la fonction à faire :
           <?php }
           else if ($contents['id_what']==2) {?>
           <!--L'utilisateur veut modifier son topic-->
-            <input type="text" name="titre" id="titre" value="<?php echo $contents['titre']?>" style="width:40%; height:50%; margin-top:15px" ></input>
+            <input type="text" name="titre" id="titre" value="<?php echo $contents['titre']?>" style="width:40%; height:50%; margin-top:15px" >
           <?php } ?>
         </div>
         <div class="content_sujet">

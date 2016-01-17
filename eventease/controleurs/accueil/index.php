@@ -9,8 +9,8 @@
 // $reponse['titre'][0] => 'skldlfjF'
 
 
-require MODELES.'events/suggestions.php';
 require MODELES.'accueil/getCatchphrases.php';
+require MODELES.'events/suggestions.php';
 
 /**** Préparation des ressources de la page ****/
 $title = 'Accueil';

@@ -19,6 +19,8 @@
 		if ($contents['img_number'] < 4){
 			echo '<label for="photos">Ajouter des photos : </label>(4 photos maximum)
     			  <input type="file" id="photos" name="photos[]" multiple="multiple" accept=".png,.jpg,.jpeg" />';
+		}elseif ($contents['img_number'] == 4){
+			echo '<input type="hidden" name="full_capacity" value="True style="display:none"/>';
 		}
    			if(!empty($contents['errorMessage'])) {
       			echo "<p class=\"error-message\">".$contents['errorMessage']."</p>";

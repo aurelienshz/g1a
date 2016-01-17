@@ -7,7 +7,8 @@ $actions = [
 'modify',
 'addModo',
 'deleteModo',
-'extra-media'
+'extra-media',
+'delete'
 ];
 
 $parametres = [
@@ -19,5 +20,6 @@ $parametres = [
 'modify' => ['id'],
 'addModo' => ['id'],
 'deleteModo' => ['id'],
-'extra-media' => ['id']
+'extra-media' => ['id'],
+'delete' => ['id']
 ];

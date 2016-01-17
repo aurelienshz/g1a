@@ -88,16 +88,16 @@ Création d'event :
 - [x] insertion dans la base et vérif champs -- Tristan
 - [x] photo
 - [x] photo par défaut dépendante du type (gerée dans la page d'affichage)
-- [ ] choix dans le formulaire :
-	[] je suis l'orga --> nombre de places, acceptation des participations etc
-	[] je ne suis pas l'orga --> lien vers le site de l'orga, contacts etc.
+- [x] choix dans le formulaire :
+	[x] je suis l'orga
+	[x] je ne suis pas l'orga --> lien vers le site de l'orga, contacts etc.
 
 
 Modif event -- Tristan
 - [x] vérifier qu'on est connecté et organisateur de l'event qu'on cherche à modifier
 - [x] Ajout et supprimer de créateurs supplémentaires
-- [ ] penser à l'action supprimer
-- [ ] client : informations de contact de l'organisateur
+- [x] penser à l'action supprimer
+- [x] client : informations de contact de l'organisateur
 - [x] ajout de photos supplémentaires (pas uniquement la photo principale)
 
 ## Back-office ##
@@ -128,15 +128,15 @@ membres :
 
 Header / Footer
 - [x] header : zones actives full height
-- [ ] liens footer pas tous actifs
+- [x] liens footer pas tous actifs
 
 Forum : --> Audrey
 - [x] affichage des catégories
 - [x] nouveau message
 - [x] nouveau sujet
-- [ ] gestion privilèges sur modifier, supprimer message, seulement les miens sauf si modérateur ou admin
+- [x] gestion privilèges sur modifier, supprimer message, seulement les miens sauf si modérateur ou admin
 
 FAQ / Aide / Doc
-- [ ] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
+- [x] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
 - [ ] Aide : Formulaire de Contact
-- [ ] A propos
+- [x] A propos
