@@ -16,16 +16,20 @@ if(!connected()) {
     if(!empty($_POST)) {        // Formulaire envoyé
         if($_POST['username'] && $_POST['password']) { // Tous les champs remplis
             $auth = getUserAuth($_POST['username']);
+            // echo '<pre>';
+            // var_dump($auth);
+            // echo '</pre>';
 
             if(is_array($auth) && password_verify($_POST['password'], $auth['mdp'])) {
 
-                if($auth['niveau'] == 0) {
+                if(intval($auth['niveau']) == 0) {
                     $errorMessage = "Votre compte n'est pas validé. Merci de cliquer sur le lien contenu dans l'e-mail que vous avez reçu après votre inscription.<br />
                     Si vous n'avez pas reçu ce mail, vérifiez dans votre dossier spams";
+                    $contents['errorMessage'] = $errorMessage;
+                    vue(['connexion'],$style,$title,$contents);
+                    exit();
                 }
-
-                // Si le message d'erreur est resté vide
-                if(!$errorMessage) {
+                else {
                     // Positionnement des variables de session :
                     $_SESSION['connected'] = True;
                     $_SESSION['username'] = $_POST['username'];
@@ -33,20 +37,23 @@ if(!connected()) {
                     $_SESSION['id'] = $auth['id'];
                     // Mise à jour de la date de dernière connexion :
                     setUserLastLogin($auth['id']);
-                    }
-                    // Sortie du script et redirection vers la page précédant la connexion :
-                    if(!isset($auth['date_derniere_connexion'])){
-                        alert('info', 'C\'est la première fois que vous vous connectez ! Prenez quelques minutes pour compléter votre profil !');
-                        header('Location: '.getLink(['membres','modification_profil']));
-                        exit();
-                    }else{
-                        header('Location: '.getLink($_SESSION['previousPage']));
-                        exit();
-                    }
+                }
 
+                // Sortie du script et redirection vers la page précédant la connexion :
+                if(!$errorMessage && !isset($auth['date_derniere_connexion'])){
+                    alert('info', 'C\'est la première fois que vous vous connectez ! Prenez quelques minutes pour compléter votre profil !');
+                    header('Location: '.getLink(['membres','modification_profil']));
+                    exit();
+                }
+                else
+                {
+                    header('Location: '.getLink($_SESSION['previousPage']));
+                    exit();
+                }
             }
+            // Si le message d'erreur est resté vide
             else {
-                $errorMessage = "Une erreur s'est produite. Merci de réessayer !";
+                $errorMessage = "Identifiants invalides. Merci de réessayer !";
             }
         }
         else {

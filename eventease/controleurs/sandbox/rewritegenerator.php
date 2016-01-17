@@ -15,7 +15,7 @@ echo "# NE PAS MODIFIER MANUELLEMENT !<br />
 <br /><br /><br />
 Options +FollowSymlinks<br />
 RewriteEngine On";
-echo "<br /><br />RewriteRule ^([a-z]+)(/([-_a-z]+))?$ index.php?module=$1&action=$3 [L]";
+echo "<br /><br />RewriteRule ^([a-z]+)(/([-_a-zA-Z0-9]+))?$ index.php?module=$1&action=$3 [L]";
 
 foreach($modules as $module) {
     if(file_exists(CONTROLEURS.$module.'/actions.php')) {
@@ -29,7 +29,7 @@ foreach($modules as $module) {
                 $n = 2;
 
                 foreach($params as $param) {
-                    $url .= "(/([-_a-z0-9]+))?";
+                    $url .= "(/([-_a-zA-Z0-9]+))?";
                     $rewrite .= '&'.$param.'=$'.$n;
                     $n+=2;
                 }
