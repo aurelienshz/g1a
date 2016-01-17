@@ -1,7 +1,13 @@
 <?php
 
 function getUserDetails($id) {
-    $bdd = new PDO(DSN, DBUSER, DBPASS);
+    try {
+        $bdd = new PDO(DSN, DBUSER, DBPASS);
+    }
+    catch(Exception $e) {
+        echo 'Erreur : '.$e->getMessage();
+        exit();
+    }
     $query = $bdd->prepare('SELECT
                             membre.pseudo,
                             -- membre.mdp,

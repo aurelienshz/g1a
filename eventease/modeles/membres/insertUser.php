@@ -4,9 +4,14 @@
 function insertUser($username, $mail, $passHash) {
 	$bdd = new PDO(DSN, DBUSER, DBPASS);
     $query = $bdd->prepare('INSERT INTO membre (pseudo, mdp, mail) VALUES (:username, :passHash, :email)');
-    $query -> execute([
+    if($query -> execute([
     	':username'=>$username,
     	':passHash'=>$passHash,
         ':email'=>$mail
-        ]);
+        ])) {
+			return True;
+		}
+		else {
+			return False;
+		}
 }

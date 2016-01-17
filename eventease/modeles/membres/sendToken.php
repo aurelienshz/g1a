@@ -13,7 +13,7 @@ function sendToken($email, $username) {
 
     if(mail($email,
             'Confirmer votre adresse e-mail',
-            "Bonjour !\n"
+            "Bienvenue !\n"
             ."Merci de cliquer sur le lien ci-dessous pour confirmer votre adresse e-mail :\n"
             .$tokenlink
             ."\n"
