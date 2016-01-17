@@ -75,7 +75,7 @@ function suggestions() {
 		$user_events = getMemberEvents($_SESSION['id']);
 		$events = getEvents($_SESSION['id']);
 		if (empty($events) || empty($user_events)|| empty($user_info)) {
-			return NULL;
+			return;
 		}
 		//Enlève les évents auquel il participe.
 		foreach ($events as $key => $value) {
