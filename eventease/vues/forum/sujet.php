@@ -44,7 +44,7 @@ id_what donne la fonction à faire :
     <div class="cadre">
       <div class="tableau">
         <div class="header" style="height:60px">
-          <?php if ($contents['id_what']==0){?>
+          <?php if ($contents['id_what']!=2){?>
             <!--l'utilisateur veut seulement regarder-->
             <h1><?php echo $contents['titre'];?></h1>
           <?php }
@@ -76,7 +76,7 @@ id_what donne la fonction à faire :
           else if ($contents['id_what']==2){?>
           <!--l'utilisateur veut modifier le topic-->
             <div class="champ1" id="champ1" style="width:75%">
-              <input type="text" name="message" id="message" value="<?php echo $contents['message']?>" style="width:100%; height:60px; margin-top:15px"></input>
+              <textarea name="message" id="message"><?php echo $contents['message']?></textarea>
               <!--<p id="lien"><a href="<?php echo getLink(['forum','sujet', $contents['id'],0]); ?>" style="float:right">Annuler</a></p>
               --><h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
             </div>
@@ -139,7 +139,7 @@ id_what donne la fonction à faire :
                   <!--le commentaire est celui à modifier-->
                    <form method="post" action="<?php echo getLink(['forum','suppression',$contents['id'],4,$comments['id']])?>?>">
                       <div class="champ1" id="champ1" style="width:77%">
-                        <input type="text" name="comment" id="comment" value="<?php echo $comments['contenu']?>" style="width:100%; height:60px; margin-top:15px"></textarea>
+                        <textarea name="comment" id="comment"><?php echo $comments['contenu']?></textarea>
                         <!--<p id="lien"><a href="<?php echo getLink(['forum','sujet', $contents['id'],0]); ?>" style="float:right">Annuler</a></p>
                         --><h3><input type="submit" value="Modifier" style="background-color:#36B136;float:right;color:white"/></h3>
                       </div>

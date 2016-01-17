@@ -22,7 +22,7 @@ function getPrivateMessages($id) {
                             JOIN membre
                             ON message_prive.id_destinataire = membre.id
                             WHERE membre.id = :id
-                            ORDER BY message_prive.date_publication'
+                            ORDER BY message_prive.date_publication DESC'
                             );
     $query->execute(['id'=>$id]);
     $messages_prives = $query->fetchAll(PDO::FETCH_ASSOC);

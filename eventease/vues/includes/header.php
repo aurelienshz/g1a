@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <!-- <base href="/" /> -->
+    <base href="<?php echo APP_ROOT ?>" />
     <title><?php if(isset($title)) { echo $title.' | ';}; ?>EventEase</title>
 	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo IMAGES.'favicon-96x96.png'; ?>">
 
@@ -21,7 +21,6 @@
 </head>
 <body>
     <header>
-        <!-- <?php echo $_SERVER['REQUEST_URI']; ?> -->
         <h1>
             <a href="<?php echo getLink(); ?>"><img src="<?php echo IMAGES.'logo2.png'; ?>" alt="EventEase" /></a>
         </h1>

@@ -2,8 +2,9 @@
 require MODELES. 'faq/getUserInfo.php';
 
 /**** Préparation de la vue ****/
-$contents=getUserInfo($_SESSION['id']);
-
+if (connected()){
+	$contents=getUserInfo($_SESSION['id']);
+}
 
 
 
@@ -31,6 +32,11 @@ if ($_POST){
 }
 
 else {
-	vue($blocks,$styles, $title, $contents);
+	if (connected()){
+		vue($blocks,$styles, $title, $contents);
+	}
+	else {
+		vue($blocks, $styles, $title);
+	}
 }
 ?>
