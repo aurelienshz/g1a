@@ -11,7 +11,7 @@ function getEvents($id = False) {
     if($id) {
         $userSpecific = True;
         $userQuery = ' WHERE evenement.visibilite = 0 OR invitation.id_destinataire = :id';
-        if(intval($_SESSION['niveau']) == 3 || intval($_SESSION['niveau']) == 4) {
+        if(intval($_SESSION['niveau']) == 2 || intval($_SESSION['niveau']) == 3) {
             $userSpecific = False;
             $userQuery = '';
         }
