@@ -1,6 +1,7 @@
 function participate(id_event, id_member) {
     var etat;
     var participe=document.getElementById("participe");
+    alert(participe.innerHTML);
     if (participe.innerHTML =="Participe"){
         var xmlhttp = new XMLHttpRequest();
         etat = 1;

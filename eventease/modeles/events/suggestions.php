@@ -80,7 +80,10 @@ function suggestions() {
 		//Enlève les évents auquel il participe.
 		foreach ($events as $key => $value) {
 			foreach ($user_events as $cle => $valeur) {
-				if ($value["id"] == $valeur['id']) unset($events[$key]);
+				if (count($events)-count($user_events) > 3){
+					// Teste s'il y a assez d'évènements pour faire 3 recommendations
+					if ($value["id"] == $valeur['id']) unset($events[$key]);
+				}
 			}
 			//Ajoute les coordonnées à chaue événement auquel il ne participe pas.
 			if (!isset($events[$key])) continue;
@@ -88,17 +91,6 @@ function suggestions() {
 			$events[$key]['coordonnee_long'] = $event_adress['coordonnee_long'];
 			$events[$key]['coordonnee_lat'] = $event_adress['coordonnee_lat'];
 			$events[$key]['lien_photo'] = generateMediaLink($value['id'], $value['type']);
-		}
-		if (count($events) == 1){
-			//Il participe à tous les évènements -2.
-			return [$events[0]];
-		}elseif(count($events) == 2){
-			//Il participe à tous les évènements -1.
-			return [$events[0],$events[1]];
-		}elseif(count($events) == 3){
-			return [$events[0],$events[1],$events[2]];
-		}elseif (count($events) == 0){
-			return NULL;
 		}
 		// ======= BIENTOT ========
 
