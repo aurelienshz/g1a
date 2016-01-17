@@ -451,6 +451,11 @@ body{
 	padding:0px;
 	height:auto;
 }
+.suppr_comment {
+	margin:0px;
+	padding:0px;
+	height:auto;
+}
 #invite_h2 {
     text-align: center;
 }
