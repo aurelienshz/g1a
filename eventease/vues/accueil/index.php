@@ -9,11 +9,9 @@
         <select name="searchType">
             <option value="keywords">Mots-clés...</option>
             <option value="place">Près de...</option>
-            <option value="date">Prochainement...</option>
         </select><!--
      --><input name="searchKeywords" class="champCentral" type="text" placeholder="Mots-clés"/><!--
      --><input name="searchPlace" class="champCentral google-autocomplete-address" type="text" placeholder="Adresse" style="display:none;"/><!--
-     --><input name="searchDate" class="champCentral" type="date" placeholder="Date" style="display:none;"/><!--
      --><input type="submit" value="Rechercher"/>
     </form>
     <div id="createButtonContainer">
@@ -38,7 +36,7 @@
 				<p><span class="fa fa-map-marker"></span><?php echo $value['adresse'];?></p>
 				<p><span class="fa fa-eur"></span><?php echo !empty($value['tarif'])?$value['tarif']." €":'Gratuit';?></p>
 				<p><span class="fa fa-child"></span>
-				<?php 
+				<?php
 					if (!empty($value['age_min']) && !empty($value['age_max'])){
 						echo "De ".$value['age_min']." à ".$value['age_max'];
 					}elseif(empty($value['age_min']) && !empty($value['age_max'])){

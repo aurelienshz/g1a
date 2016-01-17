@@ -92,7 +92,6 @@ if(!empty($_POST)){
 		if(!checkTextInput($_POST['titre'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' , 0-9]+$/i")) {
 			$errors['titre'] = 'Titre invalide, il ne peut contenir que des lettres (accentuées) des virgules, des espaces, des apostrophes et des chiffres.';
 		}
-
 		// Type dans le bon intervalle :
 		if(!checkSelect($_POST['type'], range(0,max(array_keys($contents['types'])))) ){
 			$errors['type'] = "Type Invalide";
@@ -100,7 +99,7 @@ if(!empty($_POST)){
 		}else{
 			$push['id_type'] = $_POST['type'];
 		}
-
+		
 		// Lieu : passer une recherche avec Google et vérifier qu'on a une réponse en coordonnées
 		if(!checkAddress($_POST['adresse'])) {
 			$errors['adresse'] = isset($errors['adresse'])?$errors['adresse']:'L\'adresse semblait invalide. Nous avons tenté de la corriger.';

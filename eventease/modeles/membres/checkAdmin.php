@@ -1,6 +1,6 @@
 <?php
 function checkAdmin() {
-    if(connected() && $_SESSION['niveau'] == 4) {
+    if(connected() && $_SESSION['niveau'] == 3) {
         return True;
     }
     else {

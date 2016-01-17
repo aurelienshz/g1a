@@ -8,18 +8,20 @@ $actions = [
 'addModo',
 'deleteModo',
 'extra-media',
-'delete'
+'delete',
+'setParticipe'
 ];
 
 $parametres = [
 'display' => ['id'],
 'create' => [],
 'search' => ['feature'],
-'participe'=>[], //YOUR TIME WILL COME, YOU'LL BE BACK! HARDER, BETTER, FASTER, STRONGER!
+'participe'=>[],
 'invite'=>['id'],
 'modify' => ['id'],
 'addModo' => ['id'],
 'deleteModo' => ['id'],
 'extra-media' => ['id'],
-'delete' => ['id']
+'delete' => ['id'],
+'setParticipe' => ['p','q']
 ];

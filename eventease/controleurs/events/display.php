@@ -23,7 +23,7 @@ $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
 $styles = ['events.css','form.css','simple-slideshow.css'];
-$scripts = ['alert.js','simple-slideshow.js', 'participate.js','centermap.js'];
+$scripts = ['alert.js','simple-slideshow.js', 'participate.js'];
 $blocks = ['display'];
 
 // Affectation des valeurs spécifiques à l'event :
@@ -83,7 +83,7 @@ foreach($contents['creators'] as $organisateur){
       $i++;
     }
     else{
-      $contents['creators'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+      $contents['creators'][$i]['picture']=IMAGES."photo_profil_defaut.jpg";
       $i++;
     }
 }
@@ -97,7 +97,7 @@ foreach($contents['comment'] as $commentateur){
       $i++;
     }
     else{
-      $contents['comment'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+      $contents['comment'][$i]['picture']=IMAGES."photo_profil_defaut.jpg";
       $i++;
     }
 }
@@ -112,7 +112,7 @@ foreach($contents['participants'] as $participant){
     $i++;
   }
   else{
-    $contents['participants'][$i]['picture']="vues/assets/images/photo_profil_defaut.jpg";
+    $contents['participants'][$i]['picture']=IMAGES."photo_profil_defaut.jpg";
     $i++;
   }
 }
@@ -157,7 +157,7 @@ if (isset($creator_photo['lien'])){
   $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo['lien'];
 }
 else{
-  $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
+  $contents['creator']['picture']=IMAGES."photo_profil_defaut.jpg";
 }
 
 if($event['organisateur']){
@@ -251,7 +251,7 @@ if (isset($_SESSION['id'])){
               }
             }
           }
-    if (isset($contents['statut_de_participation'])){ 
+    if (isset($contents['statut_de_participation'])){
       if(!$contents['statut_de_participation']){
               $contents['statut_de_participation']="";
               $contents['bouton_special']=""/*"<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>"*/;
@@ -273,7 +273,7 @@ if (isset($_SESSION['id'])){
     $contents['comment'][$i]['moderation_commentaire']="";
     $i++;
   }
-  $contents['participe']='Participe';
+  $contents['participe']='Participer';
   $contents['statut_de_participation']="";
   $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
 }

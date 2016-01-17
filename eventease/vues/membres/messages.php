@@ -20,6 +20,26 @@
             echo '</tr>'."\n";
         }
         }
+        
+        if(!$contents['invitations']) {
+            echo "<h1> Pas de nouvelle invitation à des évènements reçue</h1>";
+        }
+        else {
+            $invitation_existe=True;
+        foreach($contents['invitations'] as $i => $invitation) {
+            if (isset($invitation['id_expediteur'])){
+                if ($invitation_existe) {
+                    echo '<h2>Vous avez été invité aux évènements suivants :</h2>';
+                    $invitation_existe=False;
+                }
+                echo '<div class="message_invitation"> <a href="'.getLink(["membres","profil",''.$invitation['id_expediteur'].'']).'">'.getUserName($invitation['id_expediteur'])[0]["pseudo"].'</a>'
+                    . ' vous invite à participer à l&#39;évènement &#34;<a href="'.getLink(["events","display",''.$invitation['id_evenement'].'']).'">'.getEventName($invitation['id_evenement'])[0]["titre"].'</a>&#34; !<br></div>';
+        }
+        }
+        if ($invitation_existe==True) {
+            echo "<h1> Pas de nouvelle invitation à des évènements reçue</h1>";
+        }
+        }
         ?>
     </table>
     <h2>Envoyer un message privé</h2>

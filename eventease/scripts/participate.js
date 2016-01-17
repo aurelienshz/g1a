@@ -1,7 +1,8 @@
-function participate(id_event, id_member) {
+function participate(id_event) {
     var etat;
     var participe=document.getElementById("participe");
-    if (participe.innerHTML =="Participer"){
+    // console.log(participe.innerHTML);
+    if (participe.innerHTML =="Participer") {
         var xmlhttp = new XMLHttpRequest();
         etat = 1;
         xmlhttp.onreadystatechange = function() {
@@ -9,8 +10,9 @@ function participate(id_event, id_member) {
                 participe.innerHTML = "Ne plus participer";
             }
           }
-    } else if (participe.innerHTML =="Ne plus participer"){
-      etat =0;
+    }
+    else if (participe.innerHTML =="Ne plus participer") {
+      etat = 0;
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -19,6 +21,7 @@ function participate(id_event, id_member) {
         }
 
     };
-    xmlhttp.open("GET", "modeles/events/setParticipe.php?p=" + etat + "&q=" + id_event + "&r=" + id_member, true);
+
+    xmlhttp.open("GET", "events/setParticipe/" + etat + "/" + id_event, true);
     xmlhttp.send();
 }

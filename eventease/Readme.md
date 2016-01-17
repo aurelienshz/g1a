@@ -9,6 +9,11 @@ Questions pour le groupe :
 
 ## Points à aborder en groupe ##
 
+priorités :
+- [ ] mot de passe oublié => envoyer mail avec MDP généré. --> Tristan
+- [ ] Bug des dates 30 Nov -1 & 1 Jan 1970
+
+
 - charte graphique à retravailler, notamment couleurs
 - relire le CdC et être attentif à ce qu'on a implémenté (ou pas)
 - [x] possibilité d'ajouter une ligne à l'adresse pour spécifier étage, salle etc...=> Qu'ils utilisent la description ! Quitte à renommer le label du champ.
@@ -17,7 +22,8 @@ Questions pour le groupe :
 ## ToDo - général ##
 
 - [ ] plan du site --> à remplir (accueil -> sitemap) --> Aurélien
-- [ ] URL rewrite : demande client --> Aurélien
+
+- [x] URL rewrite : demande client --> Aurélien
 
 
 
@@ -39,20 +45,18 @@ front end :
 - [x] quand j'essaie de virer l'adresse renseignée, le form est validé mais mon adresse reste.
 - [x] suppression du profil ?
 - [x] modification mdp
-- [ ] adresse mail (besoin que les token marchent).
+- [x] adresse mail (besoin que les token marchent).
 - [x] désactiver lien pour l'onglet actif (PHP ou JS)
 - [ ] Filtre calendrier mes events --> Aurélien
-- [ ] Bug des dates 30 Nov -1 & 1 Jan 1970
-- [ ] Modifier la suppression de membre pour pas que ça le supprime totalement
+- [x] Modifier la suppression de membre pour pas que ça le supprime totalement
 CLIENT :
 - [x] gros onglets -> bof , rester sur style arrondi et allégé
-- [ ]client : suggérer les règles pour les noms, les mdp... dans le message d'erreur. --> Tristan
+- [x] client : suggérer les règles pour les noms, les mdp... dans le message d'erreur. --> Tristan
 - [x] client : nom aligné à gauche --> Aurélien
 
 ### Inscription / Connexion / Validation mail : ###
 - inscription : conditions sur le mdp --> Aurélien
 - [x] ajouter bouton d'inscription sur page de connexion
-- [ ] mot de passe oublié => envoyer mail avec MDP généré. --> Tristan
 - [x] case à cocher conditions générales
 
 
@@ -60,7 +64,7 @@ CLIENT :
 
 Général :
 - [x] client : créateur =/= orga : orga c'est une info (quasiment un texte) créateur c'est un niveau de privilège sur l'event
-- [ ] afficher mentions légales et CGV dynamiquement --> Aurélien
+- [x] afficher mentions légales et CGV dynamiquement --> Aurélien
 
 Affichage et participation aux events  -- Guillaume & Aude
 - affichage :
@@ -117,10 +121,10 @@ Recherche :
 events :
 - [x] formulaire : esthétique des critères (cases à cocher)
 - [x] formulaire : cases de critères bug si on décoche tous les critères
-- [ ] recherche par date : implémenter ou enlever de la recherche bigform accueil
+- [x] recherche par date : implémenter ou enlever de la recherche bigform accueil
 - [ ] liste : gérer les privilèges (admin/modo = TOUS !)
-- [ ] implémentation filtrage par date -- Aurélien
-- [ ] question : âges ?
+- [x] implémentation filtrage par date -- Aurélien
+- [x] question : âges ?
 - [ ] mettre en valeur le statut de participation
 - [ ] ne pas afficher résultats si pas de Recherche faite
 membres :

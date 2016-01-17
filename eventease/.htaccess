@@ -30,6 +30,8 @@ RewriteRule ^events/deleteModo(/([-_a-zA-Z0-9]+))?$ index.php?module=events&acti
 RewriteRule ^events/extra-media(/([-_a-zA-Z0-9]+))?$ index.php?module=events&action=extra-media&id=$2 [L]
 #Action : events -> delete
 RewriteRule ^events/delete(/([-_a-zA-Z0-9]+))?$ index.php?module=events&action=delete&id=$2 [L]
+#Action : events -> setParticipe
+RewriteRule ^events/setParticipe(/([-_a-zA-Z0-9]+))?(/([-_a-zA-Z0-9]+))?$ index.php?module=events&action=setParticipe&p=$2&q=$4 [L]
 #Action : forum -> sujet
 RewriteRule ^forum/sujet(/([-_a-zA-Z0-9]+))?(/([-_a-zA-Z0-9]+))?(/([-_a-zA-Z0-9]+))?$ index.php?module=forum&action=sujet&id=$2&id_what=$4&id_comment=$6 [L]
 #Action : forum -> suppression
