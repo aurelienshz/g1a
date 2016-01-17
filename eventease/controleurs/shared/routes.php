@@ -84,7 +84,7 @@ function fetchParams($page) {
 
 // $parametres = ['display'=>['id'],'edit'=>['id','do']];
 function getLink($page = []) {	// $page = [$module, $action, $param1, $param2]
-	$rewrite = True;
+	$rewrite = False;
 	if($rewrite) {
 		$link = '';
 		if(count($page) > 2) {

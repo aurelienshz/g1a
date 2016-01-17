@@ -12,7 +12,7 @@ define('MODELES', "modeles/");
 define('INCLUDES', "vues/includes/");
 
 // fichiers servis client-side : chemin absolu pour contourner la réécriture
-define('PATH_ASSETS', "/assets/");
+define('PATH_ASSETS', "assets/");
 define('CSS', PATH_ASSETS."css/");
 define('IMAGES', PATH_ASSETS . "images/");
 define('SCRIPTS', "scripts/");
