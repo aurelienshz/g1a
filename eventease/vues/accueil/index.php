@@ -28,7 +28,7 @@
     <section id="suggestions" class="simple-slideshow">
     <?php foreach ($contents["suggestions"] as $key => $value) { ?>
         <div class="eventPreview">
-			<h4><a href=#><?php echo $value['titre'];?></a></h4>
+			<h4><a href=#><?php echo !empty($contents['sugg'][$key])?$contents['sugg'][$key].' : ':'' ;?><?php echo $value['titre'];?></a></h4>
 			<a href="<?php echo getLink(['events','display', $value['id']]); ?>">
 				<img src="<?php echo $value['lien_photo'];?>" />
 			</a>

@@ -1,4 +1,3 @@
-<pre><?php  /*var_dump($contents['creator']['picture']);*/?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
@@ -137,10 +136,6 @@ echo '</script>';
             <form id='insert_comment' action="<?php $_SERVER['REQUEST_URI'];?>" method="post" />
                 <label>Ajouter un commentaire</label>
                 <textarea name="comment" id="comment" placeholder="Ajouter un commentaire"></textarea>
-          			<div class="add_media">
-          				<label for="attachment">Ajouter un fichier</label>
-                          <input type="file" id="attachment" name="attachment"/>
-          			</div>
           			<input name ='submit' type="submit" value="Ajouter" id="button_submit" />
             </form>
 		</div>

@@ -26,8 +26,8 @@ $contents['catchPhrases'] = getCatchphrases();
 if(connected()) {
     require MODELES.'membres/generateCalendar.php';
     $contents['calendar'] = generateCalendar();
+    $contents['sugg'] = ['Tout de suite','Vous aimez souvent', 'Près de vous'];
     $styles[] = 'calendar.css';
-
     $blocs[] = 'myEvents';
     $scripts[] = 'dynamicCalendar.js';
 }

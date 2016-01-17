@@ -18,7 +18,7 @@ if (!empty($_POST) && !empty($_POST['comment'])) {
 }
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
-/*?><pre><?php var_dump($event); ?></pre><?php*/
+
 $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
@@ -197,7 +197,6 @@ if (isset($_SESSION['id'])){
     }
   }
   $participe = checkParticipation($_GET['id'],$_SESSION['id']);
-  var_dump($participe);
   if($participe['etat']==1){
     $contents['participe']='Ne participe plus';
   }
