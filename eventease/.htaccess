@@ -9,7 +9,7 @@ RewriteRule ^([a-z]+)(/([-_a-z]+))?$ index.php?module=$1&action=$3 [L]
 #Action : membres -> profil
 RewriteRule ^membres/profil(/([-_a-z0-9]+))?$ index.php?module=membres&action=profil&id=$2 [L]
 #Action : membres -> messages
-RewriteRule ^membres/messages(/([-_a-z0-9]+))?$ index.php?module=membres&action=messages&pseudo_destinataire=$2 [L]
+RewriteRule ^membres/messages(/([-_a-z0-9A-Z]+))?$ index.php?module=membres&action=messages&pseudo_destinataire=$2 [L]
 #Action : membres -> confirm
 RewriteRule ^membres/confirm(/([-_a-z0-9]+))?$ index.php?module=membres&action=confirm&token=$2 [L]
 #Action : events -> display

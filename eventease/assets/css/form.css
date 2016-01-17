@@ -121,9 +121,16 @@ select{
 }
 .ligneBoutons {
     display: flex;
-
 }
-
+#invite_h2 {
+    text-align: center;
+}
+#retour_profil {
+    margin: 20px 0;
+}
+#invite-text {
+    text-align: center;
+}
 /*.tableau {display: table;border-spacing: 0.5rem;border-collapse: collapse;}
 .cellule {display: table-cell;padding: 0.5rem; border: 1px solid #999;}
 .ligne {display: table-row;}
