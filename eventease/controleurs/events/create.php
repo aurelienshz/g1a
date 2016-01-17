@@ -45,12 +45,12 @@ if(connected()) {
 			// Puis on fait les vérifications spécifiques :
 
 			// Nom conforme :
-			if(!checkTextInput($_POST['titre'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
-				$errors['titre'] = 'Titre invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres.';
+			if(!checkTextInput($_POST['titre'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' , 0-9]+$/i")) {
+				$errors['titre'] = 'Titre invalide, il ne peut contenir que des lettres (accentuées) des virgules, des espaces, des apostrophes et des chiffres.';
 			}
 
 			// Type dans le bon intervalle :
-			if(!checkSelect($_POST['type'], range(0,count($contents['types'])) ) ){
+			if(!checkSelect($_POST['type'], range(0,max(array_keys($contents['types']))) ) ){
 				$errors['type'] = "Type Invalide";
 				$_POST['type'] = 0;
 			}else{
@@ -143,18 +143,18 @@ if(connected()) {
 				$errors['hosts'] = 'Vous n\'avez pas précisé d\'Organisateur';
 			}else{
 				//Vérification des champs hosts, hosts_contact.
-				if(!checkTextInput($_POST['hosts'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
-					$errors['hosts'] = 'Hôte invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres.';
+				if(!checkTextInput($_POST['hosts'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' , 0-9]+$/i")) {
+					$errors['hosts'] = 'Hôte invalide, il ne peut contenir que des lettres (accentuées) des virgules, des espaces, des apostrophes et des chiffres.';
 				}
-				if(!checkTextInput($_POST['hosts_contact'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
-					$errors['hosts_contact'] = 'Information de contact de l\'Hôte invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres';
+				if(!checkTextInput($_POST['hosts_contact'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' , 0-9]+$/i")) {
+					$errors['hosts_contact'] = 'Information de contact de l\'Hôte invalide, il ne peut contenir que des lettres (accentuées) des virgules, des espaces, des apostrophes et des chiffres';
 				}
 			}
 
 			// Sponsors : regex Tristan
 			if(!empty($_POST['sponsors'])) {
-				if(!checkTextInput($_POST['sponsors'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
-					$errors['sponsors'] = 'Sponsor invalide, , il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres.';
+				if(!checkTextInput($_POST['sponsors'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' , 0-9]+$/i")) {
+					$errors['sponsors'] = 'Sponsor invalide, , il ne peut contenir que des lettres (accentuées) des virgules, des espaces, des apostrophes et des chiffres.';
 				}
 			}
 			if (!empty($_FILES)){

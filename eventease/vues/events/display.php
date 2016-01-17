@@ -71,7 +71,7 @@ echo '</script>';
             <li class="fixed_details">Langue</li>
             <li><?php echo $contents['langue']; ?></li>
             <li class="fixed_details">Organisateur</li>
-            <li><?php echo $contents['info_organisateur']; ?></li>
+            <li><?php echo $contents['info_organisateur']; ?><?php isset($contents['info_organisateur_contact'])?$contents['info_organisateur_contact']</li>
             <li class="fixed_details">Site web</li>
             <?php echo $contents['site']; ?>
           </ul>

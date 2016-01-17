@@ -164,6 +164,9 @@ if($event['organisateur']){
 else{
   $contents['info_organisateur']=$contents['creator'][0]['pseudo'];
 }
+if($event['organisateur_contact']){
+  $contents['info_organisateur_contact']=$event['organisateur_contact'];
+}
 
 
 $contents['id_evenement']=$_GET['id'];
