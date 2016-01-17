@@ -10,8 +10,9 @@ require MODELES.'events/insert_comment.php';
 require MODELES.'events/checkParticipation.php';
 require MODELES.'events/getMembersPicture.php';
 require MODELES.'events/getEventPicture.php';
+$_GET['id'] = htmlspecialchars($_GET['id']);
 if (!empty($_POST) && !empty($_POST['comment'])) {
-
+  $_POST['comment']=htmlspecialchars($_POST['comment']);
   insert_comment($_POST['comment'], $_GET['id'], $_SESSION['id']);
   header("Location: ". getLink(['events','display',$_GET['id']]));
 }
@@ -140,13 +141,6 @@ else{
   $contents['site']="Non renseigné";
 }
 
-if($event['organisateur']){
-  $contents['info_organisateur']=$event['organisateur'];
-}
-else{
-  $contents['info_organisateur']="Non renseigné";
-}
-
 if($event['site']){
   $contents['site']="<li><a href=\"" . $contents['site'] . "\">" . $contents['site'] ." </a></li>";
 }
@@ -162,6 +156,13 @@ if ($creator_photo['lien']){
 }
 else{
   $contents['creator']['picture']="vues/assets/images/photo_profil_defaut.jpg";
+}
+
+if($event['organisateur']){
+  $contents['info_organisateur']=$event['organisateur'];
+}
+else{
+  $contents['info_organisateur']=$contents['creator'][0]['pseudo'];
 }
 
 
@@ -188,7 +189,6 @@ switch ($event['visibilite']){
   default:
     break;
 }
-
 if (isset($_SESSION['id'])){
   if(!checkParticipation($_GET['id'],$_SESSION['id'])  && $event['visibilite']==1){
       if (!$_SESSION['id']==$event['id_createur']){
@@ -197,7 +197,8 @@ if (isset($_SESSION['id'])){
     }
   }
   $participe = checkParticipation($_GET['id'],$_SESSION['id']);
-  if($participe){
+  var_dump($participe);
+  if($participe['etat']==1){
     $contents['participe']='Ne participe plus';
   }
   else{
@@ -207,6 +208,11 @@ if (isset($_SESSION['id'])){
     $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
     $lien=getLink(['events','modify',$_GET['id']]);
     $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
+    $i=0;
+    foreach($contents['comment'] as $comment){
+      $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+      $i++;
+    }
   }
   else{
       foreach($contents['creators'] as $moderateur){
@@ -214,26 +220,51 @@ if (isset($_SESSION['id'])){
           $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
           $lien=getLink(['events','modify',$_GET['id']]);
           $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
+          $i=0;
+          foreach($contents['comment'] as $comment){
+              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\"  value=\"Modifier\" type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+              $i++;
+            }
+          }
+          $contents['comment']['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\"  type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
         }
       }
       foreach($contents['participants'] as $participant){
             if ($_SESSION['id']==$participant['id']  && !(isset($contents['statut_de_participation']))){
               $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
-              $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
-
+              $contents['bouton_special']=""/*"<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>"*/;
+              $i=0;
+              foreach($contents['comment'] as $comment){
+                  if ($_SESSION['id']==$comment['id']){
+                    $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><form><input name=\"Modifier\" value=\"Modifier\"  type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+                    $i++;
+                  }
+                  else{
+                    $contents['comment'][$i]['moderation_commentaire']="";
+                  }
+              }
             }
           }
       if(!$contents['statut_de_participation']){
               $contents['statut_de_participation']="";
-              $contents['bouton_special']="<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>";
+              $contents['bouton_special']=""/*"<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>"*/;
+              $i=0;
+              foreach($contents['comment'] as $comment){
+                $contents['comment'][$i]['moderation_commentaire']="";
+                $i++;
+              }
             }
-      }
     }
 else{
   $contents['statut_de_participation']="";
   if($event['visibilite']==1){
     header('Location: '.getLink(['accueil','404']));
     exit();
+  }
+  $i=0;
+  foreach($contents['comment'] as $comment){
+    $contents['comment'][$i]['moderation_commentaire']="";
+    $i++;
   }
   $contents['participe']='Participe';
   $contents['statut_de_participation']="";

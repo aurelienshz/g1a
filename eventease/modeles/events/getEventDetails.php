@@ -63,7 +63,7 @@ function getCreator($id) {
 }
 function getCreators($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM evenement, membre, modere WHERE  evenement.id= modere.id_evenement AND modere.id_organisateur = membre.id AND evenement.id = :id');
+  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM evenement, membre, modere WHERE evenement.id= modere.id_evenement AND modere.id_organisateur = membre.id AND evenement.id = :id');
   $query-> execute(['id'=>$id]);
   $creators = $query->fetchALL();
 
@@ -74,15 +74,16 @@ function getCreatorimage($id) {
 }
 function getParticipants($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM  evenement, membre, invitation WHERE invitation.id_evenement=evenement.id AND invitation.id_destinataire = membre.id AND evenement.id = :id');
-  $query-> execute(['id'=>$id]);
+  $query = $bdd->prepare('SELECT  membre.pseudo, membre.id FROM  evenement, membre, invitation WHERE invitation.id_evenement=evenement.id AND invitation.id_destinataire = membre.id AND invitation.etat=1 AND evenement.id = :id');
+  $query-> execute(
+  ['id'=>$id]);
   $participants = $query->fetchALL();
 
   return $participants;
 }
 function getComments($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);
-  $query = $bdd->prepare('SELECT DISTINCT membre.pseudo, commentaire.message, commentaire.timestamp, membre.id FROM media, membre, commentaire, evenement WHERE membre.id = commentaire.id_membre AND commentaire.id_evenement=evenement.id AND evenement.id = :id ORDER BY commentaire.timestamp DESC');
+  $query = $bdd->prepare('SELECT DISTINCT membre.pseudo, commentaire.message, commentaire.timestamp, membre.id, commentaire.id AS Com_id FROM media, membre, commentaire, evenement WHERE membre.id = commentaire.id_membre AND commentaire.id_evenement=evenement.id AND evenement.id = :id ORDER BY commentaire.timestamp DESC');
   $query-> execute(['id'=>$id]);
   $comment = $query->fetchALL();
 
