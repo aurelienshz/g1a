@@ -22,13 +22,18 @@ if ($_POST){
 	$passage_ligne="\r\n";
 
 	$messageTotal= "de :" . $contents['nom'] . $passage_ligne . "email :" . $contents['email'] . $passage_ligne . "Message :" . $contents['message'];
-	var_dump($messageTotal);
+	
 	if (mail('avc1.rousselpub@gmail.com', 'Demande d\'aide', $messageTotal)){
-		echo "bou";
+		 alert('error','Votre demande a été enregistrée');
+		 header('Location: '.getLink(['accueil']));
+		 exit();
 	}
-	vue($blocks,$styles, $title, $contents);
-	// header('Location: '.getLink(['accueil']));
-	// exit();
+    else {
+        alert('error', 'Un problème de réseaux a eu lieu, nos équipes s\'en occupent au plus vite.');
+        header('Location: '.getLink(['accueil']));
+		exit();
+    }
+
 }
 
 else {

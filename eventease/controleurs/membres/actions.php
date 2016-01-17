@@ -8,15 +8,18 @@ $actions = [
 'connexion',
 'deconnexion',
 'inscription',
+'invitation',
 'modification_profil',
 'modification_mdp',
 'modification_mail',
 'confirm',
-'delete'
+'delete',
+'promote'
 ];
 
 $parametres = [
     'profil' => ['id'],
     'confirm' => ['token'],
-    'messages' => ['pseudo_destinataire']
+    'messages' => ['pseudo_destinataire'],
+    'promote' => ['id']
 ];

@@ -10,9 +10,14 @@
         <div id="statut"><?php echo $contents['statut']; ?></div>
 <?php if(!$contents['monProfil']) { ?>
             <ul id="interaction_profil">
-                <li><a class="button" href="#">Inviter à un évènement</a></li>
+                <li><a class="button" href="<?php echo getLink(['membres','invitation'])?>">Inviter à un évènement</a></li>
                 <li><a class="button" href="#">Suivre</a></li>
                 <li><a class="button" href="<?php echo getLink(['membres','messages',''.$contents['pseudo'].''])?>#text-area">Envoyer un<br /> message privé</a></li>
+                <?php if($_SESSION['niveau'] == 3) {
+                    echo '<li><a class="button" href="'.getLink(['membres','promote',$_GET['id']]).'">Changer de statut</a></li>';
+                }
+                ?>
+
             </ul>
 <?php }
     else {  // c'est mon profil

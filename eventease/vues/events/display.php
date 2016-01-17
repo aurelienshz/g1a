@@ -22,7 +22,7 @@ echo '</script>';
             </div>
 		  <div class="buttons">
 			<ul>
-                <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe']?></a></li>
+                <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe'];?></a></li>
   	            <?php echo $contents['bouton_special'];?>
                 <li><a class="button" href="<?php echo getLink(['events','invite',$_GET['id']]); ?>" ><i class="fa fa-plus"></i> Inviter un ami </a></li>
 			</ul>
@@ -145,7 +145,8 @@ echo '</script>';
                     $i=0;
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
+                      var_dump($commentaire);
+                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[3]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
 
                     <p><?php echo $commentaire[1];?></p>
 

@@ -20,7 +20,7 @@
                     <a href="<?php echo getLink(['accueil', 'about']); ?>">A propos</a><br />
                     <a href="<?php echo getLink(['accueil', 'legal']); ?>">Mentions légales</a><br />
                     <a href="<?php echo getLink(['accueil', 'cgu']); ?>">CGU</a><br /><br />
-                    <?php if(connected() && $_SESSION['niveau']==4) {
+                    <?php if(connected() && $_SESSION['niveau']==3) {
                         echo "<a href='".getLink(['backoffice'])."'>Administration</a>";
                     } ?>
                 </div>

@@ -198,10 +198,10 @@ if (isset($_SESSION['id'])){
   }
   $participe = checkParticipation($_GET['id'],$_SESSION['id']);
   if($participe['etat']==1){
-    $contents['participe']='Ne participe plus';
+    $contents['participe']='Ne plus participer';
   }
   else{
-    $contents['participe']='Participe';
+    $contents['participe']='Participer';
   }
   if ($_SESSION['id']==$contents['creator'][0]['id']){
     $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
@@ -209,7 +209,7 @@ if (isset($_SESSION['id'])){
     $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
     $i=0;
     foreach($contents['comment'] as $comment){
-      $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+      $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
       $i++;
     }
   }
@@ -221,11 +221,11 @@ if (isset($_SESSION['id'])){
           $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
           $i=0;
           foreach($contents['comment'] as $comment){
-              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\"  value=\"Modifier\" type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\" method=\"post\" action=\"<?php getLink(['events','modification_commentaire'])?>\" ><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
               $i++;
             }
           }
-          $contents['comment']['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\"  type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+          $contents['comment']['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
         }
       }
       foreach($contents['participants'] as $participant){
@@ -235,7 +235,7 @@ if (isset($_SESSION['id'])){
               $i=0;
               foreach($contents['comment'] as $comment){
                   if ($_SESSION['id']==$comment['id']){
-                    $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><form><input name=\"Modifier\" value=\"Modifier\"  type=\"submit\" id=\"Modifier\"/><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+                    $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
                     $i++;
                   }
                   else{
