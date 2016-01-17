@@ -33,9 +33,6 @@ function loadContents($details) {
     /* fac */   'description' => !empty($details['description'])?$details['description']:'Bienvenue sur mon profil !',
     /* fac */   'langue' => $details['langue']?'Anglais':'Français',
         ]);
-    var_dump($details['niveau']);
-    $details['niveau'] = intval($details['niveau']);
-    var_dump($details['niveau']);
     switch($details['niveau']) {
         case 1:
             $contents['statut'] = 'Membre';

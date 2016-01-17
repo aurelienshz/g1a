@@ -14,7 +14,7 @@
                 <li><a class="button" href="#">Suivre</a></li>
                 <li><a class="button" href="<?php echo getLink(['membres','messages',''.$contents['pseudo'].''])?>#text-area">Envoyer un<br /> message privé</a></li>
                 <?php if($_SESSION['niveau'] == 3) {
-                    echo '<li><a class="button" href="'.getLink(['membres','promote']).'">Changer de statut</a></li>';
+                    echo '<li><a class="button" href="'.getLink(['membres','promote',$_GET['id']]).'">Changer de statut</a></li>';
                 }
                 ?>
 

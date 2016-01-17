@@ -12,6 +12,8 @@ RewriteRule ^membres/profil(/([-_a-zA-Z0-9]+))?$ index.php?module=membres&action
 RewriteRule ^membres/messages(/([-_a-zA-Z0-9]+))?$ index.php?module=membres&action=messages&pseudo_destinataire=$2 [L]
 #Action : membres -> confirm
 RewriteRule ^membres/confirm(/([-_a-zA-Z0-9]+))?$ index.php?module=membres&action=confirm&token=$2 [L]
+#Action : membres -> promote
+RewriteRule ^membres/promote(/([-_a-zA-Z0-9]+))?$ index.php?module=membres&action=promote&id=$2 [L]
 #Action : events -> display
 RewriteRule ^events/display(/([-_a-zA-Z0-9]+))?$ index.php?module=events&action=display&id=$2 [L]
 #Action : events -> search
