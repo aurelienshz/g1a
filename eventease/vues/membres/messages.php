@@ -36,7 +36,7 @@
                     . ' vous invite à participer à l&#39;évènement &#34;<a href="'.getLink(["events","display",''.$invitation['id_evenement'].'']).'">'.getEventName($invitation['id_evenement'])[0]["titre"].'</a>&#34; !<br></div>';
         }
         }
-        if ($invitation_existe=True) {
+        if ($invitation_existe==True) {
             echo "<h1> Pas de nouvelle invitation à des évènements reçue</h1>";
         }
         }
