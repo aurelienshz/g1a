@@ -43,7 +43,7 @@ if(isset($contents['searchResults']) && $contents['searchResults']) {
 				<?php echo $event['titre']; ?>
 			</a></h4>
 			<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
-				<img src="<?php echo PHOTO_EVENT.$event['lien'];?>" />
+				<img src="<?php echo $event['lien']; ?>" />
 			</a>
 			<div class="infosPratiques">
 				<p class="eventCategorie"><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>

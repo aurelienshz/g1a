@@ -4,7 +4,7 @@ function searchEvents($searchString, $criteres = []) {
     $keywords = explode(' ',strtolower($searchString));
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     // squelette des requêtes sur les champs :
-    $query = "SELECT DISTINCT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, type.nom AS type, adresse.adresse_condensee AS adresse, media.lien
+    $query = "SELECT DISTINCT evenement.id, evenement.titre, evenement.debut, evenement.description, evenement.tarif, evenement.age_min, evenement.age_max, type.nom AS type, adresse.adresse_condensee AS adresse
                     FROM evenement
                     LEFT JOIN type on evenement.id_type = type.id
                     LEFT JOIN adresse on evenement.id_adresse = adresse.id
