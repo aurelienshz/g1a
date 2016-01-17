@@ -9,18 +9,6 @@
 
 	<!-- Barre latérale de sélection des filtres -->
 	<div class="sidebar">
-		<div style="display:none;" class="tri">
-		<h3>Trier</h3>
-			Trier par :
-			<select>
-				<option>Pertinence</option>
-				<option>Nom</option>
-				<option>Date</option>
-				<option>Tarif</option>
-				<option>Durée</option>
-				<option>Lieu</option>
-			</select>
-		</div>
 		<h3>Filtrer</h3>
 		<h5>Type</h5>
 		<div class="filter filter-type filter-type-all selected">Tous</div>

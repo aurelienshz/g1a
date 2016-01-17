@@ -22,6 +22,6 @@
 	<div class="tabs">
 		<div class="tab" id="tab-events">Chercher un évènement</div>
 
-		<div class="tab" id="tab-users"><a href="#"><p>Chercher un utilisateur</p></a></div>
+		<div class="tab" id="tab-users"><a href="<?php echo getLink(['membres','search']); ?>"><p>Chercher un utilisateur</p></a></div>
 	</div>
 </div>
