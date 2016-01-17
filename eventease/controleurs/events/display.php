@@ -198,10 +198,10 @@ if (isset($_SESSION['id'])){
   }
   $participe = checkParticipation($_GET['id'],$_SESSION['id']);
   if($participe['etat']==1){
-    $contents['participe']='Ne participe plus';
+    $contents['participe']='Ne plus participer';
   }
   else{
-    $contents['participe']='Participe';
+    $contents['participe']='Participer';
   }
   if ($_SESSION['id']==$contents['creator'][0]['id']){
     $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
