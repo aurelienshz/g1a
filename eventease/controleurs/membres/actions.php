@@ -8,6 +8,7 @@ $actions = [
 'connexion',
 'deconnexion',
 'inscription',
+'invitation',
 'modification_profil',
 'modification_mdp',
 'modification_mail',
