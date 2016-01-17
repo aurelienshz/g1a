@@ -16,7 +16,7 @@ function getPrivateMessages($id) {
     $query = $bdd->prepare('SELECT
                             message_prive.id_auteur,
                             message_prive.contenu,
-                            message_prive.date_publication,
+                            message_prive.date_publication
                             FROM message_prive
                             JOIN membre
                             ON message_prive.id_destinataire = membre.id
