@@ -44,7 +44,7 @@ if(!connected()) {
             else {  //Adresse invalide
                 $errors['email'] = 'Adresse mail invalide';
             }
-            if(checkTextInput($_POST['password'],"/^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/")) {
+            if(checkTextInput($_POST['password'],"/^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S?$/")) {
                 // Le mot de passe entré dans le premier champ répond aux exigences
                 // On vérifie que le champ de confirmation contient le même pass :
                 if($_POST['password']==$_POST['password-confirm']) {
@@ -90,7 +90,7 @@ if(!connected()) {
 }
 else
 {
-    alert('error', 'Vous ne pouvez pas faire ça ! Vous êtes déjà inscrit ! :)');
+    alert('error', 'Action impossible ! Vous êtes déjà inscrit');
     header('Location: '.getLink(['accueil']));
     exit();
 }
