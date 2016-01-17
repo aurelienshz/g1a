@@ -1,5 +1,5 @@
 <?php
-require MODELES.'membres/getUserDetails.php';
+require_once MODELES.'membres/getUserDetails.php';
 
 function deleteUser($id){
 
