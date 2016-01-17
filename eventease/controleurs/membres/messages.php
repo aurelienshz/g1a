@@ -1,5 +1,5 @@
 <?php
-/*** CONTROLEUR PROFIL ***/
+/*** CONTROLEUR MESSAGES ***/
 
 /**** Préparation des contenus ****/
 

@@ -16,11 +16,11 @@
         <input type="password" name="password-confirm" id="password-confirm" placeholder="Mot de Passe - encore !"/>
         <?php echo isset($contents['errors']['password-confirm'])?$contents['errors']['password-confirm']:'' ?>
 
-        <label class="checkbox-label"><input type="checkbox" name="sell-my-soul" />J'ai lu et j'accepte de me conformer aux <a href="#">conditions générales d'utilisation</a></label>
+        <label class="checkbox-label"><input type="checkbox" name="sell-my-soul" />J'ai lu et j'accepte de me conformer aux <a href="<?php echo getLink(['accueil','cgu']);?>">conditions générales d'utilisation</a></label>
         <?php echo isset($contents['errors']['sell-my-soul'])?$contents['errors']['sell-my-soul']:'' ?>
 
         <div class="ligneBoutons" style="margin-bottom:2em;">
-            <input style="width: 40%;" type="submit" value="Valider"/>   
+            <input style="width: 40%;" type="submit" value="Valider"/>
             <a style="width: 40%; background-color: grey" class="champ button" href="<?php echo getLink(['membres','connexion']); ?>">Se connecter</a>
         </div>
     </form>

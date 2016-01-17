@@ -64,13 +64,13 @@ if(!connected()) {
             if(implode('',$errors)=='') {
                 require MODELES.'membres/sendToken.php';
                 // On envoie un mail pour confirmer l'adresse mail
+                $kek = insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'],PASSWORD_DEFAULT));
                 if(sendToken($_POST['email'],$_POST['pseudo'])) {
-                    insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'],PASSWORD_DEFAULT));
                     vue(['validationInscription'],$style,$title);
                 }
                 else {
-                    alert('error', 'Une erreur fatale s\'est produite. Votre insciption n\'a pas été enregistrée.');
-
+                    alert('error', 'Le mail de confirmation n\'a pas été envoyé.');
+                    alert('info',$kek?'true':'false');
                     header('Location:'.getLink(['accueil']));
                     exit();
                 }

@@ -33,7 +33,10 @@ function loadContents($details) {
     /* fac */   'description' => !empty($details['description'])?$details['description']:'Bienvenue sur mon profil !',
     /* fac */   'langue' => $details['langue']?'Anglais':'Français',
         ]);
-    switch($details['niveau']==1) {
+    var_dump($details['niveau']);
+    $details['niveau'] = intval($details['niveau']);
+    var_dump($details['niveau']);
+    switch($details['niveau']) {
         case 1:
             $contents['statut'] = 'Membre';
             break;
@@ -90,8 +93,7 @@ if(isset($_GET['id'])) {
             loadContents($details);
         }
         else {
-            alert('error','La page demandée n\'a pas été trouvée. Vous avez été redirigé vers l\'accueil.');
-            header('Location: '.getLink(['accueil']));
+            header('Location: '.getLink(['accueil','404']));
             exit();
         }
 

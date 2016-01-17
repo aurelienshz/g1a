@@ -10,15 +10,15 @@ require MODELES.'membres/updateUser.php';
 require MODELES.'functions/form.php';
 
 if(connected()) {
-    $user = getUserDetails($_SESSION['id']);
-    if(!$user) {
+    if($user = getUserDetails($_SESSION['id'])) {
     	// Si la récup BDD marche pas
-    	exit();
+    	// exit();
     }
-}else{
-	    alert("error","Vous devez être connecté !");
-    	header("Location: ".getLink(["membres","connexion"]));
-    	exit();
+}
+else {
+    alert("error","Vous devez être connecté !");
+	header("Location: ".getLink(["membres","connexion"]));
+	exit();
 }
 // Bloc de traitement de l'adresse
 if (isset($user["adresse_condensee"])){
@@ -48,8 +48,8 @@ if(!empty($_POST)) {
 		$errors['civilite'] = "Langue Invalide";
 		$_POST['civilite'] = 0;
  	}
-	// Nom & Prénom : 
-	
+	// Nom & Prénom :
+
 	if (!checkTextInput($_POST['nom'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")){
 		$errors['nom'] = 'Nom invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces et des apostrophes.';
 	}

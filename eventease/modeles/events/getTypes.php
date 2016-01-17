@@ -5,7 +5,7 @@
 function getTypes() {
     $bdd = new PDO(DSN, DBUSER, DBPASS);
 
-    $req = $bdd -> prepare("SELECT nom FROM type");
+    $req = $bdd -> prepare("SELECT id,nom FROM type");
     $req -> execute();
 
 
@@ -15,7 +15,7 @@ function getTypes() {
         // On construit l'array des types "propre" :
         $types = [];
         foreach($res as $key => $type) {
-            $types[$key] = $type['nom'];
+            $types[$type['id']] = $type['nom'];
         }
         return $types;
     }
