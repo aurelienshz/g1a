@@ -6,8 +6,9 @@ function deleteUser($id){
 	$details = getUserDetails($id);
 
 	if($details){
-		$requete = 'DELETE FROM membre
-					   WHERE id = :id;';
+		$requete = 'UPDATE membre 
+					 SET niveau = 10, pseudo = "Utilisateur Supprimé", mdp = "Bien essayé", civilite = NULL, nom = NULL, prenom = NULL, ddn = NULL, mail = "Bien essayé", tel = NULL, description = NULL, id_photo = NULL, id_adresse = NULL, date_derniere_connexion = NULL
+					 WHERE id = :id;';
 
 		$execution = [':id'=>$id];
 
