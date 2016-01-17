@@ -128,15 +128,15 @@ membres :
 
 Header / Footer
 - [x] header : zones actives full height
-- [ ] liens footer pas tous actifs
+- [x] liens footer pas tous actifs
 
 Forum : --> Audrey
 - [x] affichage des catégories
 - [x] nouveau message
 - [x] nouveau sujet
-- [ ] gestion privilèges sur modifier, supprimer message, seulement les miens sauf si modérateur ou admin
+- [x] gestion privilèges sur modifier, supprimer message, seulement les miens sauf si modérateur ou admin
 
 FAQ / Aide / Doc
-- [ ] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
+- [x] FAQ --> Aurélien ? BBD Question : Réponse + modification possible dans le Back office
 - [ ] Aide : Formulaire de Contact
-- [ ] A propos
+- [x] A propos

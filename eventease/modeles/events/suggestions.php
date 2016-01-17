@@ -9,20 +9,165 @@
 //- Bientot (dans un radius de TANT.)
 //- 
 
+function getMainImage($id) {
+  $bdd = new PDO(DSN, DBUSER, DBPASS);
+  $query = $bdd->prepare('SELECT media.lien FROM evenement, media WHERE evenement.id = :id AND evenement.id_media_principal = media.id;');
 
+  if($query-> execute(['id'=>$id])){
+  		$images = $query->fetch();
+	    return $images[0];
+	
+	}else{
+		var_dump($query -> errorInfo());
+		return False;
+	}
+}
 
-
+require_once MODELES.'events/getMemberEvents.php';
+require_once MODELES.'membres/getUserDetails.php';
+require_once MODELES.'events/getEvents.php';
+require_once MODELES.'functions/adresse.php';
+require_once MODELES.'functions/haversineGreatCircleDistance.php';
 
 function suggestions() {
 
-$result = [
-    'natureSuggestion' => 'Une idée...' ,
-    'titreSuggestion' => 'Pique-nique au lac',
-    'dateSuggestion' => 'Demain',
-    'typeSuggestion' => 'Pique-nique',
-    'lieuSuggestion' => 'Paris',
-    'descriptionSuggestion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-];
-return $result;
+	if (connected()){
+		//On attrape les infos qu'on veut
+		$user_info = getUserDetails($_SESSION['id']);
+		$user_events = getMemberEvents($_SESSION['id']);
+		$events = getEvents($_SESSION['id']);
 
- }
+		//Enlève les évents auquel il participe.
+		foreach ($events as $key => $value) {
+			foreach ($user_events as $cle => $valeur) {
+				if ($value["id"] == $valeur['id']) unset($events[$key]);
+			}
+			//Ajoute les coordonnées à chaue événement auquel il ne participe pas.
+			if (!isset($events[$key])) continue;
+			$event_adress = getAdressCoord($value['id']);
+			$events[$key]['coordonnee_long'] = $event_adress['coordonnee_long'];
+			$events[$key]['coordonnee_lat'] = $event_adress['coordonnee_lat'];
+			$events[$key]['lien_photo'] = getMainImage($value['id']);
+			if ($events[$key]['lien_photo'] == False OR empty($events[$key]['lien_photo'])){
+				switch($value['type']){
+				    case "Pique-Nique":
+				      $events[$key]['lien_photo']=IMAGES."picnic1.jpg";
+				      break;
+				    case "Concert":
+				      $events[$key]['lien_photo']=IMAGES."concertType.jpg";
+				      break;
+				    case "Rave party":
+				      $events[$key]['lien_photo']=IMAGES."ravepartyType.jpg";
+				      break;
+				    case "Vente privée":
+				      $events[$key]['lien_photo']=IMAGES."ventepriveeType.jpg";
+				      break;
+				    case "Brocante":
+				      $events[$key]['lien_photo']=IMAGES."brocanteType.jpg";
+				      break;
+				    case "Exposition":
+				      $events[$key]['lien_photo']=IMAGES."expositionType.jpg";
+				      break;
+				    case "Rassemblement":
+				      $events[$key]['lien_photo']=IMAGES."rassemblementType.jpg";
+				      break;
+				    case "Autre":
+				      $events[$key]['lien_photo']=IMAGES."logo.jpg";
+				      break;
+				    default:
+				      $events[$key]['lien_photo']=IMAGES."picnic1.jpg";
+				      break;
+				  }
+			}else{
+				$events[$key]['lien_photo'] = PHOTO_EVENT.$events[$key]['lien_photo'];
+			}
+		}
+		// if empty($events[0]){
+		// 	//Il participe à tous les évènements.
+		// }
+		// ======= BIENTOT ========
+
+		//Tri par date des evenements
+		function date_compare($a, $b) {
+		    $t1 = strtotime($a['debut']);
+		    $t2 = strtotime($b['debut']);
+		    return $t1 - $t2;
+		}    
+		usort($events, 'date_compare');
+
+		$timeRec = $events[0];
+
+
+		// ======= TYPE ========
+
+		//Classement des Types par ID.
+		$types = [];
+		foreach ($user_events as $key => $value) {
+			array_push($types, $value["type"]);
+		}
+		$types = array_count_values($types);
+		$top_type = array_keys($types, max($types));
+
+		//Choix de l'évènement par Type.
+		foreach ($events as $key => $value) {
+			if (in_array($value['type'], $top_type)){
+				$typeRec = $value;
+				if ($timeRec['id'] == $typeRec['id']){
+					continue;
+				}else{
+					break;
+				}
+			}
+		}
+		//Aléatoire sinon.
+		if (!isset($typeRec)) {
+			$typeRec = $events[rand(0,count($events)-1)];
+			while ($timeRec['id'] == $typeRec['id']) {
+					$typeRec = $events[rand(0,count($events)-1)];
+			}
+		}
+
+		// ======= PROXIMITE ========
+		if (isset($user_info['coordonnee_long']) && isset($user_info['coordonnee_lat'])){
+			// Addresse renseignée.
+			//Tri par distance (grande sphère)
+			foreach ($events as $key => $value) {
+		    	$events[$key]['distance'] = haversineGreatCircleDistance(floatval($user_info['coordonnee_lat']), floatval($user_info['coordonnee_long']), floatval($events[$key]['coordonnee_lat']), floatval($events[$key]['coordonnee_long']));
+			} 
+			function distance_compare($a, $b) {
+			    return $a['distance'] - $b['distance'];
+			}   
+			usort($events, 'distance_compare');
+
+			$proxRec = $events[0];
+
+			if ($proxRec['id'] == $typeRec['id'] ){
+				$proxRec = $events[1];
+			}
+		}else{
+			//Addresse non renseignée. Donc aléatoire.
+			$proxRec = $events[rand(0,count($events)-1)];
+			while ($proxRec['id'] == $typeRec['id'] || $proxRec['id'] == $timeRec['id']) {
+				$proxRec = $events[rand(0,count($events)-1)];
+			}
+		}
+
+		?><pre><?php
+		echo "TIME ID : ";
+		var_dump($timeRec['id']);
+		echo "TYPE ID : ";
+		var_dump($typeRec['id']);
+		echo "PROX ID : ";
+		var_dump($proxRec['id']);
+		?></pre><?php
+
+
+
+
+	}else{
+		//Non Connecté
+	}
+	return [$timeRec, $typeRec, $proxRec];
+
+}
+

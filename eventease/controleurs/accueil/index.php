@@ -9,8 +9,8 @@
 // $reponse['titre'][0] => 'skldlfjF'
 
 
-require MODELES.'events/suggestions.php';
 require MODELES.'accueil/getCatchphrases.php';
+require MODELES.'events/suggestions.php';
 
 /**** Préparation des ressources de la page ****/
 $title = 'Accueil';
@@ -20,6 +20,9 @@ $blocs = ['index'];
 
 // Préparation des contenus
 $contents['suggestions'] = suggestions();
+?><pre><?php
+var_dump($contents['suggestions']);
+?></pre><?php
 $contents['catchPhrases'] = getCatchphrases();
 
 // Chargement de la bonne version du triptyque

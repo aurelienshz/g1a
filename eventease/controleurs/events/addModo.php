@@ -24,7 +24,7 @@ if (empty($contents["values"])){
     exit();
 }
 // Fonction qui check s'il a le droit de modifier.
-if( connected() && checkOrganiser($_SESSION['id'],$_GET['id']) ) {
+if( connected() && (checkOrganiser($_SESSION['id'],$_GET['id']) OR $_SESSION['niveau'] == 2 OR $_SESSION['niveau'] == 3 ) ) {
     
 }else{
 	if (!connected()){
