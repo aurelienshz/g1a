@@ -1,0 +1,40 @@
+# NE PAS MODIFIER MANUELLEMENT !
+# CE FICHIER EST GENERE DYNAMIQUEMENT A L'ADRESSE : sandbox/rewritegenerator
+
+
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^([a-z]+)(/([-_a-z]+))?$ index.php?module=$1&action=$3 [L]
+#Action : membres -> profil
+RewriteRule ^membres/profil(/([-_a-z0-9]+))?$ index.php?module=membres&action=profil&id=$2 [L]
+#Action : membres -> messages
+RewriteRule ^membres/messages(/([-_a-z0-9]+))?$ index.php?module=membres&action=messages&pseudo_destinataire=$2 [L]
+#Action : membres -> confirm
+RewriteRule ^membres/confirm(/([-_a-z0-9]+))?$ index.php?module=membres&action=confirm&token=$2 [L]
+#Action : events -> display
+RewriteRule ^events/display(/([-_a-z0-9]+))?$ index.php?module=events&action=display&id=$2 [L]
+#Action : events -> search
+RewriteRule ^events/search(/([-_a-z0-9]+))?$ index.php?module=events&action=search&feature=$2 [L]
+#Action : events -> invite
+RewriteRule ^events/invite(/([-_a-z0-9]+))?$ index.php?module=events&action=invite&id=$2 [L]
+#Action : events -> modify
+RewriteRule ^events/modify(/([-_a-z0-9]+))?$ index.php?module=events&action=modify&id=$2 [L]
+#Action : events -> addModo
+RewriteRule ^events/addModo(/([-_a-z0-9]+))?$ index.php?module=events&action=addModo&id=$2 [L]
+#Action : events -> deleteModo
+RewriteRule ^events/deleteModo(/([-_a-z0-9]+))?$ index.php?module=events&action=deleteModo&id=$2 [L]
+#Action : events -> extra-media
+RewriteRule ^events/extra-media(/([-_a-z0-9]+))?$ index.php?module=events&action=extra-media&id=$2 [L]
+#Action : events -> delete
+RewriteRule ^events/delete(/([-_a-z0-9]+))?$ index.php?module=events&action=delete&id=$2 [L]
+#Action : forum -> sujet
+RewriteRule ^forum/sujet(/([-_a-z0-9]+))?(/([-_a-z0-9]+))?(/([-_a-z0-9]+))?$ index.php?module=forum&action=sujet&id=$2&id_what=$4&id_comment=$6 [L]
+#Action : forum -> suppression
+RewriteRule ^forum/suppression(/([-_a-z0-9]+))?(/([-_a-z0-9]+))?(/([-_a-z0-9]+))?$ index.php?module=forum&action=suppression&id_topic=$2&id_what=$4&id_comment=$6 [L]
+#Action : backoffice -> editBoringTexts
+RewriteRule ^backoffice/editBoringTexts(/([-_a-z0-9]+))?$ index.php?module=backoffice&action=editBoringTexts&text=$2 [L]
+#Action : backoffice -> editfaq
+RewriteRule ^backoffice/editfaq(/([-_a-z0-9]+))?$ index.php?module=backoffice&action=editfaq&id=$2 [L]
+#Action : backoffice -> deletefaq
+RewriteRule ^backoffice/deletefaq(/([-_a-z0-9]+))?$ index.php?module=backoffice&action=deletefaq&id=$2 [L]
