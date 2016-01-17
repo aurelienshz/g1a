@@ -4,7 +4,9 @@
 /**** Préparation des contenus ****/
 
 require MODELES.'membres/getPrivateMessages.php';
+require MODELES.'membres/getInvitations.php';
 require MODELES.'membres/getUserName.php';
+require MODELES.'events/getEventDetails.php';
 require MODELES.'membres/sendPrivateMessage.php';
 
 if(!connected()) {
@@ -14,6 +16,7 @@ if(!connected()) {
 }
 else {
     $contents['messages'] = getPrivateMessages($_SESSION['id']);
+    $contents['invitations'] = getInvitations($_SESSION['id']);
 }
 
 if(isset($_GET['pseudo_destinataire'])) {

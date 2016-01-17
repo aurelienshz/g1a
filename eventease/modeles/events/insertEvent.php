@@ -12,15 +12,7 @@ function insertEvent($push) {
 	require MODELES.'functions/adresse.php';
 	require MODELES.'functions/insertMedia.php';
 
-	$typeQuery = $bdd->prepare('SELECT COUNT(*) FROM type;');
-	$typeQuery -> execute();
-	$max_type = $typeQuery -> fetchAll();
-
-	if ($max_type < $push["id_type"] OR $push["id_type"] < 0){
-		$id_type = 0;
-	}else{
 		$id_type = $push["id_type"];
-	}
 
 	$adresse_id = insertAddress($push['adresse']);
 	if (!empty($push['lien_photo'])) {

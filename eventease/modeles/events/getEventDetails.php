@@ -2,7 +2,6 @@
 
 // entrée : id du membre dont on veut les prochains évènements
 // sortie : détails des évènements à venir du membre, sous forme d'un tableau
-// La sortie **doit** être **ordonnée chronologiquement** (sinon tu casses tout)
 
 function getEvents($id) {
       $bdd = new PDO(DSN, DBUSER, DBPASS);
@@ -12,6 +11,15 @@ function getEvents($id) {
       $event = $query->fetch();
 
       return $event;
+}
+function getEventName($id) {
+      $bdd = new PDO(DSN, DBUSER, DBPASS);
+
+      $query = $bdd->prepare('SELECT evenement.titre FROM evenement WHERE evenement.id = :id;');
+    $query->execute(['id'=>$id]);
+    $name = $query->fetchAll(PDO::FETCH_ASSOC);
+
+      return $name;
 }
 function eventType($id) {
   $bdd = new PDO(DSN, DBUSER, DBPASS);

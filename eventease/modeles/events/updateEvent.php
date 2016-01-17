@@ -14,13 +14,8 @@ function updateEvent($push) {
 	require MODELES.'functions/updateMedia.php';
 	require MODELES.'functions/removeMedia.php';
 
-	$max_type = $push['max_type'];
 
-	if ($max_type < $push["id_type"] OR $push["id_type"] < 0){
-		$id_type = 7;
-	}else{
 		$id_type = $push["id_type"];
-	}
 
 
 	$adresse_id = insertAddress($push['adresse']);
