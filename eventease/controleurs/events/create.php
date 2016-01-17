@@ -50,7 +50,7 @@ if(connected()) {
 			}
 
 			// Type dans le bon intervalle :
-			if(!checkSelect($_POST['type'], range(0,max(array_keys($contents['types']))) +1) ){
+			if(!checkSelect($_POST['type'], range(0,max(array_keys($contents['types'])))) ){
 				$errors['type'] = "Type Invalide";
 				$_POST['type'] = 0;
 			}else{
