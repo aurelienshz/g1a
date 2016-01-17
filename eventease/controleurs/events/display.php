@@ -18,7 +18,7 @@ if (!empty($_POST) && !empty($_POST['comment'])) {
 }
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
-/*?><pre><?php var_dump($event); ?></pre><?php*/
+
 $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
@@ -164,6 +164,9 @@ if($event['organisateur']){
 else{
   $contents['info_organisateur']=$contents['creator'][0]['pseudo'];
 }
+if($event['organisateur_contact']){
+  $contents['info_organisateur_contact']=$event['organisateur_contact'];
+}
 
 
 $contents['id_evenement']=$_GET['id'];
@@ -221,7 +224,7 @@ if (isset($_SESSION['id'])){
           $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
           $i=0;
           foreach($contents['comment'] as $comment){
-              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\" method=\"post\" action=\"<?php getLink(['events','modification_commentaire'])?>\" ><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
               $i++;
             }
           }

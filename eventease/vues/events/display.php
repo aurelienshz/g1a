@@ -1,4 +1,3 @@
-<pre><?php  /*var_dump($contents['creator']['picture']);*/?></pre>
 <?php echo '<script>';
 echo 'var event_id = ' . json_encode($_GET['id']) . ';';
 echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
@@ -72,7 +71,7 @@ echo '</script>';
             <li class="fixed_details">Langue</li>
             <li><?php echo $contents['langue']; ?></li>
             <li class="fixed_details">Organisateur</li>
-            <li><?php echo $contents['info_organisateur']; ?></li>
+            <li><?php echo $contents['info_organisateur']; ?><?php isset($contents['info_organisateur_contact'])?$contents['info_organisateur_contact']</li>
             <li class="fixed_details">Site web</li>
             <?php echo $contents['site']; ?>
           </ul>
@@ -137,10 +136,6 @@ echo '</script>';
             <form id='insert_comment' action="<?php $_SERVER['REQUEST_URI'];?>" method="post" />
                 <label>Ajouter un commentaire</label>
                 <textarea name="comment" id="comment" placeholder="Ajouter un commentaire"></textarea>
-          			<div class="add_media">
-          				<label for="attachment">Ajouter un fichier</label>
-                          <input type="file" id="attachment" name="attachment"/>
-          			</div>
           			<input name ='submit' type="submit" value="Ajouter" id="button_submit" />
             </form>
 		</div>
@@ -150,7 +145,8 @@ echo '</script>';
                     $i=0;
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
+                      var_dump($commentaire);
+                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[3]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
 
                     <p><?php echo $commentaire[1];?></p>
 
