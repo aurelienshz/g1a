@@ -79,7 +79,7 @@ echo '</script>';
 
 				</div>
     </div>
-    
+
     <section id="photos" <?php if (!array_key_exists(1, $contents['images']) && !array_key_exists(2, $contents['images'])) {echo 'style=display:none';} ?>>
 			<div class="simple-slideshow">
         <?php foreach($contents['images'] as $image){
@@ -147,9 +147,10 @@ echo '</script>';
 		<div class="previous_comments">
 			<div class="comment">
                 <?php
+                    $i=0;
                     foreach($contents['comment'] as $commentaire)
                     {
-                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2];?></br><input name="Modifier" type="submit" id="Modifier"/><input value="Supprimer" type="submit" id="Supprimer"/></p>
+                    ?><p><img src="<?php echo $commentaire['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$commentaire[4]]); ?>" target="_blank"><?php echo ' ' . $commentaire[0]; ?></a> <?php echo $commentaire[2] . $contents['comment'][$i]['moderation_commentaire']; $i++;?>
 
                     <p><?php echo $commentaire[1];?></p>
 

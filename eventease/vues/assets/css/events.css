@@ -193,7 +193,7 @@
 	display:block;
 	width: 98%;
 	height:auto;
-	margin:0; 
+	margin:0;
 }
 #photos > div {
 	height: auto;
@@ -356,6 +356,10 @@
 .comment p{
 	display:block;
 	margin-top:2em;
+	margin-bottom:0em;
+}
+.comment p:firt-child{
+	margin-top:0px;
 }
 .comment p a{
 	text-decoration:none;
@@ -438,4 +442,9 @@
 	float:left;
 	font-size:30%;
 	width:6%;
+}
+.modif_comment {
+	margin:0px;
+	padding:0px;
+	height:auto;
 }
