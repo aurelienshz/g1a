@@ -212,3 +212,7 @@ h3 {
     background-color: #36B136;
     cursor: pointer;
 }
+
+.message_invitation {
+    margin: 1em 0;
+}
