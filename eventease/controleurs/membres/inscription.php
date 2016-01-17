@@ -1,6 +1,7 @@
 <?php
 require MODELES.'membres/checkUsed.php';
 require MODELES.'membres/insertUser.php';
+require MODELES.'functions/form.php';
 
 $title = 'Inscription';
 $style = ['form.css'];
@@ -43,7 +44,8 @@ if(!connected()) {
             else {  //Adresse invalide
                 $errors['email'] = 'Adresse mail invalide';
             }
-            if(True) {  // Le mot de passe entré dans le premier champ répond aux exigences
+            if(checkTextInput($_POST['password'],"/^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/")) {  
+                // Le mot de passe entré dans le premier champ répond aux exigences
                 // On vérifie que le champ de confirmation contient le même pass :
                 if($_POST['password']==$_POST['password-confirm']) {
 
@@ -53,7 +55,7 @@ if(!connected()) {
                 }
             }
             else {
-                $errors['password'] = 'Le mot de passe est trop faible';
+                $errors['password']= 'Le mot de passe doit contenir au moins 6 caractères dont au moins une majuscule, une minuscule, un chiffre sans espace.';
             }
             if(!isset($_POST['sell-my-soul']) || !$_POST['sell-my-soul']) {
                 $errors['sell-my-soul'] = 'Vous devez accepter les conditions générales d\'utilisation';
@@ -63,13 +65,13 @@ if(!connected()) {
                 require MODELES.'membres/sendToken.php';
                 // On envoie un mail pour confirmer l'adresse mail
                 if(sendToken($_POST['email'],$_POST['pseudo'])) {
-                            insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password']),PASSWORD_DEFAULT);
-                            vue(['validationInscription'],$style,$title);
+                    insertUser($_POST['pseudo'], $_POST['email'], password_hash($_POST['password'],PASSWORD_DEFAULT));
+                    vue(['validationInscription'],$style,$title);
                 }
                 else {
                     alert('error', 'Une erreur fatale s\'est produite. L\'équipe d\'EventEase a été prévenue de ce problème.');
-                    // header('Location:'.getLink(['accueil']));
-                    // exit();
+                    header('Location:'.getLink(['accueil']));
+                    exit();
                 }
             }
             else {

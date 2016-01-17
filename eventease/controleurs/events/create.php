@@ -45,8 +45,8 @@ if(connected()) {
 			// Puis on fait les vérifications spécifiques :
 
 			// Nom conforme :
-			if(!checkTextInput($_POST['titre'],"/^[-a-zâäàéèùêëîïôöçñ' 0-9@#]+$/i")) {
-				$errors['titre'] = 'Titre invalide';
+			if(!checkTextInput($_POST['titre'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
+				$errors['titre'] = 'Titre invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres.';
 			}
 
 			// Type dans le bon intervalle :
@@ -94,7 +94,7 @@ if(connected()) {
 			// description
 			$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
 			if(!checkTextbox($_POST['description'], $forbiddenKeywords)){
-				$errors['description'] = 'Votre description contient des termes interdits';
+				$errors['description'] = 'Votre description contient des termes interdits (insultants).';
 			}
 
 			// visibility :
@@ -119,7 +119,7 @@ if(connected()) {
 				$errors['age_max'] = 'Âge invalide';
 
 				if(intval($_POST['age_min'])>intval($_POST['age_max'])) {
-					$errors['age_max'] = 'Tranche d\âge invalide';
+					$errors['age_max'] = 'Tranche d\âge invalide, le minimum ne peux pas dépasser le maximum !';
 				}
 			}
 			// langue : si 1, alors 1, sinon 0
@@ -132,7 +132,7 @@ if(connected()) {
 
 			// site web : est-ce bien une URL ?
 			if(!empty($_POST['website']) && !filter_var($_POST['website'], FILTER_VALIDATE_URL)) {
-				$errors['website'] = 'URL invalide';
+				$errors['website'] = 'URL invalide, elle n\'est pas format "http://exemple.com"';
 			}
 			//Autohosted ?
 			if ($_POST['autohosted'] != "False"){
@@ -143,18 +143,18 @@ if(connected()) {
 				$errors['hosts'] = 'Vous n\'avez pas précisé d\'Organisateur';
 			}else{
 				//Vérification des champs hosts, hosts_contact.
-				if(!checkTextInput($_POST['hosts'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
-					$errors['hosts'] = 'Hôte invalide';
+				if(!checkTextInput($_POST['hosts'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
+					$errors['hosts'] = 'Hôte invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres.';
 				}
-				if(!checkTextInput($_POST['hosts_contact'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
-					$errors['hosts_contact'] = 'Information de contact de l\'Hôte invalide';
+				if(!checkTextInput($_POST['hosts_contact'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
+					$errors['hosts_contact'] = 'Information de contact de l\'Hôte invalide, il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres';
 				}
 			}
 
 			// Sponsors : regex Tristan
 			if(!empty($_POST['sponsors'])) {
-				if(!checkTextInput($_POST['sponsors'],"/^[a-zâäàéèùêëîïôöçñ][a-zâäàéèùêëîïôöçñ' -]+$/i")) {
-					$errors['sponsors'] = 'Nom invalide';
+				if(!checkTextInput($_POST['sponsors'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' - 0-9]+$/i")) {
+					$errors['sponsors'] = 'Sponsor invalide, , il ne peut contenir que des lettres (accentuées) des tirets, des espaces, des apostrophes et des chiffres.';
 				}
 			}
 			if (!empty($_FILES)){

@@ -31,8 +31,8 @@ function getEvents($id = False) {
 
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $reqEvents = $bdd -> prepare($query);
-    if(!$userSpecific) {
-        $reqEvents -> execute(['id' => $id]);
+    if($userSpecific) {
+        $reqEvents -> execute([':id' => $id]);
     }
     else {
         $reqEvents -> execute([]);
