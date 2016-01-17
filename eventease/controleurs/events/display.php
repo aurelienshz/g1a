@@ -18,7 +18,7 @@ if (!empty($_POST) && !empty($_POST['comment'])) {
 }
 // Chargement des paramètres de la page
 $event = getEvents($_GET['id']);
-/*?><pre><?php var_dump($event); ?></pre><?php*/
+
 $contents['titreEvenement'] = $event['titre'];
 
 $title = $event['titre'];
@@ -149,9 +149,11 @@ else{
 }
 
 $creator=getCreator($_GET['id']);
-$contents['creator']=$creator;
-$creator_photo = getMembersPicture($creator[0][1]);
-if ($creator_photo['lien']){
+if (!empty($creator)) {
+    $contents['creator']=$creator;
+    $creator_photo = getMembersPicture($creator[0][1]);
+}
+if (isset($creator_photo['lien'])){
   $contents['creator']['picture']=PHOTO_PROFIL.$creator_photo['lien'];
 }
 else{
@@ -163,6 +165,9 @@ if($event['organisateur']){
 }
 else{
   $contents['info_organisateur']=$contents['creator'][0]['pseudo'];
+}
+if($event['organisateur_contact']){
+  $contents['info_organisateur_contact']=$event['organisateur_contact'];
 }
 
 
@@ -203,31 +208,33 @@ if (isset($_SESSION['id'])){
   else{
     $contents['participe']='Participer';
   }
-  if ($_SESSION['id']==$contents['creator'][0]['id']){
-    $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
-    $lien=getLink(['events','modify',$_GET['id']]);
-    $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
-    $i=0;
-    foreach($contents['comment'] as $comment){
-      $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
-      $i++;
-    }
-  }
-  else{
-      foreach($contents['creators'] as $moderateur){
-        if ($_SESSION['id']==$moderateur['id']){
-          $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
-          $lien=getLink(['events','modify',$_GET['id']]);
-          $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
-          $i=0;
-          foreach($contents['comment'] as $comment){
-              $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\" method=\"post\" action=\"<?php getLink(['events','modification_commentaire'])?>\" ><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
-              $i++;
-            }
-          }
-          $contents['comment']['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
-        }
+  if (isset($contents['creator'][0]['id']) && !empty($contents['creator'][0]['id'])){
+    if ($_SESSION['id']==$contents['creator'][0]['id']){
+      $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous êtes le créateur de cet événement</div>";
+      $lien=getLink(['events','modify',$_GET['id']]);
+      $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
+      $i=0;
+      foreach($contents['comment'] as $comment){
+        $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+        $i++;
       }
+    }
+    else{
+        foreach($contents['creators'] as $moderateur){
+          if ($_SESSION['id']==$moderateur['id']){
+            $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous modérez cet événement</div>";
+            $lien=getLink(['events','modify',$_GET['id']]);
+            $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
+            $i=0;
+            foreach($contents['comment'] as $comment){
+                $contents['comment'][$i]['moderation_commentaire']="</p><form class=\"modif_comment\" method=\"post\" action=\"<?php getLink(['events','modification_commentaire'])?>\" ><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+                $i++;
+              }
+            }
+            $contents['comment']['moderation_commentaire']="</p><form class=\"modif_comment\"><input name=\"Modifier\" value=\"Modifier\" type=\"submit\" id=\"Modifier\"/></form><form class=\"suppr_comment\"><input value=\"Supprimer\" type=\"submit\" id=\"Supprimer\"/></form></br>";
+          }
+        }
+    }
       foreach($contents['participants'] as $participant){
             if ($_SESSION['id']==$participant['id']  && !(isset($contents['statut_de_participation']))){
               $contents['statut_de_participation']="<div id=\"statut_de_participation\">Vous participez à cet événement</div>";
@@ -244,6 +251,7 @@ if (isset($_SESSION['id'])){
               }
             }
           }
+    if (isset($contents['statut_de_participation'])){ 
       if(!$contents['statut_de_participation']){
               $contents['statut_de_participation']="";
               $contents['bouton_special']=""/*"<li><a class=\"button\" href=\"#\">Participe peut-être</a></li>"*/;
@@ -253,8 +261,8 @@ if (isset($_SESSION['id'])){
                 $i++;
               }
             }
-    }
-else{
+          }
+    }else{
   $contents['statut_de_participation']="";
   if($event['visibilite']==1){
     header('Location: '.getLink(['accueil','404']));
