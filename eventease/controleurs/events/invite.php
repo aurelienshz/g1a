@@ -10,49 +10,35 @@ $event=getEvents($_GET['id']);
 $expediteur=$_SESSION['id'];
 $contents['titreEvenement'] = $event['titre'];
 
-$title ="Inviter un ami à l'événement ". $contents['titreEvenement'];
+$title ="Inviter un ami à l'évènement ". $contents['titreEvenement'];
 $styles = ['events.css','form.css'];
 $blocks = ['invite'];
-
-$errors=[];
 
 if(connected()){
 	if(empty($_POST)){ ///Si le bloc est vide///
 		vue($blocks,$styles,$title,$contents);
 	}
 	else{
-		$destinataire=getUserAuth($_POST['destinataire'],False);
-		if(!checkUsed($_POST['destinataire'],NULL,False) ){ ///si le pseudo n'existe pas///
-			$errors['destinataire'] = 'Le pseudo renseigné n\'existe pas !';
+		$destinataire=getUserAuth($_POST['destinataire']);
+		if(!checkUsed($_POST['destinataire'],NULL) ){ ///si le pseudo n'existe pas///
+                        alert('error','Le pseudo renseigné n\'est pas valide !');
+                        vue($blocks,$styles,$title,$contents);
 		}
-		if ($expediteur==$destinataire[0]){
-			$errors['destinataire'] = 'Vous ne pouvez pas vous inviter vous même !';
+                
+		else if ($expediteur===$destinataire[0]){
+                        alert('error','Vous ne pouvez pas vous inviter vous-même !');
+                        vue($blocks,$styles,$title,$contents);
 		}
-
-		else{    ///On récupère l'ID du pseudo rentré///
-			$destinataire=getUserAuth($_POST['destinataire']);
-		}
-
-	}
-	if(empty($errors)) {
-			/// INSERTION EN BDD : ///
-				$destinataire=getUserAuth($_POST['destinataire']);
-				insertInvite($expediteur,$_GET['id'],$destinataire['id']);
-				vue($blocks,$styles,$title,$contents);
-			}
-	else{
-		foreach($errors as $error){
-			alert('info',$error);
+                
+		else{    ///On récupère l'ID du pseudo rentré et on fait l'insertion en BDD///
+                        insertInvite($expediteur,$_GET['id'],$destinataire['id']);
+                        alert('info','Votre message a bien été envoyé !');
+                        vue($blocks,$styles,$title,$contents);
 		}
 	}
 }
 else{
-	alert('info','Merci de vous connecter pour inviter quelqu\'un à l\'événement !');
+	alert('info','Merci de vous connecter pour inviter quelqu\'un à l\'évènement !');
 	header('Location: '.getLink(['membres','connexion']));
 	exit();
 }
-
-
-/*vue($blocks,$styles,$title,$contents);*/
-
-?>
