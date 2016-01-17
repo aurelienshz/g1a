@@ -92,7 +92,7 @@ echo '</script>';
 		<div class = "hosts">
     		<h2>Modérateurs</h2>
       			<ul>
-              <li><img src="<?php echo isset($contents['creator']['picture'])?$contents['creator']['picture']:''; ?>"/><a href="<?php echo getLink(['membres','profil',isset($contents['creator'][0][1])?$contents['creator'][0][1]:'']); ?>" target="_blank"><?php echo ' '. isset($contents['creator'][0][0])?$contents['creator'][0][0]:'' . ' (Créateur de l\'événement)';?></a></li>
+              <li><img src="<?php echo isset($contents['creator']['picture'])?$contents['creator']['picture']:''; ?>"/><a href="<?php echo getLink(['membres','profil', isset($contents['creator'][0][1])?$contents['creator'][0][1]:'']); ?>" target="_blank"><?php echo ' '. isset($contents['creator'][0][0])?$contents['creator'][0][0]:'' . ' (Créateur de l\'événement)';?></a></li>
                       <?php
                           $compteur=0;
                           foreach($contents['creators'] as $creators)

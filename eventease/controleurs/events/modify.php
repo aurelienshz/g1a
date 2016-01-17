@@ -92,7 +92,8 @@ if(!empty($_POST)){
 		if(!checkTextInput($_POST['titre'],"/^[a-zâäàéèùêëîïôöçñ 0-9][a-zâäàéèùêëîïôöçñ' , 0-9]+$/i")) {
 			$errors['titre'] = 'Titre invalide, il ne peut contenir que des lettres (accentuées) des virgules, des espaces, des apostrophes et des chiffres.';
 		}
-
+		var_dump($contents['types']);
+		var_dump($_POST['type']);
 		// Type dans le bon intervalle :
 		if(!checkSelect($_POST['type'], range(0,max(array_keys($contents['types'])))) ){
 			$errors['type'] = "Type Invalide";
