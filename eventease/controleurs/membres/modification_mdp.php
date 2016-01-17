@@ -1,6 +1,7 @@
 <?php
 require MODELES.'membres/getUserAuth.php';
 require MODELES.'membres/updateOneUserField.php';
+require MODELES.'functions/form.php';
 
 if(!connected()) {
     alert("error","Vous devez être connecté !");
@@ -23,14 +24,14 @@ if(!empty($_POST)) {        // Formulaire envoyé
             $_POST[$cle] = htmlspecialchars($_POST[$cle]);
         }
     }
-    if($_POST['old_password'] && $_POST['password'] && $_POST['confirm-password']) { 
+    if($_POST['old_password'] && $_POST['password'] && $_POST['confirm-password']) {
     // Les champs sont remplis
         $auth = getUserAuth($_SESSION['username']);
 
         if(is_array($auth) && password_verify($_POST['old_password'], $auth['mdp'])) {
         // L'ancien mot de passe est bien le bon
 
-        	if(True){
+        	if(checkTextInput($_POST['password'],"/^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S?$/")){
         	// Le nouveau mot de passe est assez fort.
 
 	        	if($_POST['password'] === $_POST['confirm-password']) {
@@ -44,7 +45,7 @@ if(!empty($_POST)) {        // Formulaire envoyé
                   //       'Modification Mot de Passe sur EventEase',
                   //       "Salutations !\n"
                   //       ."Le mot de passe de votre compte à été modifié. Si vous n'avez pas effectué ce changement, contactez immédiatement le support EventEase.\n-- L'équipe EventEase",
-                  //       'From: no-reply@eventease.com'); 
+                  //       'From: no-reply@eventease.com');
 	                	header('Location: '.getLink(['membres','profil']));
 	                	exit();
 	        		}else{
@@ -54,7 +55,7 @@ if(!empty($_POST)) {        // Formulaire envoyé
 	        		$errorMessage = "Les mots de passes ne correspondent pas. Merci de réessayer !";
 	        	}
     		}else{
-    			$errorMessage = "Le nouveau mot de passe n'est pas assez fort. Merci de réessayer !";
+    			$errorMessage = 'Le mot de passe doit contenir au moins 6 caractères dont au moins une majuscule, une minuscule, un chiffre sans espace.';
     		}
     	}else{
             $errorMessage = "Une erreur s'est produite. Merci de réessayer !";

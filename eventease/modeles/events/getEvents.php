@@ -12,7 +12,7 @@ function getEvents($id = False) {
         $userSpecific = True;
         $userQuery = ' WHERE evenement.visibilite = 0 OR invitation.id_destinataire = :id';
         if(intval($_SESSION['niveau']) == 2 || intval($_SESSION['niveau']) == 3) {
-            $userSpecific = False;    
+            $userSpecific = False;
             $userQuery = '';
         }
     }
@@ -31,7 +31,7 @@ function getEvents($id = False) {
 
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $reqEvents = $bdd -> prepare($query);
-    if(!$userSpecific) {
+    if($userSpecific) {
         $reqEvents -> execute(['id' => $id]);
     }
     else {

@@ -151,9 +151,9 @@ function listController() {
 
     $events = detailsToStrings($events);
 
-    echo '<pre>';
-    var_dump($events);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($events);
+    // echo '</pre>';
 
     $contents['searchResults'] = $events;
 

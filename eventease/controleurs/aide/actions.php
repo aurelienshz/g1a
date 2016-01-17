@@ -2,7 +2,5 @@
 
 $actions=[
 	'formulaire_contact',
-	'faq',
-
+	'faq'
 ];
-?>

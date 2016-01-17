@@ -58,6 +58,8 @@ if(!empty($_POST)) {
 	}
 
 	//DDN
+	var_dump(checkBirthDate($_POST['ddn']));
+	var_dump($_POST['ddn']);
 	if (!checkBirthDate($_POST['ddn'])){
 		$errors['ddn'] = 'Date invalide, elle est à venir ou n\'est pas au format AAAA-MM-JJ ou JJ-MM-AAAA';
 	}
@@ -85,7 +87,7 @@ if(!empty($_POST)) {
 	//Description :
 	$forbiddenKeywords = [' con',' salop',' enfoiré',' hitler',' nazi'];
 	if(!checkTextbox ($_POST['description'],$forbiddenKeywords)){
-		$errors['description'] = 'Description invalide, il contient des mots interdits.';
+		$errors['description'] = 'Description invalide, il contient des mots interdits (insultants).';
 	}
 	//Photo
 	$check = checkOnePhoto("photo" ,2097152, 1000, 1000, ['.jpg', '.jpeg', '.png'], $_SESSION['username'], PHOTO_PROFIL);
@@ -117,8 +119,6 @@ if(!empty($_POST)) {
 			$contents[$cle]=$valeur;
 	}
     //Entrée BDD si pas d'erreurs :
-    var_dump(empty($errors));
-    var_dump($errors);
 	if (!empty($errors)){
 		$doIt = False;
 	}else{
@@ -147,7 +147,7 @@ if(!empty($_POST)) {
     			$_POST[$cle]=htmlspecialchars($contents[$cle]);
     		}
     	}
-		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], ($_POST['ddn'] == '0000-00-00'?$_POST['ddn']:NULL), $_POST['tel'], $_POST['adresse'], $_POST['langue'], htmlspecialchars(isset($photo)?$photo:NULL), $_POST['description'],htmlspecialchars($contents['id_adresse']),htmlspecialchars($contents['id_photo']));
+		updateUser(htmlspecialchars($_SESSION['id']), $_POST['civilite'], $_POST['nom'], $_POST['prenom'], ($_POST['ddn'] != '0000-00-00'?$_POST['ddn']:NULL), $_POST['tel'], $_POST['adresse'], $_POST['langue'], htmlspecialchars(isset($photo)?$photo:NULL), $_POST['description'],htmlspecialchars($contents['id_adresse']),htmlspecialchars($contents['id_photo']));
 		alert("info","Votre profil a bien été modifié.");
 		header('Location: '.getLink(['membres','profil']));
 		exit();

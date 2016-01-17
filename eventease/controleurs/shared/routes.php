@@ -67,11 +67,14 @@ function route($module = '', $action = '') {
 
 function fetchParams($page) {
 	$pageRoute = route($page[0],$page[1]);
+	// chemin du fichier actions.php :
 	$actionsPath = CONTROLEURS.$pageRoute['module'].'/'.'actions.php';
 	// on charge les noms des paramètres de l'action :
 	if(file_exists($actionsPath)) {
 		require $actionsPath;
-		return $parametres[$page[1]];
+		if(isset($parametres) && array_key_exists($page[1], $parametres)) {
+			return $parametres[$page[1]];
+		}
 		// Que fait-on si ce n'est pas défini !?
 	}
 	else {
@@ -81,19 +84,32 @@ function fetchParams($page) {
 
 // $parametres = ['display'=>['id'],'edit'=>['id','do']];
 function getLink($page = []) {	// $page = [$module, $action, $param1, $param2]
-	$link = '?';
-	$parametresLien = [];				// array qui contiendra les paramètres et leurs valeurs
-	$nomsParametres = ['module','action'];	//fetch dans la config du module pour les noms des params suivants
+	$rewrite = True;
+	if($rewrite) {
+		$link = APP_ROOT;
+		if(count($page) > 2) {
+			fetchParams($page);
+		}
+		$link .= implode('/',$page);
+		// foreach($page as $key => $valeurParametre) {
+		// }
+		return $link;
+	}
+	else {
+		$link = '?';
+		$parametresLien = [];				// array qui contiendra les paramètres et leurs valeurs
+		$nomsParametres = ['module','action'];	//fetch dans la config du module pour les noms des params suivants
 
-	// Si on a passé des paramètres supplémentaires
-	if(count($page) > 2) {
-		$nomsParametres = array_merge($nomsParametres, fetchParams($page));
+		// Si on a passé des paramètres supplémentaires
+		if(count($page) > 2) {
+			$nomsParametres = array_merge($nomsParametres, fetchParams($page));
+		}
+		// on construit le lien avec les bons paramètres :
+		foreach ($page as $key => $valeurParametre) {
+			$parametresLien[] = $nomsParametres[$key].'='.$valeurParametre;
+		}
+		// Concaténation des paramètres avec leur valeur derrière le lien
+		$link = $link.implode('&', $parametresLien);
+		return $link;
 	}
-	// on construit le lien avec les bons paramètres :
-	foreach ($page as $key => $valeurParametre) {
-		$parametresLien[] = $nomsParametres[$key].'='.$valeurParametre;
-	}
-	// Concaténation des paramètres avec leur valeur derrière le lien
-	$link = $link.implode('&', $parametresLien);
-	return $link;
 }

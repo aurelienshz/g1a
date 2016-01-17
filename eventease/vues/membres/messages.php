@@ -8,7 +8,7 @@
             echo '
         <h2>Mes messages privés</h2>
         <tr>
-            <th class="from">Emetteur</th>
+            <th class="from">Émetteur</th>
             <th class="subject">Message</th>
             <th class="date">Envoyé le</th>
         </tr>';
