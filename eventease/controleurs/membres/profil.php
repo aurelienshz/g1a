@@ -24,14 +24,14 @@ function loadContents($details) {
                 'pseudo' => $details['pseudo'],
                 'mail' => $details['mail'],
                 'tel' => !empty($details['tel'])?$details['tel']:'<i>Non renseigné</i>',
-                'civilite' => !empty($details['civilite'])?($details['civilite']?'Mme':'M.'):'',
+                'civilite' => $details['civilite']?'Mme':'M.',
                 'adresse_condensee' => !empty($details['adresse_condensee'])?$details['adresse_condensee']:'<i>Non renseignée</i>',
     /* fac */   'photo' => !empty($details['id_photo']) && $details['id_photo']!=0?PHOTO_PROFIL.$details['lien_photo']:IMAGES.'photo_profil_defaut.jpg',
     /* fac */   'nom' => !empty($details['nom'])?$details['nom']:'',
     /* fac */   'prenom' => !empty($details['prenom'])?$details['prenom']:'',
     /* fac */   'ddn' => !empty($details['ddn'])?$details['ddn']:'<i>Non renseignée</i>',
     /* fac */   'description' => !empty($details['description'])?$details['description']:'Bienvenue sur mon profil !',
-    /* fac */   'langue' => !empty($details['langue'])?($details['langue']?'Anglais':'Français'):'<i>Non renseignée</i>',
+    /* fac */   'langue' => $details['langue']?'Anglais':'Français',
         ]);
     switch($details['niveau']==1) {
         case 1:
@@ -133,5 +133,7 @@ if ($contents['ddn']!='<i>Non renseignée</i>') {
     $contents['ddn'][1]=date_mois_fr($contents['ddn'][1]);
     $contents['ddn']=implode(' ',$contents['ddn']) ;
 }
+
+var_dump($contents['langue']);
 /**** Affichage de la page ****/
 vue($blocks,$styles,$title,$contents);
