@@ -94,7 +94,7 @@ if(!empty($_POST)){
 		}
 
 		// Type dans le bon intervalle :
-		if(!checkSelect($_POST['type'], range(0,count($contents['types']))) ){
+		if(!checkSelect($_POST['type'], range(0,max(array_keys($contents['types'])))) ){
 			$errors['type'] = "Type Invalide";
 			$_POST['type'] = 0;
 		}else{

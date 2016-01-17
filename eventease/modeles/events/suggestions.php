@@ -74,8 +74,8 @@ function suggestions() {
 		$user_info = getUserDetails($_SESSION['id']);
 		$user_events = getMemberEvents($_SESSION['id']);
 		$events = getEvents($_SESSION['id']);
-		if (empty($events) || empty($user_events)|| empty($user_info)) {
-			return;
+		if (empty($events) || empty($user_events)|| empty($user_info) || count($events) < 3) {
+			return [];
 		}
 		//Enlève les évents auquel il participe.
 		foreach ($events as $key => $value) {
@@ -162,6 +162,9 @@ function suggestions() {
 	}else{
 		// 100% radom public events
 		$events = getEvents();
+		if (count($events) < 3) {
+			return [];
+		}
 		$recs = array_rand($events, 3);
 		foreach ($recs as $key => $value) {
 			$events[$value]['lien_photo'] = generateMediaLink($value, $events[$value]['type']);

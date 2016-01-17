@@ -4,7 +4,7 @@ echo 'var member_id= ' . json_encode($_SESSION['id']) . ';';
 echo '</script>';
 ?>
 <div class="wrapper">
-      <?php echo $contents['statut_de_participation']; ?>
+      <?php echo isset($contents['statut_de_participation'])?$contents['statut_de_participation']:''; ?>
     <div class ="intro_evenement">
         <div class = "photo_evenement">
             <img src="<?php echo $contents['photo_principale'];?>"/>
@@ -23,7 +23,7 @@ echo '</script>';
 		  <div class="buttons">
 			<ul>
                 <li><a class="button" id='participe' onclick="participate(event_id,member_id);"><?php echo $contents['participe'];?></a></li>
-  	            <?php echo $contents['bouton_special'];?>
+  	            <?php echo isset($contents['bouton_special'])?$contents['bouton_special']:'';?>
                 <li><a class="button" href="<?php echo getLink(['events','invite',$_GET['id']]); ?>" ><i class="fa fa-plus"></i> Inviter un ami </a></li>
 			</ul>
 		  </div>
@@ -71,7 +71,7 @@ echo '</script>';
             <li class="fixed_details">Langue</li>
             <li><?php echo $contents['langue']; ?></li>
             <li class="fixed_details">Organisateur</li>
-            <li><?php echo $contents['info_organisateur']; ?><?php isset($contents['info_organisateur_contact'])?$contents['info_organisateur_contact']</li>
+            <li><?php echo $contents['info_organisateur']; ?><?php isset($contents['info_organisateur_contact'])?$contents['info_organisateur_contact']:''; ?></li>
             <li class="fixed_details">Site web</li>
             <?php echo $contents['site']; ?>
           </ul>
@@ -92,7 +92,7 @@ echo '</script>';
 		<div class = "hosts">
     		<h2>Modérateurs</h2>
       			<ul>
-              <li><img src="<?php echo $contents['creator']['picture']; ?>"/><a href="<?php echo getLink(['membres','profil',$contents['creator'][0][1]]); ?>" target="_blank"><?php echo ' '. $contents['creator'][0][0] . ' (Créateur de l\'événement)';?></a></li>
+              <li><img src="<?php echo isset($contents['creator']['picture'])?$contents['creator']['picture']:''; ?>"/><a href="<?php echo getLink(['membres','profil',isset($contents['creator'][0][1])?$contents['creator'][0][1]:'']); ?>" target="_blank"><?php echo ' '. isset($contents['creator'][0][0])?$contents['creator'][0][0]:'' . ' (Créateur de l\'événement)';?></a></li>
                       <?php
                           $compteur=0;
                           foreach($contents['creators'] as $creators)
