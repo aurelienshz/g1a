@@ -20,9 +20,6 @@ $blocs = ['index'];
 
 // Préparation des contenus
 $contents['suggestions'] = suggestions();
-?><pre><?php
-var_dump($contents['suggestions']);
-?></pre><?php
 $contents['catchPhrases'] = getCatchphrases();
 
 // Chargement de la bonne version du triptyque

@@ -23,6 +23,44 @@ function getMainImage($id) {
 	}
 }
 
+function generateMediaLink($id, $type){
+	$output = getMainImage($id);
+	if ($output == False OR empty($output)){
+		switch($type){
+		    case "Pique-Nique":
+		      $output=IMAGES."picnic1.jpg";
+		      break;
+		    case "Concert":
+		      $output=IMAGES."concertType.jpg";
+		      break;
+		    case "Rave party":
+		      $output=IMAGES."ravepartyType.jpg";
+		      break;
+		    case "Vente privée":
+		      $output=IMAGES."ventepriveeType.jpg";
+		      break;
+		    case "Brocante":
+		      $output=IMAGES."brocanteType.jpg";
+		      break;
+		    case "Exposition":
+		      $output=IMAGES."expositionType.jpg";
+		      break;
+		    case "Rassemblement":
+		   	  $output=IMAGES."rassemblementType.jpg";
+		      break;
+		    case "Autre":
+		      $output=IMAGES."logo.jpg";
+		      break;
+		    default:
+		      $output=IMAGES."picnic1.jpg";
+		      break;
+		  }
+	}else{
+		$output = PHOTO_EVENT.$output;
+	}
+	return $output;
+}
+
 require_once MODELES.'events/getMemberEvents.php';
 require_once MODELES.'membres/getUserDetails.php';
 require_once MODELES.'events/getEvents.php';
@@ -31,7 +69,7 @@ require_once MODELES.'functions/haversineGreatCircleDistance.php';
 
 function suggestions() {
 
-	if (connected()){
+	if (connected()) {
 		//On attrape les infos qu'on veut
 		$user_info = getUserDetails($_SESSION['id']);
 		$user_events = getMemberEvents($_SESSION['id']);
@@ -47,40 +85,7 @@ function suggestions() {
 			$event_adress = getAdressCoord($value['id']);
 			$events[$key]['coordonnee_long'] = $event_adress['coordonnee_long'];
 			$events[$key]['coordonnee_lat'] = $event_adress['coordonnee_lat'];
-			$events[$key]['lien_photo'] = getMainImage($value['id']);
-			if ($events[$key]['lien_photo'] == False OR empty($events[$key]['lien_photo'])){
-				switch($value['type']){
-				    case "Pique-Nique":
-				      $events[$key]['lien_photo']=IMAGES."picnic1.jpg";
-				      break;
-				    case "Concert":
-				      $events[$key]['lien_photo']=IMAGES."concertType.jpg";
-				      break;
-				    case "Rave party":
-				      $events[$key]['lien_photo']=IMAGES."ravepartyType.jpg";
-				      break;
-				    case "Vente privée":
-				      $events[$key]['lien_photo']=IMAGES."ventepriveeType.jpg";
-				      break;
-				    case "Brocante":
-				      $events[$key]['lien_photo']=IMAGES."brocanteType.jpg";
-				      break;
-				    case "Exposition":
-				      $events[$key]['lien_photo']=IMAGES."expositionType.jpg";
-				      break;
-				    case "Rassemblement":
-				      $events[$key]['lien_photo']=IMAGES."rassemblementType.jpg";
-				      break;
-				    case "Autre":
-				      $events[$key]['lien_photo']=IMAGES."logo.jpg";
-				      break;
-				    default:
-				      $events[$key]['lien_photo']=IMAGES."picnic1.jpg";
-				      break;
-				  }
-			}else{
-				$events[$key]['lien_photo'] = PHOTO_EVENT.$events[$key]['lien_photo'];
-			}
+			$events[$key]['lien_photo'] = generateMediaLink($value['id'], $value['type']);
 		}
 		// if empty($events[0]){
 		// 	//Il participe à tous les évènements.
@@ -151,23 +156,18 @@ function suggestions() {
 				$proxRec = $events[rand(0,count($events)-1)];
 			}
 		}
-
-		?><pre><?php
-		echo "TIME ID : ";
-		var_dump($timeRec['id']);
-		echo "TYPE ID : ";
-		var_dump($typeRec['id']);
-		echo "PROX ID : ";
-		var_dump($proxRec['id']);
-		?></pre><?php
-
-
-
-
+		return [$timeRec, $typeRec, $proxRec];
 	}else{
-		//Non Connecté
+		// 100% radom public events
+		$events = getEvents();
+		$recs = array_rand($events, 3);
+		foreach ($recs as $key => $value) {
+			$events[$value]['lien_photo'] = generateMediaLink($value, $events[$value]['type']);
+		}
+		
+		
+		return [$events[$recs[0]], $events[$recs[1]], $events[$recs[2]]];
 	}
-	return [$timeRec, $typeRec, $proxRec];
 
 }
 
