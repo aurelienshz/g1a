@@ -67,9 +67,9 @@ if(!connected()) {
                             vue(['validationInscription'],$style,$title);
                 }
                 else {
-                    alert('error', 'Une erreur fatale s\'est produite. L\'équipe d\'EventEase a été prévenue de ce problème.');
-                    // header('Location:'.getLink(['accueil']));
-                    // exit();
+                    alert('error', 'Une erreur fatale s\'est produite. Votre insciption n\'a pas été enregistrée.');
+                    header('Location:'.getLink(['accueil']));
+                    exit();
                 }
             }
             else {
