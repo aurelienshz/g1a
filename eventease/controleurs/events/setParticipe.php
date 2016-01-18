@@ -7,7 +7,10 @@ $bdd = new PDO(DSN,DBUSER,DBPASS);
 if ($etat==1){
     $testReq = $bdd->prepare('SELECT COUNT(*) FROM invitation WHERE id_evenement=:evenement AND id_destinataire=:destinataire');
 
-    if($testReq->execute(['evenement' => $q,'destinataire' => $_SESSION['id']])) {
+    $testReq->execute(['evenement' => $q,'destinataire' => $_SESSION['id']]);
+    $c = $testReq->fetchAll()[0][0];
+    // var_dump($c);
+    if($c != 0) {
         $query = $bdd->prepare('UPDATE invitation SET etat = 1 WHERE id_evenement=:evenement AND id_destinataire=:destinataire');
         $query->execute(['evenement' => $q,'destinataire' => $_SESSION['id']]);
     }
