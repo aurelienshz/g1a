@@ -1,6 +1,7 @@
 <?php
 
 require MODELES."/functions/dateToFrench.php";
+// require MODELES."/events/suggestions.php";
 
 function buildCalendar($month,$year,$events = False) {
 	// construction de la liste des jours à mettre en surbrillance :
@@ -103,7 +104,7 @@ function buildCalendar($month,$year,$events = False) {
 							<span class="participation"><?php echo $event['participation']; ?></span>
 						</a></h4>
 						<a href="<?php echo getLink(['events','display',$event['id']]); ?>">
-							<img src="<?php echo PHOTO_EVENT.$event['image'];?>" />
+							<img src="<?php echo $event['lien'];?>" />
 						</a>
 						<div class="infosPratiques">
 							<p class="eventCategorie"><span class="fa fa-tag"></span><?php echo $event['type']; ?></p>

@@ -14,6 +14,8 @@ sortie : détails des évènements à venir du membre, sous forme d'un tableau
 - etat_participation
 */
 function getMemberEvents($id) {
+
+    require_once MODELES.'events/suggestions.php';
     // requete sql pour prendre les infos nécessaires
     $bdd = new PDO(DSN, DBUSER, DBPASS);
     $query = 'SELECT evenement.id, evenement.debut AS date, evenement.titre, type.nom AS type, adresse.adresse_condensee, evenement.tarif, evenement.age_min, evenement.age_max, evenement.description, media.lien AS image, invitation.etat AS invitation
@@ -55,6 +57,7 @@ function getMemberEvents($id) {
             $events[$key]['ville'] = end($addressLines);
             // $events[$key]['ville'] = end(explode(' ',end($addressLines)));
 
+            $events[$key]['lien'] = generateMediaLink($event['id'],$event['type']);
 
             // chaîne représentant la date :
             $events[$key]['day'] = getdate(strtotime($events[$key]['date']))['mday'];

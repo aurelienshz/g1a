@@ -31,38 +31,38 @@ $blocks = ['display'];
 $type = eventType($_GET['id']);
 $contents['type']=$type[0];
 
-$photo_principale =getEventPicture($_GET['id']);
+$photo_principale = getEventPicture($_GET['id']);
 if($photo_principale){
   $contents['photo_principale']=PHOTO_EVENT.$photo_principale[0];
 }
 else{
   switch($event['id_type']){
     case 1:
-      $contents['photo_principale']="vues/assets/images/picnic1.jpg";
+      $contents['photo_principale']="/assets/images/picnic1.jpg";
       break;
     case 2:
-      $contents['photo_principale']="vues/assets/images/concertType.jpg";
+      $contents['photo_principale']="/assets/images/concertType.jpg";
       break;
     case 3:
-      $contents['photo_principale']="vues/assets/images/ravepartyType.jpg";
+      $contents['photo_principale']="/assets/images/ravepartyType.jpg";
       break;
     case 6:
-      $contents['photo_principale']="vues/assets/images/ventepriveeType.jpg";
+      $contents['photo_principale']="/assets/images/ventepriveeType.jpg";
       break;
     case 7:
-      $contents['photo_principale']="vues/assets/images/brocanteType.jpg";
+      $contents['photo_principale']="/assets/images/brocanteType.jpg";
       break;
     case 8:
-      $contents['photo_principale']="vues/assets/images/expositionType.jpg";
+      $contents['photo_principale']="/assets/images/expositionType.jpg";
       break;
     case 9:
-      $contents['photo_principale']="vues/assets/images/rassemblementType.jpg";
+      $contents['photo_principale']="/assets/images/rassemblementType.jpg";
       break;
     case 10:
-      $contents['photo_principale']="vues/assets/images/logo.jpg";
+      $contents['photo_principale']="/assets/images/logo.jpg";
       break;
     default:
-      $contents['photo_principale']="vues/assets/images/picnic1.jpg";
+      $contents['photo_principale']="/assets/images/picnic1.jpg";
       break;
   }
 }
@@ -221,7 +221,7 @@ if (isset($_SESSION['id'])){
             $lien=getLink(['events','modify',$_GET['id']]);
             $contents['bouton_special']="<li><a class=\"button\" href=\"$lien\">Modifier</a></li>";
             }
-            
+
           }
         }
     }

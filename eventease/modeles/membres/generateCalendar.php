@@ -1,6 +1,6 @@
 <?php
 function generateCalendar() {
-    require MODELES.'membres/buildCalendar.php';
+    require_once MODELES.'membres/buildCalendar.php';
     require_once MODELES.'events/getMemberEvents.php';
 
     $calendars = [];
